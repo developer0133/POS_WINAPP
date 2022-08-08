@@ -1,0 +1,6 @@
+D:\Workspace\DotNet\Inventory\POS_WINAPP\DATA-Models\bin\Debug\DATA-Models.dll
+D:\Workspace\DotNet\Inventory\POS_WINAPP\DATA-Models\bin\Debug\DATA-Models.pdb
+D:\Workspace\DotNet\Inventory\POS_WINAPP\DATA-Models\obj\Debug\DATA-Models.csproj.AssemblyReference.cache
+D:\Workspace\DotNet\Inventory\POS_WINAPP\DATA-Models\obj\Debug\DATA-Models.csproj.CoreCompileInputs.cache
+D:\Workspace\DotNet\Inventory\POS_WINAPP\DATA-Models\obj\Debug\DATA-Models.dll
+D:\Workspace\DotNet\Inventory\POS_WINAPP\DATA-Models\obj\Debug\DATA-Models.pdb

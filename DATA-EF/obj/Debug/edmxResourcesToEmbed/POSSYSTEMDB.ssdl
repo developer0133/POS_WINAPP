@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="POSSYSTEMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CATEGORY">
+    <Key>
+      <PropertyRef Name="CATEGORY_ID" />
+    </Key>
+    <Property Name="CATEGORY_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CATEGORY_NAME" Type="nvarchar" MaxLength="300" />
+    <Property Name="REMARK" Type="nvarchar" MaxLength="300" />
+    <Property Name="STATUS" Type="nvarchar" MaxLength="10" />
+    <Property Name="CATE_CODE" Type="nvarchar" MaxLength="2" />
+  </EntityType>
+  <EntityType Name="DAPARTMENT">
+    <Key>
+      <PropertyRef Name="DEPARTMENT_ID" />
+    </Key>
+    <Property Name="DEPARTMENT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DEPARTMENT_NAME" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="INV_PRODUCTS">
+    <Key>
+      <PropertyRef Name="INV_ID" />
+    </Key>
+    <Property Name="INV_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PRODUCT_ID" Type="int" />
+    <Property Name="ORDER_DATE" Type="datetime" />
+    <Property Name="QTY" Type="int" />
+    <Property Name="BALANCE" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="UNIT" Type="nvarchar" MaxLength="20" />
+    <Property Name="REMARK" Type="nvarchar" MaxLength="1000" />
+    <Property Name="C_BY" Type="nvarchar" MaxLength="30" />
+    <Property Name="C_DATE" Type="datetime" />
+    <Property Name="E_BY" Type="nvarchar" MaxLength="30" />
+    <Property Name="E_DATE" Type="datetime" />
+    <Property Name="AMOUNT" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TOTAL_AMOUNT" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="RETAILPRICE" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="WHOLESALEPRICE" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="AVGCOST" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="WHOLESALEPROFIT" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="RETAILPROFIT" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="AVG_PACK" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="AVG_ITEM" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="WHOLESALEPRICE_ITEM" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="UNIT_BALANCE_TEXT" Type="nvarchar" MaxLength="100" />
+    <Property Name="PACK_BALANCE" Type="int" />
+    <Property Name="ITEM_BALANCE" Type="int" />
+    <Property Name="BOX_BALANCE" Type="int" />
+    <Property Name="BOXPRICE" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="LOGIN_ACCESS">
+    <Key>
+      <PropertyRef Name="LOGIN_ID" />
+    </Key>
+    <Property Name="LOGIN_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="USER_ID" Type="nvarchar" MaxLength="50" />
+    <Property Name="USERNAME" Type="nvarchar" MaxLength="50" />
+    <Property Name="LOGIN_DATE" Type="datetime" />
+    <Property Name="LOGOUT_DATE" Type="datetime" />
+    <Property Name="STATUS" Type="nvarchar" MaxLength="2" />
+    <Property Name="IP_ADDRESS" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="MASTER_ROLE">
+    <Key>
+      <PropertyRef Name="ROLE_ID" />
+    </Key>
+    <Property Name="ROLE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ROLE_NAME" Type="nvarchar" MaxLength="200" />
+    <Property Name="RECORD_STATUS" Type="nvarchar" MaxLength="10" />
+    <Property Name="C_BY" Type="nvarchar" MaxLength="200" />
+    <Property Name="C_DATE" Type="datetime" />
+    <Property Name="E_BY" Type="nvarchar" MaxLength="200" />
+    <Property Name="E_DATE" Type="datetime" />
+  </EntityType>
+  <EntityType Name="MASTER_RUNNING">
+    <Key>
+      <PropertyRef Name="RUNNING_ID" />
+    </Key>
+    <Property Name="RUNNING_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RUNNING_NO" Type="int" />
+  </EntityType>
+  <EntityType Name="MASTER_USER">
+    <Key>
+      <PropertyRef Name="USER_ID" />
+    </Key>
+    <Property Name="USER_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FIRST_NAME" Type="nvarchar" MaxLength="300" />
+    <Property Name="LAST_NAME" Type="nvarchar" MaxLength="300" />
+    <Property Name="USERNAME" Type="nvarchar" MaxLength="300" />
+    <Property Name="PASSWORD" Type="nvarchar" MaxLength="100" />
+    <Property Name="DEPARTMENT_ID" Type="int" />
+    <Property Name="ROLE_ID" Type="int" />
+    <Property Name="STATUS" Type="nvarchar" MaxLength="15" />
+    <Property Name="USER_CODE" Type="nvarchar" MaxLength="10" />
+    <Property Name="C_BY" Type="nvarchar" MaxLength="10" />
+    <Property Name="C_DATE" Type="datetime" />
+    <Property Name="E_BY" Type="nvarchar" MaxLength="10" />
+    <Property Name="E_DATE" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ORDER_HISTORY">
+    <Key>
+      <PropertyRef Name="HIST_ID" />
+    </Key>
+    <Property Name="HIST_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PRODUCT_ID" Type="int" />
+    <Property Name="ORDER_DATE" Type="datetime" />
+    <Property Name="QTY" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="UNIT" Type="nvarchar" MaxLength="50" />
+    <Property Name="AMOUNT" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TOTAL_AMOUNT" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="REMARK" Type="nvarchar" MaxLength="300" />
+    <Property Name="C_BY" Type="nvarchar" MaxLength="50" />
+    <Property Name="C_DATE" Type="datetime" />
+    <Property Name="E_BY" Type="nvarchar" MaxLength="50" />
+    <Property Name="E_DATE" Type="datetime" />
+    <Property Name="RETAILPRICE" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="WHOLESALEPRICE" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="AVGCOST" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="WHOLESALEPROFIT" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="RETAILPROFIT" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="AVG_PACK" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="AVG_ITEM" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="PARAMETER">
+    <Key>
+      <PropertyRef Name="PARAMETER_ID" />
+    </Key>
+    <Property Name="PARAMETER_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MAJOR_CODE" Type="nvarchar" MaxLength="200" />
+    <Property Name="MINOR_CODE" Type="nvarchar" MaxLength="200" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="500" />
+    <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="500" />
+    <Property Name="C_BY" Type="nvarchar" MaxLength="20" />
+    <Property Name="C_DATE" Type="datetime" />
+    <Property Name="E_BY" Type="nvarchar" MaxLength="20" />
+    <Property Name="E_DATE" Type="datetime" />
+    <Property Name="STATUS" Type="nvarchar" MaxLength="10" />
+    <Property Name="CONDITION1" Type="nvarchar" MaxLength="50" />
+    <Property Name="CONDITION2" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PRODUCTS">
+    <Key>
+      <PropertyRef Name="PRODUCT_ID" />
+    </Key>
+    <Property Name="PRODUCT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PRODUCT_NAME" Type="nvarchar" MaxLength="500" />
+    <Property Name="COSTPRICE" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SELLPRICE" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="PICTURE" Type="varchar" MaxLength="300" />
+    <Property Name="REMARK" Type="nvarchar" MaxLength="300" />
+    <Property Name="ORDER_DATE" Type="datetime" />
+    <Property Name="CATEGORY_ID" Type="int" />
+    <Property Name="PRODUCT_TYPE_ID" Type="nvarchar" MaxLength="20" />
+    <Property Name="PRODUCT_SIZE_ID" Type="nvarchar" MaxLength="20" />
+    <Property Name="C_BY" Type="nvarchar" MaxLength="20" />
+    <Property Name="C_DATE" Type="datetime" />
+    <Property Name="E_BY" Type="nvarchar" MaxLength="20" />
+    <Property Name="E_DATE" Type="datetime" />
+    <Property Name="PRODUCT_CODE" Type="varchar" MaxLength="40" />
+    <Property Name="STATUS" Type="varchar" MaxLength="10" />
+    <Property Name="BARCODE" Type="varchar" MaxLength="14" />
+    <Property Name="RETAILPRICE" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="WHOLESALEPRICE" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="AVGCOST" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="WHOLESALEPROFIT" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="RETAILPROFIT" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="QTY" Type="int" />
+    <Property Name="UNIT" Type="nvarchar" MaxLength="20" />
+    <Property Name="AVG_PACK" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="AVG_ITEM" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="WHOLESALEPRICE_ITEM" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="BOXPRICE" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="SELLITEMS">
+    <Key>
+      <PropertyRef Name="SELLITEM_ID" />
+    </Key>
+    <Property Name="SELLITEM_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SELLITEM_NO" Type="nvarchar" MaxLength="30" />
+    <Property Name="PRODUCT_CODE" Type="nvarchar" MaxLength="30" />
+    <Property Name="QTY" Type="int" />
+    <Property Name="C_DATE" Type="datetime" />
+    <Property Name="C_BY" Type="nvarchar" MaxLength="10" />
+    <Property Name="UNIT" Type="nvarchar" MaxLength="30" />
+    <Property Name="E_DATE" Type="datetime" />
+    <Property Name="E_BY" Type="nvarchar" MaxLength="10" />
+    <Property Name="SELL_PRICE" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="AMOUNT" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="PRODUCT_ID" Type="int" />
+    <Property Name="DISCOUNT" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityContainer Name="POSSYSTEMModelStoreContainer">
+    <EntitySet Name="CATEGORY" EntityType="Self.CATEGORY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DAPARTMENT" EntityType="Self.DAPARTMENT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="INV_PRODUCTS" EntityType="Self.INV_PRODUCTS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LOGIN_ACCESS" EntityType="Self.LOGIN_ACCESS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MASTER_ROLE" EntityType="Self.MASTER_ROLE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MASTER_RUNNING" EntityType="Self.MASTER_RUNNING" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MASTER_USER" EntityType="Self.MASTER_USER" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ORDER_HISTORY" EntityType="Self.ORDER_HISTORY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PARAMETER" EntityType="Self.PARAMETER" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PRODUCTS" EntityType="Self.PRODUCTS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SELLITEMS" EntityType="Self.SELLITEMS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

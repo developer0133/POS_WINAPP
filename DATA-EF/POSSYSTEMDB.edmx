@@ -1,0 +1,679 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="POSSYSTEMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CATEGORY">
+          <Key>
+            <PropertyRef Name="CATEGORY_ID" />
+          </Key>
+          <Property Name="CATEGORY_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CATEGORY_NAME" Type="nvarchar" MaxLength="300" />
+          <Property Name="REMARK" Type="nvarchar" MaxLength="300" />
+          <Property Name="STATUS" Type="nvarchar" MaxLength="10" />
+          <Property Name="CATE_CODE" Type="nvarchar" MaxLength="2" />
+        </EntityType>
+        <EntityType Name="DAPARTMENT">
+          <Key>
+            <PropertyRef Name="DEPARTMENT_ID" />
+          </Key>
+          <Property Name="DEPARTMENT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DEPARTMENT_NAME" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="INV_PRODUCTS">
+          <Key>
+            <PropertyRef Name="INV_ID" />
+          </Key>
+          <Property Name="INV_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PRODUCT_ID" Type="int" />
+          <Property Name="ORDER_DATE" Type="datetime" />
+          <Property Name="QTY" Type="int" />
+          <Property Name="BALANCE" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="UNIT" Type="nvarchar" MaxLength="20" />
+          <Property Name="REMARK" Type="nvarchar" MaxLength="1000" />
+          <Property Name="C_BY" Type="nvarchar" MaxLength="30" />
+          <Property Name="C_DATE" Type="datetime" />
+          <Property Name="E_BY" Type="nvarchar" MaxLength="30" />
+          <Property Name="E_DATE" Type="datetime" />
+          <Property Name="AMOUNT" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="TOTAL_AMOUNT" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="RETAILPRICE" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="WHOLESALEPRICE" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="AVGCOST" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="WHOLESALEPROFIT" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="RETAILPROFIT" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="AVG_PACK" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="AVG_ITEM" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="WHOLESALEPRICE_ITEM" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="UNIT_BALANCE_TEXT" Type="nvarchar" MaxLength="100" />
+          <Property Name="PACK_BALANCE" Type="int" />
+          <Property Name="ITEM_BALANCE" Type="int" />
+          <Property Name="BOX_BALANCE" Type="int" />
+          <Property Name="BOXPRICE" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="LOGIN_ACCESS">
+          <Key>
+            <PropertyRef Name="LOGIN_ID" />
+          </Key>
+          <Property Name="LOGIN_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="USER_ID" Type="nvarchar" MaxLength="50" />
+          <Property Name="USERNAME" Type="nvarchar" MaxLength="50" />
+          <Property Name="LOGIN_DATE" Type="datetime" />
+          <Property Name="LOGOUT_DATE" Type="datetime" />
+          <Property Name="STATUS" Type="nvarchar" MaxLength="2" />
+          <Property Name="IP_ADDRESS" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="MASTER_ROLE">
+          <Key>
+            <PropertyRef Name="ROLE_ID" />
+          </Key>
+          <Property Name="ROLE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ROLE_NAME" Type="nvarchar" MaxLength="200" />
+          <Property Name="RECORD_STATUS" Type="nvarchar" MaxLength="10" />
+          <Property Name="C_BY" Type="nvarchar" MaxLength="200" />
+          <Property Name="C_DATE" Type="datetime" />
+          <Property Name="E_BY" Type="nvarchar" MaxLength="200" />
+          <Property Name="E_DATE" Type="datetime" />
+        </EntityType>
+        <EntityType Name="MASTER_RUNNING">
+          <Key>
+            <PropertyRef Name="RUNNING_ID" />
+          </Key>
+          <Property Name="RUNNING_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RUNNING_NO" Type="int" />
+        </EntityType>
+        <EntityType Name="MASTER_USER">
+          <Key>
+            <PropertyRef Name="USER_ID" />
+          </Key>
+          <Property Name="USER_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FIRST_NAME" Type="nvarchar" MaxLength="300" />
+          <Property Name="LAST_NAME" Type="nvarchar" MaxLength="300" />
+          <Property Name="USERNAME" Type="nvarchar" MaxLength="300" />
+          <Property Name="PASSWORD" Type="nvarchar" MaxLength="100" />
+          <Property Name="DEPARTMENT_ID" Type="int" />
+          <Property Name="ROLE_ID" Type="int" />
+          <Property Name="STATUS" Type="nvarchar" MaxLength="15" />
+          <Property Name="USER_CODE" Type="nvarchar" MaxLength="10" />
+          <Property Name="C_BY" Type="nvarchar" MaxLength="10" />
+          <Property Name="C_DATE" Type="datetime" />
+          <Property Name="E_BY" Type="nvarchar" MaxLength="10" />
+          <Property Name="E_DATE" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ORDER_HISTORY">
+          <Key>
+            <PropertyRef Name="HIST_ID" />
+          </Key>
+          <Property Name="HIST_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PRODUCT_ID" Type="int" />
+          <Property Name="ORDER_DATE" Type="datetime" />
+          <Property Name="QTY" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="UNIT" Type="nvarchar" MaxLength="50" />
+          <Property Name="AMOUNT" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="TOTAL_AMOUNT" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="REMARK" Type="nvarchar" MaxLength="300" />
+          <Property Name="C_BY" Type="nvarchar" MaxLength="50" />
+          <Property Name="C_DATE" Type="datetime" />
+          <Property Name="E_BY" Type="nvarchar" MaxLength="50" />
+          <Property Name="E_DATE" Type="datetime" />
+          <Property Name="RETAILPRICE" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="WHOLESALEPRICE" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="AVGCOST" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="WHOLESALEPROFIT" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="RETAILPROFIT" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="AVG_PACK" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="AVG_ITEM" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="PARAMETER">
+          <Key>
+            <PropertyRef Name="PARAMETER_ID" />
+          </Key>
+          <Property Name="PARAMETER_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MAJOR_CODE" Type="nvarchar" MaxLength="200" />
+          <Property Name="MINOR_CODE" Type="nvarchar" MaxLength="200" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="500" />
+          <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="500" />
+          <Property Name="C_BY" Type="nvarchar" MaxLength="20" />
+          <Property Name="C_DATE" Type="datetime" />
+          <Property Name="E_BY" Type="nvarchar" MaxLength="20" />
+          <Property Name="E_DATE" Type="datetime" />
+          <Property Name="STATUS" Type="nvarchar" MaxLength="10" />
+          <Property Name="CONDITION1" Type="nvarchar" MaxLength="50" />
+          <Property Name="CONDITION2" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PRODUCTS">
+          <Key>
+            <PropertyRef Name="PRODUCT_ID" />
+          </Key>
+          <Property Name="PRODUCT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PRODUCT_NAME" Type="nvarchar" MaxLength="500" />
+          <Property Name="COSTPRICE" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="SELLPRICE" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="PICTURE" Type="varchar" MaxLength="300" />
+          <Property Name="REMARK" Type="nvarchar" MaxLength="300" />
+          <Property Name="ORDER_DATE" Type="datetime" />
+          <Property Name="CATEGORY_ID" Type="int" />
+          <Property Name="PRODUCT_TYPE_ID" Type="nvarchar" MaxLength="20" />
+          <Property Name="PRODUCT_SIZE_ID" Type="nvarchar" MaxLength="20" />
+          <Property Name="C_BY" Type="nvarchar" MaxLength="20" />
+          <Property Name="C_DATE" Type="datetime" />
+          <Property Name="E_BY" Type="nvarchar" MaxLength="20" />
+          <Property Name="E_DATE" Type="datetime" />
+          <Property Name="PRODUCT_CODE" Type="varchar" MaxLength="40" />
+          <Property Name="STATUS" Type="varchar" MaxLength="10" />
+          <Property Name="BARCODE" Type="varchar" MaxLength="14" />
+          <Property Name="RETAILPRICE" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="WHOLESALEPRICE" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="AVGCOST" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="WHOLESALEPROFIT" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="RETAILPROFIT" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="QTY" Type="int" />
+          <Property Name="UNIT" Type="nvarchar" MaxLength="20" />
+          <Property Name="AVG_PACK" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="AVG_ITEM" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="WHOLESALEPRICE_ITEM" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="BOXPRICE" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="SELLITEMS">
+          <Key>
+            <PropertyRef Name="SELLITEM_ID" />
+          </Key>
+          <Property Name="SELLITEM_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SELLITEM_NO" Type="nvarchar" MaxLength="30" />
+          <Property Name="PRODUCT_CODE" Type="nvarchar" MaxLength="30" />
+          <Property Name="QTY" Type="int" />
+          <Property Name="C_DATE" Type="datetime" />
+          <Property Name="C_BY" Type="nvarchar" MaxLength="10" />
+          <Property Name="UNIT" Type="nvarchar" MaxLength="30" />
+          <Property Name="E_DATE" Type="datetime" />
+          <Property Name="E_BY" Type="nvarchar" MaxLength="10" />
+          <Property Name="SELL_PRICE" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="AMOUNT" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="PRODUCT_ID" Type="int" />
+          <Property Name="DISCOUNT" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityContainer Name="POSSYSTEMModelStoreContainer">
+          <EntitySet Name="CATEGORY" EntityType="Self.CATEGORY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DAPARTMENT" EntityType="Self.DAPARTMENT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="INV_PRODUCTS" EntityType="Self.INV_PRODUCTS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LOGIN_ACCESS" EntityType="Self.LOGIN_ACCESS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MASTER_ROLE" EntityType="Self.MASTER_ROLE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MASTER_RUNNING" EntityType="Self.MASTER_RUNNING" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MASTER_USER" EntityType="Self.MASTER_USER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ORDER_HISTORY" EntityType="Self.ORDER_HISTORY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PARAMETER" EntityType="Self.PARAMETER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PRODUCTS" EntityType="Self.PRODUCTS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SELLITEMS" EntityType="Self.SELLITEMS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="POSSYSTEMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CATEGORY">
+          <Key>
+            <PropertyRef Name="CATEGORY_ID" />
+          </Key>
+          <Property Name="CATEGORY_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CATEGORY_NAME" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="REMARK" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="STATUS" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CATE_CODE" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DAPARTMENT">
+          <Key>
+            <PropertyRef Name="DEPARTMENT_ID" />
+          </Key>
+          <Property Name="DEPARTMENT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DEPARTMENT_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="INV_PRODUCTS">
+          <Key>
+            <PropertyRef Name="INV_ID" />
+          </Key>
+          <Property Name="INV_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PRODUCT_ID" Type="Int32" />
+          <Property Name="ORDER_DATE" Type="DateTime" Precision="3" />
+          <Property Name="QTY" Type="Int32" />
+          <Property Name="BALANCE" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="UNIT" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="REMARK" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="C_BY" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="C_DATE" Type="DateTime" Precision="3" />
+          <Property Name="E_BY" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="E_DATE" Type="DateTime" Precision="3" />
+          <Property Name="AMOUNT" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="TOTAL_AMOUNT" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="RETAILPRICE" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="WHOLESALEPRICE" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="AVGCOST" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="WHOLESALEPROFIT" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="RETAILPROFIT" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="AVG_PACK" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="AVG_ITEM" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="WHOLESALEPRICE_ITEM" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="UNIT_BALANCE_TEXT" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PACK_BALANCE" Type="Int32" />
+          <Property Name="ITEM_BALANCE" Type="Int32" />
+          <Property Name="BOX_BALANCE" Type="Int32" />
+          <Property Name="BOXPRICE" Type="Decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="LOGIN_ACCESS">
+          <Key>
+            <PropertyRef Name="LOGIN_ID" />
+          </Key>
+          <Property Name="LOGIN_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="USER_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="USERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LOGIN_DATE" Type="DateTime" Precision="3" />
+          <Property Name="LOGOUT_DATE" Type="DateTime" Precision="3" />
+          <Property Name="STATUS" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="IP_ADDRESS" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MASTER_ROLE">
+          <Key>
+            <PropertyRef Name="ROLE_ID" />
+          </Key>
+          <Property Name="ROLE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ROLE_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="RECORD_STATUS" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="C_BY" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="C_DATE" Type="DateTime" Precision="3" />
+          <Property Name="E_BY" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="E_DATE" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="MASTER_RUNNING">
+          <Key>
+            <PropertyRef Name="RUNNING_ID" />
+          </Key>
+          <Property Name="RUNNING_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RUNNING_NO" Type="Int32" />
+        </EntityType>
+        <EntityType Name="MASTER_USER">
+          <Key>
+            <PropertyRef Name="USER_ID" />
+          </Key>
+          <Property Name="USER_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FIRST_NAME" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="LAST_NAME" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="USERNAME" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="PASSWORD" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DEPARTMENT_ID" Type="Int32" />
+          <Property Name="ROLE_ID" Type="Int32" />
+          <Property Name="STATUS" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="USER_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="C_BY" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="C_DATE" Type="DateTime" Precision="3" />
+          <Property Name="E_BY" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="E_DATE" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="ORDER_HISTORY">
+          <Key>
+            <PropertyRef Name="HIST_ID" />
+          </Key>
+          <Property Name="HIST_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PRODUCT_ID" Type="Int32" />
+          <Property Name="ORDER_DATE" Type="DateTime" Precision="3" />
+          <Property Name="QTY" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="UNIT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AMOUNT" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="TOTAL_AMOUNT" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="REMARK" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="C_BY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="C_DATE" Type="DateTime" Precision="3" />
+          <Property Name="E_BY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="E_DATE" Type="DateTime" Precision="3" />
+          <Property Name="RETAILPRICE" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="WHOLESALEPRICE" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="AVGCOST" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="WHOLESALEPROFIT" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="RETAILPROFIT" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="AVG_PACK" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="AVG_ITEM" Type="Decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="PARAMETER">
+          <Key>
+            <PropertyRef Name="PARAMETER_ID" />
+          </Key>
+          <Property Name="PARAMETER_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MAJOR_CODE" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="MINOR_CODE" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="NAME" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="C_BY" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="C_DATE" Type="DateTime" Precision="3" />
+          <Property Name="E_BY" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="E_DATE" Type="DateTime" Precision="3" />
+          <Property Name="STATUS" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CONDITION1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CONDITION2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="PRODUCTS">
+          <Key>
+            <PropertyRef Name="PRODUCT_ID" />
+          </Key>
+          <Property Name="PRODUCT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PRODUCT_NAME" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="COSTPRICE" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="SELLPRICE" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="PICTURE" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="REMARK" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="ORDER_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CATEGORY_ID" Type="Int32" />
+          <Property Name="PRODUCT_TYPE_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="PRODUCT_SIZE_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="C_BY" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="C_DATE" Type="DateTime" Precision="3" />
+          <Property Name="E_BY" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="E_DATE" Type="DateTime" Precision="3" />
+          <Property Name="PRODUCT_CODE" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="STATUS" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="BARCODE" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
+          <Property Name="RETAILPRICE" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="WHOLESALEPRICE" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="AVGCOST" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="WHOLESALEPROFIT" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="RETAILPROFIT" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="QTY" Type="Int32" />
+          <Property Name="UNIT" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="AVG_PACK" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="AVG_ITEM" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="WHOLESALEPRICE_ITEM" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="BOXPRICE" Type="Decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="SELLITEMS">
+          <Key>
+            <PropertyRef Name="SELLITEM_ID" />
+          </Key>
+          <Property Name="SELLITEM_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SELLITEM_NO" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="PRODUCT_CODE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="QTY" Type="Int32" />
+          <Property Name="C_DATE" Type="DateTime" Precision="3" />
+          <Property Name="C_BY" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="UNIT" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="E_DATE" Type="DateTime" Precision="3" />
+          <Property Name="E_BY" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="SELL_PRICE" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="AMOUNT" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="PRODUCT_ID" Type="Int32" />
+          <Property Name="DISCOUNT" Type="Int32" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityContainer Name="POSSYSTEMEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CATEGORY" EntityType="Self.CATEGORY" />
+          <EntitySet Name="DAPARTMENT" EntityType="Self.DAPARTMENT" />
+          <EntitySet Name="INV_PRODUCTS" EntityType="Self.INV_PRODUCTS" />
+          <EntitySet Name="LOGIN_ACCESS" EntityType="Self.LOGIN_ACCESS" />
+          <EntitySet Name="MASTER_ROLE" EntityType="Self.MASTER_ROLE" />
+          <EntitySet Name="MASTER_RUNNING" EntityType="Self.MASTER_RUNNING" />
+          <EntitySet Name="MASTER_USER" EntityType="Self.MASTER_USER" />
+          <EntitySet Name="ORDER_HISTORY" EntityType="Self.ORDER_HISTORY" />
+          <EntitySet Name="PARAMETER" EntityType="Self.PARAMETER" />
+          <EntitySet Name="PRODUCTS" EntityType="Self.PRODUCTS" />
+          <EntitySet Name="SELLITEMS" EntityType="Self.SELLITEMS" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="POSSYSTEMModelStoreContainer" CdmEntityContainer="POSSYSTEMEntities">
+          <EntitySetMapping Name="CATEGORY">
+            <EntityTypeMapping TypeName="POSSYSTEMModel.CATEGORY">
+              <MappingFragment StoreEntitySet="CATEGORY">
+                <ScalarProperty Name="CATEGORY_ID" ColumnName="CATEGORY_ID" />
+                <ScalarProperty Name="CATEGORY_NAME" ColumnName="CATEGORY_NAME" />
+                <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="CATE_CODE" ColumnName="CATE_CODE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DAPARTMENT">
+            <EntityTypeMapping TypeName="POSSYSTEMModel.DAPARTMENT">
+              <MappingFragment StoreEntitySet="DAPARTMENT">
+                <ScalarProperty Name="DEPARTMENT_ID" ColumnName="DEPARTMENT_ID" />
+                <ScalarProperty Name="DEPARTMENT_NAME" ColumnName="DEPARTMENT_NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="INV_PRODUCTS">
+            <EntityTypeMapping TypeName="POSSYSTEMModel.INV_PRODUCTS">
+              <MappingFragment StoreEntitySet="INV_PRODUCTS">
+                <ScalarProperty Name="INV_ID" ColumnName="INV_ID" />
+                <ScalarProperty Name="PRODUCT_ID" ColumnName="PRODUCT_ID" />
+                <ScalarProperty Name="ORDER_DATE" ColumnName="ORDER_DATE" />
+                <ScalarProperty Name="QTY" ColumnName="QTY" />
+                <ScalarProperty Name="BALANCE" ColumnName="BALANCE" />
+                <ScalarProperty Name="UNIT" ColumnName="UNIT" />
+                <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+                <ScalarProperty Name="C_BY" ColumnName="C_BY" />
+                <ScalarProperty Name="C_DATE" ColumnName="C_DATE" />
+                <ScalarProperty Name="E_BY" ColumnName="E_BY" />
+                <ScalarProperty Name="E_DATE" ColumnName="E_DATE" />
+                <ScalarProperty Name="AMOUNT" ColumnName="AMOUNT" />
+                <ScalarProperty Name="TOTAL_AMOUNT" ColumnName="TOTAL_AMOUNT" />
+                <ScalarProperty Name="RETAILPRICE" ColumnName="RETAILPRICE" />
+                <ScalarProperty Name="WHOLESALEPRICE" ColumnName="WHOLESALEPRICE" />
+                <ScalarProperty Name="AVGCOST" ColumnName="AVGCOST" />
+                <ScalarProperty Name="WHOLESALEPROFIT" ColumnName="WHOLESALEPROFIT" />
+                <ScalarProperty Name="RETAILPROFIT" ColumnName="RETAILPROFIT" />
+                <ScalarProperty Name="AVG_PACK" ColumnName="AVG_PACK" />
+                <ScalarProperty Name="AVG_ITEM" ColumnName="AVG_ITEM" />
+                <ScalarProperty Name="WHOLESALEPRICE_ITEM" ColumnName="WHOLESALEPRICE_ITEM" />
+                <ScalarProperty Name="UNIT_BALANCE_TEXT" ColumnName="UNIT_BALANCE_TEXT" />
+                <ScalarProperty Name="PACK_BALANCE" ColumnName="PACK_BALANCE" />
+                <ScalarProperty Name="ITEM_BALANCE" ColumnName="ITEM_BALANCE" />
+                <ScalarProperty Name="BOX_BALANCE" ColumnName="BOX_BALANCE" />
+                <ScalarProperty Name="BOXPRICE" ColumnName="BOXPRICE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LOGIN_ACCESS">
+            <EntityTypeMapping TypeName="POSSYSTEMModel.LOGIN_ACCESS">
+              <MappingFragment StoreEntitySet="LOGIN_ACCESS">
+                <ScalarProperty Name="LOGIN_ID" ColumnName="LOGIN_ID" />
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+                <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+                <ScalarProperty Name="LOGIN_DATE" ColumnName="LOGIN_DATE" />
+                <ScalarProperty Name="LOGOUT_DATE" ColumnName="LOGOUT_DATE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="IP_ADDRESS" ColumnName="IP_ADDRESS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MASTER_ROLE">
+            <EntityTypeMapping TypeName="POSSYSTEMModel.MASTER_ROLE">
+              <MappingFragment StoreEntitySet="MASTER_ROLE">
+                <ScalarProperty Name="ROLE_ID" ColumnName="ROLE_ID" />
+                <ScalarProperty Name="ROLE_NAME" ColumnName="ROLE_NAME" />
+                <ScalarProperty Name="RECORD_STATUS" ColumnName="RECORD_STATUS" />
+                <ScalarProperty Name="C_BY" ColumnName="C_BY" />
+                <ScalarProperty Name="C_DATE" ColumnName="C_DATE" />
+                <ScalarProperty Name="E_BY" ColumnName="E_BY" />
+                <ScalarProperty Name="E_DATE" ColumnName="E_DATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MASTER_RUNNING">
+            <EntityTypeMapping TypeName="POSSYSTEMModel.MASTER_RUNNING">
+              <MappingFragment StoreEntitySet="MASTER_RUNNING">
+                <ScalarProperty Name="RUNNING_ID" ColumnName="RUNNING_ID" />
+                <ScalarProperty Name="RUNNING_NO" ColumnName="RUNNING_NO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MASTER_USER">
+            <EntityTypeMapping TypeName="POSSYSTEMModel.MASTER_USER">
+              <MappingFragment StoreEntitySet="MASTER_USER">
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+                <ScalarProperty Name="FIRST_NAME" ColumnName="FIRST_NAME" />
+                <ScalarProperty Name="LAST_NAME" ColumnName="LAST_NAME" />
+                <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+                <ScalarProperty Name="DEPARTMENT_ID" ColumnName="DEPARTMENT_ID" />
+                <ScalarProperty Name="ROLE_ID" ColumnName="ROLE_ID" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="USER_CODE" ColumnName="USER_CODE" />
+                <ScalarProperty Name="C_BY" ColumnName="C_BY" />
+                <ScalarProperty Name="C_DATE" ColumnName="C_DATE" />
+                <ScalarProperty Name="E_BY" ColumnName="E_BY" />
+                <ScalarProperty Name="E_DATE" ColumnName="E_DATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ORDER_HISTORY">
+            <EntityTypeMapping TypeName="POSSYSTEMModel.ORDER_HISTORY">
+              <MappingFragment StoreEntitySet="ORDER_HISTORY">
+                <ScalarProperty Name="HIST_ID" ColumnName="HIST_ID" />
+                <ScalarProperty Name="PRODUCT_ID" ColumnName="PRODUCT_ID" />
+                <ScalarProperty Name="ORDER_DATE" ColumnName="ORDER_DATE" />
+                <ScalarProperty Name="QTY" ColumnName="QTY" />
+                <ScalarProperty Name="UNIT" ColumnName="UNIT" />
+                <ScalarProperty Name="AMOUNT" ColumnName="AMOUNT" />
+                <ScalarProperty Name="TOTAL_AMOUNT" ColumnName="TOTAL_AMOUNT" />
+                <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+                <ScalarProperty Name="C_BY" ColumnName="C_BY" />
+                <ScalarProperty Name="C_DATE" ColumnName="C_DATE" />
+                <ScalarProperty Name="E_BY" ColumnName="E_BY" />
+                <ScalarProperty Name="E_DATE" ColumnName="E_DATE" />
+                <ScalarProperty Name="RETAILPRICE" ColumnName="RETAILPRICE" />
+                <ScalarProperty Name="WHOLESALEPRICE" ColumnName="WHOLESALEPRICE" />
+                <ScalarProperty Name="AVGCOST" ColumnName="AVGCOST" />
+                <ScalarProperty Name="WHOLESALEPROFIT" ColumnName="WHOLESALEPROFIT" />
+                <ScalarProperty Name="RETAILPROFIT" ColumnName="RETAILPROFIT" />
+                <ScalarProperty Name="AVG_PACK" ColumnName="AVG_PACK" />
+                <ScalarProperty Name="AVG_ITEM" ColumnName="AVG_ITEM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PARAMETER">
+            <EntityTypeMapping TypeName="POSSYSTEMModel.PARAMETER">
+              <MappingFragment StoreEntitySet="PARAMETER">
+                <ScalarProperty Name="PARAMETER_ID" ColumnName="PARAMETER_ID" />
+                <ScalarProperty Name="MAJOR_CODE" ColumnName="MAJOR_CODE" />
+                <ScalarProperty Name="MINOR_CODE" ColumnName="MINOR_CODE" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="C_BY" ColumnName="C_BY" />
+                <ScalarProperty Name="C_DATE" ColumnName="C_DATE" />
+                <ScalarProperty Name="E_BY" ColumnName="E_BY" />
+                <ScalarProperty Name="E_DATE" ColumnName="E_DATE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="CONDITION1" ColumnName="CONDITION1" />
+                <ScalarProperty Name="CONDITION2" ColumnName="CONDITION2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRODUCTS">
+            <EntityTypeMapping TypeName="POSSYSTEMModel.PRODUCTS">
+              <MappingFragment StoreEntitySet="PRODUCTS">
+                <ScalarProperty Name="PRODUCT_ID" ColumnName="PRODUCT_ID" />
+                <ScalarProperty Name="PRODUCT_NAME" ColumnName="PRODUCT_NAME" />
+                <ScalarProperty Name="COSTPRICE" ColumnName="COSTPRICE" />
+                <ScalarProperty Name="SELLPRICE" ColumnName="SELLPRICE" />
+                <ScalarProperty Name="PICTURE" ColumnName="PICTURE" />
+                <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+                <ScalarProperty Name="ORDER_DATE" ColumnName="ORDER_DATE" />
+                <ScalarProperty Name="CATEGORY_ID" ColumnName="CATEGORY_ID" />
+                <ScalarProperty Name="PRODUCT_TYPE_ID" ColumnName="PRODUCT_TYPE_ID" />
+                <ScalarProperty Name="PRODUCT_SIZE_ID" ColumnName="PRODUCT_SIZE_ID" />
+                <ScalarProperty Name="C_BY" ColumnName="C_BY" />
+                <ScalarProperty Name="C_DATE" ColumnName="C_DATE" />
+                <ScalarProperty Name="E_BY" ColumnName="E_BY" />
+                <ScalarProperty Name="E_DATE" ColumnName="E_DATE" />
+                <ScalarProperty Name="PRODUCT_CODE" ColumnName="PRODUCT_CODE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="BARCODE" ColumnName="BARCODE" />
+                <ScalarProperty Name="RETAILPRICE" ColumnName="RETAILPRICE" />
+                <ScalarProperty Name="WHOLESALEPRICE" ColumnName="WHOLESALEPRICE" />
+                <ScalarProperty Name="AVGCOST" ColumnName="AVGCOST" />
+                <ScalarProperty Name="WHOLESALEPROFIT" ColumnName="WHOLESALEPROFIT" />
+                <ScalarProperty Name="RETAILPROFIT" ColumnName="RETAILPROFIT" />
+                <ScalarProperty Name="QTY" ColumnName="QTY" />
+                <ScalarProperty Name="UNIT" ColumnName="UNIT" />
+                <ScalarProperty Name="AVG_PACK" ColumnName="AVG_PACK" />
+                <ScalarProperty Name="AVG_ITEM" ColumnName="AVG_ITEM" />
+                <ScalarProperty Name="WHOLESALEPRICE_ITEM" ColumnName="WHOLESALEPRICE_ITEM" />
+                <ScalarProperty Name="BOXPRICE" ColumnName="BOXPRICE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SELLITEMS">
+            <EntityTypeMapping TypeName="POSSYSTEMModel.SELLITEMS">
+              <MappingFragment StoreEntitySet="SELLITEMS">
+                <ScalarProperty Name="SELLITEM_ID" ColumnName="SELLITEM_ID" />
+                <ScalarProperty Name="SELLITEM_NO" ColumnName="SELLITEM_NO" />
+                <ScalarProperty Name="PRODUCT_CODE" ColumnName="PRODUCT_CODE" />
+                <ScalarProperty Name="QTY" ColumnName="QTY" />
+                <ScalarProperty Name="C_DATE" ColumnName="C_DATE" />
+                <ScalarProperty Name="C_BY" ColumnName="C_BY" />
+                <ScalarProperty Name="UNIT" ColumnName="UNIT" />
+                <ScalarProperty Name="E_DATE" ColumnName="E_DATE" />
+                <ScalarProperty Name="E_BY" ColumnName="E_BY" />
+                <ScalarProperty Name="SELL_PRICE" ColumnName="SELL_PRICE" />
+                <ScalarProperty Name="AMOUNT" ColumnName="AMOUNT" />
+                <ScalarProperty Name="PRODUCT_ID" ColumnName="PRODUCT_ID" />
+                <ScalarProperty Name="DISCOUNT" ColumnName="DISCOUNT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="POSSYSTEMModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

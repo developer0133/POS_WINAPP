@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="POSSYSTEMModelStoreContainer" CdmEntityContainer="POSSYSTEMEntities">
+    <EntitySetMapping Name="CATEGORY">
+      <EntityTypeMapping TypeName="POSSYSTEMModel.CATEGORY">
+        <MappingFragment StoreEntitySet="CATEGORY">
+          <ScalarProperty Name="CATEGORY_ID" ColumnName="CATEGORY_ID" />
+          <ScalarProperty Name="CATEGORY_NAME" ColumnName="CATEGORY_NAME" />
+          <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="CATE_CODE" ColumnName="CATE_CODE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DAPARTMENT">
+      <EntityTypeMapping TypeName="POSSYSTEMModel.DAPARTMENT">
+        <MappingFragment StoreEntitySet="DAPARTMENT">
+          <ScalarProperty Name="DEPARTMENT_ID" ColumnName="DEPARTMENT_ID" />
+          <ScalarProperty Name="DEPARTMENT_NAME" ColumnName="DEPARTMENT_NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="INV_PRODUCTS">
+      <EntityTypeMapping TypeName="POSSYSTEMModel.INV_PRODUCTS">
+        <MappingFragment StoreEntitySet="INV_PRODUCTS">
+          <ScalarProperty Name="INV_ID" ColumnName="INV_ID" />
+          <ScalarProperty Name="PRODUCT_ID" ColumnName="PRODUCT_ID" />
+          <ScalarProperty Name="ORDER_DATE" ColumnName="ORDER_DATE" />
+          <ScalarProperty Name="QTY" ColumnName="QTY" />
+          <ScalarProperty Name="BALANCE" ColumnName="BALANCE" />
+          <ScalarProperty Name="UNIT" ColumnName="UNIT" />
+          <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+          <ScalarProperty Name="C_BY" ColumnName="C_BY" />
+          <ScalarProperty Name="C_DATE" ColumnName="C_DATE" />
+          <ScalarProperty Name="E_BY" ColumnName="E_BY" />
+          <ScalarProperty Name="E_DATE" ColumnName="E_DATE" />
+          <ScalarProperty Name="AMOUNT" ColumnName="AMOUNT" />
+          <ScalarProperty Name="TOTAL_AMOUNT" ColumnName="TOTAL_AMOUNT" />
+          <ScalarProperty Name="RETAILPRICE" ColumnName="RETAILPRICE" />
+          <ScalarProperty Name="WHOLESALEPRICE" ColumnName="WHOLESALEPRICE" />
+          <ScalarProperty Name="AVGCOST" ColumnName="AVGCOST" />
+          <ScalarProperty Name="WHOLESALEPROFIT" ColumnName="WHOLESALEPROFIT" />
+          <ScalarProperty Name="RETAILPROFIT" ColumnName="RETAILPROFIT" />
+          <ScalarProperty Name="AVG_PACK" ColumnName="AVG_PACK" />
+          <ScalarProperty Name="AVG_ITEM" ColumnName="AVG_ITEM" />
+          <ScalarProperty Name="WHOLESALEPRICE_ITEM" ColumnName="WHOLESALEPRICE_ITEM" />
+          <ScalarProperty Name="UNIT_BALANCE_TEXT" ColumnName="UNIT_BALANCE_TEXT" />
+          <ScalarProperty Name="PACK_BALANCE" ColumnName="PACK_BALANCE" />
+          <ScalarProperty Name="ITEM_BALANCE" ColumnName="ITEM_BALANCE" />
+          <ScalarProperty Name="BOX_BALANCE" ColumnName="BOX_BALANCE" />
+          <ScalarProperty Name="BOXPRICE" ColumnName="BOXPRICE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LOGIN_ACCESS">
+      <EntityTypeMapping TypeName="POSSYSTEMModel.LOGIN_ACCESS">
+        <MappingFragment StoreEntitySet="LOGIN_ACCESS">
+          <ScalarProperty Name="LOGIN_ID" ColumnName="LOGIN_ID" />
+          <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+          <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+          <ScalarProperty Name="LOGIN_DATE" ColumnName="LOGIN_DATE" />
+          <ScalarProperty Name="LOGOUT_DATE" ColumnName="LOGOUT_DATE" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="IP_ADDRESS" ColumnName="IP_ADDRESS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MASTER_ROLE">
+      <EntityTypeMapping TypeName="POSSYSTEMModel.MASTER_ROLE">
+        <MappingFragment StoreEntitySet="MASTER_ROLE">
+          <ScalarProperty Name="ROLE_ID" ColumnName="ROLE_ID" />
+          <ScalarProperty Name="ROLE_NAME" ColumnName="ROLE_NAME" />
+          <ScalarProperty Name="RECORD_STATUS" ColumnName="RECORD_STATUS" />
+          <ScalarProperty Name="C_BY" ColumnName="C_BY" />
+          <ScalarProperty Name="C_DATE" ColumnName="C_DATE" />
+          <ScalarProperty Name="E_BY" ColumnName="E_BY" />
+          <ScalarProperty Name="E_DATE" ColumnName="E_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MASTER_RUNNING">
+      <EntityTypeMapping TypeName="POSSYSTEMModel.MASTER_RUNNING">
+        <MappingFragment StoreEntitySet="MASTER_RUNNING">
+          <ScalarProperty Name="RUNNING_ID" ColumnName="RUNNING_ID" />
+          <ScalarProperty Name="RUNNING_NO" ColumnName="RUNNING_NO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MASTER_USER">
+      <EntityTypeMapping TypeName="POSSYSTEMModel.MASTER_USER">
+        <MappingFragment StoreEntitySet="MASTER_USER">
+          <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+          <ScalarProperty Name="FIRST_NAME" ColumnName="FIRST_NAME" />
+          <ScalarProperty Name="LAST_NAME" ColumnName="LAST_NAME" />
+          <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+          <ScalarProperty Name="DEPARTMENT_ID" ColumnName="DEPARTMENT_ID" />
+          <ScalarProperty Name="ROLE_ID" ColumnName="ROLE_ID" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="USER_CODE" ColumnName="USER_CODE" />
+          <ScalarProperty Name="C_BY" ColumnName="C_BY" />
+          <ScalarProperty Name="C_DATE" ColumnName="C_DATE" />
+          <ScalarProperty Name="E_BY" ColumnName="E_BY" />
+          <ScalarProperty Name="E_DATE" ColumnName="E_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ORDER_HISTORY">
+      <EntityTypeMapping TypeName="POSSYSTEMModel.ORDER_HISTORY">
+        <MappingFragment StoreEntitySet="ORDER_HISTORY">
+          <ScalarProperty Name="HIST_ID" ColumnName="HIST_ID" />
+          <ScalarProperty Name="PRODUCT_ID" ColumnName="PRODUCT_ID" />
+          <ScalarProperty Name="ORDER_DATE" ColumnName="ORDER_DATE" />
+          <ScalarProperty Name="QTY" ColumnName="QTY" />
+          <ScalarProperty Name="UNIT" ColumnName="UNIT" />
+          <ScalarProperty Name="AMOUNT" ColumnName="AMOUNT" />
+          <ScalarProperty Name="TOTAL_AMOUNT" ColumnName="TOTAL_AMOUNT" />
+          <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+          <ScalarProperty Name="C_BY" ColumnName="C_BY" />
+          <ScalarProperty Name="C_DATE" ColumnName="C_DATE" />
+          <ScalarProperty Name="E_BY" ColumnName="E_BY" />
+          <ScalarProperty Name="E_DATE" ColumnName="E_DATE" />
+          <ScalarProperty Name="RETAILPRICE" ColumnName="RETAILPRICE" />
+          <ScalarProperty Name="WHOLESALEPRICE" ColumnName="WHOLESALEPRICE" />
+          <ScalarProperty Name="AVGCOST" ColumnName="AVGCOST" />
+          <ScalarProperty Name="WHOLESALEPROFIT" ColumnName="WHOLESALEPROFIT" />
+          <ScalarProperty Name="RETAILPROFIT" ColumnName="RETAILPROFIT" />
+          <ScalarProperty Name="AVG_PACK" ColumnName="AVG_PACK" />
+          <ScalarProperty Name="AVG_ITEM" ColumnName="AVG_ITEM" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PARAMETER">
+      <EntityTypeMapping TypeName="POSSYSTEMModel.PARAMETER">
+        <MappingFragment StoreEntitySet="PARAMETER">
+          <ScalarProperty Name="PARAMETER_ID" ColumnName="PARAMETER_ID" />
+          <ScalarProperty Name="MAJOR_CODE" ColumnName="MAJOR_CODE" />
+          <ScalarProperty Name="MINOR_CODE" ColumnName="MINOR_CODE" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+          <ScalarProperty Name="C_BY" ColumnName="C_BY" />
+          <ScalarProperty Name="C_DATE" ColumnName="C_DATE" />
+          <ScalarProperty Name="E_BY" ColumnName="E_BY" />
+          <ScalarProperty Name="E_DATE" ColumnName="E_DATE" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="CONDITION1" ColumnName="CONDITION1" />
+          <ScalarProperty Name="CONDITION2" ColumnName="CONDITION2" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PRODUCTS">
+      <EntityTypeMapping TypeName="POSSYSTEMModel.PRODUCTS">
+        <MappingFragment StoreEntitySet="PRODUCTS">
+          <ScalarProperty Name="PRODUCT_ID" ColumnName="PRODUCT_ID" />
+          <ScalarProperty Name="PRODUCT_NAME" ColumnName="PRODUCT_NAME" />
+          <ScalarProperty Name="COSTPRICE" ColumnName="COSTPRICE" />
+          <ScalarProperty Name="SELLPRICE" ColumnName="SELLPRICE" />
+          <ScalarProperty Name="PICTURE" ColumnName="PICTURE" />
+          <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+          <ScalarProperty Name="ORDER_DATE" ColumnName="ORDER_DATE" />
+          <ScalarProperty Name="CATEGORY_ID" ColumnName="CATEGORY_ID" />
+          <ScalarProperty Name="PRODUCT_TYPE_ID" ColumnName="PRODUCT_TYPE_ID" />
+          <ScalarProperty Name="PRODUCT_SIZE_ID" ColumnName="PRODUCT_SIZE_ID" />
+          <ScalarProperty Name="C_BY" ColumnName="C_BY" />
+          <ScalarProperty Name="C_DATE" ColumnName="C_DATE" />
+          <ScalarProperty Name="E_BY" ColumnName="E_BY" />
+          <ScalarProperty Name="E_DATE" ColumnName="E_DATE" />
+          <ScalarProperty Name="PRODUCT_CODE" ColumnName="PRODUCT_CODE" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="BARCODE" ColumnName="BARCODE" />
+          <ScalarProperty Name="RETAILPRICE" ColumnName="RETAILPRICE" />
+          <ScalarProperty Name="WHOLESALEPRICE" ColumnName="WHOLESALEPRICE" />
+          <ScalarProperty Name="AVGCOST" ColumnName="AVGCOST" />
+          <ScalarProperty Name="WHOLESALEPROFIT" ColumnName="WHOLESALEPROFIT" />
+          <ScalarProperty Name="RETAILPROFIT" ColumnName="RETAILPROFIT" />
+          <ScalarProperty Name="QTY" ColumnName="QTY" />
+          <ScalarProperty Name="UNIT" ColumnName="UNIT" />
+          <ScalarProperty Name="AVG_PACK" ColumnName="AVG_PACK" />
+          <ScalarProperty Name="AVG_ITEM" ColumnName="AVG_ITEM" />
+          <ScalarProperty Name="WHOLESALEPRICE_ITEM" ColumnName="WHOLESALEPRICE_ITEM" />
+          <ScalarProperty Name="BOXPRICE" ColumnName="BOXPRICE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SELLITEMS">
+      <EntityTypeMapping TypeName="POSSYSTEMModel.SELLITEMS">
+        <MappingFragment StoreEntitySet="SELLITEMS">
+          <ScalarProperty Name="SELLITEM_ID" ColumnName="SELLITEM_ID" />
+          <ScalarProperty Name="SELLITEM_NO" ColumnName="SELLITEM_NO" />
+          <ScalarProperty Name="PRODUCT_CODE" ColumnName="PRODUCT_CODE" />
+          <ScalarProperty Name="QTY" ColumnName="QTY" />
+          <ScalarProperty Name="C_DATE" ColumnName="C_DATE" />
+          <ScalarProperty Name="C_BY" ColumnName="C_BY" />
+          <ScalarProperty Name="UNIT" ColumnName="UNIT" />
+          <ScalarProperty Name="E_DATE" ColumnName="E_DATE" />
+          <ScalarProperty Name="E_BY" ColumnName="E_BY" />
+          <ScalarProperty Name="SELL_PRICE" ColumnName="SELL_PRICE" />
+          <ScalarProperty Name="AMOUNT" ColumnName="AMOUNT" />
+          <ScalarProperty Name="PRODUCT_ID" ColumnName="PRODUCT_ID" />
+          <ScalarProperty Name="DISCOUNT" ColumnName="DISCOUNT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="POSSYSTEMModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
