@@ -336,6 +336,7 @@ namespace POS.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1056, 791);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
@@ -344,6 +345,7 @@ namespace POS.Forms
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmProduct";
             this.Text = "Product Service System";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.grbGeneral.ResumeLayout(false);
             this.grbGeneral.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).EndInit();

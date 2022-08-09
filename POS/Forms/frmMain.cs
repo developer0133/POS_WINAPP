@@ -38,5 +38,14 @@ namespace POS.Forms
             f.MdiParent = this;
             f.Show();
         }
+
+        private void btnMaster_Click(object sender, EventArgs e)
+        {
+            CloseAllChildForm();
+
+            frmParameter f = new frmParameter();
+            f.MdiParent = this;
+            f.Show();
+        }
     }
 }

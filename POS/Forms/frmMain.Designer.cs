@@ -190,6 +190,7 @@ namespace POS.Forms
             this.btnMaster.TabIndex = 1;
             this.btnMaster.Text = "Master";
             this.btnMaster.UseVisualStyleBackColor = true;
+            this.btnMaster.Click += new System.EventHandler(this.btnMaster_Click);
             // 
             // btnProduct
             // 
