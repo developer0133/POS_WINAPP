@@ -1,1 +1,0 @@
-# POS_WINAPP2
