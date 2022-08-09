@@ -20,7 +20,7 @@ namespace BL
 
         public static MasterUserDTO PSSLogin(LoginModel oLogin)
         {
-            return _login.PSSLogin(oLogin);//test
+            return _login.PSSLogin(oLogin);
         }
     }
 }
