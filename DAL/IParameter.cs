@@ -13,6 +13,6 @@ namespace DAL
         List<PARAMETER> GetParameterAll();
         bool InsertParameter(PARAMETER pData);
         bool UpdateParameter(PARAMETER pData);
-        bool DeleteParameter(int parameter_id);
+        bool DeleteParameter(int parameter_id);//delete
     }
 }

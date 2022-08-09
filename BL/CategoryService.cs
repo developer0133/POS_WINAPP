@@ -12,7 +12,7 @@ namespace BL
 {
     public class CategoryService
     {
-        static ICategory _category;
+        static ICategory _category;//test
 
         static CategoryService()
         {

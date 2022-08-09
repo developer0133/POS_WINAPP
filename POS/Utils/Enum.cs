@@ -19,7 +19,7 @@ namespace POS.Utils
     public sealed class KEY
     {
         public KEY() { }
-        public const string KEY_STRING = "b14ca5898a4e4133bbce2ea2315a1916";
+        public const string KEY_STRING = "b14ca5898a4e4133bbce2ea2315a1916";//test
     }
 
     public sealed class POSPARAMETER
