@@ -45,6 +45,15 @@ namespace POS.Forms
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.dgvParameter = new System.Windows.Forms.DataGridView();
+            this.PARAMETER_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MAJOR_CODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MINOR_CODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CONDITION1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CONDITION2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnNext = new System.Windows.Forms.Button();
+            this.lblPage = new System.Windows.Forms.Label();
+            this.btnFirst = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvParameter)).BeginInit();
             this.SuspendLayout();
             // 
@@ -168,13 +177,106 @@ namespace POS.Forms
             // 
             this.dgvParameter.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvParameter.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvParameter.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.PARAMETER_ID,
+            this.MAJOR_CODE,
+            this.MINOR_CODE,
+            this.NAME,
+            this.CONDITION1,
+            this.CONDITION2});
+            this.dgvParameter.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvParameter.Location = new System.Drawing.Point(94, 527);
             this.dgvParameter.Name = "dgvParameter";
+            this.dgvParameter.ReadOnly = true;
             this.dgvParameter.RowHeadersWidth = 51;
             this.dgvParameter.RowTemplate.Height = 24;
             this.dgvParameter.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvParameter.Size = new System.Drawing.Size(908, 182);
+            this.dgvParameter.StandardTab = true;
             this.dgvParameter.TabIndex = 14;
+            // 
+            // PARAMETER_ID
+            // 
+            this.PARAMETER_ID.DataPropertyName = "PARAMETER_ID";
+            this.PARAMETER_ID.HeaderText = "PARAMETER_ID";
+            this.PARAMETER_ID.MinimumWidth = 6;
+            this.PARAMETER_ID.Name = "PARAMETER_ID";
+            this.PARAMETER_ID.ReadOnly = true;
+            this.PARAMETER_ID.Width = 125;
+            // 
+            // MAJOR_CODE
+            // 
+            this.MAJOR_CODE.DataPropertyName = "MAJOR_CODE";
+            this.MAJOR_CODE.HeaderText = "MAJOR_CODE";
+            this.MAJOR_CODE.MinimumWidth = 6;
+            this.MAJOR_CODE.Name = "MAJOR_CODE";
+            this.MAJOR_CODE.ReadOnly = true;
+            this.MAJOR_CODE.Width = 125;
+            // 
+            // MINOR_CODE
+            // 
+            this.MINOR_CODE.DataPropertyName = "MINOR_CODE";
+            this.MINOR_CODE.HeaderText = "MINOR_CODE";
+            this.MINOR_CODE.MinimumWidth = 6;
+            this.MINOR_CODE.Name = "MINOR_CODE";
+            this.MINOR_CODE.ReadOnly = true;
+            this.MINOR_CODE.Width = 125;
+            // 
+            // NAME
+            // 
+            this.NAME.DataPropertyName = "NAME";
+            this.NAME.HeaderText = "NAME";
+            this.NAME.MinimumWidth = 6;
+            this.NAME.Name = "NAME";
+            this.NAME.ReadOnly = true;
+            this.NAME.Width = 230;
+            // 
+            // CONDITION1
+            // 
+            this.CONDITION1.DataPropertyName = "CONDITION1";
+            this.CONDITION1.HeaderText = "CONDITION1";
+            this.CONDITION1.MinimumWidth = 6;
+            this.CONDITION1.Name = "CONDITION1";
+            this.CONDITION1.ReadOnly = true;
+            this.CONDITION1.Width = 125;
+            // 
+            // CONDITION2
+            // 
+            this.CONDITION2.DataPropertyName = "CONDITION2";
+            this.CONDITION2.HeaderText = "CONDITION2";
+            this.CONDITION2.MinimumWidth = 6;
+            this.CONDITION2.Name = "CONDITION2";
+            this.CONDITION2.ReadOnly = true;
+            this.CONDITION2.Width = 125;
+            // 
+            // btnNext
+            // 
+            this.btnNext.Location = new System.Drawing.Point(927, 719);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(75, 23);
+            this.btnNext.TabIndex = 17;
+            this.btnNext.Text = "Next";
+            this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
+            // lblPage
+            // 
+            this.lblPage.AutoSize = true;
+            this.lblPage.Location = new System.Drawing.Point(853, 722);
+            this.lblPage.Name = "lblPage";
+            this.lblPage.Size = new System.Drawing.Size(40, 17);
+            this.lblPage.TabIndex = 18;
+            this.lblPage.Text = "????";
+            // 
+            // btnFirst
+            // 
+            this.btnFirst.Location = new System.Drawing.Point(766, 719);
+            this.btnFirst.Name = "btnFirst";
+            this.btnFirst.Size = new System.Drawing.Size(75, 23);
+            this.btnFirst.TabIndex = 19;
+            this.btnFirst.Text = "First";
+            this.btnFirst.UseVisualStyleBackColor = true;
+            this.btnFirst.Click += new System.EventHandler(this.btnFirst_Click);
             // 
             // frmParameter
             // 
@@ -182,6 +284,9 @@ namespace POS.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1056, 791);
+            this.Controls.Add(this.btnFirst);
+            this.Controls.Add(this.lblPage);
+            this.Controls.Add(this.btnNext);
             this.Controls.Add(this.dgvParameter);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
@@ -223,6 +328,15 @@ namespace POS.Forms
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
-        internal System.Windows.Forms.DataGridView dgvParameter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PARAMETER_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MAJOR_CODE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MINOR_CODE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NAME;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CONDITION1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CONDITION2;
+        protected System.Windows.Forms.DataGridView dgvParameter;
+        private System.Windows.Forms.Button btnNext;
+        private System.Windows.Forms.Label lblPage;
+        private System.Windows.Forms.Button btnFirst;
     }
 }
