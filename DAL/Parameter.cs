@@ -19,8 +19,13 @@ namespace DAL
             _db = new POSSYSTEMEntities();
             try
             {
-                listParm = _db.PARAMETER.Where(w => w.STATUS == STATUS.ACTIVE).ToList();
-                _db.Dispose();
+
+                using (POSSYSTEMEntities db = new POSSYSTEMEntities())
+                {
+                    listParm = db.PARAMETER.Where(w => w.STATUS == STATUS.ACTIVE).ToList();
+                    db.Dispose();
+                }
+                
             }
             catch (Exception ex)
             {
@@ -74,6 +79,7 @@ namespace DAL
         }
         public bool UpdateParameter(PARAMETER pData)
         {
+            _db = new POSSYSTEMEntities();
             bool isSuccess = false;
 
             pData.E_DATE = clsFunction.GetDate();
@@ -109,6 +115,23 @@ namespace DAL
             }
 
             return isSuccess;
+        }
+
+        public PARAMETER GetParameterByID(int id)
+        {
+            PARAMETER obj = new PARAMETER();
+            _db = new POSSYSTEMEntities();
+            try
+            {
+                obj = _db.PARAMETER.Where(w => w.STATUS == STATUS.ACTIVE && w.PARAMETER_ID == id).SingleOrDefault();
+                _db.Dispose();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+            return obj;
         }
     }
 }

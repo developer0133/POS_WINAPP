@@ -45,15 +45,16 @@ namespace POS.Forms
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.dgvParameter = new System.Windows.Forms.DataGridView();
+            this.btnNext = new System.Windows.Forms.Button();
+            this.lblPage = new System.Windows.Forms.Label();
+            this.btnFirst = new System.Windows.Forms.Button();
             this.PARAMETER_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MAJOR_CODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MINOR_CODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CONDITION1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CONDITION2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnNext = new System.Windows.Forms.Button();
-            this.lblPage = new System.Windows.Forms.Label();
-            this.btnFirst = new System.Windows.Forms.Button();
+            this.DESCRIPTION = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvParameter)).BeginInit();
             this.SuspendLayout();
             // 
@@ -163,6 +164,7 @@ namespace POS.Forms
             this.btnSave.TabIndex = 12;
             this.btnSave.Text = "บันทึก";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
             // 
@@ -172,6 +174,7 @@ namespace POS.Forms
             this.btnCancel.TabIndex = 13;
             this.btnCancel.Text = "ยกเลิก";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // dgvParameter
             // 
@@ -183,7 +186,8 @@ namespace POS.Forms
             this.MINOR_CODE,
             this.NAME,
             this.CONDITION1,
-            this.CONDITION2});
+            this.CONDITION2,
+            this.DESCRIPTION});
             this.dgvParameter.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvParameter.Location = new System.Drawing.Point(94, 527);
             this.dgvParameter.Name = "dgvParameter";
@@ -194,11 +198,41 @@ namespace POS.Forms
             this.dgvParameter.Size = new System.Drawing.Size(908, 182);
             this.dgvParameter.StandardTab = true;
             this.dgvParameter.TabIndex = 14;
+            this.dgvParameter.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvParameter_CellClick);
+            // 
+            // btnNext
+            // 
+            this.btnNext.Location = new System.Drawing.Point(927, 719);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(75, 34);
+            this.btnNext.TabIndex = 17;
+            this.btnNext.Text = ">>";
+            this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
+            // lblPage
+            // 
+            this.lblPage.AutoSize = true;
+            this.lblPage.Location = new System.Drawing.Point(853, 722);
+            this.lblPage.Name = "lblPage";
+            this.lblPage.Size = new System.Drawing.Size(40, 17);
+            this.lblPage.TabIndex = 18;
+            this.lblPage.Text = "????";
+            // 
+            // btnFirst
+            // 
+            this.btnFirst.Location = new System.Drawing.Point(766, 719);
+            this.btnFirst.Name = "btnFirst";
+            this.btnFirst.Size = new System.Drawing.Size(75, 34);
+            this.btnFirst.TabIndex = 19;
+            this.btnFirst.Text = "<<";
+            this.btnFirst.UseVisualStyleBackColor = true;
+            this.btnFirst.Click += new System.EventHandler(this.btnFirst_Click);
             // 
             // PARAMETER_ID
             // 
             this.PARAMETER_ID.DataPropertyName = "PARAMETER_ID";
-            this.PARAMETER_ID.HeaderText = "PARAMETER_ID";
+            this.PARAMETER_ID.HeaderText = "ID";
             this.PARAMETER_ID.MinimumWidth = 6;
             this.PARAMETER_ID.Name = "PARAMETER_ID";
             this.PARAMETER_ID.ReadOnly = true;
@@ -207,7 +241,7 @@ namespace POS.Forms
             // MAJOR_CODE
             // 
             this.MAJOR_CODE.DataPropertyName = "MAJOR_CODE";
-            this.MAJOR_CODE.HeaderText = "MAJOR_CODE";
+            this.MAJOR_CODE.HeaderText = "รัหสหลัก";
             this.MAJOR_CODE.MinimumWidth = 6;
             this.MAJOR_CODE.Name = "MAJOR_CODE";
             this.MAJOR_CODE.ReadOnly = true;
@@ -216,7 +250,7 @@ namespace POS.Forms
             // MINOR_CODE
             // 
             this.MINOR_CODE.DataPropertyName = "MINOR_CODE";
-            this.MINOR_CODE.HeaderText = "MINOR_CODE";
+            this.MINOR_CODE.HeaderText = "รหัสรอง";
             this.MINOR_CODE.MinimumWidth = 6;
             this.MINOR_CODE.Name = "MINOR_CODE";
             this.MINOR_CODE.ReadOnly = true;
@@ -225,7 +259,7 @@ namespace POS.Forms
             // NAME
             // 
             this.NAME.DataPropertyName = "NAME";
-            this.NAME.HeaderText = "NAME";
+            this.NAME.HeaderText = "ชื่อ";
             this.NAME.MinimumWidth = 6;
             this.NAME.Name = "NAME";
             this.NAME.ReadOnly = true;
@@ -249,34 +283,14 @@ namespace POS.Forms
             this.CONDITION2.ReadOnly = true;
             this.CONDITION2.Width = 125;
             // 
-            // btnNext
+            // DESCRIPTION
             // 
-            this.btnNext.Location = new System.Drawing.Point(927, 719);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(75, 23);
-            this.btnNext.TabIndex = 17;
-            this.btnNext.Text = "Next";
-            this.btnNext.UseVisualStyleBackColor = true;
-            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
-            // 
-            // lblPage
-            // 
-            this.lblPage.AutoSize = true;
-            this.lblPage.Location = new System.Drawing.Point(853, 722);
-            this.lblPage.Name = "lblPage";
-            this.lblPage.Size = new System.Drawing.Size(40, 17);
-            this.lblPage.TabIndex = 18;
-            this.lblPage.Text = "????";
-            // 
-            // btnFirst
-            // 
-            this.btnFirst.Location = new System.Drawing.Point(766, 719);
-            this.btnFirst.Name = "btnFirst";
-            this.btnFirst.Size = new System.Drawing.Size(75, 23);
-            this.btnFirst.TabIndex = 19;
-            this.btnFirst.Text = "First";
-            this.btnFirst.UseVisualStyleBackColor = true;
-            this.btnFirst.Click += new System.EventHandler(this.btnFirst_Click);
+            this.DESCRIPTION.DataPropertyName = "DESCRIPTION";
+            this.DESCRIPTION.HeaderText = "หมายเหตุ";
+            this.DESCRIPTION.MinimumWidth = 6;
+            this.DESCRIPTION.Name = "DESCRIPTION";
+            this.DESCRIPTION.ReadOnly = true;
+            this.DESCRIPTION.Width = 125;
             // 
             // frmParameter
             // 
@@ -328,15 +342,16 @@ namespace POS.Forms
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
+        protected System.Windows.Forms.DataGridView dgvParameter;
+        private System.Windows.Forms.Button btnNext;
+        private System.Windows.Forms.Label lblPage;
+        private System.Windows.Forms.Button btnFirst;
         private System.Windows.Forms.DataGridViewTextBoxColumn PARAMETER_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn MAJOR_CODE;
         private System.Windows.Forms.DataGridViewTextBoxColumn MINOR_CODE;
         private System.Windows.Forms.DataGridViewTextBoxColumn NAME;
         private System.Windows.Forms.DataGridViewTextBoxColumn CONDITION1;
         private System.Windows.Forms.DataGridViewTextBoxColumn CONDITION2;
-        protected System.Windows.Forms.DataGridView dgvParameter;
-        private System.Windows.Forms.Button btnNext;
-        private System.Windows.Forms.Label lblPage;
-        private System.Windows.Forms.Button btnFirst;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DESCRIPTION;
     }
 }

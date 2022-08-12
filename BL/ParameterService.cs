@@ -43,5 +43,10 @@ namespace BL
             return _parameter.DeleteParameter(parameter_id);
         }
 
+        public static PARAMETER GetParameterByID(int id)
+        {
+            return _parameter.GetParameterByID(id);
+        }
+
     }
 }

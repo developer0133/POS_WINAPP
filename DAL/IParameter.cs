@@ -10,6 +10,7 @@ namespace DAL
     public interface IParameter
     {
         List<PARAMETER> GetParameter(string code);
+        PARAMETER GetParameterByID(int id);
         List<PARAMETER> GetParameterAll();
         bool InsertParameter(PARAMETER pData);
         bool UpdateParameter(PARAMETER pData);
