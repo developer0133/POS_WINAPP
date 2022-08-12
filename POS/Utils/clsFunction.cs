@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Security.Cryptography;
 using POS.Utils;
 using System.IO;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace POS.Utils
 {
@@ -91,5 +93,9 @@ namespace POS.Utils
             return ex;
         }
 
+        public static void FormatHeaderDatagrid (DataGridView dgv)
+        {
+            dgv.ColumnHeadersDefaultCellStyle.Font = new Font("Tahoma", 9.75F, FontStyle.Bold);
+        }
     }
 }

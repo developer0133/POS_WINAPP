@@ -38,6 +38,9 @@ namespace POS.Forms
             lblPage.Text = string.Format("Page {0}/{1}", (pageNumber), dt.Count() / pageSize);
 
             btnFirst.Enabled = false;
+
+            clsFunction.FormatHeaderDatagrid(dgvParameter);
+            
         }
 
         private void btnNext_Click(object sender, EventArgs e)
