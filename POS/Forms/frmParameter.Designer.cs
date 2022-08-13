@@ -45,9 +45,6 @@ namespace POS.Forms
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.dgvParameter = new System.Windows.Forms.DataGridView();
-            this.btnNext = new System.Windows.Forms.Button();
-            this.lblPage = new System.Windows.Forms.Label();
-            this.btnFirst = new System.Windows.Forms.Button();
             this.PARAMETER_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MAJOR_CODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MINOR_CODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,13 +52,17 @@ namespace POS.Forms
             this.CONDITION1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CONDITION2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DESCRIPTION = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnNext = new System.Windows.Forms.Button();
+            this.lblPage = new System.Windows.Forms.Label();
+            this.btnFirst = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvParameter)).BeginInit();
             this.SuspendLayout();
             // 
             // lblMajorCode
             // 
             this.lblMajorCode.AutoSize = true;
-            this.lblMajorCode.Location = new System.Drawing.Point(13, 24);
+            this.lblMajorCode.Location = new System.Drawing.Point(13, 82);
             this.lblMajorCode.Name = "lblMajorCode";
             this.lblMajorCode.Size = new System.Drawing.Size(55, 17);
             this.lblMajorCode.TabIndex = 0;
@@ -69,14 +70,14 @@ namespace POS.Forms
             // 
             // txtMajorCode
             // 
-            this.txtMajorCode.Location = new System.Drawing.Point(94, 24);
+            this.txtMajorCode.Location = new System.Drawing.Point(94, 82);
             this.txtMajorCode.Name = "txtMajorCode";
             this.txtMajorCode.Size = new System.Drawing.Size(197, 22);
             this.txtMajorCode.TabIndex = 1;
             // 
             // txtMinorCode
             // 
-            this.txtMinorCode.Location = new System.Drawing.Point(94, 61);
+            this.txtMinorCode.Location = new System.Drawing.Point(94, 119);
             this.txtMinorCode.Name = "txtMinorCode";
             this.txtMinorCode.Size = new System.Drawing.Size(197, 22);
             this.txtMinorCode.TabIndex = 3;
@@ -84,7 +85,7 @@ namespace POS.Forms
             // lblMinorCode
             // 
             this.lblMinorCode.AutoSize = true;
-            this.lblMinorCode.Location = new System.Drawing.Point(13, 61);
+            this.lblMinorCode.Location = new System.Drawing.Point(13, 119);
             this.lblMinorCode.Name = "lblMinorCode";
             this.lblMinorCode.Size = new System.Drawing.Size(51, 17);
             this.lblMinorCode.TabIndex = 2;
@@ -92,7 +93,7 @@ namespace POS.Forms
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(94, 98);
+            this.txtName.Location = new System.Drawing.Point(94, 156);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(197, 22);
             this.txtName.TabIndex = 5;
@@ -100,7 +101,7 @@ namespace POS.Forms
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(13, 98);
+            this.lblName.Location = new System.Drawing.Point(13, 156);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(23, 17);
             this.lblName.TabIndex = 4;
@@ -108,7 +109,7 @@ namespace POS.Forms
             // 
             // txtCon1
             // 
-            this.txtCon1.Location = new System.Drawing.Point(94, 136);
+            this.txtCon1.Location = new System.Drawing.Point(94, 194);
             this.txtCon1.Name = "txtCon1";
             this.txtCon1.Size = new System.Drawing.Size(197, 22);
             this.txtCon1.TabIndex = 7;
@@ -116,7 +117,7 @@ namespace POS.Forms
             // lblCondition1
             // 
             this.lblCondition1.AutoSize = true;
-            this.lblCondition1.Location = new System.Drawing.Point(13, 136);
+            this.lblCondition1.Location = new System.Drawing.Point(13, 194);
             this.lblCondition1.Name = "lblCondition1";
             this.lblCondition1.Size = new System.Drawing.Size(75, 17);
             this.lblCondition1.TabIndex = 6;
@@ -124,7 +125,7 @@ namespace POS.Forms
             // 
             // txtCon2
             // 
-            this.txtCon2.Location = new System.Drawing.Point(94, 175);
+            this.txtCon2.Location = new System.Drawing.Point(94, 233);
             this.txtCon2.Name = "txtCon2";
             this.txtCon2.Size = new System.Drawing.Size(197, 22);
             this.txtCon2.TabIndex = 9;
@@ -132,7 +133,7 @@ namespace POS.Forms
             // lblCondition2
             // 
             this.lblCondition2.AutoSize = true;
-            this.lblCondition2.Location = new System.Drawing.Point(13, 175);
+            this.lblCondition2.Location = new System.Drawing.Point(13, 233);
             this.lblCondition2.Name = "lblCondition2";
             this.lblCondition2.Size = new System.Drawing.Size(75, 17);
             this.lblCondition2.TabIndex = 8;
@@ -140,7 +141,7 @@ namespace POS.Forms
             // 
             // txtRemark
             // 
-            this.txtRemark.Location = new System.Drawing.Point(94, 211);
+            this.txtRemark.Location = new System.Drawing.Point(94, 269);
             this.txtRemark.MaxLength = 500;
             this.txtRemark.Multiline = true;
             this.txtRemark.Name = "txtRemark";
@@ -150,7 +151,7 @@ namespace POS.Forms
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 211);
+            this.label1.Location = new System.Drawing.Point(13, 269);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(59, 17);
             this.label1.TabIndex = 10;
@@ -158,7 +159,7 @@ namespace POS.Forms
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(94, 397);
+            this.btnSave.Location = new System.Drawing.Point(94, 455);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(120, 66);
             this.btnSave.TabIndex = 12;
@@ -168,7 +169,7 @@ namespace POS.Forms
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(257, 397);
+            this.btnCancel.Location = new System.Drawing.Point(257, 455);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(120, 66);
             this.btnCancel.TabIndex = 13;
@@ -189,45 +190,17 @@ namespace POS.Forms
             this.CONDITION2,
             this.DESCRIPTION});
             this.dgvParameter.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dgvParameter.Location = new System.Drawing.Point(94, 527);
+            this.dgvParameter.Location = new System.Drawing.Point(94, 585);
             this.dgvParameter.Name = "dgvParameter";
             this.dgvParameter.ReadOnly = true;
             this.dgvParameter.RowHeadersWidth = 51;
             this.dgvParameter.RowTemplate.Height = 24;
             this.dgvParameter.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvParameter.Size = new System.Drawing.Size(908, 182);
+            this.dgvParameter.Size = new System.Drawing.Size(1324, 231);
             this.dgvParameter.StandardTab = true;
             this.dgvParameter.TabIndex = 14;
             this.dgvParameter.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvParameter_CellClick);
-            // 
-            // btnNext
-            // 
-            this.btnNext.Location = new System.Drawing.Point(927, 719);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(75, 34);
-            this.btnNext.TabIndex = 17;
-            this.btnNext.Text = ">>";
-            this.btnNext.UseVisualStyleBackColor = true;
-            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
-            // 
-            // lblPage
-            // 
-            this.lblPage.AutoSize = true;
-            this.lblPage.Location = new System.Drawing.Point(853, 722);
-            this.lblPage.Name = "lblPage";
-            this.lblPage.Size = new System.Drawing.Size(40, 17);
-            this.lblPage.TabIndex = 18;
-            this.lblPage.Text = "????";
-            // 
-            // btnFirst
-            // 
-            this.btnFirst.Location = new System.Drawing.Point(766, 719);
-            this.btnFirst.Name = "btnFirst";
-            this.btnFirst.Size = new System.Drawing.Size(75, 34);
-            this.btnFirst.TabIndex = 19;
-            this.btnFirst.Text = "<<";
-            this.btnFirst.UseVisualStyleBackColor = true;
-            this.btnFirst.Click += new System.EventHandler(this.btnFirst_Click);
+            this.dgvParameter.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvParameter_CellContentClick);
             // 
             // PARAMETER_ID
             // 
@@ -236,7 +209,7 @@ namespace POS.Forms
             this.PARAMETER_ID.MinimumWidth = 6;
             this.PARAMETER_ID.Name = "PARAMETER_ID";
             this.PARAMETER_ID.ReadOnly = true;
-            this.PARAMETER_ID.Width = 125;
+            this.PARAMETER_ID.Width = 90;
             // 
             // MAJOR_CODE
             // 
@@ -292,12 +265,52 @@ namespace POS.Forms
             this.DESCRIPTION.ReadOnly = true;
             this.DESCRIPTION.Width = 125;
             // 
+            // btnNext
+            // 
+            this.btnNext.Location = new System.Drawing.Point(1355, 822);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(75, 34);
+            this.btnNext.TabIndex = 17;
+            this.btnNext.Text = ">>";
+            this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
+            // lblPage
+            // 
+            this.lblPage.AutoSize = true;
+            this.lblPage.Location = new System.Drawing.Point(1279, 831);
+            this.lblPage.Name = "lblPage";
+            this.lblPage.Size = new System.Drawing.Size(40, 17);
+            this.lblPage.TabIndex = 18;
+            this.lblPage.Text = "????";
+            // 
+            // btnFirst
+            // 
+            this.btnFirst.Location = new System.Drawing.Point(1194, 822);
+            this.btnFirst.Name = "btnFirst";
+            this.btnFirst.Size = new System.Drawing.Size(75, 34);
+            this.btnFirst.TabIndex = 19;
+            this.btnFirst.Text = "<<";
+            this.btnFirst.UseVisualStyleBackColor = true;
+            this.btnFirst.Click += new System.EventHandler(this.btnFirst_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label2.Location = new System.Drawing.Point(16, 13);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(102, 25);
+            this.label2.TabIndex = 20;
+            this.label2.Text = "MASTER";
+            // 
             // frmParameter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1056, 791);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnFirst);
             this.Controls.Add(this.lblPage);
             this.Controls.Add(this.btnNext);
@@ -346,6 +359,7 @@ namespace POS.Forms
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Label lblPage;
         private System.Windows.Forms.Button btnFirst;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewTextBoxColumn PARAMETER_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn MAJOR_CODE;
         private System.Windows.Forms.DataGridViewTextBoxColumn MINOR_CODE;

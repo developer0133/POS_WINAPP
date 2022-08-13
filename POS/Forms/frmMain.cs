@@ -47,5 +47,14 @@ namespace POS.Forms
             f.MdiParent = this;
             f.Show();
         }
+
+        private void btnCate_Click(object sender, EventArgs e)
+        {
+            CloseAllChildForm();
+
+            frmCategory f = new frmCategory();
+            f.MdiParent = this;
+            f.Show();
+        }
     }
 }

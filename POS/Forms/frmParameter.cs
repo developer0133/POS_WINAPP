@@ -40,7 +40,15 @@ namespace POS.Forms
             btnFirst.Enabled = false;
 
             clsFunction.FormatHeaderDatagrid(dgvParameter);
-            
+
+            DataGridViewButtonColumn buttonColumn = new DataGridViewButtonColumn();
+            buttonColumn.HeaderText = "";
+            buttonColumn.Width = 60;
+            buttonColumn.Name = "btndelete";
+            buttonColumn.Text = "Delete";
+            buttonColumn.UseColumnTextForButtonValue = true;
+            dgvParameter.Columns.Insert(7, buttonColumn);
+
         }
 
         private void btnNext_Click(object sender, EventArgs e)
@@ -165,6 +173,30 @@ namespace POS.Forms
                 }
             }
 
+        }
+
+        private void dgvParameter_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvParameter.Columns[e.ColumnIndex].Name == "btndelete")
+            {
+                DataGridViewRow row = dgvParameter.Rows[e.RowIndex];
+                if (MessageBox.Show(string.Format("ต้องการลบหรือไม่ ?", ""), "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    int id = (int)row.Cells["PARAMETER_ID"].Value;
+                    bool isSuccess = ParameterService.DeleteParameter(id);
+
+                    if (isSuccess)
+                    {
+                        MessageBox.Show("Completed", "POS");
+                        Clear();
+                        PopulateDataGridView();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Try again.", "POS");
+                    }
+                }
+            }
         }
     }
 }

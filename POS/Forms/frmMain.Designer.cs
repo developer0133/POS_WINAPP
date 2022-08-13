@@ -180,6 +180,7 @@ namespace POS.Forms
             this.btnCate.TabIndex = 2;
             this.btnCate.Text = "หมวดหมู่สินค้า";
             this.btnCate.UseVisualStyleBackColor = true;
+            this.btnCate.Click += new System.EventHandler(this.btnCate_Click);
             // 
             // btnMaster
             // 
@@ -225,6 +226,7 @@ namespace POS.Forms
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmMain";
             this.Text = "Product Service System";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
