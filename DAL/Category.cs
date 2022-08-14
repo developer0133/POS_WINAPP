@@ -70,9 +70,17 @@ namespace DAL
         {
             bool isSuccess = false;
 
-            using (POSSYSTEMEntities db = new POSSYSTEMEntities())
+            try
             {
-                db.Entry(category).State = EntityState.Modified;
+                using (POSSYSTEMEntities db = new POSSYSTEMEntities())
+                {
+                    db.Entry(category).State = EntityState.Modified;
+                    isSuccess = true;
+                }
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
             }
 
             return isSuccess;
