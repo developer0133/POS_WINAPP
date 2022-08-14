@@ -24,6 +24,11 @@ namespace BL
             return _category.GetCategories();
         }
 
+        public static CATEGORY GetCategoryByID(int id)
+        {
+            return _category.GetCategoryByID(id);
+        }
+
         public static bool InsertCategory(CATEGORY category)
         {
             return _category.InsertCategory(category);

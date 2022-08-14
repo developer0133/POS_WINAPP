@@ -30,6 +30,11 @@ namespace DAL
         {
             CATEGORY obj = new CATEGORY();
 
+            using (POSSYSTEMEntities db = new POSSYSTEMEntities())
+            {
+                obj = db.CATEGORY.Where(w => w.CATEGORY_ID == id).SingleOrDefault();
+            }
+
             return obj;
         }
 
