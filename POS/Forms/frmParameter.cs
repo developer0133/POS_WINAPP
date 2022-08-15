@@ -46,13 +46,14 @@ namespace POS.Forms
 
             clsFunction.FormatHeaderDatagrid(dgvParameter);
 
-            DataGridViewButtonColumn buttonColumn = new DataGridViewButtonColumn();
-            buttonColumn.HeaderText = "";
-            buttonColumn.Width = 60;
-            buttonColumn.Name = "btndelete";
-            buttonColumn.Text = "Delete";
-            buttonColumn.UseColumnTextForButtonValue = true;
-            dgvParameter.Columns.Insert(7, buttonColumn);
+            DataGridViewButtonColumn btnColumn = new DataGridViewButtonColumn();
+            btnColumn.HeaderText = "";
+            btnColumn.Width = 60;
+            btnColumn.Name = "btndelete";
+            btnColumn.Text = "ลบ";
+            btnColumn.HeaderText = "ลบ";
+            btnColumn.UseColumnTextForButtonValue = true;
+            dgvParameter.Columns.Insert(7, btnColumn);
 
         }
 

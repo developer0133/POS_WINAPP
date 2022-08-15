@@ -315,3 +315,8 @@ D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS\obj\Debug\POS.csproj.Co
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS\obj\Debug\POS.exe
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS\obj\Debug\POS.pdb
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS\obj\Debug\POS.Forms.frmCategory.resources
+D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS\bin\Debug\zxing.dll
+D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS\bin\Debug\zxing.presentation.dll
+D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS\bin\Debug\zxing.xml
+D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS\bin\Debug\zxing.presentation.xml
+D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS\obj\Debug\POS.Forms.frmBarcode.resources

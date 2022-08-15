@@ -56,5 +56,14 @@ namespace POS.Forms
             f.MdiParent = this;
             f.Show();
         }
+
+        private void btnBarcode_Click(object sender, EventArgs e)
+        {
+            CloseAllChildForm();
+
+            frmBarcode f = new frmBarcode();
+            f.MdiParent = this;
+            f.Show();
+        }
     }
 }

@@ -170,6 +170,7 @@ namespace POS.Forms
             this.btnBarcode.TabIndex = 3;
             this.btnBarcode.Text = "บาร์โค้ด";
             this.btnBarcode.UseVisualStyleBackColor = true;
+            this.btnBarcode.Click += new System.EventHandler(this.btnBarcode_Click);
             // 
             // btnCate
             // 
