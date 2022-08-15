@@ -37,6 +37,11 @@ namespace POS.Forms
 
             btnFirst.Enabled = false;
 
+            if(dt.Count() / pageSize == 1)
+            {
+                btnNext.Enabled = false;
+            }
+
             clsFunction.FormatHeaderDatagrid(dgvCate);
 
             DataGridViewButtonColumn buttonColumn = new DataGridViewButtonColumn();
@@ -62,6 +67,7 @@ namespace POS.Forms
                 obj.CATEGORY_ID = pModel.CATEGORY_ID;
                 obj.CATE_CODE = pModel.CATE_CODE;
                 obj.CATEGORY_NAME = pModel.CATEGORY_NAME;
+                obj.REMARK = pModel.REMARK;
                 obj.STATUS = pModel.STATUS;
 
                 bool isSuccess = CategoryService.UpdateCategory(obj);
@@ -116,7 +122,7 @@ namespace POS.Forms
                 DataGridViewRow row = dgvCate.Rows[e.RowIndex];
                 if (MessageBox.Show(string.Format("ต้องการลบหรือไม่ ?", ""), "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    int id = (int)row.Cells["PARAMETER_ID"].Value;
+                    int id = (int)row.Cells["CATEGORY_ID"].Value;
                     bool isSuccess = CategoryService.DeleteCategory(id);
 
                     if (isSuccess)
@@ -144,7 +150,46 @@ namespace POS.Forms
                 txtName.Text = pModel.CATEGORY_NAME;
                 txtCateCode.Text = pModel.CATE_CODE;
                 txtRemark.Text = pModel.REMARK;
+                txtCode.Text = pModel.CATEGORY_ID.ToString();
             }
+        }
+
+        private void btnFirst_Click(object sender, EventArgs e)
+        {
+            pageNumber--;
+            dgvCate.DataSource = dt.Skip(pageSize * (pageNumber - 1)).Take(pageSize).ToList();
+
+            if (dt.Skip(pageSize * (pageNumber - 1)).Take(pageSize).Count() > 0)
+            {
+                btnFirst.Enabled = true;
+            }
+            else
+            {
+                btnFirst.Enabled = false;
+            }
+
+            btnNext.Enabled = true;
+            btnFirst.Enabled = !(pageNumber == 1);
+            lblPage.Text = string.Format("Page {0}/{1}", (pageNumber), dt.Count() / pageSize);
+
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            pageNumber++;
+            dgvCate.DataSource = dt.Skip(pageSize * (pageNumber - 1)).Take(pageSize).ToList();
+            if (dt.Skip(pageSize * (pageNumber - 1)).Take(pageSize).Count() > 0)
+            {
+                btnNext.Enabled = true;
+            }
+            else
+            {
+                btnNext.Enabled = false;
+            }
+
+            btnFirst.Enabled = true;
+            btnNext.Enabled = !(pageNumber == dt.Count() / pageSize);
+            lblPage.Text = string.Format("Page {0}/{1}", (pageNumber), dt.Count() / pageSize);
         }
     }
 }

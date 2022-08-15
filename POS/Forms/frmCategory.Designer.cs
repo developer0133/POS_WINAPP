@@ -34,6 +34,10 @@ namespace POS.Forms
             this.lblPage = new System.Windows.Forms.Label();
             this.btnNext = new System.Windows.Forms.Button();
             this.dgvCate = new System.Windows.Forms.DataGridView();
+            this.CATEGORY_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CATEGORY_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CATE_CODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.REMARK = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.txtRemark = new System.Windows.Forms.TextBox();
@@ -45,10 +49,6 @@ namespace POS.Forms
             this.label2 = new System.Windows.Forms.Label();
             this.txtCateCode = new System.Windows.Forms.TextBox();
             this.lblCateCode = new System.Windows.Forms.Label();
-            this.CATEGORY_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CATEGORY_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CATE_CODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.REMARK = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCate)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,6 +60,7 @@ namespace POS.Forms
             this.btnFirst.TabIndex = 37;
             this.btnFirst.Text = "<<";
             this.btnFirst.UseVisualStyleBackColor = true;
+            this.btnFirst.Click += new System.EventHandler(this.btnFirst_Click);
             // 
             // lblPage
             // 
@@ -78,6 +79,7 @@ namespace POS.Forms
             this.btnNext.TabIndex = 35;
             this.btnNext.Text = ">>";
             this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // dgvCate
             // 
@@ -100,6 +102,42 @@ namespace POS.Forms
             this.dgvCate.TabIndex = 34;
             this.dgvCate.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCate_CellClick);
             this.dgvCate.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCate_CellContentClick);
+            // 
+            // CATEGORY_ID
+            // 
+            this.CATEGORY_ID.DataPropertyName = "CATEGORY_ID";
+            this.CATEGORY_ID.HeaderText = "รหัส";
+            this.CATEGORY_ID.MinimumWidth = 6;
+            this.CATEGORY_ID.Name = "CATEGORY_ID";
+            this.CATEGORY_ID.ReadOnly = true;
+            this.CATEGORY_ID.Width = 90;
+            // 
+            // CATEGORY_NAME
+            // 
+            this.CATEGORY_NAME.DataPropertyName = "CATEGORY_NAME";
+            this.CATEGORY_NAME.HeaderText = "ชื่อ";
+            this.CATEGORY_NAME.MinimumWidth = 6;
+            this.CATEGORY_NAME.Name = "CATEGORY_NAME";
+            this.CATEGORY_NAME.ReadOnly = true;
+            this.CATEGORY_NAME.Width = 230;
+            // 
+            // CATE_CODE
+            // 
+            this.CATE_CODE.DataPropertyName = "CATE_CODE";
+            this.CATE_CODE.HeaderText = "CATE_CODE";
+            this.CATE_CODE.MinimumWidth = 6;
+            this.CATE_CODE.Name = "CATE_CODE";
+            this.CATE_CODE.ReadOnly = true;
+            this.CATE_CODE.Width = 125;
+            // 
+            // REMARK
+            // 
+            this.REMARK.DataPropertyName = "REMARK";
+            this.REMARK.HeaderText = "หมายเหตุ";
+            this.REMARK.MinimumWidth = 6;
+            this.REMARK.Name = "REMARK";
+            this.REMARK.ReadOnly = true;
+            this.REMARK.Width = 125;
             // 
             // btnCancel
             // 
@@ -157,6 +195,7 @@ namespace POS.Forms
             // 
             // txtCode
             // 
+            this.txtCode.Enabled = false;
             this.txtCode.Location = new System.Drawing.Point(87, 76);
             this.txtCode.Name = "txtCode";
             this.txtCode.Size = new System.Drawing.Size(302, 22);
@@ -196,42 +235,6 @@ namespace POS.Forms
             this.lblCateCode.Size = new System.Drawing.Size(70, 17);
             this.lblCateCode.TabIndex = 39;
             this.lblCateCode.Text = "CateCode";
-            // 
-            // CATEGORY_ID
-            // 
-            this.CATEGORY_ID.DataPropertyName = "CATEGORY_ID";
-            this.CATEGORY_ID.HeaderText = "รหัส";
-            this.CATEGORY_ID.MinimumWidth = 6;
-            this.CATEGORY_ID.Name = "CATEGORY_ID";
-            this.CATEGORY_ID.ReadOnly = true;
-            this.CATEGORY_ID.Width = 90;
-            // 
-            // CATEGORY_NAME
-            // 
-            this.CATEGORY_NAME.DataPropertyName = "CATEGORY_NAME";
-            this.CATEGORY_NAME.HeaderText = "ชื่อ";
-            this.CATEGORY_NAME.MinimumWidth = 6;
-            this.CATEGORY_NAME.Name = "CATEGORY_NAME";
-            this.CATEGORY_NAME.ReadOnly = true;
-            this.CATEGORY_NAME.Width = 230;
-            // 
-            // CATE_CODE
-            // 
-            this.CATE_CODE.DataPropertyName = "CATE_CODE";
-            this.CATE_CODE.HeaderText = "CATE_CODE";
-            this.CATE_CODE.MinimumWidth = 6;
-            this.CATE_CODE.Name = "CATE_CODE";
-            this.CATE_CODE.ReadOnly = true;
-            this.CATE_CODE.Width = 125;
-            // 
-            // REMARK
-            // 
-            this.REMARK.DataPropertyName = "REMARK";
-            this.REMARK.HeaderText = "หมายเหตุ";
-            this.REMARK.MinimumWidth = 6;
-            this.REMARK.Name = "REMARK";
-            this.REMARK.ReadOnly = true;
-            this.REMARK.Width = 125;
             // 
             // frmCategory
             // 

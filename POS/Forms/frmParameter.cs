@@ -39,6 +39,11 @@ namespace POS.Forms
 
             btnFirst.Enabled = false;
 
+            if (dt.Count() / pageSize == 1)
+            {
+                btnNext.Enabled = false;
+            }
+
             clsFunction.FormatHeaderDatagrid(dgvParameter);
 
             DataGridViewButtonColumn buttonColumn = new DataGridViewButtonColumn();
