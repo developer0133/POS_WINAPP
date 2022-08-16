@@ -31,8 +31,8 @@ namespace POS.Forms
                 {
                     DisableECI = true,
                     CharacterSet = "UTF-8",
-                    Width = 170,
-                    Height = 170,
+                    Width = 160,
+                    Height = 100,
                 };
 
 
@@ -52,7 +52,24 @@ namespace POS.Forms
 
         private void btnDownload_Click(object sender, EventArgs e)
         {
-
+            if (pictureBox1.Image == null)
+            {
+                MessageBox.Show("Image not found", "POS!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                SaveFileDialog save = new SaveFileDialog();
+                save.CreatePrompt = true;
+                save.OverwritePrompt = true;
+                save.FileName = "br";
+                save.Filter = "PNG|*.png|JPEG|*.jpg";
+                if (save.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    pictureBox1.Image.Save(save.FileName);
+                    save.InitialDirectory = Environment.GetFolderPath
+                                (Environment.SpecialFolder.Desktop);
+                }
+            }
         }
     }
 }

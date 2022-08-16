@@ -11,11 +11,18 @@ using DATA_Models.Models;
 using DAL;
 using BL;
 using POS.Utils;
+using DATA_EF;
+using DATA_Models.DTO;
 
 namespace POS.Forms
 {
     public partial class frmProduct : Form
     {
+        private const int pageSize = 10;
+        private int pageNumber = 1;
+        List<ProductDTO> dt = null;
+        PRODUCTS pModel = null;
+
         public frmProduct()
         {
             InitializeComponent();
@@ -25,6 +32,11 @@ namespace POS.Forms
         void PopulateDataGridView()
         {
             dgvProduct.AutoGenerateColumns = false;
+
+            
+            dt = new List<ProductDTO>();
+            dt = ProductService.GetProduct(string.Empty);
+            dgvProduct.DataSource = dt.Skip(pageSize * (pageNumber - 1)).Take(pageSize).ToList();
         }
 
         void BindCboCategory()

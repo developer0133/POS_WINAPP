@@ -21,4 +21,21 @@ namespace DAL.Utils
         public KEY() { }
         public const string KEY_STRING = "b14ca5898a4e4133bbce2ea2315a1916";
     }
+
+    public sealed class POSPARAMETER
+    {
+        public POSPARAMETER() { }
+        public const string POSPARAMETER_SIZE = "SIZE";
+        public const string POSPARAMETER_TYPE = "TYPE";
+        public const string UNIT = "UNIT";
+    }
+
+    public sealed class PARAMETERCODE
+    {
+        public PARAMETERCODE() { }
+        public const string PARAMETER_SIZE = "TYPE";
+        public const string PARAMETER_TYPE = "SIZE";
+        public const string UNIT = "UNIT";
+
+    }
 }

@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTO\MasterUserDTO.cs" />
+    <Compile Include="DTO\ProductDTO.cs" />
     <Compile Include="Models\CategoryModel.cs" />
     <Compile Include="Models\LoginAccessModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
