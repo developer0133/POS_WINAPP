@@ -7,6 +7,8 @@ using DATA_Models.Models;
 using DATA_Models.DTO;
 using DATA_EF;
 using DAL.Utils;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 
 namespace DAL
 {
@@ -39,7 +41,7 @@ namespace DAL
                                        //SELLPRICE = t.SELLPRICE,
                                        CATEGORYNAME = t3.CATEGORY_NAME,
                                        STATUS = t.STATUS,
-                                       //CATEGORY_ID = t.CATEGORY_ID,
+                                       CATEGORY_ID = t.CATEGORY_ID,
                                        PRODUCT_SIZE_ID = t.PRODUCT_SIZE_ID,
                                        PRODUCT_TYPE_ID = t.PRODUCT_TYPE_ID,
                                        UNIT = "",//t5.UNIT,
@@ -112,6 +114,92 @@ namespace DAL
 
             return oList;
 
+        }
+
+        public bool InsertProduct(ProductsModel product)
+        {
+            bool isSuccess = false;
+
+            using (POSSYSTEMEntities _db = new POSSYSTEMEntities())
+            {
+                MasterRunningModel mstRunning = new MasterRunningModel();
+                try
+                {
+                    string pcode = string.Empty;
+                    int running_id = _db.MASTER_RUNNING.Max(x => (int?)x.RUNNING_ID) ?? 0 + 1; //_db.MASTER_RUNNING.Max(s => s.RUNNING_NO);
+
+                    var tmpRunning = _db.PRODUCTS.Where(w => w.PRODUCT_NAME.ToLower() == product.PRODUCT_NAME.ToLower() && w.STATUS == STATUS.ACTIVE).FirstOrDefault();
+                    if (tmpRunning != null)
+                    {
+                        throw new Exception("Data exist");
+                    }
+
+                    var category =  _db.CATEGORY.Find(product.CATEGORY_ID);
+                    string catecode = "1";
+    
+                    DateTime date = DateTime.UtcNow;
+                    var d = date.Day;
+                    var m = date.Month;
+                    var y = date.Year;
+
+
+                    if (running_id > 1)
+                    {
+                        running_id++;
+                    }
+
+                    mstRunning.RUNNING_NO = running_id;
+
+                    UpdateMasterRunning(mstRunning); //var tm = mService.UpdateMasterRunning(mstRunning);
+
+                    if (!string.IsNullOrEmpty(category.CATE_CODE))
+                    {
+                        catecode = category.CATE_CODE;
+                    }
+
+                    pcode = clsFunction.GenFormatCode(mstRunning.RUNNING_NO, catecode, "P"); // string.Format("{0}{1}{2}{3}{4}", category.CATE_CODE, d, m, y, mstRunning.RUNNING_NO);
+                    product.PRODUCT_CODE = pcode;
+                    product.STATUS = STATUS.ACTIVE;
+                    product.C_DATE = clsFunction.GetDate();
+                    product.E_DATE = clsFunction.GetDate();
+                    product.C_BY = product.C_BY;
+                    product.E_BY = product.C_BY;
+
+                    _db.PRODUCTS.Add(product);
+                     _db.SaveChanges();
+                    isSuccess = true;
+
+                    //create barcode
+                    if (!string.IsNullOrEmpty(product.BARCODE))
+                    {
+                        pcode = string.Empty;
+                        pcode = product.BARCODE;
+                    }
+                    string filemame = pcode;
+                    clsFunction.GenBarcode(filemame);
+                }
+                catch (Exception ex)
+                {
+                    isSuccess = false;
+                    throw new Exception(ex.Message);
+                }
+            }
+
+            return isSuccess;
+        }
+
+        private void UpdateMasterRunning(MasterRunningModel masterrunning)
+        {
+            POSSYSTEMEntities _db = new POSSYSTEMEntities();
+            try
+            {
+                _db.Entry(masterrunning).State = EntityState.Added;
+                //_db.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+
+            }
         }
     }
 }

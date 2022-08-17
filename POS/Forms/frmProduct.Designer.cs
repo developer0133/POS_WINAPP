@@ -41,7 +41,7 @@ namespace POS.Forms
             this.label1 = new System.Windows.Forms.Label();
             this.txtLastCost = new System.Windows.Forms.TextBox();
             this.Label18 = new System.Windows.Forms.Label();
-            this.chkProductStatus = new System.Windows.Forms.CheckBox();
+            this.chkStatus = new System.Windows.Forms.CheckBox();
             this.txtCostAvg = new System.Windows.Forms.TextBox();
             this.Label6 = new System.Windows.Forms.Label();
             this.cboCategory = new System.Windows.Forms.ComboBox();
@@ -51,8 +51,6 @@ namespace POS.Forms
             this.txtProductID = new System.Windows.Forms.TextBox();
             this.Label2 = new System.Windows.Forms.Label();
             this.dgvProduct = new System.Windows.Forms.DataGridView();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.PRODUCT_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PRODUCT_CODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PRODUCT_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,7 +58,12 @@ namespace POS.Forms
             this.PRODUCT_TYPE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AVGCOST = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RETAILPRICE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
+            this.btnFirst = new System.Windows.Forms.Button();
+            this.lblPage = new System.Windows.Forms.Label();
+            this.btnNext = new System.Windows.Forms.Button();
             this.grbGeneral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).BeginInit();
             this.SuspendLayout();
@@ -77,7 +80,7 @@ namespace POS.Forms
             this.grbGeneral.Controls.Add(this.label1);
             this.grbGeneral.Controls.Add(this.txtLastCost);
             this.grbGeneral.Controls.Add(this.Label18);
-            this.grbGeneral.Controls.Add(this.chkProductStatus);
+            this.grbGeneral.Controls.Add(this.chkStatus);
             this.grbGeneral.Controls.Add(this.txtCostAvg);
             this.grbGeneral.Controls.Add(this.Label6);
             this.grbGeneral.Controls.Add(this.cboCategory);
@@ -194,18 +197,18 @@ namespace POS.Forms
             this.Label18.TabIndex = 11;
             this.Label18.Text = "ต้นทุน :";
             // 
-            // chkProductStatus
+            // chkStatus
             // 
-            this.chkProductStatus.AutoSize = true;
-            this.chkProductStatus.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.chkProductStatus.ForeColor = System.Drawing.Color.Red;
-            this.chkProductStatus.Location = new System.Drawing.Point(163, 352);
-            this.chkProductStatus.Margin = new System.Windows.Forms.Padding(4);
-            this.chkProductStatus.Name = "chkProductStatus";
-            this.chkProductStatus.Size = new System.Drawing.Size(108, 21);
-            this.chkProductStatus.TabIndex = 6;
-            this.chkProductStatus.Text = "ยกเลิกจำหน่าย";
-            this.chkProductStatus.UseVisualStyleBackColor = true;
+            this.chkStatus.AutoSize = true;
+            this.chkStatus.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.chkStatus.ForeColor = System.Drawing.Color.Red;
+            this.chkStatus.Location = new System.Drawing.Point(163, 352);
+            this.chkStatus.Margin = new System.Windows.Forms.Padding(4);
+            this.chkStatus.Name = "chkStatus";
+            this.chkStatus.Size = new System.Drawing.Size(108, 21);
+            this.chkStatus.TabIndex = 6;
+            this.chkStatus.Text = "ยกเลิกจำหน่าย";
+            this.chkStatus.UseVisualStyleBackColor = true;
             // 
             // txtCostAvg
             // 
@@ -269,6 +272,7 @@ namespace POS.Forms
             // 
             // txtProductID
             // 
+            this.txtProductID.Enabled = false;
             this.txtProductID.Location = new System.Drawing.Point(163, 25);
             this.txtProductID.Margin = new System.Windows.Forms.Padding(4);
             this.txtProductID.MaxLength = 13;
@@ -299,34 +303,15 @@ namespace POS.Forms
             this.AVGCOST,
             this.RETAILPRICE});
             this.dgvProduct.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dgvProduct.Location = new System.Drawing.Point(32, 563);
+            this.dgvProduct.Location = new System.Drawing.Point(32, 549);
             this.dgvProduct.Name = "dgvProduct";
             this.dgvProduct.RowHeadersWidth = 51;
             this.dgvProduct.RowTemplate.Height = 24;
             this.dgvProduct.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProduct.Size = new System.Drawing.Size(1012, 162);
+            this.dgvProduct.Size = new System.Drawing.Size(1012, 190);
             this.dgvProduct.TabIndex = 2;
             this.dgvProduct.TabStop = false;
-            // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(195, 468);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(116, 48);
-            this.btnSave.TabIndex = 3;
-            this.btnSave.Text = "บันทึก";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(339, 468);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(116, 48);
-            this.btnCancel.TabIndex = 4;
-            this.btnCancel.Text = "ยกเลิก";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            this.dgvProduct.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProduct_CellClick);
             // 
             // PRODUCT_ID
             // 
@@ -385,6 +370,26 @@ namespace POS.Forms
             this.RETAILPRICE.Name = "RETAILPRICE";
             this.RETAILPRICE.Width = 125;
             // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(195, 468);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(116, 48);
+            this.btnSave.TabIndex = 3;
+            this.btnSave.Text = "บันทึก";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(339, 468);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(116, 48);
+            this.btnCancel.TabIndex = 4;
+            this.btnCancel.Text = "ยกเลิก";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -395,12 +400,44 @@ namespace POS.Forms
             this.label8.TabIndex = 39;
             this.label8.Text = "ข้อมูลสินค้า";
             // 
+            // btnFirst
+            // 
+            this.btnFirst.Location = new System.Drawing.Point(759, 745);
+            this.btnFirst.Name = "btnFirst";
+            this.btnFirst.Size = new System.Drawing.Size(75, 34);
+            this.btnFirst.TabIndex = 42;
+            this.btnFirst.Text = "<<";
+            this.btnFirst.UseVisualStyleBackColor = true;
+            this.btnFirst.Click += new System.EventHandler(this.btnFirst_Click);
+            // 
+            // lblPage
+            // 
+            this.lblPage.AutoSize = true;
+            this.lblPage.Location = new System.Drawing.Point(865, 754);
+            this.lblPage.Name = "lblPage";
+            this.lblPage.Size = new System.Drawing.Size(40, 17);
+            this.lblPage.TabIndex = 41;
+            this.lblPage.Text = "????";
+            // 
+            // btnNext
+            // 
+            this.btnNext.Location = new System.Drawing.Point(969, 745);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(75, 34);
+            this.btnNext.TabIndex = 40;
+            this.btnNext.Text = ">>";
+            this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
             // frmProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1056, 791);
+            this.Controls.Add(this.btnFirst);
+            this.Controls.Add(this.lblPage);
+            this.Controls.Add(this.btnNext);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
@@ -423,7 +460,7 @@ namespace POS.Forms
         internal System.Windows.Forms.GroupBox grbGeneral;
         internal System.Windows.Forms.TextBox txtLastCost;
         internal System.Windows.Forms.Label Label18;
-        internal System.Windows.Forms.CheckBox chkProductStatus;
+        internal System.Windows.Forms.CheckBox chkStatus;
         internal System.Windows.Forms.TextBox txtCostAvg;
         internal System.Windows.Forms.Label Label6;
         internal System.Windows.Forms.ComboBox cboCategory;
@@ -451,5 +488,8 @@ namespace POS.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn AVGCOST;
         private System.Windows.Forms.DataGridViewTextBoxColumn RETAILPRICE;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btnFirst;
+        private System.Windows.Forms.Label lblPage;
+        private System.Windows.Forms.Button btnNext;
     }
 }

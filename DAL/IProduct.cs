@@ -13,5 +13,7 @@ namespace DAL
     public interface IProduct
     {
         List<ProductDTO> GetProduct(string code);
+
+        bool InsertProduct(ProductsModel product);
     }
 }

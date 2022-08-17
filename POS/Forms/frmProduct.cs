@@ -21,7 +21,7 @@ namespace POS.Forms
         private const int pageSize = 10;
         private int pageNumber = 1;
         List<ProductDTO> dt = null;
-        PRODUCTS pModel = null;
+        ProductDTO pModel = null;
 
         public frmProduct()
         {
@@ -37,6 +37,17 @@ namespace POS.Forms
             dt = new List<ProductDTO>();
             dt = ProductService.GetProduct(string.Empty);
             dgvProduct.DataSource = dt.Skip(pageSize * (pageNumber - 1)).Take(pageSize).ToList();
+
+            lblPage.Text = string.Format("Page {0}/{1}", (pageNumber), dt.Count() / pageSize);
+
+            btnFirst.Enabled = false;
+
+            if (dt.Count() / pageSize == 1)
+            {
+                btnNext.Enabled = false;
+            }
+
+
         }
 
         void BindCboCategory()
@@ -87,6 +98,62 @@ namespace POS.Forms
         private void btnSave_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnFirst_Click(object sender, EventArgs e)
+        {
+            pageNumber--;
+            dgvProduct.DataSource = dt.Skip(pageSize * (pageNumber - 1)).Take(pageSize).ToList();
+
+            if (dt.Skip(pageSize * (pageNumber - 1)).Take(pageSize).Count() > 0)
+            {
+                btnFirst.Enabled = true;
+            }
+            else
+            {
+                btnFirst.Enabled = false;
+            }
+
+            btnNext.Enabled = true;
+            btnFirst.Enabled = !(pageNumber == 1);
+            lblPage.Text = string.Format("Page {0}/{1}", (pageNumber), dt.Count() / pageSize);
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            pageNumber++;
+            dgvProduct.DataSource = dt.Skip(pageSize * (pageNumber - 1)).Take(pageSize).ToList();
+            if (dt.Skip(pageSize * (pageNumber - 1)).Take(pageSize).Count() > 0)
+            {
+                btnNext.Enabled = true;
+            }
+            else
+            {
+                btnNext.Enabled = false;
+            }
+
+            btnFirst.Enabled = true;
+            btnNext.Enabled = !(pageNumber == dt.Count() / pageSize);
+            lblPage.Text = string.Format("Page {0}/{1}", (pageNumber), dt.Count() / pageSize);
+        }
+
+        private void dgvProduct_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvProduct.CurrentRow.Index != -1)
+            {
+                pModel = new ProductDTO();
+                string code = dgvProduct.CurrentRow.Cells["PRODUCT_CODE"].Value.ToString();
+                pModel = ProductService.GetProduct(code).SingleOrDefault();
+
+                txtProductID.Text = pModel.PRODUCT_CODE;
+                txtProductName.Text = pModel.PRODUCT_NAME;
+                txtRemark.Text = pModel.REMARK;
+                txtBarcode.Text = pModel.BARCODE;
+                txtLastCost.Text = pModel.AVGCOST.ToString();
+
+                cboType.SelectedValue = pModel.PRODUCT_TYPE_ID;
+                cboCategory.SelectedValue = pModel.CATEGORY_ID;
+            }
         }
     }
 }

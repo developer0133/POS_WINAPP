@@ -32,7 +32,7 @@ namespace DATA_Models.DTO
         public decimal PROFIT { get; set; }
         public string STATUS { get; set; }
 
-        public int CATEGORY_ID { get; set; }
+        public int? CATEGORY_ID { get; set; }
         public string PRODUCT_TYPE_ID { get; set; }
         public string PRODUCT_SIZE_ID { get; set; }
         public string UNIT { get; set; }
