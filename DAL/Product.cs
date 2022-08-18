@@ -116,7 +116,7 @@ namespace DAL
 
         }
 
-        public bool InsertProduct(ProductsModel product)
+        public bool InsertProduct(PRODUCTS product)
         {
             bool isSuccess = false;
 
@@ -200,6 +200,36 @@ namespace DAL
             {
 
             }
+        }
+
+        public bool UpdateProduct(PRODUCTS product)
+        {
+            bool isSuccess = false;
+
+            try
+            {
+                using (POSSYSTEMEntities _db = new POSSYSTEMEntities())
+                {
+                    product.E_DATE = clsFunction.GetDate();
+                    _db.Entry(product).State = EntityState.Modified;
+
+                    if (!string.IsNullOrEmpty(product.BARCODE))
+                    {
+                        product.PRODUCT_CODE = string.Empty;
+                        product.PRODUCT_CODE = product.BARCODE;
+                    }
+
+                    _db.SaveChanges();
+                    isSuccess = true;
+                }
+                    
+            }
+            catch (DbUpdateConcurrencyException ex)
+            {
+                isSuccess = false;
+            }
+
+            return isSuccess;
         }
     }
 }

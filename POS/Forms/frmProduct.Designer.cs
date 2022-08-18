@@ -179,6 +179,8 @@ namespace POS.Forms
             // 
             // txtLastCost
             // 
+            this.txtLastCost.BackColor = System.Drawing.SystemColors.Control;
+            this.txtLastCost.Enabled = false;
             this.txtLastCost.Location = new System.Drawing.Point(163, 270);
             this.txtLastCost.Margin = new System.Windows.Forms.Padding(4);
             this.txtLastCost.MaxLength = 5;
@@ -312,6 +314,7 @@ namespace POS.Forms
             this.dgvProduct.TabIndex = 2;
             this.dgvProduct.TabStop = false;
             this.dgvProduct.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProduct_CellClick);
+            this.dgvProduct.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProduct_CellContentClick);
             // 
             // PRODUCT_ID
             // 

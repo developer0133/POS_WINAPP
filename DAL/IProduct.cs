@@ -14,6 +14,7 @@ namespace DAL
     {
         List<ProductDTO> GetProduct(string code);
 
-        bool InsertProduct(ProductsModel product);
+        bool InsertProduct(PRODUCTS product);
+        bool UpdateProduct(PRODUCTS product);
     }
 }

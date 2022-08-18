@@ -97,7 +97,51 @@ namespace POS.Forms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            PRODUCTS obj = new PRODUCTS();
+            bool isSuccess = false;
 
+            obj.PRODUCT_ID = pModel.PRODUCT_ID;
+            obj.PRODUCT_CODE = pModel.PRODUCT_CODE;
+            obj.PRODUCT_NAME = txtProductName.Text.Trim();
+            obj.BARCODE = txtBarcode.Text.Trim();
+            obj.CATEGORY_ID = Convert.ToInt32(cboCategory.SelectedValue);
+            obj.PRODUCT_TYPE_ID = cboType.SelectedValue.ToString();
+            obj.PRODUCT_SIZE_ID = cboSize.SelectedValue.ToString();
+            obj.REMARK = txtRemark.Text.Trim();
+            obj.AVGCOST = pModel.AVGCOST;
+            obj.STATUS = pModel.STATUS;
+
+            if (pModel != null && pModel.PRODUCT_ID > 0)
+            {
+                isSuccess = ProductService.UpdateProduct(obj);
+
+                if (isSuccess)
+                {
+                    MessageBox.Show("Completed", "POS");
+                    Clear();
+                    PopulateDataGridView();
+                }
+            }
+            else
+            {
+                isSuccess = ProductService.InsertProduct(obj);
+
+                if (isSuccess)
+                {
+                    MessageBox.Show("Completed", "POS");
+                    Clear();
+                    PopulateDataGridView();
+                }
+
+            }
+        }
+
+        void Clear()
+        {
+            txtBarcode.Clear();
+            txtProductName.Clear();
+            txtRemark.Clear();
+            pModel = null;
         }
 
         private void btnFirst_Click(object sender, EventArgs e)
@@ -154,6 +198,11 @@ namespace POS.Forms
                 cboType.SelectedValue = pModel.PRODUCT_TYPE_ID;
                 cboCategory.SelectedValue = pModel.CATEGORY_ID;
             }
+        }
+
+        private void dgvProduct_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

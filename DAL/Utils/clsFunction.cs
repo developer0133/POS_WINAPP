@@ -9,6 +9,7 @@ using System.IO;
 using ZXing;
 using ZXing.QrCode;
 using System.Drawing;
+using System.Drawing.Imaging;
 
 namespace DAL.Utils
 {
@@ -170,8 +171,13 @@ namespace DAL.Utils
                 qr.Options = options;
                 qr.Format = ZXing.BarcodeFormat.CODE_128;
                 var result = new Bitmap(qr.Write(filename.Trim()));
-                
+
+                string savefile = string.Format("{0}/{1}.jpg", barcodePth, filename);
+                result.Save(savefile);
                
+               
+
+
                 ////string path = "D:/Workspace/DotNet/Inventory/POS/POS_API/POSAPI/Barcode/test.jpg";
                 //string savefile = string.Format("{0}/{1}.jpg", barcodePth, filename);
                 //qr.SaveImageFile(savefile);

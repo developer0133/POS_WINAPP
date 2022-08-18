@@ -32,3 +32,6 @@ D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\BL\obj\Debug\BL.csproj.Core
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\BL\obj\Debug\BL.csproj.CopyComplete
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\BL\obj\Debug\BL.dll
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\BL\obj\Debug\BL.pdb
+D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\BL\bin\Debug\BL.dll.config
+D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\BL\bin\Debug\zxing.dll
+D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\BL\bin\Debug\zxing.xml

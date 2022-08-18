@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using DAL;
 using DATA_Models.Models;
 using DATA_Models.DTO;
-
+using DATA_EF;
 
 namespace BL
 {
@@ -22,6 +22,14 @@ namespace BL
         public static List<ProductDTO> GetProduct(string code)
         {
             return _product.GetProduct(code);
+        }
+        public static bool UpdateProduct(PRODUCTS product)
+        {
+            return _product.UpdateProduct(product);
+        }
+        public static bool InsertProduct(PRODUCTS product)
+        {
+            return _product.InsertProduct(product);
         }
     }
 }
