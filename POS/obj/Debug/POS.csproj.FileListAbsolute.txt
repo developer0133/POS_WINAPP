@@ -321,3 +321,4 @@ D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS\bin\Debug\zxing.xml
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS\bin\Debug\zxing.presentation.xml
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS\obj\Debug\POS.Forms.frmBarcode.resources
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS\bin\Debug\BL.dll.config
+D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS\obj\Debug\POS.Forms.frmInv.resources

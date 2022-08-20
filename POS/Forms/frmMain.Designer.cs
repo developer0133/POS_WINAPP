@@ -160,6 +160,7 @@ namespace POS.Forms
             this.btnProductIn.TabIndex = 4;
             this.btnProductIn.Text = "รับสินค้าเข้า";
             this.btnProductIn.UseVisualStyleBackColor = true;
+            this.btnProductIn.Click += new System.EventHandler(this.btnProductIn_Click);
             // 
             // btnBarcode
             // 
