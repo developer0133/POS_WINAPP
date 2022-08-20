@@ -89,7 +89,7 @@ namespace POS.Forms
             this.grbGeneral.Controls.Add(this.Label3);
             this.grbGeneral.Controls.Add(this.txtProductID);
             this.grbGeneral.Controls.Add(this.Label2);
-            this.grbGeneral.Location = new System.Drawing.Point(32, 65);
+            this.grbGeneral.Location = new System.Drawing.Point(32, 43);
             this.grbGeneral.Margin = new System.Windows.Forms.Padding(4);
             this.grbGeneral.Name = "grbGeneral";
             this.grbGeneral.Padding = new System.Windows.Forms.Padding(4);
@@ -305,12 +305,12 @@ namespace POS.Forms
             this.AVGCOST,
             this.RETAILPRICE});
             this.dgvProduct.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dgvProduct.Location = new System.Drawing.Point(32, 549);
+            this.dgvProduct.Location = new System.Drawing.Point(32, 527);
             this.dgvProduct.Name = "dgvProduct";
             this.dgvProduct.RowHeadersWidth = 51;
             this.dgvProduct.RowTemplate.Height = 24;
             this.dgvProduct.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProduct.Size = new System.Drawing.Size(1012, 190);
+            this.dgvProduct.Size = new System.Drawing.Size(1012, 202);
             this.dgvProduct.TabIndex = 2;
             this.dgvProduct.TabStop = false;
             this.dgvProduct.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProduct_CellClick);
@@ -375,7 +375,7 @@ namespace POS.Forms
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(195, 468);
+            this.btnSave.Location = new System.Drawing.Point(195, 446);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(116, 48);
             this.btnSave.TabIndex = 3;
@@ -385,7 +385,7 @@ namespace POS.Forms
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(339, 468);
+            this.btnCancel.Location = new System.Drawing.Point(339, 446);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(116, 48);
             this.btnCancel.TabIndex = 4;
@@ -397,7 +397,7 @@ namespace POS.Forms
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label8.Location = new System.Drawing.Point(27, 9);
+            this.label8.Location = new System.Drawing.Point(27, -13);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(100, 25);
             this.label8.TabIndex = 39;
@@ -405,18 +405,18 @@ namespace POS.Forms
             // 
             // btnFirst
             // 
-            this.btnFirst.Location = new System.Drawing.Point(759, 745);
+            this.btnFirst.Image = ((System.Drawing.Image)(resources.GetObject("btnFirst.Image")));
+            this.btnFirst.Location = new System.Drawing.Point(755, 736);
             this.btnFirst.Name = "btnFirst";
             this.btnFirst.Size = new System.Drawing.Size(75, 34);
             this.btnFirst.TabIndex = 42;
-            this.btnFirst.Text = "<<";
             this.btnFirst.UseVisualStyleBackColor = true;
             this.btnFirst.Click += new System.EventHandler(this.btnFirst_Click);
             // 
             // lblPage
             // 
             this.lblPage.AutoSize = true;
-            this.lblPage.Location = new System.Drawing.Point(865, 754);
+            this.lblPage.Location = new System.Drawing.Point(857, 745);
             this.lblPage.Name = "lblPage";
             this.lblPage.Size = new System.Drawing.Size(40, 17);
             this.lblPage.TabIndex = 41;
@@ -424,11 +424,11 @@ namespace POS.Forms
             // 
             // btnNext
             // 
-            this.btnNext.Location = new System.Drawing.Point(969, 745);
+            this.btnNext.Image = ((System.Drawing.Image)(resources.GetObject("btnNext.Image")));
+            this.btnNext.Location = new System.Drawing.Point(969, 736);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(75, 34);
             this.btnNext.TabIndex = 40;
-            this.btnNext.Text = ">>";
             this.btnNext.UseVisualStyleBackColor = true;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 

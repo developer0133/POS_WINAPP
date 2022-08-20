@@ -13,6 +13,7 @@ using BL;
 using POS.Utils;
 using DATA_EF;
 using DATA_Models.DTO;
+using System.Globalization;
 
 namespace POS.Forms
 {
@@ -20,6 +21,7 @@ namespace POS.Forms
     {
         private const int pageSize = 10;
         private int pageNumber = 1;
+
         List<ProductDTO> dt = null;
         ProductDTO pModel = null;
 
@@ -33,9 +35,8 @@ namespace POS.Forms
         {
             dgvProduct.AutoGenerateColumns = false;
 
-            
             dt = new List<ProductDTO>();
-            dt = ProductService.GetProduct(string.Empty);
+            dt = ProductService.GetProduct(string.Empty); //140000101
             dgvProduct.DataSource = dt.Skip(pageSize * (pageNumber - 1)).Take(pageSize).ToList();
 
             lblPage.Text = string.Format("Page {0}/{1}", (pageNumber), dt.Count() / pageSize);
@@ -47,7 +48,13 @@ namespace POS.Forms
                 btnNext.Enabled = false;
             }
 
+            btnNext.Enabled = true;
 
+            if (dt.Count() == 1)
+            {
+                lblPage.Text = string.Format("Page {0}/{1}", (pageNumber), 1);
+                btnNext.Enabled = false;
+            }
         }
 
         void BindCboCategory()
@@ -93,6 +100,7 @@ namespace POS.Forms
             txtBarcode.Text = string.Empty;
             txtRemark.Text = string.Empty;
             txtLastCost.Text = string.Empty;
+            chkStatus.Checked = false;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -100,39 +108,42 @@ namespace POS.Forms
             PRODUCTS obj = new PRODUCTS();
             bool isSuccess = false;
 
-            obj.PRODUCT_ID = pModel.PRODUCT_ID;
-            obj.PRODUCT_CODE = pModel.PRODUCT_CODE;
             obj.PRODUCT_NAME = txtProductName.Text.Trim();
             obj.BARCODE = txtBarcode.Text.Trim();
             obj.CATEGORY_ID = Convert.ToInt32(cboCategory.SelectedValue);
             obj.PRODUCT_TYPE_ID = cboType.SelectedValue.ToString();
             obj.PRODUCT_SIZE_ID = cboSize.SelectedValue.ToString();
             obj.REMARK = txtRemark.Text.Trim();
-            obj.AVGCOST = pModel.AVGCOST;
-            obj.STATUS = pModel.STATUS;
+
+            if (chkStatus.Checked == true)
+            {
+                obj.STATUS = STATUS.INACTIVE;
+            }
+            else
+            {
+                obj.STATUS = STATUS.ACTIVE;
+            }
 
             if (pModel != null && pModel.PRODUCT_ID > 0)
             {
-                isSuccess = ProductService.UpdateProduct(obj);
+                obj.PRODUCT_ID = pModel.PRODUCT_ID;
+                obj.PRODUCT_CODE = pModel.PRODUCT_CODE;
+                obj.AVGCOST = pModel.AVGCOST;
+                obj.STATUS = pModel.STATUS;
 
-                if (isSuccess)
-                {
-                    MessageBox.Show("Completed", "POS");
-                    Clear();
-                    PopulateDataGridView();
-                }
+                isSuccess = ProductService.UpdateProduct(obj);
             }
             else
             {
                 isSuccess = ProductService.InsertProduct(obj);
+            }
 
-                if (isSuccess)
-                {
-                    MessageBox.Show("Completed", "POS");
-                    Clear();
-                    PopulateDataGridView();
-                }
-
+            if (isSuccess)
+            {
+                MessageBox.Show("Completed", "POS");
+                Clear();
+                pageNumber = 1;
+                PopulateDataGridView();
             }
         }
 
@@ -141,6 +152,8 @@ namespace POS.Forms
             txtBarcode.Clear();
             txtProductName.Clear();
             txtRemark.Clear();
+            txtLastCost.Clear();
+            txtCostAvg.Clear();
             pModel = null;
         }
 
@@ -166,8 +179,8 @@ namespace POS.Forms
         private void btnNext_Click(object sender, EventArgs e)
         {
             pageNumber++;
-            dgvProduct.DataSource = dt.Skip(pageSize * (pageNumber - 1)).Take(pageSize).ToList();
-            if (dt.Skip(pageSize * (pageNumber - 1)).Take(pageSize).Count() > 0)
+            dgvProduct.DataSource = dt.Skip(pageSize * (pageNumber )).Take(pageSize).ToList();
+            if (dt.Skip(pageSize * (pageNumber )).Take(pageSize).Count() > 0)
             {
                 btnNext.Enabled = true;
             }
@@ -204,5 +217,7 @@ namespace POS.Forms
         {
 
         }
+
+
     }
 }

@@ -21,13 +21,14 @@ namespace DAL
             {
                 using (POSSYSTEMEntities _db = new POSSYSTEMEntities())
                 {
+                    var test = _db.PRODUCTS.ToList();
                     var qrydata = (from t in _db.PRODUCTS.Where(w => w.STATUS == STATUS.ACTIVE)
                                    join t1 in _db.PARAMETER.Where(w => w.MAJOR_CODE == POSPARAMETER.POSPARAMETER_TYPE && w.STATUS == STATUS.ACTIVE) on t.PRODUCT_TYPE_ID equals t1.MINOR_CODE
                                    join t2 in _db.PARAMETER.Where(w => w.MAJOR_CODE == POSPARAMETER.POSPARAMETER_SIZE && w.STATUS == STATUS.ACTIVE) on t.PRODUCT_SIZE_ID equals t2.MINOR_CODE
                                    //join t6 in _db.PARAMETER.Where(w => w.MAJOR_CODE == SOCKET.UNIT && w.STATUS == STATUS.ACTIVE) on t.UNIT equals t6.MINOR_CODE
                                    join t3 in _db.CATEGORY on t.CATEGORY_ID equals t3.CATEGORY_ID
-                                   join t4 in _db.INV_PRODUCTS on t.PRODUCT_ID equals t4.PRODUCT_ID into ct
-                                   from t5 in ct.DefaultIfEmpty()
+                                   //join t4 in _db.INV_PRODUCTS on t.PRODUCT_ID equals t4.PRODUCT_ID into ct
+                                   //from t5 in ct.DefaultIfEmpty()
 
                                    where (string.IsNullOrEmpty(code) || t.PRODUCT_CODE == code)
                                    select new ProductDTO //ProductsModel
@@ -122,7 +123,9 @@ namespace DAL
 
             using (POSSYSTEMEntities _db = new POSSYSTEMEntities())
             {
-                MasterRunningModel mstRunning = new MasterRunningModel();
+               // MasterRunningModel mstRunning = new MasterRunningModel();
+                MASTER_RUNNING mstRunning = new MASTER_RUNNING();
+
                 try
                 {
                     string pcode = string.Empty;
@@ -157,7 +160,7 @@ namespace DAL
                         catecode = category.CATE_CODE;
                     }
 
-                    pcode = clsFunction.GenFormatCode(mstRunning.RUNNING_NO, catecode, "P"); // string.Format("{0}{1}{2}{3}{4}", category.CATE_CODE, d, m, y, mstRunning.RUNNING_NO);
+                    pcode = clsFunction.GenFormatCode(mstRunning.RUNNING_NO.Value, catecode, "P"); // string.Format("{0}{1}{2}{3}{4}", category.CATE_CODE, d, m, y, mstRunning.RUNNING_NO);
                     product.PRODUCT_CODE = pcode;
                     product.STATUS = STATUS.ACTIVE;
                     product.C_DATE = clsFunction.GetDate();
@@ -188,7 +191,7 @@ namespace DAL
             return isSuccess;
         }
 
-        private void UpdateMasterRunning(MasterRunningModel masterrunning)
+        private void UpdateMasterRunning(MASTER_RUNNING masterrunning)
         {
             POSSYSTEMEntities _db = new POSSYSTEMEntities();
             try

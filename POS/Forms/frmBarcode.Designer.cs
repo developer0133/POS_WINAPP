@@ -54,7 +54,7 @@ namespace POS.Forms
             this.txtBarcode.Location = new System.Drawing.Point(31, 92);
             this.txtBarcode.Multiline = true;
             this.txtBarcode.Name = "txtBarcode";
-            this.txtBarcode.Size = new System.Drawing.Size(268, 33);
+            this.txtBarcode.Size = new System.Drawing.Size(299, 33);
             this.txtBarcode.TabIndex = 40;
             // 
             // btnCreate

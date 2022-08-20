@@ -58,6 +58,7 @@ namespace POS.Forms
         private void btnSave_Click(object sender, EventArgs e)
         {
             CATEGORY obj = new CATEGORY();
+            bool isSuccess = false;
 
             obj.CATEGORY_NAME = txtName.Text.Trim();
             obj.CATE_CODE = txtCateCode.Text.Trim();
@@ -71,34 +72,24 @@ namespace POS.Forms
                 obj.REMARK = pModel.REMARK;
                 obj.STATUS = pModel.STATUS;
 
-                bool isSuccess = CategoryService.UpdateCategory(obj);
-
-                if (isSuccess)
-                {
-                    MessageBox.Show("Completed", "POS");
-                    Clear();
-                    PopulateDataGridView();
-                }
-                else
-                {
-                    MessageBox.Show("Try again", "POS");
-                }
+                isSuccess = CategoryService.UpdateCategory(obj);
             }
             else
             {
                 obj.STATUS = STATUS.ACTIVE;
 
-                bool isSuccess = CategoryService.InsertCategory(obj);
-                if (isSuccess)
-                {
-                    MessageBox.Show("Completed", "POS");
-                    Clear();
-                    PopulateDataGridView();
-                }
-                else
-                {
-                    MessageBox.Show("Try again", "POS");
-                }
+                isSuccess = CategoryService.InsertCategory(obj);
+            }
+
+            if (isSuccess)
+            {
+                MessageBox.Show("Completed", "POS");
+                Clear();
+                PopulateDataGridView();
+            }
+            else
+            {
+                MessageBox.Show("Try again", "POS");
             }
         }
 
