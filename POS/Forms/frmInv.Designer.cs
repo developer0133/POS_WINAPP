@@ -31,6 +31,33 @@ namespace POS.Forms
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInv));
             this.label8 = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
+            this.txtProductName = new System.Windows.Forms.TextBox();
+            this.lblDate = new System.Windows.Forms.Label();
+            this.invdate = new System.Windows.Forms.DateTimePicker();
+            this.button1 = new System.Windows.Forms.Button();
+            this.lblQty = new System.Windows.Forms.Label();
+            this.txtQty = new System.Windows.Forms.TextBox();
+            this.lblUnit = new System.Windows.Forms.Label();
+            this.cboUnit = new System.Windows.Forms.ComboBox();
+            this.lblTotal = new System.Windows.Forms.Label();
+            this.txtTotal = new System.Windows.Forms.TextBox();
+            this.lblCostAvg1 = new System.Windows.Forms.Label();
+            this.txtCostAvgItem = new System.Windows.Forms.TextBox();
+            this.txtCostAvgPack = new System.Windows.Forms.TextBox();
+            this.lblCostAvgPack = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtRetailprice = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtProfitRetail = new System.Windows.Forms.TextBox();
+            this.txtWholesaleprice = new System.Windows.Forms.TextBox();
+            this.txtWholesaleprofit = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtWholesalePriceItem = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtBoxprice = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label8
@@ -43,12 +70,279 @@ namespace POS.Forms
             this.label8.TabIndex = 40;
             this.label8.Text = "รับสินค้าเข้า";
             // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.Location = new System.Drawing.Point(17, 71);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(38, 17);
+            this.lblName.TabIndex = 41;
+            this.lblName.Text = "สินค้า";
+            // 
+            // txtProductName
+            // 
+            this.txtProductName.Location = new System.Drawing.Point(188, 68);
+            this.txtProductName.Name = "txtProductName";
+            this.txtProductName.Size = new System.Drawing.Size(282, 22);
+            this.txtProductName.TabIndex = 42;
+            // 
+            // lblDate
+            // 
+            this.lblDate.AutoSize = true;
+            this.lblDate.Location = new System.Drawing.Point(17, 116);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(32, 17);
+            this.lblDate.TabIndex = 43;
+            this.lblDate.Text = "วันที่";
+            // 
+            // invdate
+            // 
+            this.invdate.Location = new System.Drawing.Point(188, 111);
+            this.invdate.Name = "invdate";
+            this.invdate.Size = new System.Drawing.Size(200, 22);
+            this.invdate.TabIndex = 44;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(533, 53);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 45;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // lblQty
+            // 
+            this.lblQty.AutoSize = true;
+            this.lblQty.Location = new System.Drawing.Point(17, 161);
+            this.lblQty.Name = "lblQty";
+            this.lblQty.Size = new System.Drawing.Size(46, 17);
+            this.lblQty.TabIndex = 46;
+            this.lblQty.Text = "จำนวน";
+            // 
+            // txtQty
+            // 
+            this.txtQty.Location = new System.Drawing.Point(188, 161);
+            this.txtQty.MaxLength = 5;
+            this.txtQty.Name = "txtQty";
+            this.txtQty.Size = new System.Drawing.Size(200, 22);
+            this.txtQty.TabIndex = 47;
+            this.txtQty.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQty_KeyPress);
+            // 
+            // lblUnit
+            // 
+            this.lblUnit.AutoSize = true;
+            this.lblUnit.Location = new System.Drawing.Point(17, 204);
+            this.lblUnit.Name = "lblUnit";
+            this.lblUnit.Size = new System.Drawing.Size(40, 17);
+            this.lblUnit.TabIndex = 48;
+            this.lblUnit.Text = "หน่วย";
+            // 
+            // cboUnit
+            // 
+            this.cboUnit.FormattingEnabled = true;
+            this.cboUnit.Location = new System.Drawing.Point(188, 204);
+            this.cboUnit.Name = "cboUnit";
+            this.cboUnit.Size = new System.Drawing.Size(200, 24);
+            this.cboUnit.TabIndex = 49;
+            this.cboUnit.SelectedIndexChanged += new System.EventHandler(this.cboUnit_SelectedIndexChanged);
+            // 
+            // lblTotal
+            // 
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Location = new System.Drawing.Point(17, 257);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(89, 17);
+            this.lblTotal.TabIndex = 50;
+            this.lblTotal.Text = "ราคารวม(บาท)";
+            // 
+            // txtTotal
+            // 
+            this.txtTotal.Location = new System.Drawing.Point(188, 257);
+            this.txtTotal.MaxLength = 5;
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.Size = new System.Drawing.Size(200, 22);
+            this.txtTotal.TabIndex = 51;
+            // 
+            // lblCostAvg1
+            // 
+            this.lblCostAvg1.AutoSize = true;
+            this.lblCostAvg1.Location = new System.Drawing.Point(17, 307);
+            this.lblCostAvg1.Name = "lblCostAvg1";
+            this.lblCostAvg1.Size = new System.Drawing.Size(132, 17);
+            this.lblCostAvg1.TabIndex = 52;
+            this.lblCostAvg1.Text = "ราคาทุนเฉลี่ย/ชิ้น(บาท)";
+            // 
+            // txtCostAvgItem
+            // 
+            this.txtCostAvgItem.Location = new System.Drawing.Point(188, 307);
+            this.txtCostAvgItem.MaxLength = 5;
+            this.txtCostAvgItem.Name = "txtCostAvgItem";
+            this.txtCostAvgItem.Size = new System.Drawing.Size(200, 22);
+            this.txtCostAvgItem.TabIndex = 53;
+            // 
+            // txtCostAvgPack
+            // 
+            this.txtCostAvgPack.Location = new System.Drawing.Point(188, 357);
+            this.txtCostAvgPack.MaxLength = 5;
+            this.txtCostAvgPack.Name = "txtCostAvgPack";
+            this.txtCostAvgPack.Size = new System.Drawing.Size(200, 22);
+            this.txtCostAvgPack.TabIndex = 55;
+            // 
+            // lblCostAvgPack
+            // 
+            this.lblCostAvgPack.AutoSize = true;
+            this.lblCostAvgPack.Location = new System.Drawing.Point(17, 357);
+            this.lblCostAvgPack.Name = "lblCostAvgPack";
+            this.lblCostAvgPack.Size = new System.Drawing.Size(140, 17);
+            this.lblCostAvgPack.TabIndex = 54;
+            this.lblCostAvgPack.Text = "ราคาทุนเฉลี่ย/แพ็ค(บาท)";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(509, 116);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(132, 17);
+            this.label1.TabIndex = 56;
+            this.label1.Text = "ราคาขายปลีก/ชิ้น(บาท)";
+            // 
+            // txtRetailprice
+            // 
+            this.txtRetailprice.Location = new System.Drawing.Point(697, 116);
+            this.txtRetailprice.MaxLength = 5;
+            this.txtRetailprice.Name = "txtRetailprice";
+            this.txtRetailprice.Size = new System.Drawing.Size(102, 22);
+            this.txtRetailprice.TabIndex = 57;
+            this.txtRetailprice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRetailprice_KeyPress);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(509, 166);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(156, 17);
+            this.label2.TabIndex = 58;
+            this.label2.Text = "ราคาขายส่ง/แพ็ค/โหล(บาท)";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(830, 119);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(69, 17);
+            this.label3.TabIndex = 59;
+            this.label3.Text = "กำไร(ปลีก)";
+            // 
+            // txtProfitRetail
+            // 
+            this.txtProfitRetail.BackColor = System.Drawing.SystemColors.Control;
+            this.txtProfitRetail.Enabled = false;
+            this.txtProfitRetail.Location = new System.Drawing.Point(905, 114);
+            this.txtProfitRetail.MaxLength = 5;
+            this.txtProfitRetail.Name = "txtProfitRetail";
+            this.txtProfitRetail.Size = new System.Drawing.Size(84, 22);
+            this.txtProfitRetail.TabIndex = 60;
+            // 
+            // txtWholesaleprice
+            // 
+            this.txtWholesaleprice.Location = new System.Drawing.Point(697, 161);
+            this.txtWholesaleprice.MaxLength = 5;
+            this.txtWholesaleprice.Name = "txtWholesaleprice";
+            this.txtWholesaleprice.Size = new System.Drawing.Size(102, 22);
+            this.txtWholesaleprice.TabIndex = 61;
+            this.txtWholesaleprice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtWholesaleprice_KeyPress);
+            // 
+            // txtWholesaleprofit
+            // 
+            this.txtWholesaleprofit.BackColor = System.Drawing.SystemColors.Control;
+            this.txtWholesaleprofit.Enabled = false;
+            this.txtWholesaleprofit.Location = new System.Drawing.Point(905, 159);
+            this.txtWholesaleprofit.MaxLength = 5;
+            this.txtWholesaleprofit.Name = "txtWholesaleprofit";
+            this.txtWholesaleprofit.Size = new System.Drawing.Size(84, 22);
+            this.txtWholesaleprofit.TabIndex = 63;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(830, 164);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(59, 17);
+            this.label4.TabIndex = 62;
+            this.label4.Text = "กำไร(ส่ง)";
+            // 
+            // txtWholesalePriceItem
+            // 
+            this.txtWholesalePriceItem.BackColor = System.Drawing.SystemColors.Control;
+            this.txtWholesalePriceItem.Enabled = false;
+            this.txtWholesalePriceItem.Location = new System.Drawing.Point(905, 199);
+            this.txtWholesalePriceItem.MaxLength = 5;
+            this.txtWholesalePriceItem.Name = "txtWholesalePriceItem";
+            this.txtWholesalePriceItem.Size = new System.Drawing.Size(84, 22);
+            this.txtWholesalePriceItem.TabIndex = 65;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(830, 204);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(56, 17);
+            this.label5.TabIndex = 64;
+            this.label5.Text = "เฉลี่ย/ชิ้น";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(509, 257);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(105, 17);
+            this.label6.TabIndex = 66;
+            this.label6.Text = "ราคาขาย/ลัง(บาท)";
+            // 
+            // txtBoxprice
+            // 
+            this.txtBoxprice.Location = new System.Drawing.Point(697, 254);
+            this.txtBoxprice.MaxLength = 5;
+            this.txtBoxprice.Name = "txtBoxprice";
+            this.txtBoxprice.Size = new System.Drawing.Size(102, 22);
+            this.txtBoxprice.TabIndex = 67;
+            this.txtBoxprice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxprice_KeyPress);
+            // 
             // frmInv
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1056, 791);
+            this.Controls.Add(this.txtBoxprice);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.txtWholesalePriceItem);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.txtWholesaleprofit);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.txtWholesaleprice);
+            this.Controls.Add(this.txtProfitRetail);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtRetailprice);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtCostAvgPack);
+            this.Controls.Add(this.lblCostAvgPack);
+            this.Controls.Add(this.txtCostAvgItem);
+            this.Controls.Add(this.lblCostAvg1);
+            this.Controls.Add(this.txtTotal);
+            this.Controls.Add(this.lblTotal);
+            this.Controls.Add(this.cboUnit);
+            this.Controls.Add(this.lblUnit);
+            this.Controls.Add(this.txtQty);
+            this.Controls.Add(this.lblQty);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.invdate);
+            this.Controls.Add(this.lblDate);
+            this.Controls.Add(this.txtProductName);
+            this.Controls.Add(this.lblName);
             this.Controls.Add(this.label8);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmInv";
@@ -63,5 +357,32 @@ namespace POS.Forms
         #endregion
 
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.TextBox txtProductName;
+        private System.Windows.Forms.Label lblDate;
+        private System.Windows.Forms.DateTimePicker invdate;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label lblQty;
+        private System.Windows.Forms.TextBox txtQty;
+        private System.Windows.Forms.Label lblUnit;
+        private System.Windows.Forms.ComboBox cboUnit;
+        private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.TextBox txtTotal;
+        private System.Windows.Forms.Label lblCostAvg1;
+        private System.Windows.Forms.TextBox txtCostAvgItem;
+        private System.Windows.Forms.TextBox txtCostAvgPack;
+        private System.Windows.Forms.Label lblCostAvgPack;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtRetailprice;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtProfitRetail;
+        private System.Windows.Forms.TextBox txtWholesaleprice;
+        private System.Windows.Forms.TextBox txtWholesaleprofit;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtWholesalePriceItem;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtBoxprice;
     }
 }

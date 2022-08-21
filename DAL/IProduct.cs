@@ -16,5 +16,7 @@ namespace DAL
 
         bool InsertProduct(PRODUCTS product);
         bool UpdateProduct(PRODUCTS product);
+
+        List<ProductAutoCompleteDTO> GetProductAutoComplete();
     }
 }

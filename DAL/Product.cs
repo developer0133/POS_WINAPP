@@ -224,6 +224,8 @@ namespace DAL
 
                     _db.SaveChanges();
                     isSuccess = true;
+
+                    _db.Dispose();
                 }
                     
             }
@@ -233,6 +235,24 @@ namespace DAL
             }
 
             return isSuccess;
+        }
+
+        public List<ProductAutoCompleteDTO> GetProductAutoComplete()
+        {
+            List<ProductAutoCompleteDTO> list = new List<ProductAutoCompleteDTO>();
+
+            using (POSSYSTEMEntities _db = new POSSYSTEMEntities())
+            {
+                list = (from t in _db.PRODUCTS.Where(w => w.STATUS == STATUS.ACTIVE && !w.PRODUCT_CODE.Contains(".")).AsNoTracking()
+                        select new ProductAutoCompleteDTO
+                        {
+                            PRODUCT_ID = t.PRODUCT_ID,
+                            PRODUCT_NAME = t.PRODUCT_NAME + "<" + t.PRODUCT_CODE + ">",
+                            PRODUCT_CODE = t.PRODUCT_CODE,
+                        }).ToList();
+            }
+
+            return  list;
         }
     }
 }

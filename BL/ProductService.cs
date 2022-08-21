@@ -31,5 +31,9 @@ namespace BL
         {
             return _product.InsertProduct(product);
         }
+        public static List<ProductAutoCompleteDTO> GetProductAutoComplete()
+        {
+            return _product.GetProductAutoComplete();
+        }
     }
 }

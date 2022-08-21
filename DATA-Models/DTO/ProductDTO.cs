@@ -55,4 +55,12 @@ namespace DATA_Models.DTO
         public string STRUNIT { get; set; }
         public decimal? BOXPRICE { get; set; }
     }
+
+    public class ProductAutoCompleteDTO
+    {
+        public int PRODUCT_ID { get; set; }
+        public string PRODUCT_CODE { get; set; }
+        public string PRODUCT_NAME { get; set; }
+
+    }
 }
