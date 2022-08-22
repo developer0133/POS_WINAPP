@@ -60,7 +60,6 @@ namespace POS.Forms
                 e.Handled = true;
             }
 
-            // only allow one decimal point
             if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
             {
                 e.Handled = true;
@@ -119,8 +118,9 @@ namespace POS.Forms
 
         private void cboUnit_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var test = cboUnit.SelectedItem;
-          
+            Object test = cboUnit.SelectedItem;
+
+   
         }
     }
 }
