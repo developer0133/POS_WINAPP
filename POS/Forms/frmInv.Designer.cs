@@ -41,7 +41,7 @@ namespace POS.Forms
             this.lblUnit = new System.Windows.Forms.Label();
             this.cboUnit = new System.Windows.Forms.ComboBox();
             this.lblTotal = new System.Windows.Forms.Label();
-            this.txtTotal = new System.Windows.Forms.TextBox();
+            this.txtAmount = new System.Windows.Forms.TextBox();
             this.lblCostAvg1 = new System.Windows.Forms.Label();
             this.txtCostAvgItem = new System.Windows.Forms.TextBox();
             this.txtCostAvgPack = new System.Windows.Forms.TextBox();
@@ -58,6 +58,14 @@ namespace POS.Forms
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txtBoxprice = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtBoxBalance = new System.Windows.Forms.TextBox();
+            this.txtPackBalance = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtItemBalance = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label8
@@ -151,24 +159,28 @@ namespace POS.Forms
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
-            this.lblTotal.Location = new System.Drawing.Point(17, 257);
+            this.lblTotal.Location = new System.Drawing.Point(17, 248);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(89, 17);
             this.lblTotal.TabIndex = 50;
             this.lblTotal.Text = "ราคารวม(บาท)";
             // 
-            // txtTotal
+            // txtAmount
             // 
-            this.txtTotal.Location = new System.Drawing.Point(188, 257);
-            this.txtTotal.MaxLength = 5;
-            this.txtTotal.Name = "txtTotal";
-            this.txtTotal.Size = new System.Drawing.Size(200, 22);
-            this.txtTotal.TabIndex = 51;
+            this.txtAmount.Location = new System.Drawing.Point(188, 248);
+            this.txtAmount.MaxLength = 5;
+            this.txtAmount.Name = "txtAmount";
+            this.txtAmount.Size = new System.Drawing.Size(200, 22);
+            this.txtAmount.TabIndex = 51;
+            this.txtAmount.TextChanged += new System.EventHandler(this.txtAmount_TextChanged);
+            this.txtAmount.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtAmount_KeyDown);
+            this.txtAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAmount_KeyPress);
+            this.txtAmount.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtAmount_KeyUp);
             // 
             // lblCostAvg1
             // 
             this.lblCostAvg1.AutoSize = true;
-            this.lblCostAvg1.Location = new System.Drawing.Point(17, 307);
+            this.lblCostAvg1.Location = new System.Drawing.Point(17, 298);
             this.lblCostAvg1.Name = "lblCostAvg1";
             this.lblCostAvg1.Size = new System.Drawing.Size(132, 17);
             this.lblCostAvg1.TabIndex = 52;
@@ -176,7 +188,7 @@ namespace POS.Forms
             // 
             // txtCostAvgItem
             // 
-            this.txtCostAvgItem.Location = new System.Drawing.Point(188, 307);
+            this.txtCostAvgItem.Location = new System.Drawing.Point(188, 298);
             this.txtCostAvgItem.MaxLength = 5;
             this.txtCostAvgItem.Name = "txtCostAvgItem";
             this.txtCostAvgItem.Size = new System.Drawing.Size(200, 22);
@@ -184,7 +196,7 @@ namespace POS.Forms
             // 
             // txtCostAvgPack
             // 
-            this.txtCostAvgPack.Location = new System.Drawing.Point(188, 357);
+            this.txtCostAvgPack.Location = new System.Drawing.Point(188, 348);
             this.txtCostAvgPack.MaxLength = 5;
             this.txtCostAvgPack.Name = "txtCostAvgPack";
             this.txtCostAvgPack.Size = new System.Drawing.Size(200, 22);
@@ -193,7 +205,7 @@ namespace POS.Forms
             // lblCostAvgPack
             // 
             this.lblCostAvgPack.AutoSize = true;
-            this.lblCostAvgPack.Location = new System.Drawing.Point(17, 357);
+            this.lblCostAvgPack.Location = new System.Drawing.Point(17, 348);
             this.lblCostAvgPack.Name = "lblCostAvgPack";
             this.lblCostAvgPack.Size = new System.Drawing.Size(140, 17);
             this.lblCostAvgPack.TabIndex = 54;
@@ -310,12 +322,81 @@ namespace POS.Forms
             this.txtBoxprice.TabIndex = 67;
             this.txtBoxprice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxprice_KeyPress);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.txtItemBalance);
+            this.panel1.Controls.Add(this.label10);
+            this.panel1.Controls.Add(this.txtPackBalance);
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.txtBoxBalance);
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Location = new System.Drawing.Point(500, 298);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(477, 158);
+            this.panel1.TabIndex = 68;
+            this.panel1.Tag = "";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(18, 21);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(66, 17);
+            this.label7.TabIndex = 67;
+            this.label7.Text = "คงเหลือ/ลัง";
+            // 
+            // txtBoxBalance
+            // 
+            this.txtBoxBalance.BackColor = System.Drawing.SystemColors.Control;
+            this.txtBoxBalance.Enabled = false;
+            this.txtBoxBalance.Location = new System.Drawing.Point(112, 21);
+            this.txtBoxBalance.Name = "txtBoxBalance";
+            this.txtBoxBalance.Size = new System.Drawing.Size(133, 22);
+            this.txtBoxBalance.TabIndex = 68;
+            // 
+            // txtPackBalance
+            // 
+            this.txtPackBalance.BackColor = System.Drawing.SystemColors.Control;
+            this.txtPackBalance.Enabled = false;
+            this.txtPackBalance.Location = new System.Drawing.Point(112, 67);
+            this.txtPackBalance.Name = "txtPackBalance";
+            this.txtPackBalance.Size = new System.Drawing.Size(133, 22);
+            this.txtPackBalance.TabIndex = 70;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(18, 67);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(78, 17);
+            this.label9.TabIndex = 69;
+            this.label9.Text = "คงเหลือ/แพ็ค";
+            // 
+            // txtItemBalance
+            // 
+            this.txtItemBalance.BackColor = System.Drawing.SystemColors.Control;
+            this.txtItemBalance.Enabled = false;
+            this.txtItemBalance.Location = new System.Drawing.Point(112, 108);
+            this.txtItemBalance.Name = "txtItemBalance";
+            this.txtItemBalance.Size = new System.Drawing.Size(133, 22);
+            this.txtItemBalance.TabIndex = 72;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(18, 108);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(70, 17);
+            this.label10.TabIndex = 71;
+            this.label10.Text = "คงเหลือ/ชิ้น";
+            // 
             // frmInv
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1056, 791);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.txtBoxprice);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtWholesalePriceItem);
@@ -332,7 +413,7 @@ namespace POS.Forms
             this.Controls.Add(this.lblCostAvgPack);
             this.Controls.Add(this.txtCostAvgItem);
             this.Controls.Add(this.lblCostAvg1);
-            this.Controls.Add(this.txtTotal);
+            this.Controls.Add(this.txtAmount);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.cboUnit);
             this.Controls.Add(this.lblUnit);
@@ -349,6 +430,8 @@ namespace POS.Forms
             this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "Product Service System";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -367,7 +450,7 @@ namespace POS.Forms
         private System.Windows.Forms.Label lblUnit;
         private System.Windows.Forms.ComboBox cboUnit;
         private System.Windows.Forms.Label lblTotal;
-        private System.Windows.Forms.TextBox txtTotal;
+        private System.Windows.Forms.TextBox txtAmount;
         private System.Windows.Forms.Label lblCostAvg1;
         private System.Windows.Forms.TextBox txtCostAvgItem;
         private System.Windows.Forms.TextBox txtCostAvgPack;
@@ -384,5 +467,12 @@ namespace POS.Forms
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtBoxprice;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox txtItemBalance;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtPackBalance;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtBoxBalance;
+        private System.Windows.Forms.Label label7;
     }
 }

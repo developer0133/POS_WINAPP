@@ -118,9 +118,104 @@ namespace POS.Forms
 
         private void cboUnit_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Object test = cboUnit.SelectedItem;
 
-   
+            this.PriceCaculate();
+        }
+
+        private void PriceCaculate()
+        {
+            object objUnit = cboUnit.SelectedItem;
+            int con1 = string.IsNullOrEmpty(((PARAMETER)objUnit).CONDITION1) ? 0 : int.Parse(((PARAMETER)objUnit).CONDITION1);
+            int con2 = string.IsNullOrEmpty(((PARAMETER)objUnit).CONDITION2) ? 0 : int.Parse(((PARAMETER)objUnit).CONDITION2);
+            decimal amount = string.IsNullOrEmpty(txtAmount.Text) ? 0 : decimal.Parse(txtAmount.Text);
+
+            int qtyTotal = 0;
+            int tmpQty = string.IsNullOrEmpty(txtQty.Text) ? 0 : int.Parse(txtQty.Text);
+            decimal packPrice = 0;
+            decimal itemPrice = 0;
+
+
+            if (con1 > 0 && con2 > 0)
+            {
+                qtyTotal = con1 * con2;
+
+                if (amount > 0 && tmpQty > 0)
+                {
+                    var calPack = (amount / con2) / (tmpQty);
+                    packPrice = calPack;
+
+                    var calItem = (amount / qtyTotal) / (tmpQty);
+                    itemPrice = calItem;
+                }
+            }
+            else
+            {
+                if (con1 == 0 && con2 > 0)
+                {
+                    if (amount > 0 && tmpQty > 0)
+                    {
+                        var calPack = (amount / tmpQty);
+                        packPrice = calPack;
+
+                        var calItem = (amount) / (tmpQty * con2);
+                        itemPrice = calItem;
+                    }
+                       
+                }
+                else
+                {
+                    if (con1 > 0)
+                    {
+                        var qtyPack = tmpQty * con1;
+                        var calitem = (amount / qtyPack);
+                        var calpack = (amount / tmpQty);
+
+                        packPrice = calitem;
+                        itemPrice = calpack;
+                    }
+                    else
+                    {
+                        var cal = (amount / tmpQty);
+                        packPrice = cal;
+                        itemPrice = cal;
+                    }
+                }
+            }
+
+            txtCostAvgItem.Text = itemPrice.ToString("#,###.00");
+            txtCostAvgPack.Text = packPrice.ToString("#,###.00");
+        }
+
+        private void QtyBalance()
+        {
+
+        }
+
+        private void txtAmount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ////
+            //if (e.KeyCode == Keys.Enter)
+            //{
+            //    MessageBox.Show("You pressed enter! Good job!");
+            //}
+
+            this.PriceCaculate();
+        }
+
+        private void txtAmount_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void txtAmount_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
+
+ 
+        private void txtAmount_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
