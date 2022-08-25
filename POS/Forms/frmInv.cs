@@ -100,6 +100,8 @@ namespace POS.Forms
             {
                 e.Handled = true;
             }
+
+            this.ProfitCalculate("w", 0, decimal.Parse(txtWholesaleprice.Text));
         }
 
         private void txtBoxprice_KeyPress(object sender, KeyPressEventArgs e)
@@ -118,7 +120,6 @@ namespace POS.Forms
 
         private void cboUnit_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             this.PriceCaculate();
         }
 
@@ -186,6 +187,31 @@ namespace POS.Forms
             txtCostAvgPack.Text = packPrice.ToString("#,###.00");
         }
 
+
+        private void ProfitCalculate(string flag, decimal price, decimal cost)
+        {
+            decimal _cost = cost;
+            decimal _price = price;
+            decimal _avgPack = 0;
+            decimal _wholeSale = 0;
+
+            object objUnit = cboUnit.SelectedItem;
+            int con1 = string.IsNullOrEmpty(((PARAMETER)objUnit).CONDITION1) ? 0 : int.Parse(((PARAMETER)objUnit).CONDITION1);
+            int con2 = string.IsNullOrEmpty(((PARAMETER)objUnit).CONDITION2) ? 0 : int.Parse(((PARAMETER)objUnit).CONDITION2);
+            decimal amount = string.IsNullOrEmpty(txtAmount.Text) ? 0 : decimal.Parse(txtAmount.Text);
+
+            if (flag == "w")
+            {
+                _avgPack = decimal.Parse(txtCostAvgPack.Text);
+                _wholeSale = decimal.Parse(txtWholesaleprice.Text);
+                var cal = (_wholeSale - _avgPack);
+                txtWholesaleprofit.Text = cal.ToString("#,###.00");
+            }
+            else
+            {
+
+            }
+        }
         private void QtyBalance()
         {
 
@@ -202,20 +228,5 @@ namespace POS.Forms
             this.PriceCaculate();
         }
 
-        private void txtAmount_KeyDown(object sender, KeyEventArgs e)
-        {
-
-        }
-
-        private void txtAmount_KeyUp(object sender, KeyEventArgs e)
-        {
-
-        }
-
- 
-        private void txtAmount_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

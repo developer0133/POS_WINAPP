@@ -59,12 +59,12 @@ namespace POS.Forms
             this.label6 = new System.Windows.Forms.Label();
             this.txtBoxprice = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtBoxBalance = new System.Windows.Forms.TextBox();
-            this.txtPackBalance = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.txtItemBalance = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.txtPackBalance = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtBoxBalance = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -172,10 +172,7 @@ namespace POS.Forms
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.Size = new System.Drawing.Size(200, 22);
             this.txtAmount.TabIndex = 51;
-            this.txtAmount.TextChanged += new System.EventHandler(this.txtAmount_TextChanged);
-            this.txtAmount.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtAmount_KeyDown);
             this.txtAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAmount_KeyPress);
-            this.txtAmount.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtAmount_KeyUp);
             // 
             // lblCostAvg1
             // 
@@ -336,23 +333,23 @@ namespace POS.Forms
             this.panel1.TabIndex = 68;
             this.panel1.Tag = "";
             // 
-            // label7
+            // txtItemBalance
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(18, 21);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(66, 17);
-            this.label7.TabIndex = 67;
-            this.label7.Text = "คงเหลือ/ลัง";
+            this.txtItemBalance.BackColor = System.Drawing.SystemColors.Control;
+            this.txtItemBalance.Enabled = false;
+            this.txtItemBalance.Location = new System.Drawing.Point(112, 108);
+            this.txtItemBalance.Name = "txtItemBalance";
+            this.txtItemBalance.Size = new System.Drawing.Size(133, 22);
+            this.txtItemBalance.TabIndex = 72;
             // 
-            // txtBoxBalance
+            // label10
             // 
-            this.txtBoxBalance.BackColor = System.Drawing.SystemColors.Control;
-            this.txtBoxBalance.Enabled = false;
-            this.txtBoxBalance.Location = new System.Drawing.Point(112, 21);
-            this.txtBoxBalance.Name = "txtBoxBalance";
-            this.txtBoxBalance.Size = new System.Drawing.Size(133, 22);
-            this.txtBoxBalance.TabIndex = 68;
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(18, 108);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(70, 17);
+            this.label10.TabIndex = 71;
+            this.label10.Text = "คงเหลือ/ชิ้น";
             // 
             // txtPackBalance
             // 
@@ -372,23 +369,23 @@ namespace POS.Forms
             this.label9.TabIndex = 69;
             this.label9.Text = "คงเหลือ/แพ็ค";
             // 
-            // txtItemBalance
+            // txtBoxBalance
             // 
-            this.txtItemBalance.BackColor = System.Drawing.SystemColors.Control;
-            this.txtItemBalance.Enabled = false;
-            this.txtItemBalance.Location = new System.Drawing.Point(112, 108);
-            this.txtItemBalance.Name = "txtItemBalance";
-            this.txtItemBalance.Size = new System.Drawing.Size(133, 22);
-            this.txtItemBalance.TabIndex = 72;
+            this.txtBoxBalance.BackColor = System.Drawing.SystemColors.Control;
+            this.txtBoxBalance.Enabled = false;
+            this.txtBoxBalance.Location = new System.Drawing.Point(112, 21);
+            this.txtBoxBalance.Name = "txtBoxBalance";
+            this.txtBoxBalance.Size = new System.Drawing.Size(133, 22);
+            this.txtBoxBalance.TabIndex = 68;
             // 
-            // label10
+            // label7
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(18, 108);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(70, 17);
-            this.label10.TabIndex = 71;
-            this.label10.Text = "คงเหลือ/ชิ้น";
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(18, 21);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(66, 17);
+            this.label7.TabIndex = 67;
+            this.label7.Text = "คงเหลือ/ลัง";
             // 
             // frmInv
             // 
