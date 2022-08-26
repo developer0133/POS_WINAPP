@@ -101,7 +101,7 @@ namespace POS.Forms
                 e.Handled = true;
             }
 
-            this.ProfitCalculate("w", 0, decimal.Parse(txtWholesaleprice.Text));
+            
         }
 
         private void txtBoxprice_KeyPress(object sender, KeyPressEventArgs e)
@@ -128,7 +128,8 @@ namespace POS.Forms
             object objUnit = cboUnit.SelectedItem;
             int con1 = string.IsNullOrEmpty(((PARAMETER)objUnit).CONDITION1) ? 0 : int.Parse(((PARAMETER)objUnit).CONDITION1);
             int con2 = string.IsNullOrEmpty(((PARAMETER)objUnit).CONDITION2) ? 0 : int.Parse(((PARAMETER)objUnit).CONDITION2);
-            decimal amount = string.IsNullOrEmpty(txtAmount.Text) ? 0 : decimal.Parse(txtAmount.Text);
+            decimal amount = 0;
+            amount = string.IsNullOrEmpty(txtAmount.Text) ? 0 : decimal.Parse(txtAmount.Text);
 
             int qtyTotal = 0;
             int tmpQty = string.IsNullOrEmpty(txtQty.Text) ? 0 : int.Parse(txtQty.Text);
@@ -194,8 +195,11 @@ namespace POS.Forms
             decimal _price = price;
             decimal _avgPack = 0;
             decimal _wholeSale = 0;
+            decimal _retailPrice = 0;
+            decimal _avgItem = 0;
 
             object objUnit = cboUnit.SelectedItem;
+            string objName = string.IsNullOrEmpty(((PARAMETER)objUnit).NAME) ? string.Empty : ((PARAMETER)objUnit).NAME;
             int con1 = string.IsNullOrEmpty(((PARAMETER)objUnit).CONDITION1) ? 0 : int.Parse(((PARAMETER)objUnit).CONDITION1);
             int con2 = string.IsNullOrEmpty(((PARAMETER)objUnit).CONDITION2) ? 0 : int.Parse(((PARAMETER)objUnit).CONDITION2);
             decimal amount = string.IsNullOrEmpty(txtAmount.Text) ? 0 : decimal.Parse(txtAmount.Text);
@@ -206,10 +210,45 @@ namespace POS.Forms
                 _wholeSale = decimal.Parse(txtWholesaleprice.Text);
                 var cal = (_wholeSale - _avgPack);
                 txtWholesaleprofit.Text = cal.ToString("#,###.00");
+
+                if (con1 == 0)
+                {
+                    var cal2 = (_wholeSale / con2);
+                    txtWholesalePriceItem.Text = cal2.ToString("#,###.00");
+
+                    if (objName.Contains("ลัง"))
+                    {
+                        txtBoxprice.Text = (cal2 * con2).ToString("#,###.00");
+                    }
+                }
+                else
+                {
+                    var cal2 = (_wholeSale / con1);
+                    txtWholesalePriceItem.Text = cal2.ToString("#,###.00");
+
+                    if (objName.Contains("ลัง"))
+                    {
+                        txtBoxprice.Text = (cal2 * con2).ToString("#,###.00");
+                    }
+                }
+
+                if (con1 > 0 && con2 > 0)
+                {
+                    var w = decimal.Parse(txtWholesalePriceItem.Text);
+
+                    if (objName.Contains("ลัง"))
+                    {
+                        txtBoxprice.Text = (w * con1 * con2).ToString("#,###.00");
+                    }
+
+                }
             }
             else
             {
-
+                _retailPrice = decimal.Parse(txtRetailprice.Text);
+                _avgItem = decimal.Parse(txtCostAvgItem.Text);
+                var cal = _retailPrice - _avgItem;
+                txtProfitRetail.Text = cal.ToString("#,###.00");
             }
         }
         private void QtyBalance()
@@ -217,16 +256,34 @@ namespace POS.Forms
 
         }
 
-        private void txtAmount_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            ////
-            //if (e.KeyCode == Keys.Enter)
-            //{
-            //    MessageBox.Show("You pressed enter! Good job!");
-            //}
+        ////private void txtAmount_KeyPress(object sender, KeyPressEventArgs e)
+        ////{
+        ////    //
+        ////    if (e.KeyCode == Keys.Enter)
+        ////    {
+        ////        MessageBox.Show("You pressed enter! Good job!");
+        ////    }
+        ////}
 
-            this.PriceCaculate();
+        private void txtWholesaleprice_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtWholesaleprice.Text))
+            {
+                this.ProfitCalculate("w", 0, decimal.Parse(txtWholesaleprice.Text));
+            }
         }
 
+        private void txtRetailprice_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtRetailprice.Text))
+            {
+                this.ProfitCalculate("r", 0, decimal.Parse(txtRetailprice.Text));
+            }
+        }
+
+        private void txtAmount_TextChanged(object sender, EventArgs e)
+        {
+            this.PriceCaculate();
+        }
     }
 }

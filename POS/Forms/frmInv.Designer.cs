@@ -172,7 +172,7 @@ namespace POS.Forms
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.Size = new System.Drawing.Size(200, 22);
             this.txtAmount.TabIndex = 51;
-            this.txtAmount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAmount_KeyPress);
+            this.txtAmount.TextChanged += new System.EventHandler(this.txtAmount_TextChanged);
             // 
             // lblCostAvg1
             // 
@@ -220,10 +220,11 @@ namespace POS.Forms
             // txtRetailprice
             // 
             this.txtRetailprice.Location = new System.Drawing.Point(697, 116);
-            this.txtRetailprice.MaxLength = 5;
+            this.txtRetailprice.MaxLength = 9;
             this.txtRetailprice.Name = "txtRetailprice";
             this.txtRetailprice.Size = new System.Drawing.Size(102, 22);
             this.txtRetailprice.TabIndex = 57;
+            this.txtRetailprice.TextChanged += new System.EventHandler(this.txtRetailprice_TextChanged);
             this.txtRetailprice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRetailprice_KeyPress);
             // 
             // label2
@@ -257,10 +258,11 @@ namespace POS.Forms
             // txtWholesaleprice
             // 
             this.txtWholesaleprice.Location = new System.Drawing.Point(697, 161);
-            this.txtWholesaleprice.MaxLength = 5;
+            this.txtWholesaleprice.MaxLength = 9;
             this.txtWholesaleprice.Name = "txtWholesaleprice";
             this.txtWholesaleprice.Size = new System.Drawing.Size(102, 22);
             this.txtWholesaleprice.TabIndex = 61;
+            this.txtWholesaleprice.TextChanged += new System.EventHandler(this.txtWholesaleprice_TextChanged);
             this.txtWholesaleprice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtWholesaleprice_KeyPress);
             // 
             // txtWholesaleprofit
@@ -313,7 +315,7 @@ namespace POS.Forms
             // txtBoxprice
             // 
             this.txtBoxprice.Location = new System.Drawing.Point(697, 254);
-            this.txtBoxprice.MaxLength = 5;
+            this.txtBoxprice.MaxLength = 9;
             this.txtBoxprice.Name = "txtBoxprice";
             this.txtBoxprice.Size = new System.Drawing.Size(102, 22);
             this.txtBoxprice.TabIndex = 67;
