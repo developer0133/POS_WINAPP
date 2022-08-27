@@ -35,7 +35,7 @@ namespace POS.Forms
             this.txtProductName = new System.Windows.Forms.TextBox();
             this.lblDate = new System.Windows.Forms.Label();
             this.invdate = new System.Windows.Forms.DateTimePicker();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.lblQty = new System.Windows.Forms.Label();
             this.txtQty = new System.Windows.Forms.TextBox();
             this.lblUnit = new System.Windows.Forms.Label();
@@ -65,6 +65,7 @@ namespace POS.Forms
             this.label9 = new System.Windows.Forms.Label();
             this.txtBoxBalance = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -110,15 +111,15 @@ namespace POS.Forms
             this.invdate.Size = new System.Drawing.Size(200, 22);
             this.invdate.TabIndex = 44;
             // 
-            // button1
+            // btnSave
             // 
-            this.button1.Location = new System.Drawing.Point(533, 53);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 45;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnSave.Location = new System.Drawing.Point(188, 520);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(99, 50);
+            this.btnSave.TabIndex = 45;
+            this.btnSave.Text = "บันทึก";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // lblQty
             // 
@@ -389,12 +390,22 @@ namespace POS.Forms
             this.label7.TabIndex = 67;
             this.label7.Text = "คงเหลือ/ลัง";
             // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(371, 520);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(99, 50);
+            this.btnCancel.TabIndex = 69;
+            this.btnCancel.Text = "ยกเลิก";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            // 
             // frmInv
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1056, 791);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.txtBoxprice);
             this.Controls.Add(this.label6);
@@ -418,7 +429,7 @@ namespace POS.Forms
             this.Controls.Add(this.lblUnit);
             this.Controls.Add(this.txtQty);
             this.Controls.Add(this.lblQty);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.invdate);
             this.Controls.Add(this.lblDate);
             this.Controls.Add(this.txtProductName);
@@ -443,7 +454,7 @@ namespace POS.Forms
         private System.Windows.Forms.TextBox txtProductName;
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.DateTimePicker invdate;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label lblQty;
         private System.Windows.Forms.TextBox txtQty;
         private System.Windows.Forms.Label lblUnit;
@@ -473,5 +484,6 @@ namespace POS.Forms
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtBoxBalance;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnCancel;
     }
 }

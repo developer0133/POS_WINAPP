@@ -48,11 +48,6 @@ namespace POS.Forms
             txtProductName.AutoCompleteCustomSource = coll;
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            var test = invdate.Value;
-        }
-
         private void txtQty_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
@@ -352,6 +347,11 @@ namespace POS.Forms
         private void txtAmount_TextChanged(object sender, EventArgs e)
         {
             this.PriceCaculate();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
