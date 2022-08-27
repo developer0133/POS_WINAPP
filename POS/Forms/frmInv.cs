@@ -186,6 +186,8 @@ namespace POS.Forms
 
             txtCostAvgItem.Text = itemPrice.ToString("#,###.00");
             txtCostAvgPack.Text = packPrice.ToString("#,###.00");
+
+            this.QtyBalance();
         }
 
 
@@ -240,7 +242,6 @@ namespace POS.Forms
                     {
                         txtBoxprice.Text = (w * con1 * con2).ToString("#,###.00");
                     }
-
                 }
             }
             else
@@ -253,7 +254,74 @@ namespace POS.Forms
         }
         private void QtyBalance()
         {
+            var box = txtBoxBalance.Text;
+            var pack = txtPackBalance.Text;
+            var item = txtItemBalance.Text;
 
+            object objUnit = cboUnit.SelectedItem;
+            string objName = string.IsNullOrEmpty(((PARAMETER)objUnit).NAME) ? string.Empty : ((PARAMETER)objUnit).NAME;
+            int con1 = string.IsNullOrEmpty(((PARAMETER)objUnit).CONDITION1) ? 0 : int.Parse(((PARAMETER)objUnit).CONDITION1);
+            int con2 = string.IsNullOrEmpty(((PARAMETER)objUnit).CONDITION2) ? 0 : int.Parse(((PARAMETER)objUnit).CONDITION2);
+
+            var qtyTotal = 0;
+            var flagPack = false;
+            int qty = 0;
+            qty = string.IsNullOrEmpty(txtQty.Text) ? 0 : int.Parse(txtQty.Text);
+
+            if (con1 > 0)
+            {
+                flagPack = true;
+            }
+
+            var calpack = (qty * con2);
+            if (con2 == 0)
+            {
+                calpack = (qty * con1);
+            }
+            if (con1 == 0)
+            {
+                calpack = 0;//(qty*con2);
+            }
+
+            var calitem = (qty * con1 * con2);
+            if (con2 == 0)
+            {
+                calitem = (qty * con1);
+            }
+            if (con1 == 0)
+            {
+                calitem = (qty * con2);
+            }
+
+            if (objName.Contains("ลัง") || objName.Contains("โหล"))
+            {
+                txtBoxBalance.Text = qty.ToString();
+                txtPackBalance.Text = calpack.ToString();
+
+                if (objName.Contains("โหล"))
+                {
+                    txtPackBalance.Text = "0";
+                }
+                txtItemBalance.Text = calitem.ToString();
+            }
+            else if (objName.Contains("แพ็ค") || objName.Contains("ถาด") || objName.Contains("กล่อง") || objName.Contains("ห่อ"))
+            {
+                txtPackBalance.Text = qty.ToString();
+                txtItemBalance.Text = calitem.ToString();
+
+            }
+            else
+            {
+
+                if (((PARAMETER)objUnit).MAJOR_CODE == "UNIT" && ((PARAMETER)objUnit).MINOR_CODE == "1016")
+                {
+                    txtItemBalance.Text = qty.ToString();
+                }
+                else
+                {
+                    txtItemBalance.Text = calitem.ToString();
+                }
+            }
         }
 
         ////private void txtAmount_KeyPress(object sender, KeyPressEventArgs e)
