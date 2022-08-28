@@ -66,7 +66,17 @@ namespace POS.Forms
             this.txtBoxBalance = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.dgvInv = new System.Windows.Forms.DataGridView();
+            this.PRODUCT_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.inv_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PRODUCT_CODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PRODUCT_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QTY = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PRODUCT_TYPE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AVGCOST = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RETAILPRICE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInv)).BeginInit();
             this.SuspendLayout();
             // 
             // label8
@@ -113,7 +123,7 @@ namespace POS.Forms
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(188, 520);
+            this.btnSave.Location = new System.Drawing.Point(106, 406);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(99, 50);
             this.btnSave.TabIndex = 45;
@@ -392,12 +402,101 @@ namespace POS.Forms
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(371, 520);
+            this.btnCancel.Location = new System.Drawing.Point(289, 406);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(99, 50);
             this.btnCancel.TabIndex = 69;
             this.btnCancel.Text = "ยกเลิก";
             this.btnCancel.UseVisualStyleBackColor = true;
+            // 
+            // dgvInv
+            // 
+            this.dgvInv.BackgroundColor = System.Drawing.Color.White;
+            this.dgvInv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvInv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.PRODUCT_ID,
+            this.inv_id,
+            this.PRODUCT_CODE,
+            this.PRODUCT_NAME,
+            this.QTY,
+            this.PRODUCT_TYPE,
+            this.AVGCOST,
+            this.RETAILPRICE});
+            this.dgvInv.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dgvInv.Location = new System.Drawing.Point(12, 576);
+            this.dgvInv.Name = "dgvInv";
+            this.dgvInv.RowHeadersWidth = 51;
+            this.dgvInv.RowTemplate.Height = 24;
+            this.dgvInv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvInv.Size = new System.Drawing.Size(1013, 202);
+            this.dgvInv.TabIndex = 70;
+            this.dgvInv.TabStop = false;
+            // 
+            // PRODUCT_ID
+            // 
+            this.PRODUCT_ID.DataPropertyName = "PRODUCT_ID";
+            this.PRODUCT_ID.HeaderText = "รหัส";
+            this.PRODUCT_ID.MinimumWidth = 6;
+            this.PRODUCT_ID.Name = "PRODUCT_ID";
+            this.PRODUCT_ID.Visible = false;
+            this.PRODUCT_ID.Width = 125;
+            // 
+            // inv_id
+            // 
+            this.inv_id.DataPropertyName = "INV_ID";
+            this.inv_id.HeaderText = "inv_id";
+            this.inv_id.MinimumWidth = 6;
+            this.inv_id.Name = "inv_id";
+            this.inv_id.Visible = false;
+            this.inv_id.Width = 125;
+            // 
+            // PRODUCT_CODE
+            // 
+            this.PRODUCT_CODE.DataPropertyName = "PRODUCT_CODE";
+            this.PRODUCT_CODE.HeaderText = "รหัส";
+            this.PRODUCT_CODE.MinimumWidth = 6;
+            this.PRODUCT_CODE.Name = "PRODUCT_CODE";
+            this.PRODUCT_CODE.Width = 125;
+            // 
+            // PRODUCT_NAME
+            // 
+            this.PRODUCT_NAME.DataPropertyName = "PRODUCT_NAME";
+            this.PRODUCT_NAME.HeaderText = "ชื่อสินค้า";
+            this.PRODUCT_NAME.MinimumWidth = 6;
+            this.PRODUCT_NAME.Name = "PRODUCT_NAME";
+            this.PRODUCT_NAME.Width = 125;
+            // 
+            // QTY
+            // 
+            this.QTY.DataPropertyName = "QTY";
+            this.QTY.HeaderText = "จำนวน";
+            this.QTY.MinimumWidth = 6;
+            this.QTY.Name = "QTY";
+            this.QTY.Width = 125;
+            // 
+            // PRODUCT_TYPE
+            // 
+            this.PRODUCT_TYPE.DataPropertyName = "PRODUCT_TYPE";
+            this.PRODUCT_TYPE.HeaderText = "ชนิดสินค้า";
+            this.PRODUCT_TYPE.MinimumWidth = 6;
+            this.PRODUCT_TYPE.Name = "PRODUCT_TYPE";
+            this.PRODUCT_TYPE.Width = 125;
+            // 
+            // AVGCOST
+            // 
+            this.AVGCOST.DataPropertyName = "AVGCOST";
+            this.AVGCOST.HeaderText = "ทุน(บาท)";
+            this.AVGCOST.MinimumWidth = 6;
+            this.AVGCOST.Name = "AVGCOST";
+            this.AVGCOST.Width = 125;
+            // 
+            // RETAILPRICE
+            // 
+            this.RETAILPRICE.DataPropertyName = "RETAILPRICE";
+            this.RETAILPRICE.HeaderText = "ราคาขาย(บาท)";
+            this.RETAILPRICE.MinimumWidth = 6;
+            this.RETAILPRICE.Name = "RETAILPRICE";
+            this.RETAILPRICE.Width = 125;
             // 
             // frmInv
             // 
@@ -405,6 +504,7 @@ namespace POS.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1056, 791);
+            this.Controls.Add(this.dgvInv);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.txtBoxprice);
@@ -442,6 +542,7 @@ namespace POS.Forms
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInv)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -485,5 +586,14 @@ namespace POS.Forms
         private System.Windows.Forms.TextBox txtBoxBalance;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnCancel;
+        internal System.Windows.Forms.DataGridView dgvInv;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PRODUCT_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn inv_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PRODUCT_CODE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PRODUCT_NAME;
+        private System.Windows.Forms.DataGridViewTextBoxColumn QTY;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PRODUCT_TYPE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AVGCOST;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RETAILPRICE;
     }
 }

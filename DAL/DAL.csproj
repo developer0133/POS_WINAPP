@@ -57,7 +57,9 @@
   <ItemGroup>
     <Compile Include="Category.cs" />
     <Compile Include="ICategory.cs" />
+    <Compile Include="IInv.cs" />
     <Compile Include="ILogin.cs" />
+    <Compile Include="Inv.cs" />
     <Compile Include="IParameter.cs" />
     <Compile Include="IProduct.cs" />
     <Compile Include="Login.cs" />
