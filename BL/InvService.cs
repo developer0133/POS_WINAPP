@@ -28,5 +28,14 @@ namespace BL
         {
             return _inv.UpdateInventory(InvData);
         }
+
+        public static List<InventoryDTO> GetAllInventory(string code)
+        {
+            return _inv.GetAllInventory(code);
+        }
+        public static List<INV_PRODUCTS> GetInventory(int id)
+        {
+            return _inv.GetInventory(id);
+        }
     }
 }

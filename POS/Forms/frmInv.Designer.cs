@@ -72,9 +72,10 @@ namespace POS.Forms
             this.PRODUCT_CODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PRODUCT_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.QTY = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PRODUCT_TYPE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AVGCOST = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RETAILPRICE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.STR_UNIT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.STR_AMOUNT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.STR_TOTAL_AMOUNT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.REMARK = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInv)).BeginInit();
             this.SuspendLayout();
@@ -419,9 +420,10 @@ namespace POS.Forms
             this.PRODUCT_CODE,
             this.PRODUCT_NAME,
             this.QTY,
-            this.PRODUCT_TYPE,
-            this.AVGCOST,
-            this.RETAILPRICE});
+            this.STR_UNIT,
+            this.STR_AMOUNT,
+            this.STR_TOTAL_AMOUNT,
+            this.REMARK});
             this.dgvInv.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvInv.Location = new System.Drawing.Point(12, 576);
             this.dgvInv.Name = "dgvInv";
@@ -431,6 +433,7 @@ namespace POS.Forms
             this.dgvInv.Size = new System.Drawing.Size(1013, 202);
             this.dgvInv.TabIndex = 70;
             this.dgvInv.TabStop = false;
+            this.dgvInv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInv_CellClick);
             // 
             // PRODUCT_ID
             // 
@@ -464,7 +467,7 @@ namespace POS.Forms
             this.PRODUCT_NAME.HeaderText = "ชื่อสินค้า";
             this.PRODUCT_NAME.MinimumWidth = 6;
             this.PRODUCT_NAME.Name = "PRODUCT_NAME";
-            this.PRODUCT_NAME.Width = 125;
+            this.PRODUCT_NAME.Width = 140;
             // 
             // QTY
             // 
@@ -474,29 +477,37 @@ namespace POS.Forms
             this.QTY.Name = "QTY";
             this.QTY.Width = 125;
             // 
-            // PRODUCT_TYPE
+            // STR_UNIT
             // 
-            this.PRODUCT_TYPE.DataPropertyName = "PRODUCT_TYPE";
-            this.PRODUCT_TYPE.HeaderText = "ชนิดสินค้า";
-            this.PRODUCT_TYPE.MinimumWidth = 6;
-            this.PRODUCT_TYPE.Name = "PRODUCT_TYPE";
-            this.PRODUCT_TYPE.Width = 125;
+            this.STR_UNIT.DataPropertyName = "STR_UNIT";
+            this.STR_UNIT.HeaderText = "หน่วย";
+            this.STR_UNIT.MinimumWidth = 6;
+            this.STR_UNIT.Name = "STR_UNIT";
+            this.STR_UNIT.Width = 125;
             // 
-            // AVGCOST
+            // STR_AMOUNT
             // 
-            this.AVGCOST.DataPropertyName = "AVGCOST";
-            this.AVGCOST.HeaderText = "ทุน(บาท)";
-            this.AVGCOST.MinimumWidth = 6;
-            this.AVGCOST.Name = "AVGCOST";
-            this.AVGCOST.Width = 125;
+            this.STR_AMOUNT.DataPropertyName = "STR_AMOUNT";
+            this.STR_AMOUNT.HeaderText = "Amount";
+            this.STR_AMOUNT.MinimumWidth = 6;
+            this.STR_AMOUNT.Name = "STR_AMOUNT";
+            this.STR_AMOUNT.Width = 125;
             // 
-            // RETAILPRICE
+            // STR_TOTAL_AMOUNT
             // 
-            this.RETAILPRICE.DataPropertyName = "RETAILPRICE";
-            this.RETAILPRICE.HeaderText = "ราคาขาย(บาท)";
-            this.RETAILPRICE.MinimumWidth = 6;
-            this.RETAILPRICE.Name = "RETAILPRICE";
-            this.RETAILPRICE.Width = 125;
+            this.STR_TOTAL_AMOUNT.DataPropertyName = "STR_TOTAL_AMOUNT";
+            this.STR_TOTAL_AMOUNT.HeaderText = "TotalAmount(THB)";
+            this.STR_TOTAL_AMOUNT.MinimumWidth = 6;
+            this.STR_TOTAL_AMOUNT.Name = "STR_TOTAL_AMOUNT";
+            this.STR_TOTAL_AMOUNT.Width = 135;
+            // 
+            // REMARK
+            // 
+            this.REMARK.DataPropertyName = "REMARK";
+            this.REMARK.HeaderText = "หมายเหตุ";
+            this.REMARK.MinimumWidth = 6;
+            this.REMARK.Name = "REMARK";
+            this.REMARK.Width = 140;
             // 
             // frmInv
             // 
@@ -592,8 +603,9 @@ namespace POS.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn PRODUCT_CODE;
         private System.Windows.Forms.DataGridViewTextBoxColumn PRODUCT_NAME;
         private System.Windows.Forms.DataGridViewTextBoxColumn QTY;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PRODUCT_TYPE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AVGCOST;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RETAILPRICE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn STR_UNIT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn STR_AMOUNT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn STR_TOTAL_AMOUNT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn REMARK;
     }
 }

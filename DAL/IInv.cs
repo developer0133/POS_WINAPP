@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DATA_EF;
+using DATA_Models.DTO;
 using DATA_Models.Models;
 
 namespace DAL
@@ -15,5 +16,6 @@ namespace DAL
         bool UpdateInventory(INV_PRODUCTS InvData);
 
         List<INV_PRODUCTS> GetInventory(int id);
+        List<InventoryDTO> GetAllInventory(string code);
     }
 }

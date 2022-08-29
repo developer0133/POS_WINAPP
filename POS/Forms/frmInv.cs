@@ -18,6 +18,9 @@ namespace POS.Forms
 {
     public partial class frmInv : Form
     {
+        List<InventoryDTO> dt = null;
+        InventoryDTO pModel = null;
+
         public frmInv()
         {
             InitializeComponent();
@@ -29,10 +32,9 @@ namespace POS.Forms
             invdate.CustomFormat = "MMMM dd, yyyy - dddd";
             invdate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
 
-            
-
             LoadTexboxComplete();
             GetUnit();
+            BindDGV();
         }
 
         void LoadTexboxComplete()
@@ -121,68 +123,72 @@ namespace POS.Forms
         private void PriceCaculate()
         {
             object objUnit = cboUnit.SelectedItem;
-            int con1 = string.IsNullOrEmpty(((PARAMETER)objUnit).CONDITION1) ? 0 : int.Parse(((PARAMETER)objUnit).CONDITION1);
-            int con2 = string.IsNullOrEmpty(((PARAMETER)objUnit).CONDITION2) ? 0 : int.Parse(((PARAMETER)objUnit).CONDITION2);
-            decimal amount = 0;
-            amount = string.IsNullOrEmpty(txtAmount.Text) ? 0 : decimal.Parse(txtAmount.Text);
 
-            int qtyTotal = 0;
-            int tmpQty = string.IsNullOrEmpty(txtQty.Text) ? 0 : int.Parse(txtQty.Text);
-            decimal packPrice = 0;
-            decimal itemPrice = 0;
-
-
-            if (con1 > 0 && con2 > 0)
+            if (objUnit != null)
             {
-                qtyTotal = con1 * con2;
+                int con1 = string.IsNullOrEmpty(((PARAMETER)objUnit).CONDITION1) ? 0 : int.Parse(((PARAMETER)objUnit).CONDITION1);
+                int con2 = string.IsNullOrEmpty(((PARAMETER)objUnit).CONDITION2) ? 0 : int.Parse(((PARAMETER)objUnit).CONDITION2);
+                decimal amount = 0;
+                amount = string.IsNullOrEmpty(txtAmount.Text) ? 0 : decimal.Parse(txtAmount.Text);
 
-                if (amount > 0 && tmpQty > 0)
-                {
-                    var calPack = (amount / con2) / (tmpQty);
-                    packPrice = calPack;
+                int qtyTotal = 0;
+                int tmpQty = string.IsNullOrEmpty(txtQty.Text) ? 0 : int.Parse(txtQty.Text);
+                decimal packPrice = 0;
+                decimal itemPrice = 0;
 
-                    var calItem = (amount / qtyTotal) / (tmpQty);
-                    itemPrice = calItem;
-                }
-            }
-            else
-            {
-                if (con1 == 0 && con2 > 0)
+
+                if (con1 > 0 && con2 > 0)
                 {
+                    qtyTotal = con1 * con2;
+
                     if (amount > 0 && tmpQty > 0)
                     {
-                        var calPack = (amount / tmpQty);
+                        var calPack = (amount / con2) / (tmpQty);
                         packPrice = calPack;
 
-                        var calItem = (amount) / (tmpQty * con2);
+                        var calItem = (amount / qtyTotal) / (tmpQty);
                         itemPrice = calItem;
                     }
-                       
                 }
                 else
                 {
-                    if (con1 > 0)
+                    if (con1 == 0 && con2 > 0)
                     {
-                        var qtyPack = tmpQty * con1;
-                        var calitem = (amount / qtyPack);
-                        var calpack = (amount / tmpQty);
+                        if (amount > 0 && tmpQty > 0)
+                        {
+                            var calPack = (amount / tmpQty);
+                            packPrice = calPack;
 
-                        packPrice = calitem;
-                        itemPrice = calpack;
+                            var calItem = (amount) / (tmpQty * con2);
+                            itemPrice = calItem;
+                        }
+
                     }
                     else
                     {
-                        var cal = (amount / tmpQty);
-                        packPrice = cal;
-                        itemPrice = cal;
+                        if (con1 > 0)
+                        {
+                            var qtyPack = tmpQty * con1;
+                            var calitem = (amount / qtyPack);
+                            var calpack = (amount / tmpQty);
+
+                            packPrice = calitem;
+                            itemPrice = calpack;
+                        }
+                        else
+                        {
+                            var cal = (amount / tmpQty);
+                            packPrice = cal;
+                            itemPrice = cal;
+                        }
                     }
                 }
+
+                txtCostAvgItem.Text = itemPrice.ToString("#,###.00");
+                txtCostAvgPack.Text = packPrice.ToString("#,###.00");
+
+                this.QtyBalance();
             }
-
-            txtCostAvgItem.Text = itemPrice.ToString("#,###.00");
-            txtCostAvgPack.Text = packPrice.ToString("#,###.00");
-
-            this.QtyBalance();
         }
 
 
@@ -352,6 +358,46 @@ namespace POS.Forms
         private void btnSave_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void BindDGV()
+        {
+            dt = new List<InventoryDTO>();
+            dt = InvService.GetAllInventory(string.Empty);
+            dgvInv.DataSource = dt;
+        }
+
+        private void dgvInv_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvInv.CurrentRow.Index != -1)
+            {
+                pModel = new InventoryDTO();
+                string code = dgvInv.CurrentRow.Cells["PRODUCT_CODE"].Value.ToString();
+                int invid = int.Parse(dgvInv.CurrentRow.Cells["INV_ID"].Value.ToString());
+
+                pModel = InvService.GetAllInventory(code).SingleOrDefault();
+
+                if (pModel != null)
+                {
+                    txtQty.Text = pModel.QTY.ToString();
+                    cboUnit.SelectedValue = pModel.UNIT;
+                    txtAmount.Text = pModel.AMOUNT.HasValue ? pModel.AMOUNT.Value.ToString() : string.Empty;
+                    txtCostAvgItem.Text = pModel.AVG_ITEM.HasValue ? pModel.AVG_ITEM.Value.ToString() : string.Empty;
+                    txtCostAvgPack.Text = pModel.AVG_PACK.HasValue ? pModel.AVG_PACK.Value.ToString() : string.Empty;
+                    txtRetailprice.Text = pModel.RETAILPRICE.HasValue ? pModel.RETAILPRICE.Value.ToString() : string.Empty;
+                    txtWholesaleprice.Text = pModel.WHOLESALEPRICE.HasValue ? pModel.WHOLESALEPRICE.Value.ToString() : string.Empty;
+                    txtBoxprice.Text = pModel.BOXPRICE.HasValue ? pModel.BOXPRICE.Value.ToString() : string.Empty;
+                    txtProfitRetail.Text=pModel.RETAILPROFIT.HasValue ? pModel.RETAILPROFIT.Value.ToString() : string.Empty;
+                    txtWholesaleprofit.Text = pModel.WHOLESALEPROFIT.HasValue ? pModel.WHOLESALEPROFIT.Value.ToString() : string.Empty;
+                    txtWholesalePriceItem.Text = pModel.WHOLESALEPRICE_ITEM.HasValue ? pModel.WHOLESALEPRICE_ITEM.Value.ToString() : string.Empty;
+
+                    txtBoxBalance.Text=pModel.BOX_BALANCE.HasValue ? pModel.BOX_BALANCE.Value.ToString() : string.Empty;
+                    txtPackBalance.Text = pModel.PACK_BALANCE.HasValue ? pModel.PACK_BALANCE.Value.ToString() : string.Empty;
+                    txtItemBalance.Text = pModel.ITEM_BALANCE.HasValue ? pModel.ITEM_BALANCE.Value.ToString() : string.Empty;
+                }
+
+                
+            }
         }
     }
 }
