@@ -191,7 +191,6 @@ namespace POS.Forms
             }
         }
 
-
         private void ProfitCalculate(string flag, decimal price, decimal cost)
         {
             decimal _cost = cost;
@@ -357,7 +356,20 @@ namespace POS.Forms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            INV_PRODUCTS obj = new INV_PRODUCTS();
+            bool isSuccess = false;
 
+            if (pModel != null && pModel.PRODUCT_ID > 0 && pModel.INV_ID > 0)
+            {
+                ////update
+                ///
+
+
+            }
+            else
+            {
+
+            }
         }
 
         private void BindDGV()
@@ -394,6 +406,8 @@ namespace POS.Forms
                     txtBoxBalance.Text=pModel.BOX_BALANCE.HasValue ? pModel.BOX_BALANCE.Value.ToString() : string.Empty;
                     txtPackBalance.Text = pModel.PACK_BALANCE.HasValue ? pModel.PACK_BALANCE.Value.ToString() : string.Empty;
                     txtItemBalance.Text = pModel.ITEM_BALANCE.HasValue ? pModel.ITEM_BALANCE.Value.ToString() : string.Empty;
+                    invdate.Value = pModel.ORDER_DATE.Value;
+                    txtProductName.Text = pModel.PRODUCT_NAME;
                 }
 
                 
