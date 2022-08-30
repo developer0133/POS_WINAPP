@@ -97,8 +97,6 @@ namespace POS.Forms
             {
                 e.Handled = true;
             }
-
-            
         }
 
         private void txtBoxprice_KeyPress(object sender, KeyPressEventArgs e)
@@ -364,7 +362,26 @@ namespace POS.Forms
                 ////update
                 ///
 
+                obj.PRODUCT_ID = pModel.PRODUCT_ID;
+                obj.QTY = string.IsNullOrEmpty(txtQty.Text) ? 0 : int.Parse(txtQty.Text);
+                obj.UNIT = cboUnit.SelectedValue.ToString();
+                obj.AMOUNT = string.IsNullOrEmpty(txtAmount.Text) ? 0 : decimal.Parse(txtAmount.Text);
+                obj.AVG_ITEM = string.IsNullOrEmpty(txtCostAvgItem.Text) ? 0 : decimal.Parse(txtCostAvgItem.Text);
+                obj.AVG_PACK = string.IsNullOrEmpty(txtCostAvgPack.Text) ? 0 : decimal.Parse(txtCostAvgPack.Text);
+                obj.RETAILPRICE = string.IsNullOrEmpty(txtRetailprice.Text) ? 0 : decimal.Parse(txtRetailprice.Text);
+                obj.WHOLESALEPRICE = string.IsNullOrEmpty(txtWholesaleprice.Text) ? 0 : decimal.Parse(txtWholesaleprice.Text);
+                obj.BOXPRICE = string.IsNullOrEmpty(txtBoxprice.Text) ? 0 : decimal.Parse(txtBoxprice.Text);
 
+                obj.RETAILPROFIT = string.IsNullOrEmpty(txtProfitRetail.Text) ? 0 : decimal.Parse(txtProfitRetail.Text);
+                obj.WHOLESALEPROFIT = string.IsNullOrEmpty(txtWholesaleprofit.Text) ? 0 : decimal.Parse(txtWholesaleprofit.Text);
+                obj.WHOLESALEPROFIT = string.IsNullOrEmpty(txtWholesaleprofit.Text) ? 0 : decimal.Parse(txtWholesaleprofit.Text);
+                obj.WHOLESALEPRICE_ITEM = string.IsNullOrEmpty(txtWholesalePriceItem.Text) ? 0 : decimal.Parse(txtWholesalePriceItem.Text);
+
+                obj.BOX_BALANCE = string.IsNullOrEmpty(txtBoxBalance.Text) ? 0 : int.Parse(txtBoxBalance.Text);
+                obj.PACK_BALANCE = string.IsNullOrEmpty(txtPackBalance.Text) ? 0 : int.Parse(txtPackBalance.Text);
+                obj.ITEM_BALANCE = string.IsNullOrEmpty(txtItemBalance.Text) ? 0 : int.Parse(txtItemBalance.Text);
+
+                obj.ORDER_DATE = invdate.Value;
             }
             else
             {
@@ -376,7 +393,21 @@ namespace POS.Forms
         {
             dt = new List<InventoryDTO>();
             dt = InvService.GetAllInventory(string.Empty);
-            dgvInv.DataSource = dt;
+
+            var tmp = (from a in InvService.GetAllInventory(string.Empty)
+                       select new
+                       {
+                           PRODUCT_CODE = a.PRODUCT_CODE,
+                           PRODUCT_NAME = a.PRODUCT_NAME,
+                           INV_ID = a.INV_ID,
+                           PRODUCT_ID = a.PRODUCT_ID,
+                           QTY = a.QTY,
+                           STR_UNIT = a.STR_UNIT,
+                           STR_AMOUNT = a.STR_AMOUNT,
+                           STR_TOTAL_AMOUNT = a.STR_TOTAL_AMOUNT,
+                           REMARK = a.REMARK
+                       }).ToList();
+            dgvInv.DataSource = tmp;
         }
 
         private void dgvInv_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -412,6 +443,11 @@ namespace POS.Forms
 
                 
             }
+        }
+
+        private void frmInv_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

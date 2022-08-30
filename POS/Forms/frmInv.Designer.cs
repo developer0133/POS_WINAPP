@@ -427,6 +427,7 @@ namespace POS.Forms
             this.dgvInv.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvInv.Location = new System.Drawing.Point(12, 576);
             this.dgvInv.Name = "dgvInv";
+            this.dgvInv.ReadOnly = true;
             this.dgvInv.RowHeadersWidth = 51;
             this.dgvInv.RowTemplate.Height = 24;
             this.dgvInv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -441,6 +442,7 @@ namespace POS.Forms
             this.PRODUCT_ID.HeaderText = "รหัส";
             this.PRODUCT_ID.MinimumWidth = 6;
             this.PRODUCT_ID.Name = "PRODUCT_ID";
+            this.PRODUCT_ID.ReadOnly = true;
             this.PRODUCT_ID.Visible = false;
             this.PRODUCT_ID.Width = 125;
             // 
@@ -450,6 +452,7 @@ namespace POS.Forms
             this.inv_id.HeaderText = "inv_id";
             this.inv_id.MinimumWidth = 6;
             this.inv_id.Name = "inv_id";
+            this.inv_id.ReadOnly = true;
             this.inv_id.Visible = false;
             this.inv_id.Width = 125;
             // 
@@ -459,6 +462,7 @@ namespace POS.Forms
             this.PRODUCT_CODE.HeaderText = "รหัส";
             this.PRODUCT_CODE.MinimumWidth = 6;
             this.PRODUCT_CODE.Name = "PRODUCT_CODE";
+            this.PRODUCT_CODE.ReadOnly = true;
             this.PRODUCT_CODE.Width = 125;
             // 
             // PRODUCT_NAME
@@ -467,6 +471,7 @@ namespace POS.Forms
             this.PRODUCT_NAME.HeaderText = "ชื่อสินค้า";
             this.PRODUCT_NAME.MinimumWidth = 6;
             this.PRODUCT_NAME.Name = "PRODUCT_NAME";
+            this.PRODUCT_NAME.ReadOnly = true;
             this.PRODUCT_NAME.Width = 140;
             // 
             // QTY
@@ -475,6 +480,7 @@ namespace POS.Forms
             this.QTY.HeaderText = "จำนวน";
             this.QTY.MinimumWidth = 6;
             this.QTY.Name = "QTY";
+            this.QTY.ReadOnly = true;
             this.QTY.Width = 125;
             // 
             // STR_UNIT
@@ -483,6 +489,7 @@ namespace POS.Forms
             this.STR_UNIT.HeaderText = "หน่วย";
             this.STR_UNIT.MinimumWidth = 6;
             this.STR_UNIT.Name = "STR_UNIT";
+            this.STR_UNIT.ReadOnly = true;
             this.STR_UNIT.Width = 125;
             // 
             // STR_AMOUNT
@@ -491,6 +498,7 @@ namespace POS.Forms
             this.STR_AMOUNT.HeaderText = "Amount";
             this.STR_AMOUNT.MinimumWidth = 6;
             this.STR_AMOUNT.Name = "STR_AMOUNT";
+            this.STR_AMOUNT.ReadOnly = true;
             this.STR_AMOUNT.Width = 125;
             // 
             // STR_TOTAL_AMOUNT
@@ -499,6 +507,7 @@ namespace POS.Forms
             this.STR_TOTAL_AMOUNT.HeaderText = "TotalAmount(THB)";
             this.STR_TOTAL_AMOUNT.MinimumWidth = 6;
             this.STR_TOTAL_AMOUNT.Name = "STR_TOTAL_AMOUNT";
+            this.STR_TOTAL_AMOUNT.ReadOnly = true;
             this.STR_TOTAL_AMOUNT.Width = 135;
             // 
             // REMARK
@@ -507,6 +516,7 @@ namespace POS.Forms
             this.REMARK.HeaderText = "หมายเหตุ";
             this.REMARK.MinimumWidth = 6;
             this.REMARK.Name = "REMARK";
+            this.REMARK.ReadOnly = true;
             this.REMARK.Width = 140;
             // 
             // frmInv
@@ -551,6 +561,7 @@ namespace POS.Forms
             this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "Product Service System";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frmInv_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInv)).EndInit();
