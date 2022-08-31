@@ -166,7 +166,7 @@ namespace POS.Forms
             this.cboUnit.Name = "cboUnit";
             this.cboUnit.Size = new System.Drawing.Size(200, 24);
             this.cboUnit.TabIndex = 49;
-            this.cboUnit.SelectedIndexChanged += new System.EventHandler(this.cboUnit_SelectedIndexChanged);
+            this.cboUnit.DropDownClosed += new System.EventHandler(this.cboUnit_DropDownClosed);
             // 
             // lblTotal
             // 
@@ -184,7 +184,7 @@ namespace POS.Forms
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.Size = new System.Drawing.Size(200, 22);
             this.txtAmount.TabIndex = 51;
-            this.txtAmount.TextChanged += new System.EventHandler(this.txtAmount_TextChanged);
+            this.txtAmount.Leave += new System.EventHandler(this.txtAmount_Leave);
             // 
             // lblCostAvg1
             // 
@@ -409,6 +409,7 @@ namespace POS.Forms
             this.btnCancel.TabIndex = 69;
             this.btnCancel.Text = "ยกเลิก";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // dgvInv
             // 

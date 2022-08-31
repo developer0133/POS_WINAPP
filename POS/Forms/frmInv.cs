@@ -66,6 +66,7 @@ namespace POS.Forms
         private void GetUnit()
         {
             var parm = ParameterService.GetParameter(PARAMETERCODE.UNIT);
+
             cboUnit.DisplayMember = "NAME";
             cboUnit.ValueMember = "MINOR_CODE";
             cboUnit.DataSource = parm;
@@ -113,10 +114,7 @@ namespace POS.Forms
             }
         }
 
-        private void cboUnit_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            this.PriceCaculate();
-        }
+
 
         private void PriceCaculate()
         {
@@ -347,45 +345,51 @@ namespace POS.Forms
             }
         }
 
-        private void txtAmount_TextChanged(object sender, EventArgs e)
-        {
-            this.PriceCaculate();
-        }
+        //private void txtAmount_TextChanged(object sender, EventArgs e)
+        //{
+        //    this.PriceCaculate();
+        //}
 
         private void btnSave_Click(object sender, EventArgs e)
         {
             INV_PRODUCTS obj = new INV_PRODUCTS();
             bool isSuccess = false;
 
+           
+            obj.QTY = string.IsNullOrEmpty(txtQty.Text) ? 0 : int.Parse(txtQty.Text);
+            obj.UNIT = cboUnit.SelectedValue.ToString();
+            obj.AMOUNT = string.IsNullOrEmpty(txtAmount.Text) ? 0 : decimal.Parse(txtAmount.Text);
+            obj.AVG_ITEM = string.IsNullOrEmpty(txtCostAvgItem.Text) ? 0 : decimal.Parse(txtCostAvgItem.Text);
+            obj.AVG_PACK = string.IsNullOrEmpty(txtCostAvgPack.Text) ? 0 : decimal.Parse(txtCostAvgPack.Text);
+            obj.RETAILPRICE = string.IsNullOrEmpty(txtRetailprice.Text) ? 0 : decimal.Parse(txtRetailprice.Text);
+            obj.WHOLESALEPRICE = string.IsNullOrEmpty(txtWholesaleprice.Text) ? 0 : decimal.Parse(txtWholesaleprice.Text);
+            obj.BOXPRICE = string.IsNullOrEmpty(txtBoxprice.Text) ? 0 : decimal.Parse(txtBoxprice.Text);
+
+            obj.RETAILPROFIT = string.IsNullOrEmpty(txtProfitRetail.Text) ? 0 : decimal.Parse(txtProfitRetail.Text);
+            obj.WHOLESALEPROFIT = string.IsNullOrEmpty(txtWholesaleprofit.Text) ? 0 : decimal.Parse(txtWholesaleprofit.Text);
+            obj.WHOLESALEPROFIT = string.IsNullOrEmpty(txtWholesaleprofit.Text) ? 0 : decimal.Parse(txtWholesaleprofit.Text);
+            obj.WHOLESALEPRICE_ITEM = string.IsNullOrEmpty(txtWholesalePriceItem.Text) ? 0 : decimal.Parse(txtWholesalePriceItem.Text);
+
+            obj.BOX_BALANCE = string.IsNullOrEmpty(txtBoxBalance.Text) ? 0 : int.Parse(txtBoxBalance.Text);
+            obj.PACK_BALANCE = string.IsNullOrEmpty(txtPackBalance.Text) ? 0 : int.Parse(txtPackBalance.Text);
+            obj.ITEM_BALANCE = string.IsNullOrEmpty(txtItemBalance.Text) ? 0 : int.Parse(txtItemBalance.Text);
+
+            obj.ORDER_DATE = invdate.Value;
+
             if (pModel != null && pModel.PRODUCT_ID > 0 && pModel.INV_ID > 0)
             {
-                ////update
-                ///
-
+                ////update 
                 obj.PRODUCT_ID = pModel.PRODUCT_ID;
-                obj.QTY = string.IsNullOrEmpty(txtQty.Text) ? 0 : int.Parse(txtQty.Text);
-                obj.UNIT = cboUnit.SelectedValue.ToString();
-                obj.AMOUNT = string.IsNullOrEmpty(txtAmount.Text) ? 0 : decimal.Parse(txtAmount.Text);
-                obj.AVG_ITEM = string.IsNullOrEmpty(txtCostAvgItem.Text) ? 0 : decimal.Parse(txtCostAvgItem.Text);
-                obj.AVG_PACK = string.IsNullOrEmpty(txtCostAvgPack.Text) ? 0 : decimal.Parse(txtCostAvgPack.Text);
-                obj.RETAILPRICE = string.IsNullOrEmpty(txtRetailprice.Text) ? 0 : decimal.Parse(txtRetailprice.Text);
-                obj.WHOLESALEPRICE = string.IsNullOrEmpty(txtWholesaleprice.Text) ? 0 : decimal.Parse(txtWholesaleprice.Text);
-                obj.BOXPRICE = string.IsNullOrEmpty(txtBoxprice.Text) ? 0 : decimal.Parse(txtBoxprice.Text);
-
-                obj.RETAILPROFIT = string.IsNullOrEmpty(txtProfitRetail.Text) ? 0 : decimal.Parse(txtProfitRetail.Text);
-                obj.WHOLESALEPROFIT = string.IsNullOrEmpty(txtWholesaleprofit.Text) ? 0 : decimal.Parse(txtWholesaleprofit.Text);
-                obj.WHOLESALEPROFIT = string.IsNullOrEmpty(txtWholesaleprofit.Text) ? 0 : decimal.Parse(txtWholesaleprofit.Text);
-                obj.WHOLESALEPRICE_ITEM = string.IsNullOrEmpty(txtWholesalePriceItem.Text) ? 0 : decimal.Parse(txtWholesalePriceItem.Text);
-
-                obj.BOX_BALANCE = string.IsNullOrEmpty(txtBoxBalance.Text) ? 0 : int.Parse(txtBoxBalance.Text);
-                obj.PACK_BALANCE = string.IsNullOrEmpty(txtPackBalance.Text) ? 0 : int.Parse(txtPackBalance.Text);
-                obj.ITEM_BALANCE = string.IsNullOrEmpty(txtItemBalance.Text) ? 0 : int.Parse(txtItemBalance.Text);
-
-                obj.ORDER_DATE = invdate.Value;
+                isSuccess = InvService.UpdateInventory(obj);
             }
             else
             {
+                isSuccess = InvService.InsertInventory(obj);
+            }
 
+            if(isSuccess)
+            {
+                MessageBox.Show("Completed", "POS");
             }
         }
 
@@ -440,14 +444,47 @@ namespace POS.Forms
                     invdate.Value = pModel.ORDER_DATE.Value;
                     txtProductName.Text = pModel.PRODUCT_NAME;
                 }
-
-                
             }
         }
 
         private void frmInv_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Clear();
+        }
+
+        private void Clear()
+        {
+            txtQty.Clear();
+            txtAmount.Clear();
+            txtCostAvgItem.Clear();
+            txtCostAvgPack.Clear();
+            txtRetailprice.Clear();
+            txtWholesaleprice.Clear();
+            txtBoxprice.Clear();
+            txtProfitRetail.Clear();
+            txtWholesaleprofit.Clear();
+            txtWholesalePriceItem.Clear();
+            txtBoxBalance.Clear();
+            txtPackBalance.Clear();
+            txtItemBalance.Clear();
+            txtProductName.Clear();
+
+            pModel = new InventoryDTO();
+        }
+
+        private void cboUnit_DropDownClosed(object sender, EventArgs e)
+        {
+            this.PriceCaculate();
+        }
+
+        private void txtAmount_Leave(object sender, EventArgs e)
+        {
+            this.PriceCaculate();
         }
     }
 }

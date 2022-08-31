@@ -246,8 +246,6 @@ namespace DAL
             POSSYSTEMEntities _db = new POSSYSTEMEntities();
             bool isSuccess = false;
 
-            _db.Entry(InvData).State = EntityState.Modified;
-
             try
             {
 
@@ -277,7 +275,8 @@ namespace DAL
 
                     }
 
-                    pds = _db.PRODUCTS.Where(w => w.PRODUCT_CODE.Contains(sp[0])).ToList();
+                    var sp1 = sp[0].Trim().ToString();
+                    pds = _db.PRODUCTS.Where(w => w.PRODUCT_CODE.Contains(sp1)).ToList();
 
                 }
                 else
@@ -326,7 +325,7 @@ namespace DAL
                             invpd.ITEM_BALANCE = InvData.ITEM_BALANCE;
                             invpd.ORDER_DATE = InvData.ORDER_DATE;
 
-             
+                            
                             _db.Entry(invpd).State = EntityState.Modified;
                         }
                         _db.Entry(objProdduct).State = EntityState.Modified;
