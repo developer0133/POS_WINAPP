@@ -68,10 +68,12 @@ namespace DAL
                 var objProdduct =  _db.PRODUCTS.Where(w => w.PRODUCT_ID == InvData.PRODUCT_ID).SingleOrDefault();
                 var masterUnit = _db.PARAMETER.Where(w => w.MAJOR_CODE == PARAMETERCODE.UNIT && (w.MINOR_CODE != "1003" && w.MINOR_CODE != "1012")).ToList();
                 var typeProduct = masterUnit.Where(w => w.MINOR_CODE == InvData.UNIT).FirstOrDefault();
-                var cateCode = _db.CATEGORY.Where(w => w.CATEGORY_ID == objProdduct.CATEGORY_ID).Select(s => s.CATE_CODE).FirstOrDefault();
+                var cateCode = "x";
 
                 if (objProdduct != null)
                 {
+                    cateCode = _db.CATEGORY.Where(w => w.CATEGORY_ID == objProdduct.CATEGORY_ID).Select(s => s.CATE_CODE).FirstOrDefault();
+
                     objProdduct.COSTPRICE = InvData.AMOUNT.Value;
                     objProdduct.QTY = InvData.QTY;
                     objProdduct.UNIT = InvData.UNIT;
@@ -331,7 +333,6 @@ namespace DAL
                         _db.Entry(objProdduct).State = EntityState.Modified;
                     }
                 }
-
                  _db.SaveChanges();
                 isSuccess = true;
             }

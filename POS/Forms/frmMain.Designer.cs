@@ -45,6 +45,7 @@ namespace POS.Forms
             this.btnMaster = new System.Windows.Forms.Button();
             this.btnProduct = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnSell = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -103,6 +104,7 @@ namespace POS.Forms
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.btnSell);
             this.splitContainer1.Panel1.Controls.Add(this.btnLogout);
             this.splitContainer1.Panel1.Controls.Add(this.btnReport);
             this.splitContainer1.Panel1.Controls.Add(this.btnOutOfStock);
@@ -116,14 +118,13 @@ namespace POS.Forms
             // 
             this.splitContainer1.Panel2.Controls.Add(this.label1);
             this.splitContainer1.Size = new System.Drawing.Size(233, 704);
-            this.splitContainer1.SplitterDistance = 448;
+            this.splitContainer1.SplitterDistance = 659;
             this.splitContainer1.SplitterWidth = 20;
             this.splitContainer1.TabIndex = 1;
             // 
             // btnLogout
             // 
-            this.btnLogout.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnLogout.Location = new System.Drawing.Point(0, 385);
+            this.btnLogout.Location = new System.Drawing.Point(1, 442);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(233, 55);
             this.btnLogout.TabIndex = 7;
@@ -133,8 +134,7 @@ namespace POS.Forms
             // 
             // btnReport
             // 
-            this.btnReport.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnReport.Location = new System.Drawing.Point(0, 330);
+            this.btnReport.Location = new System.Drawing.Point(0, 386);
             this.btnReport.Name = "btnReport";
             this.btnReport.Size = new System.Drawing.Size(233, 55);
             this.btnReport.TabIndex = 6;
@@ -143,8 +143,7 @@ namespace POS.Forms
             // 
             // btnOutOfStock
             // 
-            this.btnOutOfStock.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnOutOfStock.Location = new System.Drawing.Point(0, 275);
+            this.btnOutOfStock.Location = new System.Drawing.Point(0, 331);
             this.btnOutOfStock.Name = "btnOutOfStock";
             this.btnOutOfStock.Size = new System.Drawing.Size(233, 55);
             this.btnOutOfStock.TabIndex = 5;
@@ -153,7 +152,6 @@ namespace POS.Forms
             // 
             // btnProductIn
             // 
-            this.btnProductIn.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnProductIn.Location = new System.Drawing.Point(0, 220);
             this.btnProductIn.Name = "btnProductIn";
             this.btnProductIn.Size = new System.Drawing.Size(233, 55);
@@ -164,7 +162,6 @@ namespace POS.Forms
             // 
             // btnBarcode
             // 
-            this.btnBarcode.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnBarcode.Location = new System.Drawing.Point(0, 165);
             this.btnBarcode.Name = "btnBarcode";
             this.btnBarcode.Size = new System.Drawing.Size(233, 55);
@@ -175,7 +172,6 @@ namespace POS.Forms
             // 
             // btnCate
             // 
-            this.btnCate.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnCate.Location = new System.Drawing.Point(0, 110);
             this.btnCate.Name = "btnCate";
             this.btnCate.Size = new System.Drawing.Size(233, 55);
@@ -186,7 +182,6 @@ namespace POS.Forms
             // 
             // btnMaster
             // 
-            this.btnMaster.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnMaster.Location = new System.Drawing.Point(0, 55);
             this.btnMaster.Name = "btnMaster";
             this.btnMaster.Size = new System.Drawing.Size(233, 55);
@@ -197,7 +192,6 @@ namespace POS.Forms
             // 
             // btnProduct
             // 
-            this.btnProduct.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnProduct.Location = new System.Drawing.Point(0, 0);
             this.btnProduct.Name = "btnProduct";
             this.btnProduct.Size = new System.Drawing.Size(233, 55);
@@ -210,11 +204,21 @@ namespace POS.Forms
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label1.Location = new System.Drawing.Point(0, 219);
+            this.label1.Location = new System.Drawing.Point(0, 8);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(155, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "© Copy right 2022 KNN";
+            // 
+            // btnSell
+            // 
+            this.btnSell.Location = new System.Drawing.Point(0, 276);
+            this.btnSell.Name = "btnSell";
+            this.btnSell.Size = new System.Drawing.Size(233, 55);
+            this.btnSell.TabIndex = 8;
+            this.btnSell.Text = "ขาย";
+            this.btnSell.UseVisualStyleBackColor = true;
+            this.btnSell.Click += new System.EventHandler(this.btnSell_Click);
             // 
             // frmMain
             // 
@@ -259,5 +263,6 @@ namespace POS.Forms
         private System.Windows.Forms.Button btnReport;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnLogout;
+        private System.Windows.Forms.Button btnSell;
     }
 }

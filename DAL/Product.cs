@@ -247,7 +247,7 @@ namespace DAL
                         select new ProductAutoCompleteDTO
                         {
                             PRODUCT_ID = t.PRODUCT_ID,
-                            PRODUCT_NAME = t.PRODUCT_NAME + "<" + t.PRODUCT_CODE + ">",
+                            PRODUCT_NAME = t.PRODUCT_NAME + "-" + t.PRODUCT_CODE,
                             PRODUCT_CODE = t.PRODUCT_CODE,
                         }).ToList();
             }

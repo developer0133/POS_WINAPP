@@ -384,12 +384,19 @@ namespace POS.Forms
             }
             else
             {
+                var name = txtProductName.Text;
+                var sp = name.Split('-');
+                var pid = ProductService.GetProduct(sp[1]).Select(s=>s.PRODUCT_ID).FirstOrDefault();
+
+                obj.PRODUCT_ID = pid;
                 isSuccess = InvService.InsertInventory(obj);
             }
 
             if(isSuccess)
             {
                 MessageBox.Show("Completed", "POS");
+                BindDGV();
+                Clear();
             }
         }
 
