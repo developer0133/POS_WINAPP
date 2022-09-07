@@ -33,6 +33,16 @@ namespace POS.Forms
             this.label8 = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.txtBarcode = new System.Windows.Forms.TextBox();
+            this.dgvSell = new System.Windows.Forms.DataGridView();
+            this.PName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SellPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Retail = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSell)).BeginInit();
             this.SuspendLayout();
             // 
             // label8
@@ -60,18 +70,107 @@ namespace POS.Forms
             this.txtBarcode.Name = "txtBarcode";
             this.txtBarcode.Size = new System.Drawing.Size(186, 22);
             this.txtBarcode.TabIndex = 43;
+            this.txtBarcode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBarcode_KeyDown);
+            // 
+            // dgvSell
+            // 
+            this.dgvSell.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSell.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.PName,
+            this.Qty,
+            this.Unit,
+            this.SellPrice,
+            this.Discount,
+            this.Amount,
+            this.Retail});
+            this.dgvSell.Location = new System.Drawing.Point(20, 168);
+            this.dgvSell.Name = "dgvSell";
+            this.dgvSell.RowHeadersWidth = 51;
+            this.dgvSell.RowTemplate.Height = 24;
+            this.dgvSell.Size = new System.Drawing.Size(1038, 315);
+            this.dgvSell.TabIndex = 44;
+            this.dgvSell.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSell_CellValueChanged);
+            this.dgvSell.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvSell_EditingControlShowing);
+            // 
+            // PName
+            // 
+            this.PName.HeaderText = "ชื่อสินค้า";
+            this.PName.MinimumWidth = 6;
+            this.PName.Name = "PName";
+            this.PName.ReadOnly = true;
+            this.PName.Width = 125;
+            // 
+            // Qty
+            // 
+            this.Qty.HeaderText = "จำนวน";
+            this.Qty.MinimumWidth = 6;
+            this.Qty.Name = "Qty";
+            this.Qty.Width = 125;
+            // 
+            // Unit
+            // 
+            this.Unit.HeaderText = "หน่วย";
+            this.Unit.MinimumWidth = 6;
+            this.Unit.Name = "Unit";
+            this.Unit.ReadOnly = true;
+            this.Unit.Width = 125;
+            // 
+            // SellPrice
+            // 
+            this.SellPrice.HeaderText = "ราคา";
+            this.SellPrice.MinimumWidth = 6;
+            this.SellPrice.Name = "SellPrice";
+            this.SellPrice.ReadOnly = true;
+            this.SellPrice.Width = 125;
+            // 
+            // Discount
+            // 
+            this.Discount.HeaderText = "ส่วนลด(THB)";
+            this.Discount.MinimumWidth = 6;
+            this.Discount.Name = "Discount";
+            this.Discount.Width = 125;
+            // 
+            // Amount
+            // 
+            this.Amount.HeaderText = "รวม";
+            this.Amount.MinimumWidth = 6;
+            this.Amount.Name = "Amount";
+            this.Amount.ReadOnly = true;
+            this.Amount.Width = 125;
+            // 
+            // Retail
+            // 
+            this.Retail.HeaderText = "ขายส่ง";
+            this.Retail.MinimumWidth = 6;
+            this.Retail.Name = "Retail";
+            this.Retail.Width = 125;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(323, 69);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 45;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // frmSell
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1056, 791);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(1056, 854);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.dgvSell);
             this.Controls.Add(this.txtBarcode);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.label8);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmSell";
             this.Text = "Product System Service";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSell)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -82,5 +181,14 @@ namespace POS.Forms
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.TextBox txtBarcode;
+        private System.Windows.Forms.DataGridView dgvSell;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Qty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Unit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SellPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Discount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Retail;
     }
 }

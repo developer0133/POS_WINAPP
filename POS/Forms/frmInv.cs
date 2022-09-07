@@ -320,14 +320,14 @@ namespace POS.Forms
             }
         }
 
-        ////private void txtAmount_KeyPress(object sender, KeyPressEventArgs e)
-        ////{
-        ////    //
-        ////    if (e.KeyCode == Keys.Enter)
-        ////    {
-        ////        MessageBox.Show("You pressed enter! Good job!");
-        ////    }
-        ////}
+        //private void txtAmount_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    //
+        //    if (e.KeyCode == Keys.Enter)
+        //    {
+        //        MessageBox.Show("You pressed enter! Good job!");
+        //    }
+        //}
 
         private void txtWholesaleprice_TextChanged(object sender, EventArgs e)
         {
