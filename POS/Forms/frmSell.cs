@@ -63,32 +63,14 @@ namespace POS.Forms
                 rw.Cells[3].Style.BackColor = Color.DarkGray;
             }
 
-
-           
+            dgvSell.Rows[dgvSell.Rows.Count - 1].Cells[4].Style.Font = new Font("Microsoft Sans Serif", 12f, FontStyle.Bold);
+            dgvSell.Rows[dgvSell.Rows.Count - 1].Cells[4].Value = "รวมทั้งสิ้น";
+        
         }
+    }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
 
-            var test211 = dgvSell.CurrentRow.Cells["Qty"].Value;
-
-            //DataGridViewRow row = (DataGridViewRow)dgvSell.Rows[0].Clone();
-            ////row.Cells[0].Value =+1;
-            //row.Cells[1].Value = 50.2;
-            //dgvSell.Rows.Add(row);
-
-            ////DataGridViewButtonColumn btnColumn = new DataGridViewButtonColumn();
-            ////btnColumn.HeaderText = "";
-            ////btnColumn.Width = 60;
-            ////btnColumn.Name = "btndelete";
-            ////btnColumn.Text = "ลบ";
-            ////btnColumn.HeaderText = "ลบ";
-            ////btnColumn.UseColumnTextForButtonValue = true;
-            ////dgvSell.Columns.Insert(8, btnColumn);
-
-            //foreach (DataGridViewRow rw in dgvSell.Rows)
-            //    rw.HeaderCell.Value = (rw.Index + 1).ToString();
-        }
+}
 
         //private void dgvSell_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         //{
@@ -134,23 +116,6 @@ namespace POS.Forms
         }
 
 
-        void CalFn(int rowIndex)
-        {
-            if (obj != null)
-            {
-                if (dgvSell.CurrentRow.Index != -1)
-                {
-                    var _disc = Convert.ToInt32(dgvSell.CurrentRow.Cells["Discount"].Value);
-                    var test2 = dgvSell.CurrentRow.Cells["Qty"].Value;
-                }
-                 
-                //var _sellprice = value.current_Sellprice;
-                //var _amt = value.sellprice;////value.amount; 
-                //var currSalePrice = value.current_Sellprice;
-
-            }
-        }
-
         private void dgvSell_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvSell.CurrentRow != null)
@@ -163,7 +128,7 @@ namespace POS.Forms
                         this.AmountCalculate();
                     }
                 }
-            }
+            } 
         }
 
         private void AmountCalculate()
@@ -173,15 +138,21 @@ namespace POS.Forms
             decimal sum = 0;
             decimal disc = 0;
 
-
-
             disc = dgvSell.CurrentRow.Cells["Discount"].Value == null ? 0 : decimal.Parse(dgvSell.CurrentRow.Cells["Discount"].Value.ToString());
-            qty = decimal.Parse(dgvSell.CurrentRow.Cells["Qty"].Value.ToString());
-            price = decimal.Parse(dgvSell.CurrentRow.Cells["SellPrice"].Value.ToString());
+            qty = dgvSell.CurrentRow.Cells["Qty"].Value == null ? 0 : decimal.Parse(dgvSell.CurrentRow.Cells["Qty"].Value.ToString());
+            price = dgvSell.CurrentRow.Cells["SellPrice"].Value == null ? 0 : decimal.Parse(dgvSell.CurrentRow.Cells["SellPrice"].Value.ToString());
 
             sum = (price * qty) - (disc);
 
             dgvSell.CurrentRow.Cells[5].Value = sum.ToString();
+
+            decimal total = 0;
+            for (int j = 0; j < dgvSell.Rows.Count - 1; j++)
+            {
+                total += decimal.Parse(dgvSell.Rows[j].Cells[5].Value.ToString());
+            }
+
+            dgvSell.Rows[dgvSell.Rows.Count - 1].Cells[5].Value = total;
         }
     }
 }

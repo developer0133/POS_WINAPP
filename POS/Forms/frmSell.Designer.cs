@@ -41,7 +41,6 @@ namespace POS.Forms
             this.Discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Retail = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSell)).BeginInit();
             this.SuspendLayout();
             // 
@@ -145,23 +144,12 @@ namespace POS.Forms
             this.Retail.Name = "Retail";
             this.Retail.Width = 125;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(323, 69);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 45;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // frmSell
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1056, 854);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(1056, 875);
             this.Controls.Add(this.dgvSell);
             this.Controls.Add(this.txtBarcode);
             this.Controls.Add(this.lblName);
@@ -182,7 +170,6 @@ namespace POS.Forms
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.TextBox txtBarcode;
         private System.Windows.Forms.DataGridView dgvSell;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridViewTextBoxColumn PName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Qty;
         private System.Windows.Forms.DataGridViewTextBoxColumn Unit;
