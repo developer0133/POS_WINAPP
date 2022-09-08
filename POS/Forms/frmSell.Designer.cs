@@ -41,6 +41,9 @@ namespace POS.Forms
             this.Discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Retail = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.PRODUCT_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PRODUCT_CODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnClear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSell)).BeginInit();
             this.SuspendLayout();
             // 
@@ -81,7 +84,9 @@ namespace POS.Forms
             this.SellPrice,
             this.Discount,
             this.Amount,
-            this.Retail});
+            this.Retail,
+            this.PRODUCT_ID,
+            this.PRODUCT_CODE});
             this.dgvSell.Location = new System.Drawing.Point(20, 168);
             this.dgvSell.Name = "dgvSell";
             this.dgvSell.RowHeadersWidth = 51;
@@ -131,7 +136,7 @@ namespace POS.Forms
             // 
             // Amount
             // 
-            this.Amount.HeaderText = "รวม";
+            this.Amount.HeaderText = "รวม(THB)";
             this.Amount.MinimumWidth = 6;
             this.Amount.Name = "Amount";
             this.Amount.ReadOnly = true;
@@ -144,12 +149,39 @@ namespace POS.Forms
             this.Retail.Name = "Retail";
             this.Retail.Width = 125;
             // 
+            // PRODUCT_ID
+            // 
+            this.PRODUCT_ID.HeaderText = "PRODUCT_ID";
+            this.PRODUCT_ID.MinimumWidth = 6;
+            this.PRODUCT_ID.Name = "PRODUCT_ID";
+            this.PRODUCT_ID.Visible = false;
+            this.PRODUCT_ID.Width = 125;
+            // 
+            // PRODUCT_CODE
+            // 
+            this.PRODUCT_CODE.HeaderText = "PRODUCT_CODE";
+            this.PRODUCT_CODE.MinimumWidth = 6;
+            this.PRODUCT_CODE.Name = "PRODUCT_CODE";
+            this.PRODUCT_CODE.Visible = false;
+            this.PRODUCT_CODE.Width = 125;
+            // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(187, 115);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(94, 36);
+            this.btnClear.TabIndex = 45;
+            this.btnClear.Text = "ยกเลิก";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
             // frmSell
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1056, 875);
+            this.Controls.Add(this.btnClear);
             this.Controls.Add(this.dgvSell);
             this.Controls.Add(this.txtBarcode);
             this.Controls.Add(this.lblName);
@@ -177,5 +209,8 @@ namespace POS.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn Discount;
         private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Retail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PRODUCT_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PRODUCT_CODE;
+        private System.Windows.Forms.Button btnClear;
     }
 }

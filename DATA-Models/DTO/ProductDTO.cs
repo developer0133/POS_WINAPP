@@ -16,7 +16,7 @@ namespace DATA_Models.DTO
         public string STRCOSTPRICE { get; set; }
         public string STRSELLPRICE { get; set; }
 
-        public decimal SELLPRICE { get; set; }
+        public decimal? SELLPRICE { get; set; }
         public string PICTURE { get; set; }
         public string REMARK { get; set; }
         public DateTime? ORDER_DATE { get; set; }

@@ -15,7 +15,7 @@ namespace POS.Forms
     public partial class frmSell : Form
     {
         ProductDTO obj = new ProductDTO();
-
+        List<string> pcode = new List<string>();
         public frmSell()
         {
             InitializeComponent();
@@ -30,7 +30,7 @@ namespace POS.Forms
             btnColumn.UseColumnTextForButtonValue = true;
             dgvSell.Columns.Insert(7, btnColumn);
 
-           // dgvSell.CellValueChanged += new DataGridViewCellEventHandler(dgvSell_CellValueChanged);
+            // dgvSell.CellValueChanged += new DataGridViewCellEventHandler(dgvSell_CellValueChanged);
         }
 
         private void txtBarcode_KeyDown(object sender, KeyEventArgs e)
@@ -38,39 +38,49 @@ namespace POS.Forms
             if (e.KeyCode == Keys.Enter)
             {
                 this.PushDataGV();
+                this.txtBarcode.Clear();
             }
         }
 
         void PushDataGV()
         {
             string code = txtBarcode.Text;
-          
+
             obj = ProductService.GetProduct(code).SingleOrDefault();
 
             if (obj != null)
             {
+                var strUnit = InvService.SRTUNIT(obj.PRODUCT_ID);
+
                 DataGridViewRow row = (DataGridViewRow)dgvSell.Rows[0].Clone();
                 row.Cells[0].Value = obj.PRODUCT_NAME;
-                row.Cells[2].Value = obj.STRUNIT;
-                row.Cells[3].Value = obj.RETAILPRICE;//obj.STRSELLPRICE;
+                //row.Cells[1].Value = 1;
+                row.Cells[2].Value = strUnit;
+                row.Cells[3].Value = obj.SELLPRICE;//obj.STRSELLPRICE;
 
-                dgvSell.Rows.Add(row);
+                pcode.Add(obj.PRODUCT_CODE);
+
+                if (pcode.Where(w => w == code).Count() > 1)
+                {
+                    MessageBox.Show("ข้อมูลซ้ำ", "POS");
+                }
+                else
+                {
+                    dgvSell.Rows.Add(row);
+                    foreach (DataGridViewRow rw in dgvSell.Rows)
+                    {
+                        rw.HeaderCell.Value = (rw.Index + 1).ToString();
+                        rw.Cells[3].Style.BackColor = Color.DarkGray;
+                    }
+                }
             }
-
-            foreach (DataGridViewRow rw in dgvSell.Rows)
-            {
-                rw.HeaderCell.Value = (rw.Index + 1).ToString();
-                rw.Cells[3].Style.BackColor = Color.DarkGray;
-            }
-
+  
+            //dgvSell.Rows[dgvSell.Rows.Count - 1].DefaultCellStyle.BackColor = Color.Red;
+            //dgvSell.Rows[dgvSell.Rows.Count - 1].DefaultCellStyle.SelectionBackColor = Color.Red;
             dgvSell.Rows[dgvSell.Rows.Count - 1].Cells[4].Style.Font = new Font("Microsoft Sans Serif", 12f, FontStyle.Bold);
             dgvSell.Rows[dgvSell.Rows.Count - 1].Cells[4].Value = "รวมทั้งสิ้น";
-        
+
         }
-    }
-
-
-}
 
         //private void dgvSell_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         //{
@@ -115,7 +125,6 @@ namespace POS.Forms
             }
         }
 
-
         private void dgvSell_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvSell.CurrentRow != null)
@@ -128,7 +137,7 @@ namespace POS.Forms
                         this.AmountCalculate();
                     }
                 }
-            } 
+            }
         }
 
         private void AmountCalculate()
@@ -149,10 +158,21 @@ namespace POS.Forms
             decimal total = 0;
             for (int j = 0; j < dgvSell.Rows.Count - 1; j++)
             {
-                total += decimal.Parse(dgvSell.Rows[j].Cells[5].Value.ToString());
+                if (dgvSell.Rows[j].Cells[5].Value != null)
+                {
+                    total += decimal.Parse(dgvSell.Rows[j].Cells[5].Value.ToString());
+                }
             }
 
             dgvSell.Rows[dgvSell.Rows.Count - 1].Cells[5].Value = total;
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            this.txtBarcode.Clear();
+            this.dgvSell.Rows.Clear();
+            pcode = new List<string>();
+            obj = new ProductDTO();
         }
     }
 }

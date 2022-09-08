@@ -17,5 +17,7 @@ namespace DAL
 
         List<INV_PRODUCTS> GetInventory(int id);
         List<InventoryDTO> GetAllInventory(string code);
+
+        string SRTUNIT(int pid);
     }
 }

@@ -357,6 +357,24 @@ namespace DAL
             }
         }
 
+        public string SRTUNIT(int pid)
+        {
+            POSSYSTEMEntities _db = new POSSYSTEMEntities();
+            string strunit = string.Empty;
+
+            var qry = (from t in _db.INV_PRODUCTS
+                       join t2 in _db.PARAMETER.Where(w => w.MAJOR_CODE == POSPARAMETER.UNIT && w.STATUS == STATUS.ACTIVE) on t.UNIT equals t2.MINOR_CODE
+                       where t.PRODUCT_ID == pid
+                       select new
+                       {
+                           STRUNIT = t2.NAME
+                       }).FirstOrDefault();
+
+            strunit = qry.STRUNIT;
+
+            return strunit;
+        }
+
         public List<InventoryDTO> GetAllInventory(string code)
         {
             POSSYSTEMEntities _db = new POSSYSTEMEntities();

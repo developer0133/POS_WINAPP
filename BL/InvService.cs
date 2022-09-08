@@ -37,5 +37,10 @@ namespace BL
         {
             return _inv.GetInventory(id);
         }
+
+        public static string SRTUNIT(int pid)
+        {
+            return _inv.SRTUNIT(pid);
+        }
     }
 }

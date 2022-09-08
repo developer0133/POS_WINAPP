@@ -39,7 +39,7 @@ namespace DAL
                                        REMARK = t.REMARK,
                                        PRODUCT_TYPE = t1.NAME,
                                        PRODUCT_SIZE = t2.NAME,
-                                       //SELLPRICE = t.SELLPRICE,
+                                       SELLPRICE = t.SELLPRICE,
                                        CATEGORYNAME = t3.CATEGORY_NAME,
                                        STATUS = t.STATUS,
                                        CATEGORY_ID = t.CATEGORY_ID,
