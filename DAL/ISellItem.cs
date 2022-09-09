@@ -1,0 +1,20 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using DATA_EF;
+using DAL.Utils;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
+using DATA_Models.DTO;
+
+
+namespace DAL
+{
+    public interface ISellItem
+    {
+        string InsertSellItem(List<SELLITEMS> sellitem);
+        List<SellsItemDTO> GetSellItem(int id);
+    }
+}

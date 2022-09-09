@@ -54,6 +54,7 @@ namespace POS.Forms
 
                 DataGridViewRow row = (DataGridViewRow)dgvSell.Rows[0].Clone();
                 row.Cells[0].Value = obj.PRODUCT_NAME;
+                row.Cells[8].Value = obj.PRODUCT_CODE;//obj.STRSELLPRICE;
                 //row.Cells[1].Value = 1;
                 row.Cells[2].Value = strUnit;
                 row.Cells[3].Value = obj.SELLPRICE;//obj.STRSELLPRICE;
@@ -164,7 +165,7 @@ namespace POS.Forms
                 }
             }
 
-            dgvSell.Rows[dgvSell.Rows.Count - 1].Cells[5].Value = total;
+            dgvSell.Rows[dgvSell.Rows.Count - 1].Cells[5].Value = total.ToString("#,###.00");
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -173,6 +174,30 @@ namespace POS.Forms
             this.dgvSell.Rows.Clear();
             pcode = new List<string>();
             obj = new ProductDTO();
+        }
+
+
+        private void dgvSell_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1 && e.ColumnIndex > -1)
+            {
+                var dd = pcode;
+                DataGridViewRow row = dgvSell.Rows[e.RowIndex];
+                if (MessageBox.Show(string.Format("ต้องการลบหรือไม่ ?", ""), "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    if (dgvSell.Rows[e.RowIndex].Cells["PRODUCT_CODE"].Value != null)
+                    {
+                        var code = dgvSell.Rows[e.RowIndex].Cells["PRODUCT_CODE"].Value.ToString();
+
+                        pcode.Remove(code);
+                        dgvSell.Rows.RemoveAt(row.Index);
+
+                        AmountCalculate();
+                    }
+                   
+                }
+
+            }
         }
     }
 }

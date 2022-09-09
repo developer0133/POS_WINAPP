@@ -34,6 +34,7 @@ namespace POS.Forms
             this.lblName = new System.Windows.Forms.Label();
             this.txtBarcode = new System.Windows.Forms.TextBox();
             this.dgvSell = new System.Windows.Forms.DataGridView();
+            this.btnClear = new System.Windows.Forms.Button();
             this.PName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,9 +42,8 @@ namespace POS.Forms
             this.Discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Retail = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.PRODUCT_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PRODUCT_CODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnClear = new System.Windows.Forms.Button();
+            this.PRODUCT_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSell)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,16 +85,27 @@ namespace POS.Forms
             this.Discount,
             this.Amount,
             this.Retail,
-            this.PRODUCT_ID,
-            this.PRODUCT_CODE});
+            this.PRODUCT_CODE,
+            this.PRODUCT_ID});
             this.dgvSell.Location = new System.Drawing.Point(20, 168);
             this.dgvSell.Name = "dgvSell";
             this.dgvSell.RowHeadersWidth = 51;
             this.dgvSell.RowTemplate.Height = 24;
             this.dgvSell.Size = new System.Drawing.Size(1038, 315);
             this.dgvSell.TabIndex = 44;
+            this.dgvSell.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSell_CellDoubleClick);
             this.dgvSell.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSell_CellValueChanged);
             this.dgvSell.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvSell_EditingControlShowing);
+            // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(187, 115);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(94, 36);
+            this.btnClear.TabIndex = 45;
+            this.btnClear.Text = "ยกเลิก";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // PName
             // 
@@ -149,6 +160,15 @@ namespace POS.Forms
             this.Retail.Name = "Retail";
             this.Retail.Width = 125;
             // 
+            // PRODUCT_CODE
+            // 
+            this.PRODUCT_CODE.DataPropertyName = "PRODUCT_CODE";
+            this.PRODUCT_CODE.HeaderText = "รหัส";
+            this.PRODUCT_CODE.MinimumWidth = 6;
+            this.PRODUCT_CODE.Name = "PRODUCT_CODE";
+            this.PRODUCT_CODE.Visible = false;
+            this.PRODUCT_CODE.Width = 125;
+            // 
             // PRODUCT_ID
             // 
             this.PRODUCT_ID.HeaderText = "PRODUCT_ID";
@@ -156,24 +176,6 @@ namespace POS.Forms
             this.PRODUCT_ID.Name = "PRODUCT_ID";
             this.PRODUCT_ID.Visible = false;
             this.PRODUCT_ID.Width = 125;
-            // 
-            // PRODUCT_CODE
-            // 
-            this.PRODUCT_CODE.HeaderText = "PRODUCT_CODE";
-            this.PRODUCT_CODE.MinimumWidth = 6;
-            this.PRODUCT_CODE.Name = "PRODUCT_CODE";
-            this.PRODUCT_CODE.Visible = false;
-            this.PRODUCT_CODE.Width = 125;
-            // 
-            // btnClear
-            // 
-            this.btnClear.Location = new System.Drawing.Point(187, 115);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(94, 36);
-            this.btnClear.TabIndex = 45;
-            this.btnClear.Text = "ยกเลิก";
-            this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // frmSell
             // 
@@ -202,6 +204,7 @@ namespace POS.Forms
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.TextBox txtBarcode;
         private System.Windows.Forms.DataGridView dgvSell;
+        private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.DataGridViewTextBoxColumn PName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Qty;
         private System.Windows.Forms.DataGridViewTextBoxColumn Unit;
@@ -209,8 +212,7 @@ namespace POS.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn Discount;
         private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Retail;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PRODUCT_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn PRODUCT_CODE;
-        private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PRODUCT_ID;
     }
 }
