@@ -35,6 +35,7 @@ namespace POS.Forms
             this.txtBarcode = new System.Windows.Forms.TextBox();
             this.dgvSell = new System.Windows.Forms.DataGridView();
             this.btnClear = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.PName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,6 +45,7 @@ namespace POS.Forms
             this.Retail = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.PRODUCT_CODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PRODUCT_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UNIT_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSell)).BeginInit();
             this.SuspendLayout();
             // 
@@ -86,7 +88,8 @@ namespace POS.Forms
             this.Amount,
             this.Retail,
             this.PRODUCT_CODE,
-            this.PRODUCT_ID});
+            this.PRODUCT_ID,
+            this.UNIT_ID});
             this.dgvSell.Location = new System.Drawing.Point(20, 168);
             this.dgvSell.Name = "dgvSell";
             this.dgvSell.RowHeadersWidth = 51;
@@ -99,13 +102,23 @@ namespace POS.Forms
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(187, 115);
+            this.btnClear.Location = new System.Drawing.Point(888, 46);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(94, 36);
+            this.btnClear.Size = new System.Drawing.Size(128, 83);
             this.btnClear.TabIndex = 45;
             this.btnClear.Text = "ยกเลิก";
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(681, 46);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(131, 83);
+            this.btnSave.TabIndex = 46;
+            this.btnSave.Text = "บันทึก";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // PName
             // 
@@ -171,11 +184,20 @@ namespace POS.Forms
             // 
             // PRODUCT_ID
             // 
+            this.PRODUCT_ID.DataPropertyName = "PRODUCT_ID";
             this.PRODUCT_ID.HeaderText = "PRODUCT_ID";
             this.PRODUCT_ID.MinimumWidth = 6;
             this.PRODUCT_ID.Name = "PRODUCT_ID";
             this.PRODUCT_ID.Visible = false;
             this.PRODUCT_ID.Width = 125;
+            // 
+            // UNIT_ID
+            // 
+            this.UNIT_ID.DataPropertyName = "UNIT_ID";
+            this.UNIT_ID.HeaderText = "UNIT_ID";
+            this.UNIT_ID.MinimumWidth = 6;
+            this.UNIT_ID.Name = "UNIT_ID";
+            this.UNIT_ID.Width = 125;
             // 
             // frmSell
             // 
@@ -183,6 +205,7 @@ namespace POS.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1056, 875);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.dgvSell);
             this.Controls.Add(this.txtBarcode);
@@ -205,6 +228,7 @@ namespace POS.Forms
         private System.Windows.Forms.TextBox txtBarcode;
         private System.Windows.Forms.DataGridView dgvSell;
         private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.DataGridViewTextBoxColumn PName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Qty;
         private System.Windows.Forms.DataGridViewTextBoxColumn Unit;
@@ -214,5 +238,6 @@ namespace POS.Forms
         private System.Windows.Forms.DataGridViewCheckBoxColumn Retail;
         private System.Windows.Forms.DataGridViewTextBoxColumn PRODUCT_CODE;
         private System.Windows.Forms.DataGridViewTextBoxColumn PRODUCT_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UNIT_ID;
     }
 }

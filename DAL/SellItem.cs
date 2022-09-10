@@ -269,12 +269,89 @@ namespace DAL
             }
             finally
             {
+                _db.Dispose();
             }
 
             return retsellNo;
         }
 
-        public List<SellsItemDTO> GetSellItem(int id)
+        public List<SellHistDTO> GetSellItem(int productid)
+        {
+            List<SellHistDTO> reprotData = null;
+            POSSYSTEMEntities _db = new POSSYSTEMEntities();
+            try
+            {
+                using (var scope = new TransactionScope(TransactionScopeOption.Required,
+                          new TransactionOptions { IsolationLevel = IsolationLevel.ReadUncommitted }))
+                {
+                    var qry = (from t1 in _db.SELLITEMS.Where(w => w.PRODUCT_ID == productid)
+                               join t2 in _db.PRODUCTS on t1.PRODUCT_ID equals t2.PRODUCT_ID
+                               join t3 in _db.PARAMETER.Where(w => w.MAJOR_CODE == POSPARAMETER.UNIT && w.STATUS == STATUS.ACTIVE) on t2.UNIT equals t3.MINOR_CODE into c1
+                               from t4 in c1.DefaultIfEmpty()
+                               select new //SellsItemDTO
+                               {
+                                   PRODUCT_CODE = t1.PRODUCT_CODE,
+                                   //PRODUCT_NAME = t2.PRODUCT_NAME,
+                                   Qty = t1.QTY,
+                                   //UNIT = t1.UNIT,
+                                   AMOUNT = t1.AMOUNT,
+                                   DISCOUNT = t1.DISCOUNT,
+                                   SELL_DATE = t1.C_DATE,
+                                   SELLITEM_NO = t1.SELLITEM_NO,
+                                   STR_UNIT = t4.NAME
+                               }).AsQueryable();
+
+                    var test = qry.AsEnumerable().Select((s, index) => new 
+                    {
+                        PRODUCT_CODE = s.PRODUCT_CODE,
+                        //PRODUCT_NAME = s.PRODUCT_NAME,
+                        Qty = s.Qty,
+                        AMOUNT = s.AMOUNT,
+                        //UNIT = s.UNIT,
+                        //SELL_DATE = s.SELL_DATE,
+                        DISCOUNT = s.DISCOUNT,
+                        SUM_TOTAL_AMOUNT = string.Format("{0} {1}", s.AMOUNT, ""),
+                        STR_SELL_DATE = s.SELL_DATE.Value.ToString("dd/MM/yyyy", clsFunction.formatThai),
+                        SELLITEM_NO = s.SELLITEM_NO,
+                        STR_UNIT = s.STR_UNIT
+                    }).ToList();
+
+
+                    reprotData = test.GroupBy(x => new { x.STR_SELL_DATE, x.PRODUCT_CODE })
+                        .Select((s, index) => new SellHistDTO
+                        {
+                            PRODUCT_CODE = s.First().PRODUCT_CODE,
+                            //PRODUCT_NAME = s.First().PRODUCT_NAME,
+                            Qty = s.Sum(a => a.Qty),
+                            AMOUNT = s.Sum(a => a.AMOUNT),
+                            //SELLPRICE = s.First().SELLPRICE,
+                            DISCOUNT = s.Sum(a => a.DISCOUNT),
+                            STR_SELL_DATE = s.First().STR_SELL_DATE,
+                            //UNIT = s.First().UNIT,
+                            //SUM_TOTAL_AMOUNT = string.Format("{0} {1}", s.Sum(a => a.AMOUNT), ""),
+                            SELLITEM_NO = s.First().SELLITEM_NO,
+                            STR_UNIT = s.First().STR_UNIT
+                        }).OrderBy(a => a.STR_SELL_DATE).ToList();
+
+                    scope.Complete();
+                    _db.Dispose();
+                }
+
+                if (reprotData == null)
+                {
+                    reprotData = new List<SellHistDTO>();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+            return reprotData;
+        }
+
+
+        public List<SellsItemDTO> GetSellItemRpt(int productid)
         {
             List<SellsItemDTO> reprotData = null;
             POSSYSTEMEntities _db = new POSSYSTEMEntities();
@@ -283,16 +360,16 @@ namespace DAL
                 using (var scope = new TransactionScope(TransactionScopeOption.Required,
                           new TransactionOptions { IsolationLevel = IsolationLevel.ReadUncommitted }))
                 {
-                    var qry = (from t1 in _db.SELLITEMS.Where(w => w.PRODUCT_ID == id)
+                    var qry = (from t1 in _db.SELLITEMS.Where(w => w.PRODUCT_ID == productid)
                                join t2 in _db.PRODUCTS on t1.PRODUCT_ID equals t2.PRODUCT_ID
                                join t3 in _db.PARAMETER.Where(w => w.MAJOR_CODE == POSPARAMETER.UNIT && w.STATUS == STATUS.ACTIVE) on t2.UNIT equals t3.MINOR_CODE into c1
                                from t4 in c1.DefaultIfEmpty()
                                select new SellsItemDTO
                                {
                                    PRODUCT_CODE = t1.PRODUCT_CODE,
-                                   PRODUCT_NAME = t2.PRODUCT_NAME,
+                                   //PRODUCT_NAME = t2.PRODUCT_NAME,
                                    Qty = t1.QTY,
-                                   UNIT = t1.UNIT,
+                                   //UNIT = t1.UNIT,
                                    AMOUNT = t1.AMOUNT,
                                    DISCOUNT = t1.DISCOUNT,
                                    SELL_DATE = t1.C_DATE,
@@ -303,10 +380,10 @@ namespace DAL
                     reprotData = (List<SellsItemDTO>)qry.AsEnumerable().Select((s, index) => new SellsItemDTO
                     {
                         PRODUCT_CODE = s.PRODUCT_CODE,
-                        PRODUCT_NAME = s.PRODUCT_NAME,
+                       //PRODUCT_NAME = s.PRODUCT_NAME,
                         Qty = s.Qty,
                         AMOUNT = s.AMOUNT,
-                        UNIT = s.UNIT,
+                        //UNIT = s.UNIT,
                         SELL_DATE = s.SELL_DATE,
                         DISCOUNT = s.DISCOUNT,
                         //SUM_TOTAL_AMOUNT = string.Format("{0} {1}", s.AMOUNT, ""),
@@ -327,12 +404,13 @@ namespace DAL
                             DISCOUNT = s.Sum(a => a.DISCOUNT),
                             STR_SELL_DATE = s.First().STR_SELL_DATE,
                             UNIT = s.First().UNIT,
-                            SUM_TOTAL_AMOUNT = string.Format("{0} {1}", s.Sum(a => a.AMOUNT), ""),
+                            //SUM_TOTAL_AMOUNT = string.Format("{0} {1}", s.Sum(a => a.AMOUNT), ""),
                             SELLITEM_NO = s.First().SELLITEM_NO,
                             STR_UNIT = s.First().STR_UNIT
                         }).OrderBy(a => a.STR_SELL_DATE).ToList();
 
                     scope.Complete();
+                    _db.Dispose();
                 }
 
                 if (reprotData == null)

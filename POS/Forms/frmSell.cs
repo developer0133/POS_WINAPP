@@ -9,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DATA_EF;
+using DAL.Utils;
 
 namespace POS.Forms
 {
@@ -58,6 +60,8 @@ namespace POS.Forms
                 //row.Cells[1].Value = 1;
                 row.Cells[2].Value = strUnit;
                 row.Cells[3].Value = obj.SELLPRICE;//obj.STRSELLPRICE;
+                row.Cells[9].Value = obj.PRODUCT_ID;
+                row.Cells[10].Value = obj.UNIT_ID;
 
                 pcode.Add(obj.PRODUCT_CODE);
 
@@ -197,6 +201,33 @@ namespace POS.Forms
                    
                 }
 
+            }
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            List<SELLITEMS> sellData = new List<SELLITEMS>();
+
+            for (int i = 0; i < dgvSell.Rows.Count - 1; i++)
+            {
+                sellData.Add(new SELLITEMS()
+                {
+                    PRODUCT_CODE = dgvSell.Rows[i].Cells["PRODUCT_CODE"].Value.ToString(),
+                    QTY = dgvSell.Rows[i].Cells["Qty"].Value == null ? 0 : int.Parse(dgvSell.Rows[i].Cells["Qty"].Value.ToString()),
+                    AMOUNT = dgvSell.Rows[i].Cells["Amount"].Value == null ? 0 : decimal.Parse(dgvSell.Rows[i].Cells["Amount"].Value.ToString()),
+                    DISCOUNT = dgvSell.Rows[i].Cells["Discount"].Value == null ? 0 : int.Parse(dgvSell.Rows[i].Cells["Discount"].Value.ToString()),
+                    PRODUCT_ID = dgvSell.Rows[i].Cells["PRODUCT_ID"].Value == null ? 0 : int.Parse(dgvSell.Rows[i].Cells["PRODUCT_ID"].Value.ToString()),
+                    SELL_PRICE = dgvSell.Rows[i].Cells["SellPrice"].Value == null ? 0 : decimal.Parse(dgvSell.Rows[i].Cells["SellPrice"].Value.ToString()),
+                    UNIT = dgvSell.Rows[i].Cells["UNIT_ID"].Value.ToString(),
+                    
+                });
+            }
+
+            var isSuccess = SellItemService.InsertSellItem(sellData);
+
+            if (!string.IsNullOrEmpty(isSuccess))
+            {
+                MessageBox.Show("Completed", "POS");
             }
         }
     }

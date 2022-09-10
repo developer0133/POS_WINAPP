@@ -64,8 +64,19 @@ namespace POS.Forms
             this.btnFirst = new System.Windows.Forms.Button();
             this.lblPage = new System.Windows.Forms.Label();
             this.btnNext = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dgvSellHist = new System.Windows.Forms.DataGridView();
+            this.SELLITEM_NO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.STR_SELL_DATE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PRODUCTCODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.STR_UNIT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AMOUNT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DISCOUNT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grbGeneral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSellHist)).BeginInit();
             this.SuspendLayout();
             // 
             // grbGeneral
@@ -397,7 +408,7 @@ namespace POS.Forms
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label8.Location = new System.Drawing.Point(27, -13);
+            this.label8.Location = new System.Drawing.Point(27, 7);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(100, 25);
             this.label8.TabIndex = 39;
@@ -432,12 +443,97 @@ namespace POS.Forms
             this.btnNext.UseVisualStyleBackColor = true;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.dgvSellHist);
+            this.groupBox1.Location = new System.Drawing.Point(619, 50);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(761, 388);
+            this.groupBox1.TabIndex = 44;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "ประวัติการขาย";
+            // 
+            // dgvSellHist
+            // 
+            this.dgvSellHist.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSellHist.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.SELLITEM_NO,
+            this.STR_SELL_DATE,
+            this.Qty,
+            this.PRODUCTCODE,
+            this.STR_UNIT,
+            this.AMOUNT,
+            this.DISCOUNT});
+            this.dgvSellHist.Location = new System.Drawing.Point(19, 42);
+            this.dgvSellHist.Name = "dgvSellHist";
+            this.dgvSellHist.RowHeadersWidth = 51;
+            this.dgvSellHist.RowTemplate.Height = 24;
+            this.dgvSellHist.Size = new System.Drawing.Size(725, 340);
+            this.dgvSellHist.TabIndex = 0;
+            // 
+            // SELLITEM_NO
+            // 
+            this.SELLITEM_NO.DataPropertyName = "SELLITEM_NO";
+            this.SELLITEM_NO.HeaderText = "เลขที่การขาย";
+            this.SELLITEM_NO.MinimumWidth = 6;
+            this.SELLITEM_NO.Name = "SELLITEM_NO";
+            this.SELLITEM_NO.Width = 125;
+            // 
+            // STR_SELL_DATE
+            // 
+            this.STR_SELL_DATE.DataPropertyName = "STR_SELL_DATE";
+            this.STR_SELL_DATE.HeaderText = "วันที่";
+            this.STR_SELL_DATE.MinimumWidth = 6;
+            this.STR_SELL_DATE.Name = "STR_SELL_DATE";
+            this.STR_SELL_DATE.Width = 125;
+            // 
+            // Qty
+            // 
+            this.Qty.DataPropertyName = "Qty";
+            this.Qty.HeaderText = "จำนวน";
+            this.Qty.MinimumWidth = 6;
+            this.Qty.Name = "Qty";
+            this.Qty.Width = 125;
+            // 
+            // PRODUCTCODE
+            // 
+            this.PRODUCTCODE.DataPropertyName = "PRODUCT_CODE";
+            this.PRODUCTCODE.HeaderText = "รหัสสินค้า";
+            this.PRODUCTCODE.MinimumWidth = 6;
+            this.PRODUCTCODE.Name = "PRODUCTCODE";
+            this.PRODUCTCODE.Width = 125;
+            // 
+            // STR_UNIT
+            // 
+            this.STR_UNIT.DataPropertyName = "STR_UNIT";
+            this.STR_UNIT.HeaderText = "หน่วย";
+            this.STR_UNIT.MinimumWidth = 6;
+            this.STR_UNIT.Name = "STR_UNIT";
+            this.STR_UNIT.Width = 125;
+            // 
+            // AMOUNT
+            // 
+            this.AMOUNT.DataPropertyName = "AMOUNT";
+            this.AMOUNT.HeaderText = "ราคารวม(บาท)";
+            this.AMOUNT.MinimumWidth = 6;
+            this.AMOUNT.Name = "AMOUNT";
+            this.AMOUNT.Width = 125;
+            // 
+            // DISCOUNT
+            // 
+            this.DISCOUNT.DataPropertyName = "DISCOUNT";
+            this.DISCOUNT.HeaderText = "ส่วนลด([บาท)";
+            this.DISCOUNT.MinimumWidth = 6;
+            this.DISCOUNT.Name = "DISCOUNT";
+            this.DISCOUNT.Width = 125;
+            // 
             // frmProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1056, 791);
+            this.ClientSize = new System.Drawing.Size(1418, 791);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnFirst);
             this.Controls.Add(this.lblPage);
             this.Controls.Add(this.btnNext);
@@ -453,6 +549,8 @@ namespace POS.Forms
             this.grbGeneral.ResumeLayout(false);
             this.grbGeneral.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSellHist)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -494,5 +592,14 @@ namespace POS.Forms
         private System.Windows.Forms.Button btnFirst;
         private System.Windows.Forms.Label lblPage;
         private System.Windows.Forms.Button btnNext;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.DataGridView dgvSellHist;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SELLITEM_NO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn STR_SELL_DATE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Qty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PRODUCTCODE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn STR_UNIT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AMOUNT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DISCOUNT;
     }
 }

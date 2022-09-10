@@ -36,4 +36,18 @@ namespace DATA_Models.DTO
 
         public decimal? SELL_PRICE { get; set; }
     }
+
+    public class SellHistDTO
+    {
+        public string PRODUCT_CODE { get; set; }
+        public string SELLITEM_NO { get; set; }
+        public string STR_SELL_DATE { get; set; }
+        public int? Qty { get; set; }
+        public string STR_UNIT { get; set; }
+        //public string SUM_TOTAL_AMOUNT { get; set; }
+        public decimal? AMOUNT { get; set; }
+        public decimal? DISCOUNT { get; set; }
+        //public DateTime? SELL_DATE { get; set; }
+    }
+
 }

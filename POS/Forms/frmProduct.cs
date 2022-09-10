@@ -210,7 +210,14 @@ namespace POS.Forms
 
                 cboType.SelectedValue = pModel.PRODUCT_TYPE_ID;
                 cboCategory.SelectedValue = pModel.CATEGORY_ID;
+
+                this.GetSellHistory(pModel.PRODUCT_ID);
             }
+        }
+
+        void GetSellHistory(int ProductID)
+        {
+            dgvSellHist.DataSource = SellItemService.GetSellItem(ProductID);
         }
 
         private void dgvProduct_CellContentClick(object sender, DataGridViewCellEventArgs e)
