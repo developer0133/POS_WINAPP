@@ -58,4 +58,10 @@ namespace DATA_Models.Models
         public List<ReportModel> Details { get; set; }
         public List<ReportResultModel> Result { get; set; }
     }
+    public class GenReportModel
+    {
+        public string filename { get; set; }
+        public string code { get; set; }
+        public string printby { get; set; }
+    }
 }

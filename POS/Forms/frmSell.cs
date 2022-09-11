@@ -13,6 +13,7 @@ using DATA_EF;
 using DAL.Utils;
 using POS.Utils;
 using System.IO;
+using DATA_Models.Models;
 
 namespace POS.Forms
 {
@@ -33,6 +34,8 @@ namespace POS.Forms
             btnColumn.HeaderText = "ลบ";
             btnColumn.UseColumnTextForButtonValue = true;
             dgvSell.Columns.Insert(7, btnColumn);
+
+            btnReport.Enabled = false;
 
             // dgvSell.CellValueChanged += new DataGridViewCellEventHandler(dgvSell_CellValueChanged);
         }
@@ -228,41 +231,43 @@ namespace POS.Forms
                 if (!string.IsNullOrEmpty(isSuccess))
                 {
                     MessageBox.Show("Completed", "POS");
+                    btnReport.Enabled = true;
                 }
             }
             else
             {
+                btnReport.Enabled = false;
                 MessageBox.Show("ไม่มีรายการสินค้า", "POS");
             } 
         }
 
         private void btnReport_Click(object sender, EventArgs e)
         {
-
+            
         }
 
-        void PrintReport(string SellNo)
+        void PrintReport(GenReportModel OReport)
         {
-            //string genRpt = System.IO.Directory.GetCurrentDirectory();
-            //genRpt = string.Format("{0}/{1}", genRpt, POS_PATH.GEN_REPORT);
-            //DAL.Utils.clsFunction.MakePath(genRpt);
+            string genRpt = System.IO.Directory.GetCurrentDirectory();
+            genRpt = string.Format("{0}/{1}", genRpt, POS_PATH.GEN_REPORT);
+            DAL.Utils.clsFunction.MakePath(genRpt);
 
-            //var rptPath = string.Format("{0}/{1}{2}", POS_PATH.REPORTS, REPORT_NAME.SELL_REPORT2, ".rdlc");
-            //var savePath = string.Format("{0}/{1}{2}", POS_PATH.GEN_REPORT, SellNo, ".pdf");
+            var rptPath = string.Format("{0}/{1}{2}", POS_PATH.REPORTS, REPORT_NAME.SELL_REPORT2, ".rdlc");
+            var savePath = string.Format("{0}/{1}{2}", POS_PATH.GEN_REPORT, OReport.code, ".pdf");
 
-            //var path = Path.Combine(Directory.GetCurrentDirectory(), rptPath);
-            //var save = Path.Combine(Directory.GetCurrentDirectory(), savePath);
+            var path = Path.Combine(Directory.GetCurrentDirectory(), rptPath);
+            var save = Path.Combine(Directory.GetCurrentDirectory(), savePath);
 
-            //var rptData = _report.SellItemReport(data.code);
-            //decimal? sumAmount = rptData.Sum(s => s.Amount);
-            //string strsSumAmount = sumAmount.HasValue ? string.Format("{0} {1}", Utils.clsFunction.setFormatCurrency(sumAmount), "บาท") : string.Empty;
+            var rptData = ReportService.SellItemReport(OReport.code);
+            decimal? sumAmount = rptData.Sum(s => s.Amount);
+            string strsSumAmount = sumAmount.HasValue ? string.Format("{0} {1}", Utils.clsFunction.setFormatCurrency(sumAmount), "บาท") : string.Empty;
 
-            //Dictionary<string, string> parameters = new Dictionary<string, string>();
-            //parameters.Add("printby", data.printby);
-            //parameters.Add("total", strsSumAmount);
-            //parameters.Add("cdate", Utils.clsFunction.setFormatDateWithTime(rptData.First().cdate, true));
-            //parameters.Add("date", Utils.clsFunction.setFormatDateWithTime(Utils.clsFunction.GetDate(), true));
-            //parameters.Add("no", data.code);
+            Dictionary<string, string> parameters = new Dictionary<string, string>();
+            parameters.Add("printby", OReport.printby);
+            parameters.Add("total", strsSumAmount);
+            parameters.Add("cdate", Utils.clsFunction.setFormatDateWithTime(rptData.First().cdate, true));
+            parameters.Add("date", Utils.clsFunction.setFormatDateWithTime(Utils.clsFunction.GetDate(), true));
+            parameters.Add("no", OReport.code);
 
         }
     }
