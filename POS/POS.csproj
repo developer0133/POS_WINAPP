@@ -219,6 +219,12 @@
     <Compile Include="Forms\frmProduct.Designer.cs">
       <DependentUpon>frmProduct.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmReport.Designer.cs">
+      <DependentUpon>frmReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmSell.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -256,6 +262,9 @@
     <EmbeddedResource Include="Forms\frmProduct.resx">
       <DependentUpon>frmProduct.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmReport.resx">
+      <DependentUpon>frmReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmSell.resx">
       <DependentUpon>frmSell.cs</DependentUpon>
     </EmbeddedResource>
@@ -272,6 +281,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reports\SellReport.rdlc" />
+    <EmbeddedResource Include="Reports\SellReport2.rdlc" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -309,6 +320,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="images\print.ico" />
     <None Include="images\login.ico" />
     <None Include="images\cancel.ico" />
     <None Include="images\download.ico" />

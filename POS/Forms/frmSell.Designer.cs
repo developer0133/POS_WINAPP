@@ -46,6 +46,7 @@ namespace POS.Forms
             this.UNIT_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
+            this.btnReport = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSell)).BeginInit();
             this.SuspendLayout();
             // 
@@ -205,12 +206,25 @@ namespace POS.Forms
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
+            // btnReport
+            // 
+            this.btnReport.Image = global::POS.Properties.Resources.print;
+            this.btnReport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReport.Location = new System.Drawing.Point(888, 540);
+            this.btnReport.Name = "btnReport";
+            this.btnReport.Size = new System.Drawing.Size(130, 56);
+            this.btnReport.TabIndex = 47;
+            this.btnReport.Text = "          รายงาน";
+            this.btnReport.UseVisualStyleBackColor = true;
+            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
+            // 
             // frmSell
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1056, 896);
+            this.Controls.Add(this.btnReport);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.dgvSell);
@@ -245,5 +259,6 @@ namespace POS.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn PRODUCT_CODE;
         private System.Windows.Forms.DataGridViewTextBoxColumn PRODUCT_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn UNIT_ID;
+        private System.Windows.Forms.Button btnReport;
     }
 }

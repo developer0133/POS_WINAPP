@@ -39,4 +39,18 @@ namespace POS.Utils
 
     }
 
+    public sealed class POS_PATH
+    {
+        public POS_PATH() { }
+        public const string REPORTS = "Reports";
+        public const string GEN_REPORT = "GenReports";
+    }
+
+    public sealed class REPORT_NAME
+    {
+        public REPORT_NAME() { }
+        public const string SELL_REPORT = "sell_report";
+        public const string SELL_REPORT2 = "sell_report2";
+    }
+
 }

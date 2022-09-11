@@ -86,6 +86,8 @@ namespace POS.Forms
             BindCboCategory();
             BindType();
             BindSize();
+
+            btnReport.Enabled = false;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -217,7 +219,28 @@ namespace POS.Forms
 
         void GetSellHistory(int ProductID)
         {
-            dgvSellHist.DataSource = SellItemService.GetSellItem(ProductID);
+            dgvSellHist.DataSource = null;
+            var sellData = SellItemService.GetSellItem(ProductID);
+            dgvSellHist.DataSource = sellData;
+
+            if (sellData.Count() > 0)
+            {
+                btnReport.Enabled = true;
+            }
+            else
+            {
+                btnReport.Enabled = false;
+            }
+
+            //DataGridViewButtonColumn btnColumn = new DataGridViewButtonColumn();
+            //btnColumn.HeaderText = "";
+            //btnColumn.Width = 60;
+            //btnColumn.Name = "btndelete";
+            //btnColumn.Text = "ลบ";
+            //btnColumn.HeaderText = "ลบ";
+            //btnColumn.UseColumnTextForButtonValue = true;
+            //dgvSellHist.Columns.Insert(7, btnColumn);
+
         }
 
         private void dgvProduct_CellContentClick(object sender, DataGridViewCellEventArgs e)

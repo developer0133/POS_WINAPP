@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DATA_EF;
 using DAL.Utils;
+using POS.Utils;
+using System.IO;
 
 namespace POS.Forms
 {
@@ -232,6 +234,36 @@ namespace POS.Forms
             {
                 MessageBox.Show("ไม่มีรายการสินค้า", "POS");
             } 
+        }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        void PrintReport(string SellNo)
+        {
+            //string genRpt = System.IO.Directory.GetCurrentDirectory();
+            //genRpt = string.Format("{0}/{1}", genRpt, POS_PATH.GEN_REPORT);
+            //DAL.Utils.clsFunction.MakePath(genRpt);
+
+            //var rptPath = string.Format("{0}/{1}{2}", POS_PATH.REPORTS, REPORT_NAME.SELL_REPORT2, ".rdlc");
+            //var savePath = string.Format("{0}/{1}{2}", POS_PATH.GEN_REPORT, SellNo, ".pdf");
+
+            //var path = Path.Combine(Directory.GetCurrentDirectory(), rptPath);
+            //var save = Path.Combine(Directory.GetCurrentDirectory(), savePath);
+
+            //var rptData = _report.SellItemReport(data.code);
+            //decimal? sumAmount = rptData.Sum(s => s.Amount);
+            //string strsSumAmount = sumAmount.HasValue ? string.Format("{0} {1}", Utils.clsFunction.setFormatCurrency(sumAmount), "บาท") : string.Empty;
+
+            //Dictionary<string, string> parameters = new Dictionary<string, string>();
+            //parameters.Add("printby", data.printby);
+            //parameters.Add("total", strsSumAmount);
+            //parameters.Add("cdate", Utils.clsFunction.setFormatDateWithTime(rptData.First().cdate, true));
+            //parameters.Add("date", Utils.clsFunction.setFormatDateWithTime(Utils.clsFunction.GetDate(), true));
+            //parameters.Add("no", data.code);
+
         }
     }
 }

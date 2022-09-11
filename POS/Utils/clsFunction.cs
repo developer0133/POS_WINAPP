@@ -97,5 +97,45 @@ namespace POS.Utils
         {
             dgv.ColumnHeadersDefaultCellStyle.Font = new Font("Tahoma", 9.75F, FontStyle.Bold);
         }
+
+
+        public static string setFormatCurrency(decimal? dDec)
+        {
+            string strDec = "0.00";
+            if (dDec.HasValue)
+            {
+                strDec = dDec.Value.ToString("#,##0.00");
+            }
+
+            return strDec;
+        }
+
+        public static System.IFormatProvider formatThai = new System.Globalization.CultureInfo("th-TH");
+        public static string setFormatDate(DateTime? Date)
+        {
+            string strDate = string.Empty;
+            if (Date.HasValue)
+            {
+                strDate = Date.Value.ToString("dd/MM/yyyy");
+            }
+
+            return strDate;
+        }
+        public static string setFormatDateWithTime(DateTime? Date, bool IsThai)
+        {
+            string strDate = string.Empty;
+            if (Date.HasValue)
+            {
+                if (IsThai)
+                    strDate = Date.Value.ToString("dd/MM/yyyy HH:mm:ss", formatThai);
+                else
+                {
+                    strDate = Date.Value.ToString("dd/MM/yyyy HH:mm:ss");
+
+                }
+            }
+
+            return strDate;
+        }
     }
 }
