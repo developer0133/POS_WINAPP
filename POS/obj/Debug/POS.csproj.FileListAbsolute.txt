@@ -323,3 +323,4 @@ D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS\bin\Debug\zh-Hant\Micro
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS\obj\Debug\POS.csproj.CopyComplete
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS\obj\Debug\POS.exe
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS\obj\Debug\POS.pdb
+D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS\obj\Debug\POS.Forms.frmOutOfStock.resources

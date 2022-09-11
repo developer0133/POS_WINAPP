@@ -35,5 +35,10 @@ namespace BL
         {
             return _product.GetProductAutoComplete();
         }
+
+        public static List<ProductOutOfStockDTO> GetOutOfStock()
+        {
+            return _product.GetOutOfStock();
+        }
     }
 }

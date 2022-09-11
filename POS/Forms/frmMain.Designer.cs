@@ -36,6 +36,7 @@ namespace POS.Forms
             this.จดการผใชToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.btnSell = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.btnReport = new System.Windows.Forms.Button();
             this.btnOutOfStock = new System.Windows.Forms.Button();
@@ -45,7 +46,6 @@ namespace POS.Forms
             this.btnMaster = new System.Windows.Forms.Button();
             this.btnProduct = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnSell = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -122,6 +122,16 @@ namespace POS.Forms
             this.splitContainer1.SplitterWidth = 20;
             this.splitContainer1.TabIndex = 1;
             // 
+            // btnSell
+            // 
+            this.btnSell.Location = new System.Drawing.Point(0, 276);
+            this.btnSell.Name = "btnSell";
+            this.btnSell.Size = new System.Drawing.Size(233, 55);
+            this.btnSell.TabIndex = 8;
+            this.btnSell.Text = "ขาย";
+            this.btnSell.UseVisualStyleBackColor = true;
+            this.btnSell.Click += new System.EventHandler(this.btnSell_Click);
+            // 
             // btnLogout
             // 
             this.btnLogout.Location = new System.Drawing.Point(1, 442);
@@ -149,6 +159,7 @@ namespace POS.Forms
             this.btnOutOfStock.TabIndex = 5;
             this.btnOutOfStock.Text = "รายการสินค้าหมด";
             this.btnOutOfStock.UseVisualStyleBackColor = true;
+            this.btnOutOfStock.Click += new System.EventHandler(this.btnOutOfStock_Click);
             // 
             // btnProductIn
             // 
@@ -209,16 +220,6 @@ namespace POS.Forms
             this.label1.Size = new System.Drawing.Size(155, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "© Copy right 2022 KNN";
-            // 
-            // btnSell
-            // 
-            this.btnSell.Location = new System.Drawing.Point(0, 276);
-            this.btnSell.Name = "btnSell";
-            this.btnSell.Size = new System.Drawing.Size(233, 55);
-            this.btnSell.TabIndex = 8;
-            this.btnSell.Text = "ขาย";
-            this.btnSell.UseVisualStyleBackColor = true;
-            this.btnSell.Click += new System.EventHandler(this.btnSell_Click);
             // 
             // frmMain
             // 

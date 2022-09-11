@@ -254,5 +254,50 @@ namespace DAL
 
             return  list;
         }
+
+        public List<ProductOutOfStockDTO> GetOutOfStock()
+        {
+            POSSYSTEMEntities _db = new POSSYSTEMEntities();
+            List<ProductOutOfStockDTO> oList = null;
+
+            var qrydata = (from t in _db.PRODUCTS.Where(w => w.STATUS == STATUS.ACTIVE)
+                           join t1 in _db.PARAMETER.Where(w => w.MAJOR_CODE == POSPARAMETER.POSPARAMETER_TYPE && w.STATUS == STATUS.ACTIVE) on t.PRODUCT_TYPE_ID equals t1.MINOR_CODE
+                           join t2 in _db.PARAMETER.Where(w => w.MAJOR_CODE == POSPARAMETER.POSPARAMETER_SIZE && w.STATUS == STATUS.ACTIVE) on t.PRODUCT_SIZE_ID equals t2.MINOR_CODE
+                           join t3 in _db.CATEGORY on t.CATEGORY_ID equals t3.CATEGORY_ID
+                           join t4 in _db.INV_PRODUCTS on t.PRODUCT_ID equals t4.PRODUCT_ID into ct
+                           from t5 in ct.DefaultIfEmpty()
+                           where t5.BOX_BALANCE == 0 && t5.ITEM_BALANCE == 0 && t5.PACK_BALANCE == 0
+                           select new ProductOutOfStockDTO
+                           {
+                               //PRODUCT_ID = t.PRODUCT_ID,
+                               PRODUCT_CODE = t.PRODUCT_CODE,
+                               PRODUCT_NAME = t.PRODUCT_NAME,
+                               REMARK = t.REMARK,
+                               BALANCE = t5.UNIT_BALANCE_TEXT,
+                               CATEGORYNAME = t3.CATEGORY_NAME,
+                               PRODUCT_TYPE = t1.NAME,
+                           }).AsQueryable();
+
+            oList = (List<ProductOutOfStockDTO>)qrydata.AsEnumerable().Select(s => new ProductOutOfStockDTO
+            {
+                //PRODUCT_ID = s.PRODUCT_ID,
+                PRODUCT_CODE = s.PRODUCT_CODE,
+                PRODUCT_NAME = s.PRODUCT_NAME,
+                REMARK = s.REMARK,
+                BALANCE = s.BALANCE,
+                CATEGORYNAME = s.CATEGORYNAME,
+                PRODUCT_TYPE = s.PRODUCT_TYPE,
+            }).ToList();
+
+
+            if (oList == null)
+            {
+                oList = new List<ProductOutOfStockDTO>();
+            }
+
+            _db.Dispose();
+            return oList;
+        }
+
     }
 }

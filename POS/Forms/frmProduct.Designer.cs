@@ -58,12 +58,8 @@ namespace POS.Forms
             this.PRODUCT_TYPE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AVGCOST = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RETAILPRICE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
-            this.btnFirst = new System.Windows.Forms.Button();
             this.lblPage = new System.Windows.Forms.Label();
-            this.btnNext = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvSellHist = new System.Windows.Forms.DataGridView();
             this.SELLITEM_NO = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,6 +69,10 @@ namespace POS.Forms
             this.STR_UNIT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AMOUNT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DISCOUNT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnFirst = new System.Windows.Forms.Button();
+            this.btnNext = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.grbGeneral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -100,6 +100,7 @@ namespace POS.Forms
             this.grbGeneral.Controls.Add(this.Label3);
             this.grbGeneral.Controls.Add(this.txtProductID);
             this.grbGeneral.Controls.Add(this.Label2);
+            this.grbGeneral.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.grbGeneral.Location = new System.Drawing.Point(32, 43);
             this.grbGeneral.Margin = new System.Windows.Forms.Padding(4);
             this.grbGeneral.Name = "grbGeneral";
@@ -125,7 +126,7 @@ namespace POS.Forms
             this.label7.Location = new System.Drawing.Point(33, 210);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(65, 17);
+            this.label7.Size = new System.Drawing.Size(77, 20);
             this.label7.TabIndex = 19;
             this.label7.Text = "Remark :";
             // 
@@ -136,7 +137,7 @@ namespace POS.Forms
             this.cboSize.Location = new System.Drawing.Point(163, 175);
             this.cboSize.Margin = new System.Windows.Forms.Padding(4);
             this.cboSize.Name = "cboSize";
-            this.cboSize.Size = new System.Drawing.Size(237, 24);
+            this.cboSize.Size = new System.Drawing.Size(237, 28);
             this.cboSize.TabIndex = 16;
             // 
             // label4
@@ -145,7 +146,7 @@ namespace POS.Forms
             this.label4.Location = new System.Drawing.Point(33, 177);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(47, 17);
+            this.label4.Size = new System.Drawing.Size(57, 20);
             this.label4.TabIndex = 17;
             this.label4.Text = "ขนาด :";
             // 
@@ -156,7 +157,7 @@ namespace POS.Forms
             this.cboType.Location = new System.Drawing.Point(163, 144);
             this.cboType.Margin = new System.Windows.Forms.Padding(4);
             this.cboType.Name = "cboType";
-            this.cboType.Size = new System.Drawing.Size(237, 24);
+            this.cboType.Size = new System.Drawing.Size(237, 28);
             this.cboType.TabIndex = 14;
             // 
             // label5
@@ -165,7 +166,7 @@ namespace POS.Forms
             this.label5.Location = new System.Drawing.Point(33, 146);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(71, 17);
+            this.label5.Size = new System.Drawing.Size(86, 20);
             this.label5.TabIndex = 15;
             this.label5.Text = "ชนิดสินค้า :";
             // 
@@ -175,7 +176,7 @@ namespace POS.Forms
             this.txtBarcode.Margin = new System.Windows.Forms.Padding(4);
             this.txtBarcode.MaxLength = 100;
             this.txtBarcode.Name = "txtBarcode";
-            this.txtBarcode.Size = new System.Drawing.Size(363, 22);
+            this.txtBarcode.Size = new System.Drawing.Size(363, 27);
             this.txtBarcode.TabIndex = 12;
             // 
             // label1
@@ -184,7 +185,7 @@ namespace POS.Forms
             this.label1.Location = new System.Drawing.Point(33, 85);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 17);
+            this.label1.Size = new System.Drawing.Size(68, 20);
             this.label1.TabIndex = 13;
             this.label1.Text = "บาร์โค้ด:";
             // 
@@ -196,7 +197,7 @@ namespace POS.Forms
             this.txtLastCost.Margin = new System.Windows.Forms.Padding(4);
             this.txtLastCost.MaxLength = 5;
             this.txtLastCost.Name = "txtLastCost";
-            this.txtLastCost.Size = new System.Drawing.Size(91, 22);
+            this.txtLastCost.Size = new System.Drawing.Size(91, 27);
             this.txtLastCost.TabIndex = 5;
             this.txtLastCost.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -206,7 +207,7 @@ namespace POS.Forms
             this.Label18.Location = new System.Drawing.Point(33, 269);
             this.Label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label18.Name = "Label18";
-            this.Label18.Size = new System.Drawing.Size(50, 17);
+            this.Label18.Size = new System.Drawing.Size(60, 20);
             this.Label18.TabIndex = 11;
             this.Label18.Text = "ต้นทุน :";
             // 
@@ -218,7 +219,7 @@ namespace POS.Forms
             this.chkStatus.Location = new System.Drawing.Point(163, 352);
             this.chkStatus.Margin = new System.Windows.Forms.Padding(4);
             this.chkStatus.Name = "chkStatus";
-            this.chkStatus.Size = new System.Drawing.Size(108, 21);
+            this.chkStatus.Size = new System.Drawing.Size(129, 24);
             this.chkStatus.TabIndex = 6;
             this.chkStatus.Text = "ยกเลิกจำหน่าย";
             this.chkStatus.UseVisualStyleBackColor = true;
@@ -230,7 +231,7 @@ namespace POS.Forms
             this.txtCostAvg.MaxLength = 5;
             this.txtCostAvg.Name = "txtCostAvg";
             this.txtCostAvg.ReadOnly = true;
-            this.txtCostAvg.Size = new System.Drawing.Size(91, 22);
+            this.txtCostAvg.Size = new System.Drawing.Size(91, 27);
             this.txtCostAvg.TabIndex = 5;
             this.txtCostAvg.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -240,7 +241,7 @@ namespace POS.Forms
             this.Label6.Location = new System.Drawing.Point(33, 302);
             this.Label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label6.Name = "Label6";
-            this.Label6.Size = new System.Drawing.Size(77, 17);
+            this.Label6.Size = new System.Drawing.Size(95, 20);
             this.Label6.TabIndex = 10;
             this.Label6.Text = "ต้นทุนเฉลี่ย :";
             // 
@@ -251,7 +252,7 @@ namespace POS.Forms
             this.cboCategory.Location = new System.Drawing.Point(163, 112);
             this.cboCategory.Margin = new System.Windows.Forms.Padding(4);
             this.cboCategory.Name = "cboCategory";
-            this.cboCategory.Size = new System.Drawing.Size(237, 24);
+            this.cboCategory.Size = new System.Drawing.Size(237, 28);
             this.cboCategory.TabIndex = 3;
             // 
             // lblCate
@@ -260,7 +261,7 @@ namespace POS.Forms
             this.lblCate.Location = new System.Drawing.Point(33, 114);
             this.lblCate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCate.Name = "lblCate";
-            this.lblCate.Size = new System.Drawing.Size(65, 17);
+            this.lblCate.Size = new System.Drawing.Size(79, 20);
             this.lblCate.TabIndex = 6;
             this.lblCate.Text = "หมวดหมู่ :";
             // 
@@ -270,7 +271,7 @@ namespace POS.Forms
             this.txtProductName.Margin = new System.Windows.Forms.Padding(4);
             this.txtProductName.MaxLength = 100;
             this.txtProductName.Name = "txtProductName";
-            this.txtProductName.Size = new System.Drawing.Size(363, 22);
+            this.txtProductName.Size = new System.Drawing.Size(363, 27);
             this.txtProductName.TabIndex = 2;
             // 
             // Label3
@@ -279,7 +280,7 @@ namespace POS.Forms
             this.Label3.Location = new System.Drawing.Point(33, 57);
             this.Label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label3.Name = "Label3";
-            this.Label3.Size = new System.Drawing.Size(66, 17);
+            this.Label3.Size = new System.Drawing.Size(81, 20);
             this.Label3.TabIndex = 4;
             this.Label3.Text = "ชื่อสินค้า* :";
             // 
@@ -290,7 +291,7 @@ namespace POS.Forms
             this.txtProductID.Margin = new System.Windows.Forms.Padding(4);
             this.txtProductID.MaxLength = 13;
             this.txtProductID.Name = "txtProductID";
-            this.txtProductID.Size = new System.Drawing.Size(131, 22);
+            this.txtProductID.Size = new System.Drawing.Size(131, 27);
             this.txtProductID.TabIndex = 1;
             // 
             // Label2
@@ -299,7 +300,7 @@ namespace POS.Forms
             this.Label2.Location = new System.Drawing.Point(33, 25);
             this.Label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label2.Name = "Label2";
-            this.Label2.Size = new System.Drawing.Size(69, 17);
+            this.Label2.Size = new System.Drawing.Size(83, 20);
             this.Label2.TabIndex = 2;
             this.Label2.Text = "รหัสสินค้า :";
             // 
@@ -384,26 +385,6 @@ namespace POS.Forms
             this.RETAILPRICE.Name = "RETAILPRICE";
             this.RETAILPRICE.Width = 125;
             // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(195, 446);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(116, 48);
-            this.btnSave.TabIndex = 3;
-            this.btnSave.Text = "บันทึก";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(339, 446);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(116, 48);
-            this.btnCancel.TabIndex = 4;
-            this.btnCancel.Text = "ยกเลิก";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -414,16 +395,6 @@ namespace POS.Forms
             this.label8.TabIndex = 39;
             this.label8.Text = "ข้อมูลสินค้า";
             // 
-            // btnFirst
-            // 
-            this.btnFirst.Image = ((System.Drawing.Image)(resources.GetObject("btnFirst.Image")));
-            this.btnFirst.Location = new System.Drawing.Point(755, 736);
-            this.btnFirst.Name = "btnFirst";
-            this.btnFirst.Size = new System.Drawing.Size(75, 34);
-            this.btnFirst.TabIndex = 42;
-            this.btnFirst.UseVisualStyleBackColor = true;
-            this.btnFirst.Click += new System.EventHandler(this.btnFirst_Click);
-            // 
             // lblPage
             // 
             this.lblPage.AutoSize = true;
@@ -433,19 +404,10 @@ namespace POS.Forms
             this.lblPage.TabIndex = 41;
             this.lblPage.Text = "????";
             // 
-            // btnNext
-            // 
-            this.btnNext.Image = ((System.Drawing.Image)(resources.GetObject("btnNext.Image")));
-            this.btnNext.Location = new System.Drawing.Point(969, 736);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(75, 34);
-            this.btnNext.TabIndex = 40;
-            this.btnNext.UseVisualStyleBackColor = true;
-            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dgvSellHist);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.groupBox1.Location = new System.Drawing.Point(619, 50);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(761, 388);
@@ -526,6 +488,50 @@ namespace POS.Forms
             this.DISCOUNT.MinimumWidth = 6;
             this.DISCOUNT.Name = "DISCOUNT";
             this.DISCOUNT.Width = 125;
+            // 
+            // btnFirst
+            // 
+            this.btnFirst.Image = ((System.Drawing.Image)(resources.GetObject("btnFirst.Image")));
+            this.btnFirst.Location = new System.Drawing.Point(755, 736);
+            this.btnFirst.Name = "btnFirst";
+            this.btnFirst.Size = new System.Drawing.Size(75, 34);
+            this.btnFirst.TabIndex = 42;
+            this.btnFirst.UseVisualStyleBackColor = true;
+            this.btnFirst.Click += new System.EventHandler(this.btnFirst_Click);
+            // 
+            // btnNext
+            // 
+            this.btnNext.Image = ((System.Drawing.Image)(resources.GetObject("btnNext.Image")));
+            this.btnNext.Location = new System.Drawing.Point(969, 736);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(75, 34);
+            this.btnNext.TabIndex = 40;
+            this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Image = global::POS.Properties.Resources.cancel;
+            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancel.Location = new System.Drawing.Point(339, 446);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(136, 56);
+            this.btnCancel.TabIndex = 4;
+            this.btnCancel.Text = "      ยกเลิก";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Image = global::POS.Properties.Resources.save;
+            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSave.Location = new System.Drawing.Point(195, 446);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(129, 56);
+            this.btnSave.TabIndex = 3;
+            this.btnSave.Text = "          บันทึก";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // frmProduct
             // 

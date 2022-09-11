@@ -83,5 +83,14 @@ namespace POS.Forms
             f.MdiParent = this;
             f.Show();
         }
+
+        private void btnOutOfStock_Click(object sender, EventArgs e)
+        {
+            CloseAllChildForm();
+
+            frmOutOfStock f = new frmOutOfStock();
+            f.MdiParent = this;
+            f.Show();
+        }
     }
 }

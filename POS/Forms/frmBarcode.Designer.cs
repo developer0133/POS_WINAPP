@@ -34,8 +34,8 @@ namespace POS.Forms
             this.txtBarcode = new System.Windows.Forms.TextBox();
             this.btnCreate = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnDownload = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,41 +59,49 @@ namespace POS.Forms
             // 
             // btnCreate
             // 
+            this.btnCreate.Image = global::POS.Properties.Resources.save;
+            this.btnCreate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCreate.Location = new System.Drawing.Point(31, 159);
             this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(92, 49);
+            this.btnCreate.Size = new System.Drawing.Size(118, 61);
             this.btnCreate.TabIndex = 41;
             this.btnCreate.Text = "บันทึก";
+            this.btnCreate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCreate.UseVisualStyleBackColor = true;
             this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
             // btnCancel
             // 
+            this.btnCancel.Image = global::POS.Properties.Resources.cancel;
+            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCancel.Location = new System.Drawing.Point(155, 159);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(92, 49);
+            this.btnCancel.Size = new System.Drawing.Size(120, 61);
             this.btnCancel.TabIndex = 42;
-            this.btnCancel.Text = "ยกเลิก";
+            this.btnCancel.Text = "           ยกเลิก";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // btnDownload
+            // 
+            this.btnDownload.Image = global::POS.Properties.Resources.download;
+            this.btnDownload.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDownload.Location = new System.Drawing.Point(281, 159);
+            this.btnDownload.Name = "btnDownload";
+            this.btnDownload.Size = new System.Drawing.Size(136, 61);
+            this.btnDownload.TabIndex = 44;
+            this.btnDownload.Text = "Download";
+            this.btnDownload.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDownload.UseVisualStyleBackColor = true;
+            this.btnDownload.Click += new System.EventHandler(this.btnDownload_Click);
+            // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(31, 226);
+            this.pictureBox1.Location = new System.Drawing.Point(31, 274);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(531, 274);
             this.pictureBox1.TabIndex = 43;
             this.pictureBox1.TabStop = false;
-            // 
-            // btnDownload
-            // 
-            this.btnDownload.Location = new System.Drawing.Point(281, 159);
-            this.btnDownload.Name = "btnDownload";
-            this.btnDownload.Size = new System.Drawing.Size(115, 49);
-            this.btnDownload.TabIndex = 44;
-            this.btnDownload.Text = "Download";
-            this.btnDownload.UseVisualStyleBackColor = true;
-            this.btnDownload.Click += new System.EventHandler(this.btnDownload_Click);
             // 
             // frmBarcode
             // 

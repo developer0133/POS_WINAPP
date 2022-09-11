@@ -38,7 +38,9 @@ namespace POS.Forms
             this.lblwarning = new System.Windows.Forms.Label();
             this.lblwarning1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblUser
@@ -106,6 +108,7 @@ namespace POS.Forms
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.txtUsr);
             this.panel1.Controls.Add(this.lblwarning1);
             this.panel1.Controls.Add(this.lblUser);
@@ -116,6 +119,15 @@ namespace POS.Forms
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(499, 275);
             this.panel1.TabIndex = 7;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::POS.Properties.Resources.login;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(50, 55);
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
             // 
             // Login
             // 
@@ -131,6 +143,7 @@ namespace POS.Forms
             this.Load += new System.EventHandler(this.Login_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -145,5 +158,6 @@ namespace POS.Forms
         private System.Windows.Forms.Label lblwarning;
         private System.Windows.Forms.Label lblwarning1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

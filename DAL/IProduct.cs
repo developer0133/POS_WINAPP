@@ -18,5 +18,6 @@ namespace DAL
         bool UpdateProduct(PRODUCTS product);
 
         List<ProductAutoCompleteDTO> GetProductAutoComplete();
+        List<ProductOutOfStockDTO> GetOutOfStock();
     }
 }

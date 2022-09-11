@@ -34,8 +34,6 @@ namespace POS.Forms
             this.lblName = new System.Windows.Forms.Label();
             this.txtBarcode = new System.Windows.Forms.TextBox();
             this.dgvSell = new System.Windows.Forms.DataGridView();
-            this.btnClear = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
             this.PName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,6 +44,8 @@ namespace POS.Forms
             this.PRODUCT_CODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PRODUCT_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UNIT_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSell)).BeginInit();
             this.SuspendLayout();
             // 
@@ -99,26 +99,6 @@ namespace POS.Forms
             this.dgvSell.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSell_CellDoubleClick);
             this.dgvSell.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSell_CellValueChanged);
             this.dgvSell.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvSell_EditingControlShowing);
-            // 
-            // btnClear
-            // 
-            this.btnClear.Location = new System.Drawing.Point(888, 46);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(128, 83);
-            this.btnClear.TabIndex = 45;
-            this.btnClear.Text = "ยกเลิก";
-            this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(681, 46);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(131, 83);
-            this.btnSave.TabIndex = 46;
-            this.btnSave.Text = "บันทึก";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // PName
             // 
@@ -197,14 +177,40 @@ namespace POS.Forms
             this.UNIT_ID.HeaderText = "UNIT_ID";
             this.UNIT_ID.MinimumWidth = 6;
             this.UNIT_ID.Name = "UNIT_ID";
+            this.UNIT_ID.Visible = false;
             this.UNIT_ID.Width = 125;
+            // 
+            // btnSave
+            // 
+            this.btnSave.Image = global::POS.Properties.Resources.save;
+            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSave.Location = new System.Drawing.Point(707, 46);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(156, 63);
+            this.btnSave.TabIndex = 46;
+            this.btnSave.Tag = "";
+            this.btnSave.Text = "      บันทึก";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnClear
+            // 
+            this.btnClear.Image = global::POS.Properties.Resources.cancel;
+            this.btnClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClear.Location = new System.Drawing.Point(888, 46);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(132, 63);
+            this.btnClear.TabIndex = 45;
+            this.btnClear.Text = "     ยกเลิก";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // frmSell
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1056, 875);
+            this.ClientSize = new System.Drawing.Size(1056, 896);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.dgvSell);

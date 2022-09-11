@@ -61,6 +61,17 @@ namespace DATA_Models.DTO
         public int PRODUCT_ID { get; set; }
         public string PRODUCT_CODE { get; set; }
         public string PRODUCT_NAME { get; set; }
+    }
+
+    public class ProductOutOfStockDTO
+    {
+        //public int PRODUCT_ID { get; set; }
+        public string PRODUCT_CODE { get; set; }
+        public string PRODUCT_NAME { get; set; }
+        public string REMARK { get; set; }
+        public string BALANCE { get; set; }
+        public string CATEGORYNAME { get; set; }
+        public string PRODUCT_TYPE { get; set; }
 
     }
 }

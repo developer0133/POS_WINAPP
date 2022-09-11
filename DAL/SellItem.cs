@@ -120,14 +120,18 @@ namespace DAL
 
                             List<int> ids = new List<int>();
 
-                            var tmpPro = _db.PRODUCTS.Where(w => w.PRODUCT_CODE.Contains(sp[0])).AsNoTracking().ToList().OrderBy(x => x.PRODUCT_ID);
+                            string pcode = sp[0];
+                            string tmpUnit = string.Empty;
 
-                            var obj = _db.INV_PRODUCTS.Where(w => w.PRODUCT_ID == item.PRODUCT_ID).SingleOrDefault();
+                            var tmpPro = _db.PRODUCTS.Where(w => w.PRODUCT_CODE.Contains(pcode)).AsNoTracking().ToList().OrderBy(x => x.PRODUCT_ID);
+                            tmpUnit = tmpPro.Select(s => s.UNIT).FirstOrDefault();
+
+                             var obj = _db.INV_PRODUCTS.Where(w => w.PRODUCT_ID == item.PRODUCT_ID).SingleOrDefault();
                             var packBalance = obj.PACK_BALANCE.HasValue ? obj.PACK_BALANCE.Value : 0;
                             var itemBalance = obj.ITEM_BALANCE.HasValue ? obj.ITEM_BALANCE.Value : 0;
                             var boxBalance = obj.BOX_BALANCE.HasValue ? obj.BOX_BALANCE.Value : 0;
 
-                            var prdUnit = _db.PARAMETER.Where(w => w.MAJOR_CODE == POSPARAMETER.UNIT && w.MINOR_CODE == tmpPro.Select(s => s.UNIT).FirstOrDefault()).AsNoTracking().SingleOrDefault();
+                            var prdUnit = _db.PARAMETER.Where(w => w.MAJOR_CODE == POSPARAMETER.UNIT && w.MINOR_CODE == tmpUnit).AsNoTracking().SingleOrDefault();
 
                             string u1 = "";
                             string u2 = "";
@@ -168,8 +172,6 @@ namespace DAL
                                     throw new Exception("จำนวนสินค้าคงเหลือไม่พอ");
                                 }
                             }
-
-
 
                             if (currentUnit.MINOR_CODE == "1016" || currentUnit.MINOR_CODE == "1017" || currentUnit.MINOR_CODE == "1018")//rice
                             {

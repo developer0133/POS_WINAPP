@@ -179,8 +179,6 @@ namespace POS.Forms
             pcode = new List<string>();
             obj = new ProductDTO();
         }
-
-
         private void dgvSell_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex > -1 && e.ColumnIndex > -1)
@@ -198,9 +196,7 @@ namespace POS.Forms
 
                         AmountCalculate();
                     }
-                   
                 }
-
             }
         }
 
@@ -223,12 +219,19 @@ namespace POS.Forms
                 });
             }
 
-            var isSuccess = SellItemService.InsertSellItem(sellData);
-
-            if (!string.IsNullOrEmpty(isSuccess))
+            if (sellData.Count() > 0)
             {
-                MessageBox.Show("Completed", "POS");
+                var isSuccess = SellItemService.InsertSellItem(sellData);
+
+                if (!string.IsNullOrEmpty(isSuccess))
+                {
+                    MessageBox.Show("Completed", "POS");
+                }
             }
+            else
+            {
+                MessageBox.Show("ไม่มีรายการสินค้า", "POS");
+            } 
         }
     }
 }
