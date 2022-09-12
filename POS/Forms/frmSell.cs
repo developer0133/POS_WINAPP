@@ -14,6 +14,8 @@ using DAL.Utils;
 using POS.Utils;
 using System.IO;
 using DATA_Models.Models;
+//using Microsoft.Reporting.WinForms;
+using Microsoft.Reporting.WebForms;
 
 namespace POS.Forms
 {
@@ -21,6 +23,7 @@ namespace POS.Forms
     {
         ProductDTO obj = new ProductDTO();
         List<string> pcode = new List<string>();
+        private string strSellNo = string.Empty; 
         public frmSell()
         {
             InitializeComponent();
@@ -35,7 +38,7 @@ namespace POS.Forms
             btnColumn.UseColumnTextForButtonValue = true;
             dgvSell.Columns.Insert(7, btnColumn);
 
-            btnReport.Enabled = false;
+            //btnReport.Enabled = false;
 
             // dgvSell.CellValueChanged += new DataGridViewCellEventHandler(dgvSell_CellValueChanged);
         }
@@ -232,6 +235,7 @@ namespace POS.Forms
                 {
                     MessageBox.Show("Completed", "POS");
                     btnReport.Enabled = true;
+                    strSellNo = isSuccess;
                 }
             }
             else
@@ -243,31 +247,78 @@ namespace POS.Forms
 
         private void btnReport_Click(object sender, EventArgs e)
         {
-            
+            GenReportModel objRp = new GenReportModel();
+            objRp.code = "SE12700253";//strSellNo;
+            objRp.printby = "test";
+
+            this.PrintReport(objRp);
         }
 
         void PrintReport(GenReportModel OReport)
         {
+            Warning[] warnings;
+            string[] streamids;
+            string mimeType;
+            string encoding;
+            string filenameExtension;
+
             string genRpt = System.IO.Directory.GetCurrentDirectory();
             genRpt = string.Format("{0}/{1}", genRpt, POS_PATH.GEN_REPORT);
             DAL.Utils.clsFunction.MakePath(genRpt);
 
-            var rptPath = string.Format("{0}/{1}{2}", POS_PATH.REPORTS, REPORT_NAME.SELL_REPORT2, ".rdlc");
+            var rptPath = string.Format("{0}/{1}{2}", POS_PATH.REPORTS, REPORT_NAME.SELL_REPORT, ".rdlc");
             var savePath = string.Format("{0}/{1}{2}", POS_PATH.GEN_REPORT, OReport.code, ".pdf");
 
-            var path = Path.Combine(Directory.GetCurrentDirectory(), rptPath);
-            var save = Path.Combine(Directory.GetCurrentDirectory(), savePath);
+            //var path = Path.Combine(Directory.GetCurrentDirectory(), rptPath);
+
+            string path1 = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName + "\\POS" + "\\";
+            string path = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName + "\\POS"+"\\"+ rptPath;
+            var save = path1 + savePath;//Path.Combine(Directory.GetCurrentDirectory(), savePath);
 
             var rptData = ReportService.SellItemReport(OReport.code);
-            decimal? sumAmount = rptData.Sum(s => s.Amount);
+            decimal? sumAmount = rptData.Sum(s => s.AMOUNT);
             string strsSumAmount = sumAmount.HasValue ? string.Format("{0} {1}", Utils.clsFunction.setFormatCurrency(sumAmount), "บาท") : string.Empty;
 
-            Dictionary<string, string> parameters = new Dictionary<string, string>();
-            parameters.Add("printby", OReport.printby);
-            parameters.Add("total", strsSumAmount);
-            parameters.Add("cdate", Utils.clsFunction.setFormatDateWithTime(rptData.First().cdate, true));
-            parameters.Add("date", Utils.clsFunction.setFormatDateWithTime(Utils.clsFunction.GetDate(), true));
-            parameters.Add("no", OReport.code);
+            //Dictionary<string, string> parameters = new Dictionary<string, string>();
+            ReportParameter[] parameters = new ReportParameter[5];
+
+            parameters[0] = new ReportParameter("printby", "TEST", false);
+            parameters[1] = new ReportParameter("total", strsSumAmount, false);
+            parameters[2] = new ReportParameter("cdate", Utils.clsFunction.setFormatDateWithTime(rptData.First().CDATE, true), false);
+            parameters[3] = new ReportParameter("date", Utils.clsFunction.setFormatDateWithTime(Utils.clsFunction.GetDate(), true), false);
+            parameters[4] = new ReportParameter("no", OReport.code, false);
+
+            //parameters.Add("date", Utils.clsFunction.setFormatDateWithTime(Utils.clsFunction.GetDate(), true));
+            //parameters.Add("no", OReport.code);
+
+
+            try
+            {
+
+                ReportViewer viewer = new ReportViewer();
+                viewer.ProcessingMode = ProcessingMode.Local;
+                viewer.LocalReport.ReportPath = "D:/Workspace/DotNet/Inventory/POS_WINAPP3/POS_WINAPP/POS/Reports/Report1.rdlc";
+                viewer.LocalReport.SetParameters(parameters);
+                viewer.LocalReport.DataSources.Add(new ReportDataSource("sell_DS", rptData));
+
+                
+
+
+
+                byte[] bytes = viewer.LocalReport.Render(
+     "PDF", null, out mimeType, out encoding, out filenameExtension,
+     out streamids, out warnings);
+
+                using (FileStream fs = new FileStream("output.pdf", FileMode.Create))
+                {
+                    fs.Write(bytes, 0, bytes.Length);
+                }
+            }
+            catch(Exception ex)
+            {
+
+            }
+
 
         }
     }

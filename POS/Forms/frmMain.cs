@@ -1,8 +1,11 @@
-﻿using System;
+﻿
+using POS.Utils;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +18,15 @@ namespace POS.Forms
         public frmMain()
         {
             InitializeComponent();
+
+            //var path = Path.Combine(Directory.GetCurrentDirectory());
+            //string appPath = Path.GetDirectoryName(Application.ExecutablePath);
+            //string solutionFileLocation = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName + "\\POS";
+
+            //var rptPath = string.Format("{0}/{1}{2}", POS_PATH.REPORTS, REPORT_NAME.SELL_REPORT2, ".rdlc");
+            //string path = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName + "\\POS" + "\\" + rptPath;
+            //LocalReport localReport = new LocalReport(path);
+
         }
 
         private void btnLogout_Click(object sender, EventArgs e)

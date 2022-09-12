@@ -9,6 +9,6 @@ namespace DAL
 {
     public interface IReport
     {
-        List<ReportModel> SellItemReport(string code);
+        List<SellReportModel> SellItemReport(string code);
     }
 }

@@ -62,11 +62,6 @@ namespace POS.Forms
             this.lblPage = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvSellHist = new System.Windows.Forms.DataGridView();
-            this.btnReport = new System.Windows.Forms.Button();
-            this.btnFirst = new System.Windows.Forms.Button();
-            this.btnNext = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
             this.SELLITEM_NO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.STR_SELL_DATE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,6 +69,10 @@ namespace POS.Forms
             this.STR_UNIT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AMOUNT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DISCOUNT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnFirst = new System.Windows.Forms.Button();
+            this.btnNext = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.grbGeneral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -434,61 +433,6 @@ namespace POS.Forms
             this.dgvSellHist.Size = new System.Drawing.Size(1143, 340);
             this.dgvSellHist.TabIndex = 0;
             // 
-            // btnReport
-            // 
-            this.btnReport.Image = global::POS.Properties.Resources.print;
-            this.btnReport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReport.Location = new System.Drawing.Point(353, 471);
-            this.btnReport.Name = "btnReport";
-            this.btnReport.Size = new System.Drawing.Size(130, 56);
-            this.btnReport.TabIndex = 45;
-            this.btnReport.Text = "          รายงาน";
-            this.btnReport.UseVisualStyleBackColor = true;
-            // 
-            // btnFirst
-            // 
-            this.btnFirst.Image = ((System.Drawing.Image)(resources.GetObject("btnFirst.Image")));
-            this.btnFirst.Location = new System.Drawing.Point(755, 765);
-            this.btnFirst.Name = "btnFirst";
-            this.btnFirst.Size = new System.Drawing.Size(75, 34);
-            this.btnFirst.TabIndex = 42;
-            this.btnFirst.UseVisualStyleBackColor = true;
-            this.btnFirst.Click += new System.EventHandler(this.btnFirst_Click);
-            // 
-            // btnNext
-            // 
-            this.btnNext.Image = ((System.Drawing.Image)(resources.GetObject("btnNext.Image")));
-            this.btnNext.Location = new System.Drawing.Point(969, 765);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(75, 34);
-            this.btnNext.TabIndex = 40;
-            this.btnNext.UseVisualStyleBackColor = true;
-            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Image = global::POS.Properties.Resources.cancel;
-            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancel.Location = new System.Drawing.Point(202, 471);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(136, 56);
-            this.btnCancel.TabIndex = 4;
-            this.btnCancel.Text = "      ยกเลิก";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.Image = global::POS.Properties.Resources.save;
-            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(58, 471);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(129, 56);
-            this.btnSave.TabIndex = 3;
-            this.btnSave.Text = "          บันทึก";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
             // SELLITEM_NO
             // 
             this.SELLITEM_NO.DataPropertyName = "SELLITEM_NO";
@@ -545,13 +489,56 @@ namespace POS.Forms
             this.DISCOUNT.Name = "DISCOUNT";
             this.DISCOUNT.Width = 125;
             // 
+            // btnFirst
+            // 
+            this.btnFirst.Image = ((System.Drawing.Image)(resources.GetObject("btnFirst.Image")));
+            this.btnFirst.Location = new System.Drawing.Point(755, 765);
+            this.btnFirst.Name = "btnFirst";
+            this.btnFirst.Size = new System.Drawing.Size(75, 34);
+            this.btnFirst.TabIndex = 42;
+            this.btnFirst.UseVisualStyleBackColor = true;
+            this.btnFirst.Click += new System.EventHandler(this.btnFirst_Click);
+            // 
+            // btnNext
+            // 
+            this.btnNext.Image = ((System.Drawing.Image)(resources.GetObject("btnNext.Image")));
+            this.btnNext.Location = new System.Drawing.Point(969, 765);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(75, 34);
+            this.btnNext.TabIndex = 40;
+            this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Image = global::POS.Properties.Resources.cancel;
+            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancel.Location = new System.Drawing.Point(202, 471);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(136, 56);
+            this.btnCancel.TabIndex = 4;
+            this.btnCancel.Text = "      ยกเลิก";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Image = global::POS.Properties.Resources.save;
+            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSave.Location = new System.Drawing.Point(58, 471);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(129, 56);
+            this.btnSave.TabIndex = 3;
+            this.btnSave.Text = "          บันทึก";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
             // frmProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1872, 791);
-            this.Controls.Add(this.btnReport);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnFirst);
             this.Controls.Add(this.lblPage);
@@ -613,7 +600,6 @@ namespace POS.Forms
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dgvSellHist;
-        private System.Windows.Forms.Button btnReport;
         private System.Windows.Forms.DataGridViewTextBoxColumn SELLITEM_NO;
         private System.Windows.Forms.DataGridViewTextBoxColumn STR_SELL_DATE;
         private System.Windows.Forms.DataGridViewTextBoxColumn Qty;

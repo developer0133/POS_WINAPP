@@ -20,7 +20,7 @@ namespace BL
             _report = new Report();
         }
 
-        public static List<ReportModel> SellItemReport(string code)
+        public static List<SellReportModel> SellItemReport(string code)
         {
             return _report.SellItemReport(code);
         }

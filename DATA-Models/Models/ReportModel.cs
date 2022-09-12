@@ -47,6 +47,18 @@ namespace DATA_Models.Models
         public string SELL_NO { get; set; }
     }
 
+    public class SellReportModel
+    {
+       
+        public string Item { get; set; }
+        public int? Qty { get; set; }
+        public decimal? AMOUNT { get; set; }
+        public string UNIT { get; set; }
+        public int? DISCOUNT { get; set; }
+        public DateTime? CDATE { get; set; }
+        public int No { get; set; }
+    }
+
     public class ReportResult
     {
         public List<ReportModel2> Detail { get; set; }

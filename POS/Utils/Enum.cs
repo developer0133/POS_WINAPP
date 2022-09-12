@@ -49,8 +49,9 @@ namespace POS.Utils
     public sealed class REPORT_NAME
     {
         public REPORT_NAME() { }
-        public const string SELL_REPORT = "sell_report";
-        public const string SELL_REPORT2 = "sell_report2";
+        public const string SELL_REPORT = "SellReport";
+        public const string SELL_REPORT2 = "SellReport2";
+        public const string Report1 = "Report1";
     }
 
 }

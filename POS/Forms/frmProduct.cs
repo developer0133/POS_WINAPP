@@ -86,8 +86,6 @@ namespace POS.Forms
             BindCboCategory();
             BindType();
             BindSize();
-
-            btnReport.Enabled = false;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -222,15 +220,6 @@ namespace POS.Forms
             dgvSellHist.DataSource = null;
             var sellData = SellItemService.GetSellItem(ProductID);
             dgvSellHist.DataSource = sellData;
-
-            if (sellData.Count() > 0)
-            {
-                btnReport.Enabled = true;
-            }
-            else
-            {
-                btnReport.Enabled = false;
-            }
 
             //DataGridViewButtonColumn btnColumn = new DataGridViewButtonColumn();
             //btnColumn.HeaderText = "";
