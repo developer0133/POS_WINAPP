@@ -7,7 +7,7 @@
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>9c52d3e3-2421-4f10-908e-d1d0b2429639</rd:DataSourceID>
+      <rd:DataSourceID>3651fd0c-4c68-4fb7-b621-33f50e4e5e7f</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -505,8 +505,8 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>sell_DS</DataSetName>
-            <Top>3.42277cm</Top>
-            <Left>0.2273cm</Left>
+            <Top>3.58245cm</Top>
+            <Left>0.39115cm</Left>
             <Height>1.2cm</Height>
             <Width>16.05539cm</Width>
             <Style>
@@ -533,7 +533,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
-            <Left>0.2273cm</Left>
+            <Top>0.15968cm</Top>
+            <Left>0.39115cm</Left>
             <Height>0.62653cm</Height>
             <Width>3.53717cm</Width>
             <ZIndex>1</ZIndex>
@@ -564,8 +565,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
-            <Top>0.66181cm</Top>
-            <Left>0.2273cm</Left>
+            <Top>0.82149cm</Top>
+            <Left>0.39115cm</Left>
             <Height>0.74832cm</Height>
             <Width>5.06117cm</Width>
             <ZIndex>2</ZIndex>
@@ -594,8 +595,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox3</rd:DefaultName>
-            <Top>0.64179cm</Top>
-            <Left>10.01462cm</Left>
+            <Top>0.80147cm</Top>
+            <Left>10.17846cm</Left>
             <Height>0.6cm</Height>
             <Width>1.22096cm</Width>
             <ZIndex>3</ZIndex>
@@ -624,8 +625,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox3</rd:DefaultName>
-            <Top>1.27707cm</Top>
-            <Left>10.01462cm</Left>
+            <Top>1.43675cm</Top>
+            <Left>10.17846cm</Left>
             <Height>0.6cm</Height>
             <Width>1.72622cm</Width>
             <ZIndex>4</ZIndex>
@@ -654,8 +655,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>printby</rd:DefaultName>
-            <Top>1.31235cm</Top>
-            <Left>11.334cm</Left>
+            <Top>1.47203cm</Top>
+            <Left>11.49784cm</Left>
             <Height>0.6cm</Height>
             <Width>4.00755cm</Width>
             <ZIndex>5</ZIndex>
@@ -684,8 +685,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox6</rd:DefaultName>
-            <Top>0.66181cm</Top>
-            <Left>11.06672cm</Left>
+            <Top>0.82149cm</Top>
+            <Left>11.23057cm</Left>
             <Height>0.6cm</Height>
             <Width>4.63783cm</Width>
             <ZIndex>6</ZIndex>
@@ -716,8 +717,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox7</rd:DefaultName>
-            <Top>4.75218cm</Top>
-            <Left>11.2705cm</Left>
+            <Top>4.91186cm</Top>
+            <Left>11.43434cm</Left>
             <Height>0.6cm</Height>
             <Width>1.46989cm</Width>
             <ZIndex>7</ZIndex>
@@ -750,8 +751,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>total</rd:DefaultName>
-            <Top>4.75218cm</Top>
-            <Left>12.74038cm</Left>
+            <Top>4.91186cm</Top>
+            <Left>12.90423cm</Left>
             <Height>0.6cm</Height>
             <Width>2.5cm</Width>
             <ZIndex>8</ZIndex>
@@ -780,8 +781,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox5</rd:DefaultName>
-            <Top>1.91235cm</Top>
-            <Left>10.01462cm</Left>
+            <Top>2.07203cm</Top>
+            <Left>10.17846cm</Left>
             <Height>0.51533cm</Height>
             <Width>0.93367cm</Width>
             <ZIndex>9</ZIndex>
@@ -810,8 +811,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>no</rd:DefaultName>
-            <Top>1.87707cm</Top>
-            <Left>10.68918cm</Left>
+            <Top>2.03675cm</Top>
+            <Left>10.85303cm</Left>
             <Height>0.6cm</Height>
             <Width>4.65236cm</Width>
             <ZIndex>10</ZIndex>
@@ -853,8 +854,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
-            <Top>1.43666cm</Top>
-            <Left>0.2273cm</Left>
+            <Top>1.59634cm</Top>
+            <Left>0.39115cm</Left>
             <Height>0.87532cm</Height>
             <Width>6.5259cm</Width>
             <ZIndex>11</ZIndex>
@@ -883,8 +884,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox3</rd:DefaultName>
-            <Top>0.02653cm</Top>
-            <Left>10.01462cm</Left>
+            <Top>0.18621cm</Top>
+            <Left>10.17846cm</Left>
             <Height>0.6cm</Height>
             <Width>1.22096cm</Width>
             <ZIndex>12</ZIndex>
@@ -913,8 +914,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox6</rd:DefaultName>
-            <Top>0.07707cm</Top>
-            <Left>11.05219cm</Left>
+            <Top>0.23675cm</Top>
+            <Left>11.21604cm</Left>
             <Height>0.6cm</Height>
             <Width>4.63783cm</Width>
             <ZIndex>13</ZIndex>
@@ -932,8 +933,8 @@
             <Source>Embedded</Source>
             <Value>qrblog</Value>
             <Sizing>FitProportional</Sizing>
-            <Top>2.31198cm</Top>
-            <Left>0.2273cm</Left>
+            <Top>2.47166cm</Top>
+            <Left>0.39115cm</Left>
             <Height>0.89322cm</Height>
             <Width>1.27515cm</Width>
             <ZIndex>14</ZIndex>
@@ -967,6 +968,8 @@
     </ReportParameter>
     <ReportParameter Name="total">
       <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
     <ReportParameter Name="date">

@@ -217,19 +217,51 @@ namespace POS.Forms
 
         void GetSellHistory(int ProductID)
         {
+            dgvSellHist.Columns.Clear();
             dgvSellHist.DataSource = null;
             var sellData = SellItemService.GetSellItem(ProductID);
             dgvSellHist.DataSource = sellData;
 
-            //DataGridViewButtonColumn btnColumn = new DataGridViewButtonColumn();
-            //btnColumn.HeaderText = "";
-            //btnColumn.Width = 60;
-            //btnColumn.Name = "btndelete";
-            //btnColumn.Text = "ลบ";
-            //btnColumn.HeaderText = "ลบ";
-            //btnColumn.UseColumnTextForButtonValue = true;
-            //dgvSellHist.Columns.Insert(7, btnColumn);
+            dgvSellHist.Columns[0].HeaderText = "เลขที่การขาย";
+            dgvSellHist.Columns[1].HeaderText = "วันที่";
+            dgvSellHist.Columns[2].HeaderText = "จำนวน";
+            dgvSellHist.Columns[3].HeaderText = "รหัสสินค้า";
+            dgvSellHist.Columns[4].HeaderText = "หน่วย";
+            dgvSellHist.Columns[5].HeaderText = "ราคารวม(บาท)";
+            dgvSellHist.Columns[6].HeaderText = "ส่วนลด(บาท)";
 
+            dgvSellHist.Columns[0].Width = 130;
+            dgvSellHist.Columns[1].Width = 130;
+            dgvSellHist.Columns[2].Width = 100;
+            dgvSellHist.Columns[3].Width = 100;
+            dgvSellHist.Columns[4].Width = 100;
+            dgvSellHist.Columns[5].Width = 130;
+            dgvSellHist.Columns[6].Width = 130;
+
+            dgvSellHist.Columns[0].Name = "SELLITEM_NO";
+            dgvSellHist.Columns[1].Name = "STR_SELL_DATE";
+            dgvSellHist.Columns[2].Name = "Qty";
+            dgvSellHist.Columns[3].Name = "PRODUCT_CODE";
+            dgvSellHist.Columns[4].Name = "STR_UNIT";
+            dgvSellHist.Columns[5].Name = "AMOUNT";
+            dgvSellHist.Columns[6].Name = "DISCOUNT";
+
+            dgvSellHist.Columns[0].DataPropertyName = "SELLITEM_NO";
+            dgvSellHist.Columns[1].DataPropertyName = "STR_SELL_DATE";
+            dgvSellHist.Columns[2].DataPropertyName = "Qty";
+            dgvSellHist.Columns[3].DataPropertyName = "PRODUCT_CODE";
+            dgvSellHist.Columns[4].DataPropertyName = "STR_UNIT";
+            dgvSellHist.Columns[5].DataPropertyName = "AMOUNT";
+            dgvSellHist.Columns[6].DataPropertyName = "DISCOUNT";
+
+            DataGridViewButtonColumn btnColumn = new DataGridViewButtonColumn();
+            btnColumn.HeaderText = "";
+            btnColumn.Width = 60;
+            btnColumn.Name = "btnReport";
+            btnColumn.Text = "รายงาน";
+            btnColumn.UseColumnTextForButtonValue = true;
+            dgvSellHist.Columns.Insert(7, btnColumn);
+            dgvSellHist.Columns[7].Width = 130;
         }
 
         private void dgvProduct_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -237,6 +269,27 @@ namespace POS.Forms
 
         }
 
+        private void dgvSellHist_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvSellHist.Columns[e.ColumnIndex].Name == "btnReport")
+            {
+                DataGridViewRow row = dgvSellHist.Rows[e.RowIndex];
+                string sellNo = row.Cells["SELLITEM_NO"].Value.ToString(); //SELLITEM_NO
+                if (MessageBox.Show(string.Format("ต้องการพิมพ์รายงาน" + sellNo + " หรือไม่ ?", ""), "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    string fileName = string.Empty;
+                    GenReportModel objRp = new GenReportModel();
+                    objRp.code = sellNo;
+                    objRp.printby = "test";
 
+                    var isPrint = clsFunction.PrintReport(objRp, ref fileName);
+
+                    if (isPrint)
+                    {
+                        System.Diagnostics.Process.Start(fileName);
+                    }
+                }
+            }
+        }
     }
 }

@@ -23,20 +23,21 @@ namespace POS.Forms
     {
         ProductDTO obj = new ProductDTO();
         List<string> pcode = new List<string>();
-        private string strSellNo = string.Empty; 
+        private string strSellNo = string.Empty;
+        private string saveFile = string.Empty;
         public frmSell()
         {
             InitializeComponent();
 
 
-            DataGridViewButtonColumn btnColumn = new DataGridViewButtonColumn();
-            btnColumn.HeaderText = "";
-            btnColumn.Width = 60;
-            btnColumn.Name = "btndelete";
-            btnColumn.Text = "ลบ";
-            btnColumn.HeaderText = "ลบ";
-            btnColumn.UseColumnTextForButtonValue = true;
-            dgvSell.Columns.Insert(7, btnColumn);
+            //DataGridViewButtonColumn btnColumn = new DataGridViewButtonColumn();
+            //btnColumn.HeaderText = "";
+            //btnColumn.Width = 60;
+            //btnColumn.Name = "btndelete";
+            //btnColumn.Text = "ลบ";
+            //btnColumn.HeaderText = "ลบ";
+            //btnColumn.UseColumnTextForButtonValue = true;
+            //dgvSell.Columns.Insert(7, btnColumn);
 
             //btnReport.Enabled = false;
 
@@ -64,12 +65,12 @@ namespace POS.Forms
 
                 DataGridViewRow row = (DataGridViewRow)dgvSell.Rows[0].Clone();
                 row.Cells[0].Value = obj.PRODUCT_NAME;
-                row.Cells[8].Value = obj.PRODUCT_CODE;//obj.STRSELLPRICE;
+                row.Cells[7].Value = obj.PRODUCT_CODE;//obj.STRSELLPRICE;
                 //row.Cells[1].Value = 1;
                 row.Cells[2].Value = strUnit;
                 row.Cells[3].Value = obj.SELLPRICE;//obj.STRSELLPRICE;
-                row.Cells[9].Value = obj.PRODUCT_ID;
-                row.Cells[10].Value = obj.UNIT_ID;
+                row.Cells[8].Value = obj.PRODUCT_ID;
+                row.Cells[9].Value = obj.UNIT_ID;
 
                 pcode.Add(obj.PRODUCT_CODE);
 
@@ -248,14 +249,22 @@ namespace POS.Forms
         private void btnReport_Click(object sender, EventArgs e)
         {
             GenReportModel objRp = new GenReportModel();
-            objRp.code = "SE12700253";//strSellNo;
+            objRp.code = strSellNo;// "SE12700253";
             objRp.printby = "test";
 
-            this.PrintReport(objRp);
+            var printRp = this.PrintReport(objRp);
+
+            if(printRp)
+            {
+                MessageBox.Show("สำเร็จ", "POS");
+                System.Diagnostics.Process.Start(saveFile);
+            }
         }
 
-        void PrintReport(GenReportModel OReport)
+        private bool PrintReport(GenReportModel OReport)
         {
+            bool isSuccess = false;
+
             Warning[] warnings;
             string[] streamids;
             string mimeType;
@@ -269,57 +278,57 @@ namespace POS.Forms
             var rptPath = string.Format("{0}/{1}{2}", POS_PATH.REPORTS, REPORT_NAME.SELL_REPORT, ".rdlc");
             var savePath = string.Format("{0}/{1}{2}", POS_PATH.GEN_REPORT, OReport.code, ".pdf");
 
-            //var path = Path.Combine(Directory.GetCurrentDirectory(), rptPath);
-
             string path1 = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName + "\\POS" + "\\";
             string path = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName + "\\POS"+"\\"+ rptPath;
-            var save = path1 + savePath;//Path.Combine(Directory.GetCurrentDirectory(), savePath);
+            saveFile = path1 + savePath;//Path.Combine(Directory.GetCurrentDirectory(), savePath);
 
             var rptData = ReportService.SellItemReport(OReport.code);
             decimal? sumAmount = rptData.Sum(s => s.AMOUNT);
-            string strsSumAmount = sumAmount.HasValue ? string.Format("{0} {1}", Utils.clsFunction.setFormatCurrency(sumAmount), "บาท") : string.Empty;
+            string strsSumAmount = "";
+            strsSumAmount = sumAmount.HasValue ? string.Format("{0} {1}", Utils.clsFunction.setFormatCurrency(sumAmount), "บาท") : string.Empty;
 
-            //Dictionary<string, string> parameters = new Dictionary<string, string>();
-            ReportParameter[] parameters = new ReportParameter[5];
-
-            parameters[0] = new ReportParameter("printby", "TEST", false);
-            parameters[1] = new ReportParameter("total", strsSumAmount, false);
-            parameters[2] = new ReportParameter("cdate", Utils.clsFunction.setFormatDateWithTime(rptData.First().CDATE, true), false);
-            parameters[3] = new ReportParameter("date", Utils.clsFunction.setFormatDateWithTime(Utils.clsFunction.GetDate(), true), false);
-            parameters[4] = new ReportParameter("no", OReport.code, false);
-
-            //parameters.Add("date", Utils.clsFunction.setFormatDateWithTime(Utils.clsFunction.GetDate(), true));
-            //parameters.Add("no", OReport.code);
-
+     
+            ReportParameterCollection parameters = new ReportParameterCollection();
+            parameters.Add(new ReportParameter("printby", "TEST"));
+            parameters.Add(new ReportParameter("total", strsSumAmount.ToString()));
+            parameters.Add(new ReportParameter("cdate", Utils.clsFunction.setFormatDateWithTime(rptData.First().CDATE, true).ToString()));
+            parameters.Add(new ReportParameter("date", Utils.clsFunction.setFormatDateWithTime(Utils.clsFunction.GetDate(), true).ToString()));
+            parameters.Add(new ReportParameter("no", OReport.code.ToString()));
 
             try
             {
 
                 ReportViewer viewer = new ReportViewer();
                 viewer.ProcessingMode = ProcessingMode.Local;
-                viewer.LocalReport.ReportPath = "D:/Workspace/DotNet/Inventory/POS_WINAPP3/POS_WINAPP/POS/Reports/Report1.rdlc";
+                viewer.LocalReport.ReportPath = path;//"D:/Workspace/DotNet/Inventory/POS_WINAPP3/POS_WINAPP/POS/Reports/SellReport.rdlc";
                 viewer.LocalReport.SetParameters(parameters);
                 viewer.LocalReport.DataSources.Add(new ReportDataSource("sell_DS", rptData));
 
-                
+                byte[] bytes = viewer.LocalReport.Render("PDF", null, out mimeType, out encoding, out filenameExtension, out streamids, out warnings);
 
-
-
-                byte[] bytes = viewer.LocalReport.Render(
-     "PDF", null, out mimeType, out encoding, out filenameExtension,
-     out streamids, out warnings);
-
-                using (FileStream fs = new FileStream("output.pdf", FileMode.Create))
+                using (FileStream fs = new FileStream(saveFile, FileMode.Create))
                 {
                     fs.Write(bytes, 0, bytes.Length);
+                }
+
+                if(bytes.Length > 0)
+                {
+                    ////download
+                    //string FileName = @"D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS\GenReports\SE12700253.pdf";
+                    //string PDFUrl = @"C:\Users\CUBE\Desktop\test\testtest.pdf";
+                    //System.Net.WebClient client = new System.Net.WebClient();
+                    //client.DownloadFile(FileName, PDFUrl);
+                    //FileInfo PDFFile = new FileInfo(FileName);
+
+                    isSuccess = true;
                 }
             }
             catch(Exception ex)
             {
-
+                isSuccess = false;
             }
 
-
+            return isSuccess;
         }
     }
 }

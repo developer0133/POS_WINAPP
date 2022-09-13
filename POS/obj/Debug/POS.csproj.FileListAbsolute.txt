@@ -342,3 +342,7 @@ D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS\bin\Debug\SqlServerType
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS\bin\Debug\Microsoft.SqlServer.Types.dll
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS\bin\Debug\CircularProgressBar.dll
+D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS\bin\Debug\WinFormAnimation.dll
+D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS\bin\Debug\CircularProgressBar.xml
+D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS\obj\Debug\POS.Forms.frmLoading.resources

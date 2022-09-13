@@ -62,13 +62,6 @@ namespace POS.Forms
             this.lblPage = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvSellHist = new System.Windows.Forms.DataGridView();
-            this.SELLITEM_NO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.STR_SELL_DATE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PRODUCTCODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.STR_UNIT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AMOUNT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DISCOUNT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnFirst = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -418,76 +411,13 @@ namespace POS.Forms
             // dgvSellHist
             // 
             this.dgvSellHist.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSellHist.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.SELLITEM_NO,
-            this.STR_SELL_DATE,
-            this.Qty,
-            this.PRODUCTCODE,
-            this.STR_UNIT,
-            this.AMOUNT,
-            this.DISCOUNT});
             this.dgvSellHist.Location = new System.Drawing.Point(19, 42);
             this.dgvSellHist.Name = "dgvSellHist";
             this.dgvSellHist.RowHeadersWidth = 51;
             this.dgvSellHist.RowTemplate.Height = 24;
             this.dgvSellHist.Size = new System.Drawing.Size(1143, 340);
             this.dgvSellHist.TabIndex = 0;
-            // 
-            // SELLITEM_NO
-            // 
-            this.SELLITEM_NO.DataPropertyName = "SELLITEM_NO";
-            this.SELLITEM_NO.HeaderText = "เลขที่การขาย";
-            this.SELLITEM_NO.MinimumWidth = 6;
-            this.SELLITEM_NO.Name = "SELLITEM_NO";
-            this.SELLITEM_NO.Width = 125;
-            // 
-            // STR_SELL_DATE
-            // 
-            this.STR_SELL_DATE.DataPropertyName = "STR_SELL_DATE";
-            this.STR_SELL_DATE.HeaderText = "วันที่";
-            this.STR_SELL_DATE.MinimumWidth = 6;
-            this.STR_SELL_DATE.Name = "STR_SELL_DATE";
-            this.STR_SELL_DATE.Width = 125;
-            // 
-            // Qty
-            // 
-            this.Qty.DataPropertyName = "Qty";
-            this.Qty.HeaderText = "จำนวน";
-            this.Qty.MinimumWidth = 6;
-            this.Qty.Name = "Qty";
-            this.Qty.Width = 125;
-            // 
-            // PRODUCTCODE
-            // 
-            this.PRODUCTCODE.DataPropertyName = "PRODUCT_CODE";
-            this.PRODUCTCODE.HeaderText = "รหัสสินค้า";
-            this.PRODUCTCODE.MinimumWidth = 6;
-            this.PRODUCTCODE.Name = "PRODUCTCODE";
-            this.PRODUCTCODE.Width = 125;
-            // 
-            // STR_UNIT
-            // 
-            this.STR_UNIT.DataPropertyName = "STR_UNIT";
-            this.STR_UNIT.HeaderText = "หน่วย";
-            this.STR_UNIT.MinimumWidth = 6;
-            this.STR_UNIT.Name = "STR_UNIT";
-            this.STR_UNIT.Width = 125;
-            // 
-            // AMOUNT
-            // 
-            this.AMOUNT.DataPropertyName = "AMOUNT";
-            this.AMOUNT.HeaderText = "ราคารวม(บาท)";
-            this.AMOUNT.MinimumWidth = 6;
-            this.AMOUNT.Name = "AMOUNT";
-            this.AMOUNT.Width = 125;
-            // 
-            // DISCOUNT
-            // 
-            this.DISCOUNT.DataPropertyName = "DISCOUNT";
-            this.DISCOUNT.HeaderText = "ส่วนลด(บาท)";
-            this.DISCOUNT.MinimumWidth = 6;
-            this.DISCOUNT.Name = "DISCOUNT";
-            this.DISCOUNT.Width = 125;
+            this.dgvSellHist.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSellHist_CellContentClick);
             // 
             // btnFirst
             // 
@@ -600,12 +530,5 @@ namespace POS.Forms
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dgvSellHist;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SELLITEM_NO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn STR_SELL_DATE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Qty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PRODUCTCODE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn STR_UNIT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AMOUNT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DISCOUNT;
     }
 }
