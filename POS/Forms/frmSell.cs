@@ -29,17 +29,7 @@ namespace POS.Forms
         {
             InitializeComponent();
 
-
-            //DataGridViewButtonColumn btnColumn = new DataGridViewButtonColumn();
-            //btnColumn.HeaderText = "";
-            //btnColumn.Width = 60;
-            //btnColumn.Name = "btndelete";
-            //btnColumn.Text = "ลบ";
-            //btnColumn.HeaderText = "ลบ";
-            //btnColumn.UseColumnTextForButtonValue = true;
-            //dgvSell.Columns.Insert(7, btnColumn);
-
-            //btnReport.Enabled = false;
+            btnReport.Enabled = false;
 
             // dgvSell.CellValueChanged += new DataGridViewCellEventHandler(dgvSell_CellValueChanged);
         }
