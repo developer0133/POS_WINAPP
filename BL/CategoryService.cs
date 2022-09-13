@@ -19,9 +19,14 @@ namespace BL
             _category = new Category();
         }
 
-        public static List<CATEGORY> GetCategories()
+        public static List<CategoryModel> GetCategories()
         {
             return _category.GetCategories();
+        }
+
+        public static List<CategoryModel> CategoriesSearch(string OSearch)
+        {
+            return _category.CategoriesSearch(OSearch);
         }
 
         public static CATEGORY GetCategoryByID(int id)

@@ -39,10 +39,10 @@ namespace POS.Forms
             // 
             this.progressbar.AnimationFunction = WinFormAnimation.KnownAnimationFunctions.Liner;
             this.progressbar.AnimationSpeed = 500;
-            this.progressbar.BackColor = System.Drawing.Color.Transparent;
-            this.progressbar.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Bold);
+            this.progressbar.BackColor = System.Drawing.Color.Black;
+            this.progressbar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.progressbar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.progressbar.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.progressbar.InnerColor = System.Drawing.Color.Black;
             this.progressbar.InnerMargin = 2;
             this.progressbar.InnerWidth = -1;
             this.progressbar.Location = new System.Drawing.Point(272, 106);
@@ -52,16 +52,17 @@ namespace POS.Forms
             this.progressbar.OuterMargin = -25;
             this.progressbar.OuterWidth = 26;
             this.progressbar.ProgressColor = System.Drawing.Color.Red;
-            this.progressbar.ProgressWidth = 25;
-            this.progressbar.SecondaryFont = new System.Drawing.Font("Microsoft Sans Serif", 36F);
-            this.progressbar.Size = new System.Drawing.Size(200, 200);
+            this.progressbar.ProgressWidth = 6;
+            this.progressbar.SecondaryFont = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.progressbar.Size = new System.Drawing.Size(206, 200);
             this.progressbar.StartAngle = 270;
+            this.progressbar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.progressbar.SubscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
             this.progressbar.SubscriptMargin = new System.Windows.Forms.Padding(10, -35, 0, 0);
-            this.progressbar.SubscriptText = ".23";
+            this.progressbar.SubscriptText = "";
             this.progressbar.SuperscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
             this.progressbar.SuperscriptMargin = new System.Windows.Forms.Padding(10, 35, 0, 0);
-            this.progressbar.SuperscriptText = "°C";
+            this.progressbar.SuperscriptText = "";
             this.progressbar.TabIndex = 0;
             this.progressbar.Text = "Loading";
             this.progressbar.TextMargin = new System.Windows.Forms.Padding(8, 8, 0, 0);
@@ -79,6 +80,7 @@ namespace POS.Forms
             // 
             // timer1
             // 
+            this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // frmLoading
@@ -94,6 +96,7 @@ namespace POS.Forms
             this.Opacity = 0.9D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmLoading";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
             this.PerformLayout();
 

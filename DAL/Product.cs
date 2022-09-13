@@ -30,7 +30,7 @@ namespace DAL
                                    //join t4 in _db.INV_PRODUCTS on t.PRODUCT_ID equals t4.PRODUCT_ID into ct
                                    //from t5 in ct.DefaultIfEmpty()
 
-                                   where (string.IsNullOrEmpty(code) || t.PRODUCT_CODE == code)
+                                   where (string.IsNullOrEmpty(code) || t.PRODUCT_CODE == code) || t.PRODUCT_NAME.Trim().Contains(code.Trim())
                                    select new ProductDTO //ProductsModel
                                    {
                                        PRODUCT_ID = t.PRODUCT_ID,

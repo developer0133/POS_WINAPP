@@ -14,6 +14,7 @@ using POS.Utils;
 using DATA_EF;
 using DATA_Models.DTO;
 using System.Globalization;
+using System.Threading;
 
 namespace POS.Forms
 {
@@ -25,6 +26,8 @@ namespace POS.Forms
         List<ProductDTO> dt = null;
         ProductDTO pModel = null;
 
+        public static string sellNo = string.Empty;
+        public static string flag = string.Empty;
         public frmProduct()
         {
             InitializeComponent();
@@ -108,42 +111,49 @@ namespace POS.Forms
             PRODUCTS obj = new PRODUCTS();
             bool isSuccess = false;
 
-            obj.PRODUCT_NAME = txtProductName.Text.Trim();
-            obj.BARCODE = txtBarcode.Text.Trim();
-            obj.CATEGORY_ID = Convert.ToInt32(cboCategory.SelectedValue);
-            obj.PRODUCT_TYPE_ID = cboType.SelectedValue.ToString();
-            obj.PRODUCT_SIZE_ID = cboSize.SelectedValue.ToString();
-            obj.REMARK = txtRemark.Text.Trim();
-
-            if (chkStatus.Checked == true)
+            if (string.IsNullOrEmpty(txtProductName.Text))
             {
-                obj.STATUS = STATUS.INACTIVE;
+                MessageBox.Show("กรุณาระบุข้อมูลสินค้า", "POS");
             }
             else
             {
-                obj.STATUS = STATUS.ACTIVE;
-            }
+                obj.PRODUCT_NAME = txtProductName.Text.Trim();
+                obj.BARCODE = txtBarcode.Text.Trim();
+                obj.CATEGORY_ID = Convert.ToInt32(cboCategory.SelectedValue);
+                obj.PRODUCT_TYPE_ID = cboType.SelectedValue.ToString();
+                obj.PRODUCT_SIZE_ID = cboSize.SelectedValue.ToString();
+                obj.REMARK = txtRemark.Text.Trim();
 
-            if (pModel != null && pModel.PRODUCT_ID > 0)
-            {
-                obj.PRODUCT_ID = pModel.PRODUCT_ID;
-                obj.PRODUCT_CODE = pModel.PRODUCT_CODE;
-                obj.AVGCOST = pModel.AVGCOST;
-                obj.STATUS = pModel.STATUS;
+                if (chkStatus.Checked == true)
+                {
+                    obj.STATUS = STATUS.INACTIVE;
+                }
+                else
+                {
+                    obj.STATUS = STATUS.ACTIVE;
+                }
 
-                isSuccess = ProductService.UpdateProduct(obj);
-            }
-            else
-            {
-                isSuccess = ProductService.InsertProduct(obj);
-            }
+                if (pModel != null && pModel.PRODUCT_ID > 0)
+                {
+                    obj.PRODUCT_ID = pModel.PRODUCT_ID;
+                    obj.PRODUCT_CODE = pModel.PRODUCT_CODE;
+                    obj.AVGCOST = pModel.AVGCOST;
+                    obj.STATUS = pModel.STATUS;
 
-            if (isSuccess)
-            {
-                MessageBox.Show("Completed", "POS");
-                Clear();
-                pageNumber = 1;
-                PopulateDataGridView();
+                    isSuccess = ProductService.UpdateProduct(obj);
+                }
+                else
+                {
+                    isSuccess = ProductService.InsertProduct(obj);
+                }
+
+                if (isSuccess)
+                {
+                    MessageBox.Show("Completed", "POS");
+                    Clear();
+                    pageNumber = 1;
+                    PopulateDataGridView();
+                }
             }
         }
 
@@ -274,22 +284,39 @@ namespace POS.Forms
             if (dgvSellHist.Columns[e.ColumnIndex].Name == "btnReport")
             {
                 DataGridViewRow row = dgvSellHist.Rows[e.RowIndex];
-                string sellNo = row.Cells["SELLITEM_NO"].Value.ToString(); //SELLITEM_NO
+                sellNo = row.Cells["SELLITEM_NO"].Value.ToString(); //SELLITEM_NO
                 if (MessageBox.Show(string.Format("ต้องการพิมพ์รายงาน" + sellNo + " หรือไม่ ?", ""), "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    string fileName = string.Empty;
-                    GenReportModel objRp = new GenReportModel();
-                    objRp.code = sellNo;
-                    objRp.printby = "test";
+                    flag = "SellItem";
+                    frmLoading frmload = new frmLoading();
+                    frmload.Show();
 
-                    var isPrint = clsFunction.PrintReport(objRp, ref fileName);
+                    //string fileName = string.Empty;
+                    //GenReportModel objRp = new GenReportModel();
+                    //objRp.code = sellNo;
+                    //objRp.printby = "test";
 
-                    if (isPrint)
-                    {
-                        System.Diagnostics.Process.Start(fileName);
-                    }
+                    //var isPrint = clsFunction.PrintReport(objRp, ref fileName);
+
+                    //if (isPrint)
+                    //{
+                    //    System.Diagnostics.Process.Start(fileName);
+                    //    frmload.Close();
+                    //}
                 }
             }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+
+            dgvProduct.AutoGenerateColumns = false;
+
+            dt = new List<ProductDTO>();
+            dt = ProductService.GetProduct(txtSearch.Text); //140000101
+            dgvProduct.DataSource = dt.Skip(pageSize * (pageNumber - 1)).Take(pageSize).ToList();
+
+            lblPage.Text = string.Format("Page {0}/{1}", (pageNumber), dt.Count() / pageSize);
         }
     }
 }

@@ -11,8 +11,8 @@ namespace DAL
     public interface ICategory
     {
         CATEGORY GetCategoryByID(int id);
-        List<CATEGORY> GetCategories();
-
+        List<CategoryModel> GetCategories();
+        List<CategoryModel> CategoriesSearch(string OSearch);
         bool InsertCategory(CATEGORY category);
         bool UpdateCategory(CATEGORY category);
         bool DeleteCategory(int categorY_ID);

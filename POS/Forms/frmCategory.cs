@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DATA_Models.Models;
 
 namespace POS.Forms
 {
@@ -17,7 +18,7 @@ namespace POS.Forms
     {
         private const int pageSize = 10;
         private int pageNumber = 1;
-        List<CATEGORY> dt = null;
+        List<CategoryModel> dt = null;
         CATEGORY pModel = null;
         public frmCategory()
         {
@@ -29,7 +30,7 @@ namespace POS.Forms
         {
             dgvCate.AutoGenerateColumns = false;
 
-            dt = new List<CATEGORY>();
+            dt = new List<CategoryModel>();
             dt = CategoryService.GetCategories();
             dgvCate.DataSource = dt.Skip(pageSize * (pageNumber - 1)).Take(pageSize).ToList();
 
@@ -182,6 +183,40 @@ namespace POS.Forms
             btnFirst.Enabled = true;
             btnNext.Enabled = !(pageNumber == dt.Count() / pageSize);
             lblPage.Text = string.Format("Page {0}/{1}", (pageNumber), dt.Count() / pageSize);
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+
+            var test = CategoryService.CategoriesSearch(txtSearch.Text);
+
+            dt = new List<CategoryModel>();
+            dt = test;
+            dgvCate.DataSource = test.Skip(pageSize * (pageNumber - 1)).Take(pageSize).ToList();
+
+            //dgvCate.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+            //bool valueResult = false;
+            //foreach (DataGridViewRow row in dgvCate.Rows)
+            //{
+            //    for (int i = 0; i < row.Cells.Count; i++)
+            //    {
+            //        if (row.Cells[i].Value != null && row.Cells[i].Value.ToString().Equals(txtSearch.Text))
+            //        {
+            //            int rowIndex = row.Index;
+            //            dgvCate.Rows[rowIndex].Selected = true;
+            //            valueResult = true;
+            //            break;
+            //        }
+            //    }
+
+            //}
+            //if (!valueResult)
+            //{
+            //    MessageBox.Show("Unable to find " + txtSearch.Text, "Not Found");
+            //    return;
+            //}
+
         }
     }
 }

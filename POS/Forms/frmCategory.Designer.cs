@@ -49,12 +49,14 @@ namespace POS.Forms
             this.label2 = new System.Windows.Forms.Label();
             this.txtCateCode = new System.Windows.Forms.TextBox();
             this.lblCateCode = new System.Windows.Forms.Label();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCate)).BeginInit();
             this.SuspendLayout();
             // 
             // btnFirst
             // 
-            this.btnFirst.Location = new System.Drawing.Point(770, 778);
+            this.btnFirst.Location = new System.Drawing.Point(1142, 386);
             this.btnFirst.Name = "btnFirst";
             this.btnFirst.Size = new System.Drawing.Size(75, 34);
             this.btnFirst.TabIndex = 37;
@@ -65,7 +67,7 @@ namespace POS.Forms
             // lblPage
             // 
             this.lblPage.AutoSize = true;
-            this.lblPage.Location = new System.Drawing.Point(892, 795);
+            this.lblPage.Location = new System.Drawing.Point(1264, 403);
             this.lblPage.Name = "lblPage";
             this.lblPage.Size = new System.Drawing.Size(40, 17);
             this.lblPage.TabIndex = 36;
@@ -73,7 +75,7 @@ namespace POS.Forms
             // 
             // btnNext
             // 
-            this.btnNext.Location = new System.Drawing.Point(980, 778);
+            this.btnNext.Location = new System.Drawing.Point(1352, 386);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(75, 34);
             this.btnNext.TabIndex = 35;
@@ -91,7 +93,7 @@ namespace POS.Forms
             this.CATE_CODE,
             this.REMARK});
             this.dgvCate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dgvCate.Location = new System.Drawing.Point(87, 531);
+            this.dgvCate.Location = new System.Drawing.Point(459, 139);
             this.dgvCate.Name = "dgvCate";
             this.dgvCate.ReadOnly = true;
             this.dgvCate.RowHeadersWidth = 51;
@@ -242,12 +244,31 @@ namespace POS.Forms
             this.lblCateCode.TabIndex = 39;
             this.lblCateCode.Text = "CateCode";
             // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(742, 70);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(106, 35);
+            this.btnSearch.TabIndex = 41;
+            this.btnSearch.Text = "ค้นหา";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(459, 76);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(254, 22);
+            this.txtSearch.TabIndex = 42;
+            // 
             // frmCategory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1056, 791);
+            this.ClientSize = new System.Drawing.Size(1601, 865);
+            this.Controls.Add(this.txtSearch);
+            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtCateCode);
             this.Controls.Add(this.lblCateCode);
             this.Controls.Add(this.label2);
@@ -293,5 +314,7 @@ namespace POS.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn CATEGORY_NAME;
         private System.Windows.Forms.DataGridViewTextBoxColumn CATE_CODE;
         private System.Windows.Forms.DataGridViewTextBoxColumn REMARK;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.TextBox txtSearch;
     }
 }

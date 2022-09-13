@@ -14,13 +14,68 @@ namespace DAL
 {
     public class Category : ICategory
     {
-        public List<CATEGORY> GetCategories()
+        public List<CategoryModel> GetCategories()
         {
-            List<CATEGORY> cateList = new List<CATEGORY>();
+            List<CategoryModel> cateList = new List<CategoryModel>();
 
             using (POSSYSTEMEntities db = new POSSYSTEMEntities())
             {
-                cateList = db.CATEGORY.Where(w => w.STATUS == STATUS.ACTIVE).ToList();
+                var qry = (from t in db.CATEGORY
+                           where t.STATUS == STATUS.ACTIVE
+                         
+                           select new CategoryModel
+                           {
+                               CATEGORY_ID = t.CATEGORY_ID,
+                               CATEGORY_NAME = t.CATEGORY_NAME,
+                               CATE_CODE = t.CATE_CODE,
+                               REMARK = t.REMARK,
+                               STATUS = t.STATUS
+
+                           }).AsQueryable();
+
+                cateList = (List<CategoryModel>)qry.AsEnumerable().Select(s => new CategoryModel
+                {
+                    CATEGORY_ID = s.CATEGORY_ID,
+                    CATEGORY_NAME = s.CATEGORY_NAME,
+                    CATE_CODE = s.CATE_CODE,
+                    REMARK = s.REMARK,
+                    STATUS = s.STATUS
+                }).ToList();
+            }
+
+            return cateList;
+        }
+
+        public List<CategoryModel> CategoriesSearch(string OSearch)
+        {
+            List<CategoryModel> cateList = new List<CategoryModel>();
+
+            using (POSSYSTEMEntities db = new POSSYSTEMEntities())
+            {
+                var qry = (from t in db.CATEGORY
+                           where t.STATUS == STATUS.ACTIVE &&
+                           (t.CATEGORY_NAME.Trim().Contains(OSearch.Trim()) || t.CATEGORY_ID.ToString() == OSearch.ToString() || string.IsNullOrEmpty(OSearch))
+                           select new CategoryModel
+                           {
+                               CATEGORY_ID = t.CATEGORY_ID,
+                               CATEGORY_NAME = t.CATEGORY_NAME,
+                               CATE_CODE = t.CATE_CODE,
+                               REMARK = t.REMARK,
+                               STATUS = t.STATUS
+
+                           }).AsQueryable();
+
+                cateList = (List<CategoryModel>)qry.AsEnumerable().Select(s => new CategoryModel
+                {
+                    CATEGORY_ID = s.CATEGORY_ID,
+                    CATEGORY_NAME = s.CATEGORY_NAME,
+                    CATE_CODE = s.CATE_CODE,
+                    REMARK = s.REMARK,
+                    STATUS = s.STATUS
+                }).ToList();
+
+                
+                db.Dispose();
             }
 
             return cateList;

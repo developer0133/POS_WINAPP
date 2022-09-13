@@ -1,4 +1,6 @@
-﻿using System;
+﻿using POS.Utils;
+using DATA_Models.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,14 +22,31 @@ namespace POS.Forms
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            progressbar.Value += 2; //we will increment the value of the progressbar by +2
+            progressbar.Value += 5; //we will increment the value of the progressbar by +2
             progressbar.Text = progressbar.Value.ToString() + "%";
             if (progressbar.Value == 100)
             {
                 timer1.Enabled = false;
-                Login s = new Login(); // create the object of of login
-                s.Show(); // to show the login form
-                this.Hide(); // to hide this screen
+
+                var sellNO = frmProduct.sellNo;
+
+                string fileName = string.Empty;
+                GenReportModel objRp = new GenReportModel();
+                objRp.code = sellNO;
+                objRp.printby = "test";
+
+                bool isSuccess = false;
+
+                if (frmProduct.flag == "SellItem")
+                {
+                    isSuccess = clsFunction.PrintReport(objRp, ref fileName);
+                }
+
+                if (isSuccess)
+                {
+                    System.Diagnostics.Process.Start(fileName);
+                    this.Close();
+                }
             }
         }
     }
