@@ -31,9 +31,6 @@ namespace POS.Forms
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.ขอมลหลกToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.สนคาToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.จดการผใชToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.btnSell = new System.Windows.Forms.Button();
@@ -46,7 +43,7 @@ namespace POS.Forms
             this.btnMaster = new System.Windows.Forms.Button();
             this.btnProduct = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.menuStrip1.SuspendLayout();
+            this.lblName = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -57,41 +54,19 @@ namespace POS.Forms
             // menuStrip1
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ขอมลหลกToolStripMenuItem,
-            this.สนคาToolStripMenuItem,
-            this.จดการผใชToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1371, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1371, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // ขอมลหลกToolStripMenuItem
-            // 
-            this.ขอมลหลกToolStripMenuItem.Name = "ขอมลหลกToolStripMenuItem";
-            this.ขอมลหลกToolStripMenuItem.Size = new System.Drawing.Size(82, 24);
-            this.ขอมลหลกToolStripMenuItem.Text = "ข้อมูลหลัก";
-            // 
-            // สนคาToolStripMenuItem
-            // 
-            this.สนคาToolStripMenuItem.Name = "สนคาToolStripMenuItem";
-            this.สนคาToolStripMenuItem.Size = new System.Drawing.Size(56, 24);
-            this.สนคาToolStripMenuItem.Text = "สินค้า";
-            // 
-            // จดการผใชToolStripMenuItem
-            // 
-            this.จดการผใชToolStripMenuItem.Name = "จดการผใชToolStripMenuItem";
-            this.จดการผใชToolStripMenuItem.Size = new System.Drawing.Size(86, 24);
-            this.จดการผใชToolStripMenuItem.Text = "จัดการผู้ใช้";
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.splitContainer1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 28);
+            this.panel1.Location = new System.Drawing.Point(0, 24);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(233, 704);
+            this.panel1.Size = new System.Drawing.Size(233, 708);
             this.panel1.TabIndex = 2;
             // 
             // splitContainer1
@@ -117,97 +92,124 @@ namespace POS.Forms
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.label1);
-            this.splitContainer1.Size = new System.Drawing.Size(233, 704);
-            this.splitContainer1.SplitterDistance = 659;
+            this.splitContainer1.Size = new System.Drawing.Size(233, 708);
+            this.splitContainer1.SplitterDistance = 662;
             this.splitContainer1.SplitterWidth = 20;
             this.splitContainer1.TabIndex = 1;
             // 
             // btnSell
             // 
+            this.btnSell.Image = ((System.Drawing.Image)(resources.GetObject("btnSell.Image")));
+            this.btnSell.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnSell.Location = new System.Drawing.Point(0, 276);
             this.btnSell.Name = "btnSell";
             this.btnSell.Size = new System.Drawing.Size(233, 55);
             this.btnSell.TabIndex = 8;
             this.btnSell.Text = "ขาย";
+            this.btnSell.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnSell.UseVisualStyleBackColor = true;
             this.btnSell.Click += new System.EventHandler(this.btnSell_Click);
             // 
             // btnLogout
             // 
+            this.btnLogout.Image = ((System.Drawing.Image)(resources.GetObject("btnLogout.Image")));
+            this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnLogout.Location = new System.Drawing.Point(1, 442);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(233, 55);
             this.btnLogout.TabIndex = 7;
             this.btnLogout.Text = "ออกจากระบบ";
+            this.btnLogout.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // btnReport
             // 
+            this.btnReport.Image = ((System.Drawing.Image)(resources.GetObject("btnReport.Image")));
+            this.btnReport.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnReport.Location = new System.Drawing.Point(0, 386);
             this.btnReport.Name = "btnReport";
             this.btnReport.Size = new System.Drawing.Size(233, 55);
             this.btnReport.TabIndex = 6;
             this.btnReport.Text = "รายงาน";
+            this.btnReport.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnReport.UseVisualStyleBackColor = true;
             // 
             // btnOutOfStock
             // 
+            this.btnOutOfStock.Image = ((System.Drawing.Image)(resources.GetObject("btnOutOfStock.Image")));
+            this.btnOutOfStock.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnOutOfStock.Location = new System.Drawing.Point(0, 331);
             this.btnOutOfStock.Name = "btnOutOfStock";
             this.btnOutOfStock.Size = new System.Drawing.Size(233, 55);
             this.btnOutOfStock.TabIndex = 5;
             this.btnOutOfStock.Text = "รายการสินค้าหมด";
+            this.btnOutOfStock.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnOutOfStock.UseVisualStyleBackColor = true;
             this.btnOutOfStock.Click += new System.EventHandler(this.btnOutOfStock_Click);
             // 
             // btnProductIn
             // 
+            this.btnProductIn.Image = ((System.Drawing.Image)(resources.GetObject("btnProductIn.Image")));
+            this.btnProductIn.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnProductIn.Location = new System.Drawing.Point(0, 220);
             this.btnProductIn.Name = "btnProductIn";
             this.btnProductIn.Size = new System.Drawing.Size(233, 55);
             this.btnProductIn.TabIndex = 4;
             this.btnProductIn.Text = "รับสินค้าเข้า";
+            this.btnProductIn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnProductIn.UseVisualStyleBackColor = true;
             this.btnProductIn.Click += new System.EventHandler(this.btnProductIn_Click);
             // 
             // btnBarcode
             // 
+            this.btnBarcode.Image = ((System.Drawing.Image)(resources.GetObject("btnBarcode.Image")));
+            this.btnBarcode.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnBarcode.Location = new System.Drawing.Point(0, 165);
             this.btnBarcode.Name = "btnBarcode";
             this.btnBarcode.Size = new System.Drawing.Size(233, 55);
             this.btnBarcode.TabIndex = 3;
             this.btnBarcode.Text = "บาร์โค้ด";
+            this.btnBarcode.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnBarcode.UseVisualStyleBackColor = true;
             this.btnBarcode.Click += new System.EventHandler(this.btnBarcode_Click);
             // 
             // btnCate
             // 
+            this.btnCate.Image = ((System.Drawing.Image)(resources.GetObject("btnCate.Image")));
+            this.btnCate.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnCate.Location = new System.Drawing.Point(0, 110);
             this.btnCate.Name = "btnCate";
             this.btnCate.Size = new System.Drawing.Size(233, 55);
             this.btnCate.TabIndex = 2;
             this.btnCate.Text = "หมวดหมู่สินค้า";
+            this.btnCate.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnCate.UseVisualStyleBackColor = true;
             this.btnCate.Click += new System.EventHandler(this.btnCate_Click);
             // 
             // btnMaster
             // 
+            this.btnMaster.Image = ((System.Drawing.Image)(resources.GetObject("btnMaster.Image")));
+            this.btnMaster.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnMaster.Location = new System.Drawing.Point(0, 55);
             this.btnMaster.Name = "btnMaster";
             this.btnMaster.Size = new System.Drawing.Size(233, 55);
             this.btnMaster.TabIndex = 1;
             this.btnMaster.Text = "Master";
+            this.btnMaster.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnMaster.UseVisualStyleBackColor = true;
             this.btnMaster.Click += new System.EventHandler(this.btnMaster_Click);
             // 
             // btnProduct
             // 
+            this.btnProduct.Image = ((System.Drawing.Image)(resources.GetObject("btnProduct.Image")));
+            this.btnProduct.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnProduct.Location = new System.Drawing.Point(0, 0);
             this.btnProduct.Name = "btnProduct";
             this.btnProduct.Size = new System.Drawing.Size(233, 55);
             this.btnProduct.TabIndex = 0;
             this.btnProduct.Text = "สินค้า";
+            this.btnProduct.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnProduct.UseVisualStyleBackColor = true;
             this.btnProduct.Click += new System.EventHandler(this.btnProduct_Click);
             // 
@@ -215,17 +217,30 @@ namespace POS.Forms
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label1.Location = new System.Drawing.Point(0, 8);
+            this.label1.Location = new System.Drawing.Point(0, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(155, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "© Copy right 2022 KNN";
+            // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.lblName.Location = new System.Drawing.Point(233, 24);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(70, 20);
+            this.lblName.TabIndex = 6;
+            this.lblName.Text = "lblName";
+            this.lblName.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1371, 732);
+            this.Controls.Add(this.lblName);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -234,8 +249,6 @@ namespace POS.Forms
             this.Name = "frmMain";
             this.Text = "Product Service System";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -250,11 +263,8 @@ namespace POS.Forms
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem ขอมลหลกToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem สนคาToolStripMenuItem;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.ToolStripMenuItem จดการผใชToolStripMenuItem;
         private System.Windows.Forms.Button btnOutOfStock;
         private System.Windows.Forms.Button btnProductIn;
         private System.Windows.Forms.Button btnBarcode;
@@ -265,5 +275,6 @@ namespace POS.Forms
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Button btnSell;
+        private System.Windows.Forms.Label lblName;
     }
 }

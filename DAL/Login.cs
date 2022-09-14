@@ -41,24 +41,24 @@ namespace DAL
                             objUser.LAST_NAME = data.LAST_NAME;
                             objUser.USER_CODE = data.USER_CODE;
 
-                            var host = Dns.GetHostEntry(Dns.GetHostName());
-                            foreach (var ip in host.AddressList)
-                            {
-                                if (ip.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
-                                {
-                                    LOGIN_ACCESS accesslog = new LOGIN_ACCESS();
-                                    accesslog.USER_ID = data.USER_ID.ToString();
-                                    accesslog.USERNAME = data.USERNAME;
-                                    accesslog.LOGIN_DATE = clsFunction.GetDate();
-                                    accesslog.STATUS = "A";
-                                    accesslog.IP_ADDRESS = ip.ToString();
+                            //var host = Dns.GetHostEntry(Dns.GetHostName());
+                            //foreach (var ip in host.AddressList)
+                            //{
+                            //    if (ip.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
+                            //    {
+                            //        LOGIN_ACCESS accesslog = new LOGIN_ACCESS();
+                            //        accesslog.USER_ID = data.USER_ID.ToString();
+                            //        accesslog.USERNAME = data.USERNAME;
+                            //        accesslog.LOGIN_DATE = clsFunction.GetDate();
+                            //        accesslog.STATUS = "A";
+                            //        accesslog.IP_ADDRESS = ip.ToString();
 
-                                    db.LOGIN_ACCESS.Add(accesslog);
-                                    db.SaveChanges();
+                            //        db.LOGIN_ACCESS.Add(accesslog);
+                            //        db.SaveChanges();
 
-                                    objUser.LOGIN_ID = accesslog.LOGIN_ID;
-                                }
-                            }
+                            //        objUser.LOGIN_ID = accesslog.LOGIN_ID;
+                            //    }
+                            //}
                         }
                     }
 

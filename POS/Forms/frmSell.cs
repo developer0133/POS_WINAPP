@@ -279,7 +279,7 @@ namespace POS.Forms
 
      
             ReportParameterCollection parameters = new ReportParameterCollection();
-            parameters.Add(new ReportParameter("printby", "TEST"));
+            parameters.Add(new ReportParameter("printby", UserModel.USERNAME));
             parameters.Add(new ReportParameter("total", strsSumAmount.ToString()));
             parameters.Add(new ReportParameter("cdate", Utils.clsFunction.setFormatDateWithTime(rptData.First().CDATE, true).ToString()));
             parameters.Add(new ReportParameter("date", Utils.clsFunction.setFormatDateWithTime(Utils.clsFunction.GetDate(), true).ToString()));

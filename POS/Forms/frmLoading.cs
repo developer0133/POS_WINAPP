@@ -33,7 +33,7 @@ namespace POS.Forms
                 string fileName = string.Empty;
                 GenReportModel objRp = new GenReportModel();
                 objRp.code = sellNO;
-                objRp.printby = "test";
+                objRp.printby = UserModel.USERNAME;
 
                 bool isSuccess = false;
 

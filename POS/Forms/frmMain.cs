@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DATA_Models.Models;
 
 namespace POS.Forms
 {
@@ -27,11 +28,12 @@ namespace POS.Forms
             //string path = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName + "\\POS" + "\\" + rptPath;
             //LocalReport localReport = new LocalReport(path);
 
+            this.lblName.Text = string.Format("เข้าสู่ระบบโดย: {0} {1}", UserModel.FIRST_NAME, UserModel.LAST_NAME);
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-
+            Application.Exit();
         }
 
         private void CloseAllChildForm()

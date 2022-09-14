@@ -32,7 +32,7 @@ namespace POS.Forms
 
             dt = new List<CategoryModel>();
             dt = CategoryService.GetCategories();
-            dgvCate.DataSource = dt.Skip(pageSize * (pageNumber - 1)).Take(pageSize).ToList();
+            dgvCate.DataSource = dt;//.Skip(pageSize * (pageNumber - 1)).Take(pageSize).ToList();
 
             lblPage.Text = string.Format("Page {0}/{1}", (pageNumber), dt.Count() / pageSize);
 
@@ -61,36 +61,43 @@ namespace POS.Forms
             CATEGORY obj = new CATEGORY();
             bool isSuccess = false;
 
-            obj.CATEGORY_NAME = txtName.Text.Trim();
-            obj.CATE_CODE = txtCateCode.Text.Trim();
-            obj.REMARK = txtRemark.Text.Trim();
-
-            if (pModel != null && pModel.CATEGORY_ID > 0)
+            if(string.IsNullOrEmpty(txtCode.Text) || string.IsNullOrEmpty(txtName.Text))
             {
-                obj.CATEGORY_ID = pModel.CATEGORY_ID;
-                obj.CATE_CODE = pModel.CATE_CODE;
-                obj.CATEGORY_NAME = pModel.CATEGORY_NAME;
-                obj.REMARK = pModel.REMARK;
-                obj.STATUS = pModel.STATUS;
-
-                isSuccess = CategoryService.UpdateCategory(obj);
+                MessageBox.Show("กรุณาระบุข้อมูล", "POS", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                obj.STATUS = STATUS.ACTIVE;
+                obj.CATEGORY_NAME = txtName.Text.Trim();
+                obj.CATE_CODE = txtCateCode.Text.Trim();
+                obj.REMARK = txtRemark.Text.Trim();
 
-                isSuccess = CategoryService.InsertCategory(obj);
-            }
+                if (pModel != null && pModel.CATEGORY_ID > 0)
+                {
+                    obj.CATEGORY_ID = pModel.CATEGORY_ID;
+                    obj.CATE_CODE = pModel.CATE_CODE;
+                    obj.CATEGORY_NAME = pModel.CATEGORY_NAME;
+                    obj.REMARK = pModel.REMARK;
+                    obj.STATUS = pModel.STATUS;
 
-            if (isSuccess)
-            {
-                MessageBox.Show("Completed", "POS");
-                Clear();
-                PopulateDataGridView();
-            }
-            else
-            {
-                MessageBox.Show("Try again", "POS");
+                    isSuccess = CategoryService.UpdateCategory(obj);
+                }
+                else
+                {
+                    obj.STATUS = STATUS.ACTIVE;
+
+                    isSuccess = CategoryService.InsertCategory(obj);
+                }
+
+                if (isSuccess)
+                {
+                    MessageBox.Show("Completed", "POS");
+                    Clear();
+                    PopulateDataGridView();
+                }
+                else
+                {
+                    MessageBox.Show("Try again", "POS");
+                }
             }
         }
 

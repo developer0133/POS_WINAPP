@@ -47,7 +47,6 @@ namespace POS.Forms
             this.dgvParameter = new System.Windows.Forms.DataGridView();
             this.btnNext = new System.Windows.Forms.Button();
             this.lblPage = new System.Windows.Forms.Label();
-            this.btnFirst = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
@@ -68,9 +67,9 @@ namespace POS.Forms
             this.lblMajorCode.AutoSize = true;
             this.lblMajorCode.Location = new System.Drawing.Point(13, 82);
             this.lblMajorCode.Name = "lblMajorCode";
-            this.lblMajorCode.Size = new System.Drawing.Size(55, 17);
+            this.lblMajorCode.Size = new System.Drawing.Size(64, 17);
             this.lblMajorCode.TabIndex = 0;
-            this.lblMajorCode.Text = "รหัสหลัก";
+            this.lblMajorCode.Text = "รหัสหลัก *";
             // 
             // txtMajorCode
             // 
@@ -91,9 +90,9 @@ namespace POS.Forms
             this.lblMinorCode.AutoSize = true;
             this.lblMinorCode.Location = new System.Drawing.Point(13, 119);
             this.lblMinorCode.Name = "lblMinorCode";
-            this.lblMinorCode.Size = new System.Drawing.Size(51, 17);
+            this.lblMinorCode.Size = new System.Drawing.Size(60, 17);
             this.lblMinorCode.TabIndex = 2;
-            this.lblMinorCode.Text = "รหัสรอง";
+            this.lblMinorCode.Text = "รหัสรอง *";
             // 
             // txtName
             // 
@@ -107,9 +106,9 @@ namespace POS.Forms
             this.lblName.AutoSize = true;
             this.lblName.Location = new System.Drawing.Point(13, 156);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(23, 17);
+            this.lblName.Size = new System.Drawing.Size(32, 17);
             this.lblName.TabIndex = 4;
-            this.lblName.Text = "ชื่อ";
+            this.lblName.Text = "ชื่อ *";
             // 
             // txtCon1
             // 
@@ -225,13 +224,6 @@ namespace POS.Forms
             this.lblPage.Size = new System.Drawing.Size(100, 23);
             this.lblPage.TabIndex = 23;
             // 
-            // btnFirst
-            // 
-            this.btnFirst.Location = new System.Drawing.Point(0, 0);
-            this.btnFirst.Name = "btnFirst";
-            this.btnFirst.Size = new System.Drawing.Size(75, 23);
-            this.btnFirst.TabIndex = 22;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -345,7 +337,6 @@ namespace POS.Forms
             this.ClientSize = new System.Drawing.Size(1811, 812);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.btnFirst);
             this.Controls.Add(this.lblPage);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.btnCancel);
@@ -393,7 +384,6 @@ namespace POS.Forms
         protected System.Windows.Forms.DataGridView dgvParameter;
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Label lblPage;
-        private System.Windows.Forms.Button btnFirst;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtSearch;

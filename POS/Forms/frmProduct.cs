@@ -40,7 +40,7 @@ namespace POS.Forms
 
             dt = new List<ProductDTO>();
             dt = ProductService.GetProduct(string.Empty); //140000101
-            dgvProduct.DataSource = dt.Skip(pageSize * (pageNumber - 1)).Take(pageSize).ToList();
+            dgvProduct.DataSource = dt;//.Skip(pageSize * (pageNumber - 1)).Take(pageSize).ToList();
 
             lblPage.Text = string.Format("Page {0}/{1}", (pageNumber), dt.Count() / pageSize);
 
@@ -113,7 +113,7 @@ namespace POS.Forms
 
             if (string.IsNullOrEmpty(txtProductName.Text))
             {
-                MessageBox.Show("กรุณาระบุข้อมูลสินค้า", "POS");
+                MessageBox.Show("กรุณาระบุข้อมูล", "POS", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {

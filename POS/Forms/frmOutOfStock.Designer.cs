@@ -138,6 +138,7 @@ namespace POS.Forms
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmOutOfStock";
             this.Text = "Product Service System";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.dgvOutOfStock)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);

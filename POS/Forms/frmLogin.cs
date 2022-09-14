@@ -14,9 +14,9 @@ using DATA_Models.Models;
 
 namespace POS.Forms
 {
-    public partial class Login : Form
+    public partial class frmLogin : Form
     {
-        public Login()
+        public frmLogin()
         {
             InitializeComponent();
         }
@@ -48,7 +48,13 @@ namespace POS.Forms
                 }
                 else
                 {
-                    var frmMain = new frmMain();
+                    UserModel.USERNAME = userData.USERNAME;
+                    UserModel.FIRST_NAME = userData.FIRST_NAME;
+                    UserModel.LAST_NAME = userData.LAST_NAME;
+                    UserModel.USER_CODE = userData.USER_CODE;
+                    UserModel.USER_ID = userData.USER_ID;
+
+                   var frmMain = new frmMain();
                     this.Hide();
                     frmMain.ShowDialog();
                 }

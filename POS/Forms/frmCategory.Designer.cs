@@ -51,12 +51,14 @@ namespace POS.Forms
             this.lblCateCode = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCate)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnFirst
             // 
-            this.btnFirst.Location = new System.Drawing.Point(1142, 386);
+            this.btnFirst.Location = new System.Drawing.Point(714, 328);
             this.btnFirst.Name = "btnFirst";
             this.btnFirst.Size = new System.Drawing.Size(75, 34);
             this.btnFirst.TabIndex = 37;
@@ -68,16 +70,16 @@ namespace POS.Forms
             // lblPage
             // 
             this.lblPage.AutoSize = true;
-            this.lblPage.Location = new System.Drawing.Point(1264, 403);
+            this.lblPage.Location = new System.Drawing.Point(836, 345);
             this.lblPage.Name = "lblPage";
-            this.lblPage.Size = new System.Drawing.Size(40, 17);
+            this.lblPage.Size = new System.Drawing.Size(40, 18);
             this.lblPage.TabIndex = 36;
             this.lblPage.Text = "????";
             this.lblPage.Visible = false;
             // 
             // btnNext
             // 
-            this.btnNext.Location = new System.Drawing.Point(1352, 386);
+            this.btnNext.Location = new System.Drawing.Point(924, 328);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(75, 34);
             this.btnNext.TabIndex = 35;
@@ -96,7 +98,7 @@ namespace POS.Forms
             this.CATE_CODE,
             this.REMARK});
             this.dgvCate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dgvCate.Location = new System.Drawing.Point(459, 139);
+            this.dgvCate.Location = new System.Drawing.Point(31, 81);
             this.dgvCate.Name = "dgvCate";
             this.dgvCate.ReadOnly = true;
             this.dgvCate.RowHeadersWidth = 51;
@@ -170,7 +172,7 @@ namespace POS.Forms
             // 
             // txtRemark
             // 
-            this.txtRemark.Location = new System.Drawing.Point(87, 205);
+            this.txtRemark.Location = new System.Drawing.Point(103, 205);
             this.txtRemark.MaxLength = 500;
             this.txtRemark.Multiline = true;
             this.txtRemark.Name = "txtRemark";
@@ -188,7 +190,7 @@ namespace POS.Forms
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(87, 115);
+            this.txtName.Location = new System.Drawing.Point(103, 115);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(302, 22);
             this.txtName.TabIndex = 25;
@@ -198,14 +200,14 @@ namespace POS.Forms
             this.lblName.AutoSize = true;
             this.lblName.Location = new System.Drawing.Point(6, 115);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(72, 17);
+            this.lblName.Size = new System.Drawing.Size(81, 17);
             this.lblName.TabIndex = 24;
-            this.lblName.Text = "ชื่อหมวดหมู่";
+            this.lblName.Text = "ชื่อหมวดหมู่ *";
             // 
             // txtCode
             // 
             this.txtCode.Enabled = false;
-            this.txtCode.Location = new System.Drawing.Point(87, 76);
+            this.txtCode.Location = new System.Drawing.Point(103, 76);
             this.txtCode.Name = "txtCode";
             this.txtCode.Size = new System.Drawing.Size(302, 22);
             this.txtCode.TabIndex = 21;
@@ -215,9 +217,9 @@ namespace POS.Forms
             this.lblCode.AutoSize = true;
             this.lblCode.Location = new System.Drawing.Point(6, 76);
             this.lblCode.Name = "lblCode";
-            this.lblCode.Size = new System.Drawing.Size(31, 17);
+            this.lblCode.Size = new System.Drawing.Size(40, 17);
             this.lblCode.TabIndex = 20;
-            this.lblCode.Text = "รหัส";
+            this.lblCode.Text = "รหัส *";
             // 
             // label2
             // 
@@ -231,7 +233,7 @@ namespace POS.Forms
             // 
             // txtCateCode
             // 
-            this.txtCateCode.Location = new System.Drawing.Point(87, 163);
+            this.txtCateCode.Location = new System.Drawing.Point(103, 163);
             this.txtCateCode.Name = "txtCateCode";
             this.txtCateCode.Size = new System.Drawing.Size(302, 22);
             this.txtCateCode.TabIndex = 40;
@@ -249,7 +251,7 @@ namespace POS.Forms
             // 
             this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
             this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSearch.Location = new System.Drawing.Point(742, 70);
+            this.btnSearch.Location = new System.Drawing.Point(314, 33);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(106, 35);
             this.btnSearch.TabIndex = 41;
@@ -259,10 +261,26 @@ namespace POS.Forms
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(459, 76);
+            this.txtSearch.Location = new System.Drawing.Point(31, 39);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(254, 22);
+            this.txtSearch.Size = new System.Drawing.Size(254, 24);
             this.txtSearch.TabIndex = 42;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.dgvCate);
+            this.groupBox1.Controls.Add(this.txtSearch);
+            this.groupBox1.Controls.Add(this.btnNext);
+            this.groupBox1.Controls.Add(this.btnSearch);
+            this.groupBox1.Controls.Add(this.lblPage);
+            this.groupBox1.Controls.Add(this.btnFirst);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.groupBox1.Location = new System.Drawing.Point(501, 33);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1077, 370);
+            this.groupBox1.TabIndex = 43;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "ข้อมูลหมวดหมู่สินค้า";
             // 
             // frmCategory
             // 
@@ -270,15 +288,10 @@ namespace POS.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1601, 865);
-            this.Controls.Add(this.txtSearch);
-            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txtCateCode);
             this.Controls.Add(this.lblCateCode);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.btnFirst);
-            this.Controls.Add(this.lblPage);
-            this.Controls.Add(this.btnNext);
-            this.Controls.Add(this.dgvCate);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtRemark);
@@ -292,6 +305,8 @@ namespace POS.Forms
             this.Text = "Product Service System";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.dgvCate)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -319,5 +334,6 @@ namespace POS.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn REMARK;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

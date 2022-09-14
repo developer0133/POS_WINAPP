@@ -84,54 +84,60 @@ namespace POS.Forms
         {
             PARAMETER obj = new PARAMETER();
 
-            obj.MAJOR_CODE = txtMajorCode.Text.Trim();
-            obj.MINOR_CODE = txtMinorCode.Text.Trim();
-            obj.NAME = txtName.Text.Trim();
-            obj.CONDITION1 = txtCon1.Text.Trim();
-            obj.CONDITION2 = txtCon2.Text.Trim();
-            obj.DESCRIPTION = txtRemark.Text.Trim();
-
-            if (pModel != null && pModel.PARAMETER_ID > 0)
+            if (string.IsNullOrEmpty(txtMajorCode.Text) || string.IsNullOrEmpty(txtMinorCode.Text) || string.IsNullOrEmpty(txtName.Text))
             {
-                obj.PARAMETER_ID = pModel.PARAMETER_ID;
-                obj.STATUS = pModel.STATUS;
-                obj.C_BY = pModel.C_BY;
-                obj.E_BY = pModel.E_BY;
-
-                bool isSuccess = ParameterService.UpdateParameter(obj);
-
-                if (isSuccess)
-                {
-                    MessageBox.Show("Completed", "POS");
-                    Clear();
-                    PopulateDataGridView();
-                }
-                else
-                {
-
-                }
+                MessageBox.Show("กรุณาระบุข้อมูล", "POS", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                obj.STATUS = STATUS.ACTIVE;
-                obj.C_BY = "SYSTEM";
-                obj.E_BY = "SYSTEM";
-                obj.C_DATE = clsFunction.GetDate();
-                obj.E_DATE = clsFunction.GetDate();
+                obj.MAJOR_CODE = txtMajorCode.Text.Trim();
+                obj.MINOR_CODE = txtMinorCode.Text.Trim();
+                obj.NAME = txtName.Text.Trim();
+                obj.CONDITION1 = txtCon1.Text.Trim();
+                obj.CONDITION2 = txtCon2.Text.Trim();
+                obj.DESCRIPTION = txtRemark.Text.Trim();
 
-                bool isSuccess = ParameterService.InsertParameter(obj);
-                if (isSuccess)
+                if (pModel != null && pModel.PARAMETER_ID > 0)
                 {
-                    MessageBox.Show("Completed", "POS");
-                    Clear();
-                    PopulateDataGridView();
+                    obj.PARAMETER_ID = pModel.PARAMETER_ID;
+                    obj.STATUS = pModel.STATUS;
+                    obj.C_BY = pModel.C_BY;
+                    obj.E_BY = pModel.E_BY;
+
+                    bool isSuccess = ParameterService.UpdateParameter(obj);
+
+                    if (isSuccess)
+                    {
+                        MessageBox.Show("Completed", "POS");
+                        Clear();
+                        PopulateDataGridView();
+                    }
+                    else
+                    {
+
+                    }
                 }
                 else
                 {
+                    obj.STATUS = STATUS.ACTIVE;
+                    obj.C_BY = "SYSTEM";
+                    obj.E_BY = "SYSTEM";
+                    obj.C_DATE = clsFunction.GetDate();
+                    obj.E_DATE = clsFunction.GetDate();
 
+                    bool isSuccess = ParameterService.InsertParameter(obj);
+                    if (isSuccess)
+                    {
+                        MessageBox.Show("Completed", "POS");
+                        Clear();
+                        PopulateDataGridView();
+                    }
+                    else
+                    {
+
+                    }
                 }
             }
-
         }
 
         private void dgvParameter_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -169,7 +175,7 @@ namespace POS.Forms
         private void dgvParameter_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
             //dgvParameter.Rows[e.RowIndex].Cells[0].Value = (e.RowIndex + 1).ToString();
-            dgvParameter.Rows[e.RowIndex].HeaderCell.Value = (e.RowIndex + 1).ToString();
+            //dgvParameter.Rows[e.RowIndex].HeaderCell.Value = (e.RowIndex + 1).ToString();
         }
     }
 }
