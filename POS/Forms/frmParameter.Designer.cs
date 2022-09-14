@@ -45,6 +45,13 @@ namespace POS.Forms
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.dgvParameter = new System.Windows.Forms.DataGridView();
+            this.btnNext = new System.Windows.Forms.Button();
+            this.lblPage = new System.Windows.Forms.Label();
+            this.btnFirst = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.PARAMETER_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MAJOR_CODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MINOR_CODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,11 +59,8 @@ namespace POS.Forms
             this.CONDITION1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CONDITION2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DESCRIPTION = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnNext = new System.Windows.Forms.Button();
-            this.lblPage = new System.Windows.Forms.Label();
-            this.btnFirst = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvParameter)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblMajorCode
@@ -159,27 +163,25 @@ namespace POS.Forms
             // 
             // btnSave
             // 
-            this.btnSave.Image = global::POS.Properties.Resources.save;
+            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSave.Location = new System.Drawing.Point(94, 455);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(116, 66);
             this.btnSave.TabIndex = 12;
-            this.btnSave.Text = "บันทึก";
-            this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSave.Text = "     บันทึก";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
             // 
-            this.btnCancel.Image = global::POS.Properties.Resources.cancel;
+            this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
             this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCancel.Location = new System.Drawing.Point(257, 455);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(101, 66);
+            this.btnCancel.Size = new System.Drawing.Size(116, 66);
             this.btnCancel.TabIndex = 13;
-            this.btnCancel.Text = "ยกเลิก";
-            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancel.Text = "      ยกเลิก";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
@@ -196,17 +198,81 @@ namespace POS.Forms
             this.CONDITION2,
             this.DESCRIPTION});
             this.dgvParameter.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dgvParameter.Location = new System.Drawing.Point(94, 585);
+            this.dgvParameter.Location = new System.Drawing.Point(19, 86);
             this.dgvParameter.Name = "dgvParameter";
             this.dgvParameter.ReadOnly = true;
             this.dgvParameter.RowHeadersWidth = 51;
             this.dgvParameter.RowTemplate.Height = 24;
             this.dgvParameter.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvParameter.Size = new System.Drawing.Size(1324, 231);
+            this.dgvParameter.Size = new System.Drawing.Size(1238, 231);
             this.dgvParameter.StandardTab = true;
             this.dgvParameter.TabIndex = 14;
             this.dgvParameter.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvParameter_CellClick);
             this.dgvParameter.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvParameter_CellContentClick);
+            this.dgvParameter.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvParameter_RowPostPaint);
+            // 
+            // btnNext
+            // 
+            this.btnNext.Location = new System.Drawing.Point(0, 0);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(75, 23);
+            this.btnNext.TabIndex = 24;
+            // 
+            // lblPage
+            // 
+            this.lblPage.Location = new System.Drawing.Point(0, 0);
+            this.lblPage.Name = "lblPage";
+            this.lblPage.Size = new System.Drawing.Size(100, 23);
+            this.lblPage.TabIndex = 23;
+            // 
+            // btnFirst
+            // 
+            this.btnFirst.Location = new System.Drawing.Point(0, 0);
+            this.btnFirst.Name = "btnFirst";
+            this.btnFirst.Size = new System.Drawing.Size(75, 23);
+            this.btnFirst.TabIndex = 22;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label2.Location = new System.Drawing.Point(16, 13);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(102, 25);
+            this.label2.TabIndex = 20;
+            this.label2.Text = "MASTER";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.txtSearch);
+            this.groupBox1.Controls.Add(this.btnSearch);
+            this.groupBox1.Controls.Add(this.dgvParameter);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.groupBox1.Location = new System.Drawing.Point(479, 35);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1275, 425);
+            this.groupBox1.TabIndex = 21;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Parameter";
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(19, 32);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(254, 27);
+            this.txtSearch.TabIndex = 44;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
+            this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSearch.Location = new System.Drawing.Point(302, 26);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(106, 35);
+            this.btnSearch.TabIndex = 43;
+            this.btnSearch.Text = "    ค้นหา";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // PARAMETER_ID
             // 
@@ -220,7 +286,7 @@ namespace POS.Forms
             // MAJOR_CODE
             // 
             this.MAJOR_CODE.DataPropertyName = "MAJOR_CODE";
-            this.MAJOR_CODE.HeaderText = "รัหสหลัก";
+            this.MAJOR_CODE.HeaderText = "รหัสหลัก";
             this.MAJOR_CODE.MinimumWidth = 6;
             this.MAJOR_CODE.Name = "MAJOR_CODE";
             this.MAJOR_CODE.ReadOnly = true;
@@ -271,56 +337,17 @@ namespace POS.Forms
             this.DESCRIPTION.ReadOnly = true;
             this.DESCRIPTION.Width = 125;
             // 
-            // btnNext
-            // 
-            this.btnNext.Location = new System.Drawing.Point(1355, 822);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(75, 34);
-            this.btnNext.TabIndex = 17;
-            this.btnNext.Text = ">>";
-            this.btnNext.UseVisualStyleBackColor = true;
-            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
-            // 
-            // lblPage
-            // 
-            this.lblPage.AutoSize = true;
-            this.lblPage.Location = new System.Drawing.Point(1279, 831);
-            this.lblPage.Name = "lblPage";
-            this.lblPage.Size = new System.Drawing.Size(40, 17);
-            this.lblPage.TabIndex = 18;
-            this.lblPage.Text = "????";
-            // 
-            // btnFirst
-            // 
-            this.btnFirst.Location = new System.Drawing.Point(1194, 822);
-            this.btnFirst.Name = "btnFirst";
-            this.btnFirst.Size = new System.Drawing.Size(75, 34);
-            this.btnFirst.TabIndex = 19;
-            this.btnFirst.Text = "<<";
-            this.btnFirst.UseVisualStyleBackColor = true;
-            this.btnFirst.Click += new System.EventHandler(this.btnFirst_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label2.Location = new System.Drawing.Point(16, 13);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(102, 25);
-            this.label2.TabIndex = 20;
-            this.label2.Text = "MASTER";
-            // 
             // frmParameter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1056, 791);
+            this.ClientSize = new System.Drawing.Size(1811, 812);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnFirst);
             this.Controls.Add(this.lblPage);
             this.Controls.Add(this.btnNext);
-            this.Controls.Add(this.dgvParameter);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtRemark);
@@ -340,6 +367,8 @@ namespace POS.Forms
             this.Text = "Product Service System";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.dgvParameter)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -366,6 +395,9 @@ namespace POS.Forms
         private System.Windows.Forms.Label lblPage;
         private System.Windows.Forms.Button btnFirst;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.DataGridViewTextBoxColumn PARAMETER_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn MAJOR_CODE;
         private System.Windows.Forms.DataGridViewTextBoxColumn MINOR_CODE;

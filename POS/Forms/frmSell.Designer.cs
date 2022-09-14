@@ -183,38 +183,38 @@ namespace POS.Forms
             // 
             // btnSave
             // 
-            this.btnSave.Image = global::POS.Properties.Resources.save;
+            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSave.Location = new System.Drawing.Point(707, 46);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(156, 63);
             this.btnSave.TabIndex = 46;
             this.btnSave.Tag = "";
-            this.btnSave.Text = "      บันทึก";
+            this.btnSave.Text = " บันทึก";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnClear
             // 
-            this.btnClear.Image = global::POS.Properties.Resources.cancel;
+            this.btnClear.Image = ((System.Drawing.Image)(resources.GetObject("btnClear.Image")));
             this.btnClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnClear.Location = new System.Drawing.Point(888, 46);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(132, 63);
             this.btnClear.TabIndex = 45;
-            this.btnClear.Text = "     ยกเลิก";
+            this.btnClear.Text = "ยกเลิก";
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnReport
             // 
-            this.btnReport.Image = global::POS.Properties.Resources.print;
+            this.btnReport.Image = ((System.Drawing.Image)(resources.GetObject("btnReport.Image")));
             this.btnReport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReport.Location = new System.Drawing.Point(888, 540);
             this.btnReport.Name = "btnReport";
-            this.btnReport.Size = new System.Drawing.Size(130, 56);
+            this.btnReport.Size = new System.Drawing.Size(144, 56);
             this.btnReport.TabIndex = 47;
-            this.btnReport.Text = "          รายงาน";
+            this.btnReport.Text = "รายงาน";
             this.btnReport.UseVisualStyleBackColor = true;
             this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 

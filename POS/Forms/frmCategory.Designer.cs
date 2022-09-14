@@ -62,6 +62,7 @@ namespace POS.Forms
             this.btnFirst.TabIndex = 37;
             this.btnFirst.Text = "<<";
             this.btnFirst.UseVisualStyleBackColor = true;
+            this.btnFirst.Visible = false;
             this.btnFirst.Click += new System.EventHandler(this.btnFirst_Click);
             // 
             // lblPage
@@ -72,6 +73,7 @@ namespace POS.Forms
             this.lblPage.Size = new System.Drawing.Size(40, 17);
             this.lblPage.TabIndex = 36;
             this.lblPage.Text = "????";
+            this.lblPage.Visible = false;
             // 
             // btnNext
             // 
@@ -81,6 +83,7 @@ namespace POS.Forms
             this.btnNext.TabIndex = 35;
             this.btnNext.Text = ">>";
             this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Visible = false;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // dgvCate
@@ -143,27 +146,25 @@ namespace POS.Forms
             // 
             // btnCancel
             // 
-            this.btnCancel.Image = global::POS.Properties.Resources.cancel;
+            this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
             this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCancel.Location = new System.Drawing.Point(250, 401);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(120, 66);
             this.btnCancel.TabIndex = 33;
-            this.btnCancel.Text = "ยกเลิก";
-            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancel.Text = "    ยกเลิก";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnSave
             // 
-            this.btnSave.Image = global::POS.Properties.Resources.save;
+            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSave.Location = new System.Drawing.Point(87, 401);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(127, 66);
             this.btnSave.TabIndex = 32;
             this.btnSave.Text = "บันทึก";
-            this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -246,11 +247,13 @@ namespace POS.Forms
             // 
             // btnSearch
             // 
+            this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
+            this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSearch.Location = new System.Drawing.Point(742, 70);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(106, 35);
             this.btnSearch.TabIndex = 41;
-            this.btnSearch.Text = "ค้นหา";
+            this.btnSearch.Text = "    ค้นหา";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 

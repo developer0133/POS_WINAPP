@@ -19,7 +19,7 @@ namespace POS.Forms
     {
         private const int pageSize = 10;
         private  int pageNumber = 1;
-        List<PARAMETER> dt = null;
+        List<ParameterModel> dt = null;
         PARAMETER pModel = null;
         public frmParameter()
         {
@@ -31,19 +31,10 @@ namespace POS.Forms
         {
             dgvParameter.AutoGenerateColumns = false;
 
-            dt = new List<PARAMETER>();
-            dt = ParameterService.GetParameterAll();
-            dgvParameter.DataSource = dt.Skip(pageSize * (pageNumber - 1)).Take(pageSize).ToList();
+           
+            dgvParameter.DataSource = ParameterService.GetParameterAll();
 
-            lblPage.Text = string.Format("Page {0}/{1}", (pageNumber), dt.Count() / pageSize);
-
-            btnFirst.Enabled = false;
-
-            if (dt.Count() / pageSize == 1)
-            {
-                btnNext.Enabled = false;
-            }
-
+      
             clsFunction.FormatHeaderDatagrid(dgvParameter);
 
             DataGridViewButtonColumn btnColumn = new DataGridViewButtonColumn();
@@ -54,44 +45,6 @@ namespace POS.Forms
             btnColumn.HeaderText = "ลบ";
             btnColumn.UseColumnTextForButtonValue = true;
             dgvParameter.Columns.Insert(7, btnColumn);
-
-        }
-
-        private void btnNext_Click(object sender, EventArgs e)
-        {
-            pageNumber++;
-            dgvParameter.DataSource = dt.Skip(pageSize * (pageNumber - 1)).Take(pageSize).ToList();
-            if(dt.Skip(pageSize * (pageNumber - 1)).Take(pageSize).Count()>0)
-            {
-                btnNext.Enabled = true;
-            }
-            else
-            {
-                btnNext.Enabled = false;
-            }
-
-            btnFirst.Enabled = true;
-            btnNext.Enabled = !(pageNumber == dt.Count() / pageSize);
-            lblPage.Text = string.Format("Page {0}/{1}", (pageNumber), dt.Count() / pageSize);
-        }
-
-        private void btnFirst_Click(object sender, EventArgs e)
-        {
-            pageNumber--;
-            dgvParameter.DataSource = dt.Skip(pageSize * (pageNumber - 1)).Take(pageSize).ToList();
-
-            if (dt.Skip(pageSize * (pageNumber - 1)).Take(pageSize).Count() > 0)
-            {
-                btnFirst.Enabled = true;
-            }
-            else
-            {
-                btnFirst.Enabled = false;
-            }
-
-            btnNext.Enabled = true;
-            btnFirst.Enabled = !(pageNumber == 1);
-            lblPage.Text = string.Format("Page {0}/{1}", (pageNumber), dt.Count() / pageSize);
         }
 
         private void dgvParameter_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -203,6 +156,20 @@ namespace POS.Forms
                     }
                 }
             }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            dt = new List<ParameterModel>();
+            dt = ParameterService.ParameterSearch(txtSearch.Text);
+            dgvParameter.DataSource = dt;
+
+        }
+
+        private void dgvParameter_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            //dgvParameter.Rows[e.RowIndex].Cells[0].Value = (e.RowIndex + 1).ToString();
+            dgvParameter.Rows[e.RowIndex].HeaderCell.Value = (e.RowIndex + 1).ToString();
         }
     }
 }

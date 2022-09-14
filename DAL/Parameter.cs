@@ -7,6 +7,7 @@ using DATA_EF;
 using DAL.Utils;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using DATA_Models.Models;
 
 namespace DAL
 {
@@ -132,6 +133,47 @@ namespace DAL
             }
 
             return obj;
+        }
+
+        public List<ParameterModel> ParameterSearch(string OSearch)
+        {
+            List<ParameterModel> dataList = new List<ParameterModel>();
+
+            using (POSSYSTEMEntities db = new POSSYSTEMEntities())
+            {
+                var qry = (from t in db.PARAMETER
+                           where t.STATUS == STATUS.ACTIVE &&
+                           (t.NAME.Trim().Contains(OSearch.Trim()) || t.MAJOR_CODE.Trim().Contains(OSearch.Trim())
+                           || t.MINOR_CODE.Trim().Contains(OSearch.Trim()) || string.IsNullOrEmpty(OSearch))
+                           select new ParameterModel
+                           {
+                               PARAMETER_ID = t.PARAMETER_ID,
+                               MAJOR_CODE = t.MAJOR_CODE,
+                               MINOR_CODE = t.MINOR_CODE,
+                               NAME = t.NAME,
+                               CONDITION1 = t.CONDITION1,
+                               CONDITION2=t.CONDITION2,
+                               STATUS = t.STATUS,
+                               DESCRIPTION=t.DESCRIPTION
+                           }).AsQueryable();
+
+                dataList = (List<ParameterModel>)qry.AsEnumerable().Select(s => new ParameterModel
+                {
+                    PARAMETER_ID = s.PARAMETER_ID,
+                    MAJOR_CODE = s.MAJOR_CODE,
+                    MINOR_CODE = s.MINOR_CODE,
+                    NAME = s.NAME,
+                    CONDITION1 = s.CONDITION1,
+                    CONDITION2 = s.CONDITION2,
+                    STATUS = s.STATUS,
+                    DESCRIPTION = s.DESCRIPTION
+                }).ToList();
+
+
+                db.Dispose();
+            }
+
+            return dataList;
         }
     }
 }

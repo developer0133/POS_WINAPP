@@ -28,6 +28,11 @@ namespace BL
             return _parameter.GetParameterAll();
         }
 
+        public static List<ParameterModel> ParameterSearch(string OSearch)
+        {
+            return _parameter.ParameterSearch(OSearch);
+        }
+
         public static bool InsertParameter(PARAMETER pData)
         {
             return _parameter.InsertParameter(pData);

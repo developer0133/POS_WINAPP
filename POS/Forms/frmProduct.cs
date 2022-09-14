@@ -311,10 +311,10 @@ namespace POS.Forms
         {
 
             dgvProduct.AutoGenerateColumns = false;
-
+            pageNumber = 1;
             dt = new List<ProductDTO>();
             dt = ProductService.GetProduct(txtSearch.Text); //140000101
-            dgvProduct.DataSource = dt.Skip(pageSize * (pageNumber - 1)).Take(pageSize).ToList();
+            dgvProduct.DataSource = dt;//.Skip(pageSize * (pageNumber - 1)).Take(pageSize).ToList();
 
             lblPage.Text = string.Format("Page {0}/{1}", (pageNumber), dt.Count() / pageSize);
         }

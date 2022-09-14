@@ -59,39 +59,37 @@ namespace POS.Forms
             // 
             // btnCreate
             // 
-            this.btnCreate.Image = global::POS.Properties.Resources.save;
+            this.btnCreate.Image = ((System.Drawing.Image)(resources.GetObject("btnCreate.Image")));
             this.btnCreate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCreate.Location = new System.Drawing.Point(31, 159);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(118, 61);
             this.btnCreate.TabIndex = 41;
             this.btnCreate.Text = "บันทึก";
-            this.btnCreate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCreate.UseVisualStyleBackColor = true;
             this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
             // btnCancel
             // 
-            this.btnCancel.Image = global::POS.Properties.Resources.cancel;
+            this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
             this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCancel.Location = new System.Drawing.Point(155, 159);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(120, 61);
             this.btnCancel.TabIndex = 42;
-            this.btnCancel.Text = "           ยกเลิก";
+            this.btnCancel.Text = "ยกเลิก";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnDownload
             // 
-            this.btnDownload.Image = global::POS.Properties.Resources.download;
+            this.btnDownload.Image = ((System.Drawing.Image)(resources.GetObject("btnDownload.Image")));
             this.btnDownload.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDownload.Location = new System.Drawing.Point(281, 159);
             this.btnDownload.Name = "btnDownload";
             this.btnDownload.Size = new System.Drawing.Size(136, 61);
             this.btnDownload.TabIndex = 44;
-            this.btnDownload.Text = "Download";
-            this.btnDownload.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDownload.Text = "     Download";
             this.btnDownload.UseVisualStyleBackColor = true;
             this.btnDownload.Click += new System.EventHandler(this.btnDownload_Click);
             // 

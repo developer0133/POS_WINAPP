@@ -49,6 +49,7 @@
     <Compile Include="Models\LoginAccessModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\MasterRunningModel.cs" />
+    <Compile Include="Models\ParameterModel.cs" />
     <Compile Include="Models\ProductsModel.cs" />
     <Compile Include="Models\ReportModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

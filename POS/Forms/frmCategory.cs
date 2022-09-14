@@ -192,7 +192,7 @@ namespace POS.Forms
 
             dt = new List<CategoryModel>();
             dt = test;
-            dgvCate.DataSource = test.Skip(pageSize * (pageNumber - 1)).Take(pageSize).ToList();
+            dgvCate.DataSource = dt;//.Skip(pageSize * (pageNumber - 1)).Take(pageSize).ToList();
 
             //dgvCate.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
