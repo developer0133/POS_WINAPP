@@ -23,7 +23,7 @@ namespace POS.Forms
         {
             if (String.IsNullOrWhiteSpace(txtBarcode.Text) || String.IsNullOrEmpty(txtBarcode.Text))
             {
-                MessageBox.Show("Input data", "POS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Input data", "POS", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
@@ -54,7 +54,7 @@ namespace POS.Forms
         {
             if (pictureBox1.Image == null)
             {
-                MessageBox.Show("Image not found", "POS!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Image not found", "POS", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
