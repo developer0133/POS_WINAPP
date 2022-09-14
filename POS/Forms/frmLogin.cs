@@ -24,6 +24,8 @@ namespace POS.Forms
         private void Login_Load(object sender, EventArgs e)
         {
             lblwarning1.Text = string.Empty;
+            var version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
+            lblversion.Text = String.Format("version {0}", version);
         }
 
         private void btnLogin_Click(object sender, EventArgs e)

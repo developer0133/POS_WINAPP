@@ -30,7 +30,6 @@ namespace DAL
                                CATE_CODE = t.CATE_CODE,
                                REMARK = t.REMARK,
                                STATUS = t.STATUS
-
                            }).AsQueryable();
 
                 cateList = (List<CategoryModel>)qry.AsEnumerable().Select(s => new CategoryModel

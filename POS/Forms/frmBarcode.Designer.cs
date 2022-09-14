@@ -54,7 +54,7 @@ namespace POS.Forms
             this.txtBarcode.Location = new System.Drawing.Point(31, 92);
             this.txtBarcode.Multiline = true;
             this.txtBarcode.Name = "txtBarcode";
-            this.txtBarcode.Size = new System.Drawing.Size(299, 33);
+            this.txtBarcode.Size = new System.Drawing.Size(386, 33);
             this.txtBarcode.TabIndex = 40;
             // 
             // btnCreate
@@ -63,7 +63,7 @@ namespace POS.Forms
             this.btnCreate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCreate.Location = new System.Drawing.Point(31, 159);
             this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(118, 61);
+            this.btnCreate.Size = new System.Drawing.Size(148, 61);
             this.btnCreate.TabIndex = 41;
             this.btnCreate.Text = "บันทึก";
             this.btnCreate.UseVisualStyleBackColor = true;
@@ -73,9 +73,9 @@ namespace POS.Forms
             // 
             this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
             this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancel.Location = new System.Drawing.Point(155, 159);
+            this.btnCancel.Location = new System.Drawing.Point(203, 159);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(120, 61);
+            this.btnCancel.Size = new System.Drawing.Size(154, 61);
             this.btnCancel.TabIndex = 42;
             this.btnCancel.Text = "ยกเลิก";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -85,9 +85,9 @@ namespace POS.Forms
             // 
             this.btnDownload.Image = ((System.Drawing.Image)(resources.GetObject("btnDownload.Image")));
             this.btnDownload.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDownload.Location = new System.Drawing.Point(281, 159);
+            this.btnDownload.Location = new System.Drawing.Point(393, 159);
             this.btnDownload.Name = "btnDownload";
-            this.btnDownload.Size = new System.Drawing.Size(136, 61);
+            this.btnDownload.Size = new System.Drawing.Size(169, 61);
             this.btnDownload.TabIndex = 44;
             this.btnDownload.Text = "     Download";
             this.btnDownload.UseVisualStyleBackColor = true;
