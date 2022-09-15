@@ -40,6 +40,7 @@ namespace POS.Forms
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblversion = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -143,11 +144,21 @@ namespace POS.Forms
             this.lblversion.TabIndex = 9;
             this.lblversion.Text = "version ";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(747, 430);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(166, 17);
+            this.label1.TabIndex = 10;
+            this.label1.Text = " © copy right 2022 - KNN";
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1082, 731);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.lblversion);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
@@ -176,5 +187,6 @@ namespace POS.Forms
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblversion;
+        private System.Windows.Forms.Label label1;
     }
 }
