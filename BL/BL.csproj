@@ -56,7 +56,7 @@
       <Name>DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\DATA-EF\DATA-EF.csproj">
-      <Project>{130EDAB8-BD80-4D4C-94C0-4EE8AABC7B26}</Project>
+      <Project>{130edab8-bd80-4d4c-94c0-4ee8aabc7b26}</Project>
       <Name>DATA-EF</Name>
     </ProjectReference>
     <ProjectReference Include="..\DATA-Models\DATA-Models.csproj">

@@ -209,5 +209,38 @@ namespace DAL.Utils
             }
         }
 
+        public static DateTime? strDateToDateTime(string strDate, bool isThai = true)
+        {
+            if (string.IsNullOrEmpty(strDate))
+            {
+                return null;
+            }
+
+            var temp = strDate.Split('/');
+            DateTime? date = null;
+
+            if (isThai)
+            {
+                date = new DateTime(int.Parse(temp[2]) - 543, int.Parse(temp[1]), int.Parse(temp[0]));
+            }
+            else
+            {
+                date = new DateTime(int.Parse(temp[2]), int.Parse(temp[1]), int.Parse(temp[0]));
+            }
+
+            return date;
+        }
+
+        public static string setFormatCurrency(decimal? dDec)
+        {
+            string strDec = "0.00";
+            if (dDec.HasValue)
+            {
+                strDec = dDec.Value.ToString("#,##0.00");
+            }
+
+            return strDec;
+        }
+
     }
 }

@@ -106,5 +106,14 @@ namespace POS.Forms
             f.MdiParent = this;
             f.Show();
         }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            CloseAllChildForm();
+
+            frmReport f = new frmReport();
+            f.MdiParent = this;
+            f.Show();
+        }
     }
 }

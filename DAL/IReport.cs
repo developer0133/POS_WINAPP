@@ -10,5 +10,6 @@ namespace DAL
     public interface IReport
     {
         List<SellReportModel> SellItemReport(string code);
+        List<ReportModel2> SellSummaryReport(string sdate, string flag);
     }
 }

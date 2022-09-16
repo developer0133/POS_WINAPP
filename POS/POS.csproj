@@ -393,7 +393,7 @@
       <Name>DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\DATA-EF\DATA-EF.csproj">
-      <Project>{130EDAB8-BD80-4D4C-94C0-4EE8AABC7B26}</Project>
+      <Project>{130edab8-bd80-4d4c-94c0-4ee8aabc7b26}</Project>
       <Name>DATA-EF</Name>
     </ProjectReference>
     <ProjectReference Include="..\DATA-Models\DATA-Models.csproj">
@@ -404,6 +404,15 @@
   <ItemGroup>
     <None Include="images\search2.ico" />
     <None Include="images\product.ico" />
+    <None Include="images\Finance-Order.ico" />
+    <None Include="images\Category.ico" />
+    <None Include="images\Barcodes.ico" />
+    <None Include="images\Order-history.ico" />
+    <None Include="images\sale.ico" />
+    <None Include="images\Zoom-out.ico" />
+    <None Include="images\Chart.ico" />
+    <None Include="images\logout.ico" />
+    <None Include="images\Download-icon.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

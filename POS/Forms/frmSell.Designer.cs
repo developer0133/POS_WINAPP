@@ -44,9 +44,9 @@ namespace POS.Forms
             this.PRODUCT_CODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PRODUCT_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UNIT_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnReport = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
-            this.btnReport = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSell)).BeginInit();
             this.SuspendLayout();
             // 
@@ -181,49 +181,52 @@ namespace POS.Forms
             this.UNIT_ID.Visible = false;
             this.UNIT_ID.Width = 125;
             // 
+            // btnReport
+            // 
+            this.btnReport.Image = global::POS.Properties.Resources.search24;
+            this.btnReport.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnReport.Location = new System.Drawing.Point(874, 540);
+            this.btnReport.Name = "btnReport";
+            this.btnReport.Size = new System.Drawing.Size(158, 82);
+            this.btnReport.TabIndex = 47;
+            this.btnReport.Text = "รายงาน";
+            this.btnReport.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnReport.UseVisualStyleBackColor = true;
+            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
+            // 
             // btnSave
             // 
-            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
-            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(707, 46);
+            this.btnSave.Image = global::POS.Properties.Resources.save;
+            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnSave.Location = new System.Drawing.Point(662, 46);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(156, 63);
+            this.btnSave.Size = new System.Drawing.Size(170, 83);
             this.btnSave.TabIndex = 46;
             this.btnSave.Tag = "";
             this.btnSave.Text = " บันทึก";
+            this.btnSave.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnClear
             // 
-            this.btnClear.Image = ((System.Drawing.Image)(resources.GetObject("btnClear.Image")));
-            this.btnClear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClear.Location = new System.Drawing.Point(888, 46);
+            this.btnClear.Image = global::POS.Properties.Resources.cancel;
+            this.btnClear.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnClear.Location = new System.Drawing.Point(858, 46);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(132, 63);
+            this.btnClear.Size = new System.Drawing.Size(170, 83);
             this.btnClear.TabIndex = 45;
             this.btnClear.Text = "ยกเลิก";
+            this.btnClear.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
-            // btnReport
-            // 
-            this.btnReport.Image = ((System.Drawing.Image)(resources.GetObject("btnReport.Image")));
-            this.btnReport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReport.Location = new System.Drawing.Point(888, 540);
-            this.btnReport.Name = "btnReport";
-            this.btnReport.Size = new System.Drawing.Size(144, 56);
-            this.btnReport.TabIndex = 47;
-            this.btnReport.Text = "รายงาน";
-            this.btnReport.UseVisualStyleBackColor = true;
-            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 
             // frmSell
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1056, 896);
+            this.ClientSize = new System.Drawing.Size(1056, 917);
             this.Controls.Add(this.btnReport);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnClear);

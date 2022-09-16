@@ -23,6 +23,8 @@ D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\BL\bin\Debug\DATA-EF.dll
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\BL\bin\Debug\DATA-Models.dll
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\BL\bin\Debug\EntityFramework.dll
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\BL\bin\Debug\zxing.dll
+D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\BL\bin\Debug\POS-Utility.dll
+D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\BL\bin\Debug\NLog.dll
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\BL\bin\Debug\DAL.pdb
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\BL\bin\Debug\DAL.dll.config
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\BL\bin\Debug\DATA-EF.pdb
@@ -30,12 +32,10 @@ D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\BL\bin\Debug\DATA-EF.dll.co
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\BL\bin\Debug\DATA-Models.pdb
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\BL\bin\Debug\EntityFramework.xml
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\BL\bin\Debug\zxing.xml
+D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\BL\bin\Debug\POS-Utility.pdb
+D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\BL\bin\Debug\NLog.xml
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\BL\obj\Debug\BL.csproj.AssemblyReference.cache
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\BL\obj\Debug\BL.csproj.CoreCompileInputs.cache
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\BL\obj\Debug\BL.csproj.CopyComplete
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\BL\obj\Debug\BL.dll
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\BL\obj\Debug\BL.pdb
-D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\BL\bin\Debug\POS-Utility.dll
-D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\BL\bin\Debug\NLog.dll
-D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\BL\bin\Debug\POS-Utility.pdb
-D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\BL\bin\Debug\NLog.xml

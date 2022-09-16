@@ -28,8 +28,8 @@ D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS-Utility\bin\Debug\Syste
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS-Utility\bin\Debug\System.Memory.xml
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS-Utility\bin\Debug\System.Numerics.Vectors.xml
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS-Utility\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS-Utility\obj\Debug\POS-Utility.csproj.AssemblyReference.cache
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS-Utility\obj\Debug\POS-Utility.csproj.CoreCompileInputs.cache
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS-Utility\obj\Debug\POS-Utility.csproj.CopyComplete
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS-Utility\obj\Debug\POS-Utility.dll
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS-Utility\obj\Debug\POS-Utility.pdb
-D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS-Utility\obj\Debug\POS-Utility.csproj.AssemblyReference.cache

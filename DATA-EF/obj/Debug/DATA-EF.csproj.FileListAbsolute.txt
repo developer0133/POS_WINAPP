@@ -106,6 +106,7 @@ D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\DATA-EF\bin\Debug\System.Me
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\DATA-EF\bin\Debug\System.Numerics.Vectors.xml
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\DATA-EF\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\DATA-EF\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\DATA-EF\obj\Debug\DATA-EF.csproj.AssemblyReference.cache
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\DATA-EF\obj\Debug\DATA-EF.csproj.CoreCompileInputs.cache
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\DATA-EF\obj\Debug\DATA-EF.csproj.CopyComplete
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\DATA-EF\obj\Debug\DATA-EF.dll

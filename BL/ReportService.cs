@@ -24,5 +24,10 @@ namespace BL
         {
             return _report.SellItemReport(code);
         }
+
+        public static List<ReportModel2> SellSummaryReport(string sdate, string flag)
+        {
+            return _report.SellSummaryReport(sdate, flag);
+        }
     }
 }

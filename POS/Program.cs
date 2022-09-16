@@ -21,8 +21,8 @@ namespace POS
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Forms.frmLogin());
-            //Application.Run(new Forms.frmMain());
+            //Application.Run(new Forms.frmLogin());
+            Application.Run(new Forms.frmMain());
         }
     }
 }
