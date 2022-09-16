@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using DATA_Models.Models;
 using DATA_Models.DTO;
 using System.Data.Entity;
+using POS_Utility;
 
 namespace DAL
 {
@@ -16,6 +17,8 @@ namespace DAL
     {
         public List<CategoryModel> GetCategories()
         {
+            clsLog.Info("GetCategories");
+
             List<CategoryModel> cateList = new List<CategoryModel>();
 
             using (POSSYSTEMEntities db = new POSSYSTEMEntities())
@@ -114,6 +117,7 @@ namespace DAL
             }
             catch (Exception ex)
             {
+                clsLog.Error("InsertCategory Error:" + ex.Message);
                 throw new Exception(ex.Message);
             }
 
@@ -134,6 +138,7 @@ namespace DAL
             }
             catch(Exception ex)
             {
+                clsLog.Error("UpdateCategory Error:" + ex.Message);
                 throw new Exception(ex.Message);
             }
 
@@ -157,7 +162,8 @@ namespace DAL
                 }
             }
             catch (Exception ex)
-            { 
+            {
+                clsLog.Error("DeleteCategory Error:" + ex.Message + "categorY_ID:" + categorY_ID);
                 throw new Exception(ex.Message);
             }
 

@@ -9,6 +9,7 @@ using DATA_EF;
 using DAL.Utils;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using POS_Utility;
 
 namespace DAL
 {
@@ -16,6 +17,8 @@ namespace DAL
     {
         public List<ProductDTO> GetProduct(string code)
         {
+            clsLog.Info("GetProduct");
+
             List<ProductDTO> oList = null;
             try
             {
@@ -184,6 +187,7 @@ namespace DAL
                 catch (Exception ex)
                 {
                     isSuccess = false;
+                    clsLog.Error("InsertProduct Error:" + ex.Message);
                     throw new Exception(ex.Message);
                 }
             }
@@ -229,8 +233,9 @@ namespace DAL
                 }
                     
             }
-            catch (DbUpdateConcurrencyException ex)
+            catch (ExecutionEngineException ex)
             {
+                clsLog.Error("UpdateProduct Error:" + ex.Message);
                 isSuccess = false;
             }
 

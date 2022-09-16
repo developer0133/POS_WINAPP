@@ -83,6 +83,10 @@
       <Project>{a0ce23bb-ce41-43c5-a1e6-a83a4d26c07d}</Project>
       <Name>DATA-Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\POS-Utility\POS-Utility.csproj">
+      <Project>{53fca435-950f-4264-9746-bed108042c25}</Project>
+      <Name>POS-Utility</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

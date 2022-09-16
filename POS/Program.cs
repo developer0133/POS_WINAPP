@@ -14,6 +14,11 @@ namespace POS
         [STAThread]
         static void Main()
         {
+            //DateTime dateTime = DateTime.UtcNow.Date;
+            //var strDate = dateTime.ToString("ddMMyyyy");
+
+            //string fileName = String.Format("{0}{1}.txt", "log", strDate);
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Forms.frmLogin());

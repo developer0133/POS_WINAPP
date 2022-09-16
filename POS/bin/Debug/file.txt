@@ -1,0 +1,4 @@
+2022-09-16 11:39:22.5601|INFO|DAL.Category|Hello world
+2022-09-16 11:40:27.7540|INFO|DAL.Category|Hello world2
+2022-09-16 11:45:10.6330|ERROR|DAL.Category|Hello world3
+2022-09-16 11:46:57.0910|ERROR|DAL.Category|Hello world3
