@@ -46,6 +46,7 @@ namespace POS.Forms
             this.DISCOUNT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AMOUNT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnOK = new System.Windows.Forms.Button();
+            this.lblSum = new System.Windows.Forms.Label();
             this.tabcontrol1.SuspendLayout();
             this.tbDaily.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -93,11 +94,12 @@ namespace POS.Forms
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblSum);
             this.groupBox1.Controls.Add(this.dgvReport);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.groupBox1.Location = new System.Drawing.Point(21, 305);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1339, 305);
+            this.groupBox1.Size = new System.Drawing.Size(1339, 321);
             this.groupBox1.TabIndex = 24;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ข้อมูลรายการ";
@@ -207,6 +209,16 @@ namespace POS.Forms
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
+            // lblSum
+            // 
+            this.lblSum.AutoSize = true;
+            this.lblSum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.lblSum.Location = new System.Drawing.Point(1106, 298);
+            this.lblSum.Name = "lblSum";
+            this.lblSum.Size = new System.Drawing.Size(66, 24);
+            this.lblSum.TabIndex = 25;
+            this.lblSum.Text = "label1";
+            // 
             // frmReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -221,6 +233,7 @@ namespace POS.Forms
             this.tabcontrol1.ResumeLayout(false);
             this.tbDaily.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReport)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -245,5 +258,6 @@ namespace POS.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn SELLPRICE;
         private System.Windows.Forms.DataGridViewTextBoxColumn DISCOUNT;
         private System.Windows.Forms.DataGridViewTextBoxColumn AMOUNT;
+        private System.Windows.Forms.Label lblSum;
     }
 }
