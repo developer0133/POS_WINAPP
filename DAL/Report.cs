@@ -104,7 +104,7 @@ namespace DAL
                                        AMOUNT = t1.AMOUNT,
                                        DISCOUNT = t1.DISCOUNT,
                                        SELLPRICE = t1.SELL_PRICE,
-                                       SELL_DATE = t1.C_DATE.ToString(),
+                                       //SELL_DATE = t1.C_DATE.ToString(),
                                        SELL_NO = t1.SELLITEM_NO
                                    }).AsQueryable();
 
@@ -118,7 +118,7 @@ namespace DAL
                             //NO = (index + 1),
                             DISCOUNT = s.DISCOUNT,
                             SELLPRICE = s.SELLPRICE,
-                            SELL_DATE = s.SELL_DATE,
+                            //SELL_DATE = s.SELL_DATE,
                             SELL_NO = s.SELL_NO
                         }).ToList();
 
@@ -132,7 +132,7 @@ namespace DAL
                                 AMOUNT = s.Sum(a => a.AMOUNT),
                                 SELLPRICE = s.First().SELLPRICE,
                                 DISCOUNT = s.Sum(a => a.DISCOUNT),
-                                SELL_DATE = s.First().SELL_DATE,
+                               //SELL_DATE = s.First().SELL_DATE,
                                 SELL_NO = s.First().SELL_NO,
                                 UNIT = s.First().UNIT
                             }).OrderBy(a => a.NO).ToList();

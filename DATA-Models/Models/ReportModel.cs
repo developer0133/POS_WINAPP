@@ -38,12 +38,12 @@ namespace DATA_Models.Models
         public int? Qty { get; set; }
         public decimal? AMOUNT { get; set; }
         public int NO { get; set; }
-        public decimal? TOTAL { get; set; }
+        //public decimal? TOTAL { get; set; }
         public string UNIT { get; set; }
         public decimal? DISCOUNT { get; set; }
         public decimal? SELLPRICE { get; set; }
         public string SUM_TOTAL_AMOUNT { get; set; }
-        public string SELL_DATE { get; set; }
+        //public string SELL_DATE { get; set; }
         public string SELL_NO { get; set; }
     }
 
