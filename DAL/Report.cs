@@ -122,20 +122,35 @@ namespace DAL
                             SELL_NO = s.SELL_NO
                         }).ToList();
 
-                        reprotData = reprotData.GroupBy(p => p.SELL_NO)
-                            .Select((s, index) => new ReportModel2
-                            {
-                                NO = (index + 1),
-                                PRODUCT_CODE = s.First().PRODUCT_CODE,
-                                PRODUCT_NAME = s.First().PRODUCT_NAME,
-                                Qty = s.Sum(a => a.Qty),
-                                AMOUNT = s.Sum(a => a.AMOUNT),
-                                SELLPRICE = s.First().SELLPRICE,
-                                DISCOUNT = s.Sum(a => a.DISCOUNT),
-                               //SELL_DATE = s.First().SELL_DATE,
-                                SELL_NO = s.First().SELL_NO,
-                                UNIT = s.First().UNIT
-                            }).OrderBy(a => a.NO).ToList();
+                        //reprotData = reprotData.GroupBy(p => p.SELL_NO)
+                        //.Select((s, index) => new ReportModel2
+                        //{
+                        //    NO = (index + 1),
+                        //    PRODUCT_CODE = s.First().PRODUCT_CODE,
+                        //    PRODUCT_NAME = s.First().PRODUCT_NAME,
+                        //    Qty = s.Sum(a => a.Qty),
+                        //    AMOUNT = s.Sum(a => a.AMOUNT),
+                        //    SELLPRICE = s.First().SELLPRICE,
+                        //    DISCOUNT = s.Sum(a => a.DISCOUNT),
+                        //   //SELL_DATE = s.First().SELL_DATE,
+                        //    SELL_NO = s.First().SELL_NO,
+                        //    UNIT = s.First().UNIT
+                        //}).OrderBy(a => a.NO).ToList();
+
+                        reprotData = reprotData
+                        .Select((s, index) => new ReportModel2
+                        {
+                            NO = (index + 1),
+                            PRODUCT_CODE = s.PRODUCT_CODE,
+                            PRODUCT_NAME = s.PRODUCT_NAME,
+                            Qty = s.Qty,
+                            AMOUNT = s.AMOUNT,
+                            SELLPRICE = s.SELLPRICE,
+                            DISCOUNT = s.DISCOUNT,
+                            //SELL_DATE = s.First().SELL_DATE,
+                            SELL_NO = s.SELL_NO,
+                            UNIT = s.UNIT
+                        }).OrderBy(a => a.NO).ToList();
 
 
                         var sumAmount = reprotData.Sum(s => s.AMOUNT);

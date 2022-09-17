@@ -239,8 +239,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox3</rd:DefaultName>
-            <Top>1.28903cm</Top>
-            <Left>6.92309cm</Left>
+            <Top>0.99921cm</Top>
+            <Left>6.90362cm</Left>
             <Height>0.6cm</Height>
             <Width>1.22096cm</Width>
             <ZIndex>5</ZIndex>
@@ -269,8 +269,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox6</rd:DefaultName>
-            <Top>1.33957cm</Top>
-            <Left>7.96067cm</Left>
+            <Top>0.99921cm</Top>
+            <Left>7.64317cm</Left>
             <Height>0.6cm</Height>
             <Width>2.49959cm</Width>
             <ZIndex>6</ZIndex>
@@ -887,6 +887,8 @@
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
+            <RepeatColumnHeaders>true</RepeatColumnHeaders>
+            <RepeatRowHeaders>true</RepeatRowHeaders>
             <DataSetName>Daily_DS</DataSetName>
             <Top>3.73803cm</Top>
             <Left>0.47089cm</Left>
@@ -969,7 +971,7 @@
         <Height>2.33028in</Height>
         <Style />
       </Body>
-      <Width>8.27in</Width>
+      <Width>6.66571in</Width>
       <Page>
         <PageHeight>29.7cm</PageHeight>
         <PageWidth>21cm</PageWidth>
