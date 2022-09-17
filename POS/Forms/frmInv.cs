@@ -484,7 +484,7 @@ namespace POS.Forms
             txtItemBalance.Clear();
             txtProductName.Clear();
 
-            pModel = new InventoryDTO();
+            pModel = new InventoryDTO();//test
         }
 
         private void cboUnit_DropDownClosed(object sender, EventArgs e)
