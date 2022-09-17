@@ -11,6 +11,8 @@ using System.Windows.Forms;
 using DATA_Models.Models;
 using Microsoft.Reporting.WebForms;
 using BL;
+using POS_Utility;
+using System.Configuration;
 
 namespace POS.Utils
 {
@@ -152,16 +154,24 @@ namespace POS.Utils
             string encoding;
             string filenameExtension;
 
-            string genRpt = System.IO.Directory.GetCurrentDirectory();
+            string genRpt = ConfigurationSettings.AppSettings["RootPath"];//System.IO.Directory.GetCurrentDirectory();
             genRpt = string.Format("{0}/{1}", genRpt, POS_PATH.GEN_REPORT);
             DAL.Utils.clsFunction.MakePath(genRpt);
+            clsLog.Info("make path:" + genRpt);
 
-            var rptPath = string.Format("{0}/{1}{2}", POS_PATH.REPORTS, REPORT_NAME.SELL_REPORT, ".rdlc");
-            var savePath = string.Format("{0}/{1}{2}", POS_PATH.GEN_REPORT, OReport.code, ".pdf");
+            var rptPath = ConfigurationSettings.AppSettings["RptPath"] + REPORT_NAME.SELL_REPORT + ".rdlc";//string.Format("{0}/{1}{2}", POS_PATH.REPORTS, REPORT_NAME.DailyRpt, ".rdlc");
+            var savePath = ConfigurationSettings.AppSettings["GenReport"] + OReport.param.ToString() + ".pdf";//string.Format("{0}/{1}{2}", POS_PATH.GEN_REPORT, OReport.param.ToString(), ".pdf");
+            clsLog.Info("genRpt :" + genRpt);
+            clsLog.Info("savePath :" + savePath);
+
+            //var rptPath = string.Format("{0}/{1}{2}", POS_PATH.REPORTS, REPORT_NAME.SELL_REPORT, ".rdlc");
+            //var savePath = string.Format("{0}/{1}{2}", POS_PATH.GEN_REPORT, OReport.code, ".pdf");
+            //clsLog.Info("savePath :" + savePath);
 
             string path1 = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName + "\\POS" + "\\";
-            string path = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName + "\\POS" + "\\" + rptPath;
-            saveFile = path1 + savePath;//Path.Combine(Directory.GetCurrentDirectory(), savePath);
+            //string path = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName + "\\POS" + "\\" + rptPath;
+           
+            saveFile = savePath;//Path.Combine(Directory.GetCurrentDirectory(), savePath);
 
             var rptData = ReportService.SellItemReport(OReport.code);
             decimal? sumAmount = rptData.Sum(s => s.AMOUNT);
@@ -181,7 +191,7 @@ namespace POS.Utils
 
                 ReportViewer viewer = new ReportViewer();
                 viewer.ProcessingMode = ProcessingMode.Local;
-                viewer.LocalReport.ReportPath = path;//"D:/Workspace/DotNet/Inventory/POS_WINAPP3/POS_WINAPP/POS/Reports/SellReport.rdlc";
+                viewer.LocalReport.ReportPath = rptPath;//"D:/Workspace/DotNet/Inventory/POS_WINAPP3/POS_WINAPP/POS/Reports/SellReport.rdlc";
                 viewer.LocalReport.SetParameters(parameters);
                 viewer.LocalReport.DataSources.Add(new ReportDataSource("sell_DS", rptData));
 
@@ -213,6 +223,7 @@ namespace POS.Utils
             return isSuccess;
         }
 
+        [Obsolete]
         public static bool PrintDailyReport(GenReportModel OReport, ref string FileName)
         {
             bool isSuccess = false;
@@ -223,17 +234,18 @@ namespace POS.Utils
             string mimeType;
             string encoding;
             string filenameExtension;
-
-            string genRpt = System.IO.Directory.GetCurrentDirectory();
+          
+            string genRpt = ConfigurationSettings.AppSettings["RootPath"];//System.IO.Directory.GetCurrentDirectory();
             genRpt = string.Format("{0}/{1}", genRpt, POS_PATH.GEN_REPORT);
             DAL.Utils.clsFunction.MakePath(genRpt);
+            clsLog.Info("make path:" + genRpt);
 
-            var rptPath = string.Format("{0}/{1}{2}", POS_PATH.REPORTS, REPORT_NAME.DailyRpt, ".rdlc");
-            var savePath = string.Format("{0}/{1}{2}", POS_PATH.GEN_REPORT, OReport.param.ToString(), ".pdf");
+            var rptPath = ConfigurationSettings.AppSettings["RptPath"] + REPORT_NAME.DailyRpt + ".rdlc";//string.Format("{0}/{1}{2}", POS_PATH.REPORTS, REPORT_NAME.DailyRpt, ".rdlc");
+            var savePath = ConfigurationSettings.AppSettings["GenReport"] + OReport.param.ToString()+".pdf";//string.Format("{0}/{1}{2}", POS_PATH.GEN_REPORT, OReport.param.ToString(), ".pdf");
+            clsLog.Info("genRpt :" + genRpt);
+            clsLog.Info("savePath :" + savePath);
 
-            string path1 = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName + "\\POS" + "\\";
-            string path = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName + "\\POS" + "\\" + rptPath;
-            saveFile = path1 + savePath;//Path.Combine(Directory.GetCurrentDirectory(), savePath);
+            saveFile = savePath;//path1 + savePath;//Path.Combine(Directory.GetCurrentDirectory(), savePath);
 
             var rptData = ReportService.SellSummaryReport(OReport.code, "D");
             decimal? sumAmount = rptData.Sum(s => s.AMOUNT);
@@ -253,7 +265,7 @@ namespace POS.Utils
 
                 ReportViewer viewer = new ReportViewer();
                 viewer.ProcessingMode = ProcessingMode.Local;
-                viewer.LocalReport.ReportPath = path;//"D:/Workspace/DotNet/Inventory/POS_WINAPP3/POS_WINAPP/POS/Reports/SellReport.rdlc";
+                viewer.LocalReport.ReportPath = rptPath;//path;//"D:/Workspace/DotNet/Inventory/POS_WINAPP3/POS_WINAPP/POS/Reports/SellReport.rdlc";
                 viewer.LocalReport.SetParameters(parameters);
                 viewer.LocalReport.DataSources.Add(new ReportDataSource("Daily_DS", rptData));
 

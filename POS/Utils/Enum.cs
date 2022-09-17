@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Configuration;
 
 namespace POS.Utils
 {
@@ -55,4 +56,5 @@ namespace POS.Utils
         public const string DailyRpt = "Daily_rpt";
     }
 
+ 
 }

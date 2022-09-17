@@ -17,229 +17,236 @@ namespace DAL
         {
             bool isSuccess = false;
 
-            using (POSSYSTEMEntities _db = new POSSYSTEMEntities())
+            try
             {
-                decimal balance = 0;
-                int? old_packBalance = 0;
-                int? old_itemBalance = 0;
-                int? old_boxBalance = 0;
-
-                var invObj = _db.INV_PRODUCTS.Where(w => w.PRODUCT_ID == InvData.PRODUCT_ID).FirstOrDefault();
-
-                if (invObj != null)
+                using (POSSYSTEMEntities _db = new POSSYSTEMEntities())
                 {
-                    balance = invObj.BALANCE.Value;
-                    old_packBalance = invObj.PACK_BALANCE;
-                    old_itemBalance = invObj.ITEM_BALANCE;
-                    old_boxBalance = invObj.BOX_BALANCE;
+                    decimal balance = 0;
+                    int? old_packBalance = 0;
+                    int? old_itemBalance = 0;
+                    int? old_boxBalance = 0;
 
-                    var delList = _db.PRODUCTS.Where(w => w.PRODUCT_CODE.Contains(".")).ToList();
-                    if (delList.Count() > 0)
+                    var invObj = _db.INV_PRODUCTS.Where(w => w.PRODUCT_ID == InvData.PRODUCT_ID).FirstOrDefault();
+
+                    if (invObj != null)
                     {
-                        foreach (var itm in delList)
+                        balance = invObj.BALANCE.HasValue ? invObj.BALANCE.Value : 0;
+                        old_packBalance = invObj.PACK_BALANCE.HasValue ? invObj.PACK_BALANCE.Value : 0;
+                        old_itemBalance = invObj.ITEM_BALANCE.HasValue ? invObj.ITEM_BALANCE.Value : 0;
+                        old_boxBalance = invObj.BOX_BALANCE.HasValue ? invObj.BOX_BALANCE.Value : 0;
+
+                        var delList = _db.PRODUCTS.Where(w => w.PRODUCT_CODE.Contains(".")).ToList();
+                        if (delList.Count() > 0)
                         {
-                            string[] sp = itm.PRODUCT_CODE.Split('.');
-                            if (int.Parse(sp[1]) == invObj.PRODUCT_ID)
+                            foreach (var itm in delList)
                             {
-                                _db.PRODUCTS.Remove(itm);
+                                string[] sp = itm.PRODUCT_CODE.Split('.');
+                                if (int.Parse(sp[1]) == invObj.PRODUCT_ID)
+                                {
+                                    _db.PRODUCTS.Remove(itm);
+                                }
                             }
                         }
+
+                        _db.INV_PRODUCTS.Remove(invObj);
                     }
 
-                    _db.INV_PRODUCTS.Remove(invObj);
-                }
+                    var packBalance = InvData.PACK_BALANCE;
+                    var itemBalance = InvData.ITEM_BALANCE;
+                    var boxBalance = InvData.BOX_BALANCE;
 
-                var packBalance = InvData.PACK_BALANCE;
-                var itemBalance = InvData.ITEM_BALANCE;
-                var boxBalance = InvData.BOX_BALANCE;
+                    InvData.PACK_BALANCE = InvData.PACK_BALANCE + old_packBalance;
+                    InvData.ITEM_BALANCE = InvData.ITEM_BALANCE + old_itemBalance;
+                    InvData.BOX_BALANCE = InvData.BOX_BALANCE + old_boxBalance;
 
-                InvData.PACK_BALANCE = InvData.PACK_BALANCE + old_packBalance;
-                InvData.ITEM_BALANCE = InvData.ITEM_BALANCE + old_itemBalance;
-                InvData.BOX_BALANCE = InvData.BOX_BALANCE + old_boxBalance;
+                    InvData.BALANCE = (InvData.BALANCE + balance);
+                    InvData.ORDER_DATE = InvData.ORDER_DATE.Value.AddDays(1);
+                    InvData.E_BY = InvData.C_BY;
+                    InvData.C_DATE = clsFunction.GetDate();
+                    InvData.E_DATE = clsFunction.GetDate();
+                    InvData.UNIT_BALANCE_TEXT = String.Format("{0}:ลัง {1}:แพ็ค {2}:ชิ้น", InvData.BOX_BALANCE, InvData.PACK_BALANCE, InvData.ITEM_BALANCE);
+                    _db.INV_PRODUCTS.Add(InvData);
+                    //_db.SaveChanges();
 
-                InvData.BALANCE = (InvData.BALANCE + balance);
-                InvData.ORDER_DATE = InvData.ORDER_DATE.Value.AddDays(1);
-                InvData.E_BY = InvData.C_BY;
-                InvData.C_DATE = clsFunction.GetDate();
-                InvData.E_DATE = clsFunction.GetDate();
-                InvData.UNIT_BALANCE_TEXT = String.Format("{0}:ลัง {1}:แพ็ค {2}:ชิ้น", InvData.BOX_BALANCE, InvData.PACK_BALANCE, InvData.ITEM_BALANCE);
-                _db.INV_PRODUCTS.Add(InvData);
+                    var objProdduct = _db.PRODUCTS.Where(w => w.PRODUCT_ID == InvData.PRODUCT_ID).SingleOrDefault();
+                    var masterUnit = _db.PARAMETER.Where(w => w.MAJOR_CODE == PARAMETERCODE.UNIT && (w.MINOR_CODE != "1003" && w.MINOR_CODE != "1012")).ToList();
+                    var typeProduct = masterUnit.Where(w => w.MINOR_CODE == InvData.UNIT).FirstOrDefault();
+                    var cateCode = "x";
 
-                var objProdduct =  _db.PRODUCTS.Where(w => w.PRODUCT_ID == InvData.PRODUCT_ID).SingleOrDefault();
-                var masterUnit = _db.PARAMETER.Where(w => w.MAJOR_CODE == PARAMETERCODE.UNIT && (w.MINOR_CODE != "1003" && w.MINOR_CODE != "1012")).ToList();
-                var typeProduct = masterUnit.Where(w => w.MINOR_CODE == InvData.UNIT).FirstOrDefault();
-                var cateCode = "x";
-
-                if (objProdduct != null)
-                {
-                    cateCode = _db.CATEGORY.Where(w => w.CATEGORY_ID == objProdduct.CATEGORY_ID).Select(s => s.CATE_CODE).FirstOrDefault();
-
-                    objProdduct.COSTPRICE = InvData.AMOUNT.Value;
-                    objProdduct.QTY = InvData.QTY;
-                    objProdduct.UNIT = InvData.UNIT;
-                    objProdduct.AVG_ITEM = InvData.AVG_ITEM;
-                    objProdduct.AVG_PACK = InvData.AVG_PACK;
-                    //objProdduct.RETAILPRICE = inventoryData.RETAILPRICE;
-                    objProdduct.WHOLESALEPRICE = InvData.WHOLESALEPRICE; 
-                    objProdduct.AVGCOST = InvData.AVGCOST;
-                    objProdduct.WHOLESALEPROFIT = InvData.WHOLESALEPROFIT.HasValue ? InvData.WHOLESALEPROFIT : 0;
-                    objProdduct.RETAILPROFIT = InvData.RETAILPROFIT.HasValue ? InvData.RETAILPROFIT : 0;
-                    objProdduct.WHOLESALEPRICE_ITEM = InvData.WHOLESALEPRICE_ITEM.HasValue ? InvData.WHOLESALEPRICE_ITEM : 0;
-                    objProdduct.SELLPRICE = InvData.WHOLESALEPRICE.HasValue ? InvData.WHOLESALEPRICE.Value : 0;
-                    objProdduct.BOXPRICE = InvData.BOXPRICE.HasValue ? InvData.BOXPRICE.Value : 0;
-
-                    if (typeProduct.NAME.Contains("ลัง"))
+                    if (objProdduct != null)
                     {
-                        objProdduct.SELLPRICE = objProdduct.BOXPRICE.Value;
-                    }
+                        cateCode = _db.CATEGORY.Where(w => w.CATEGORY_ID == objProdduct.CATEGORY_ID).Select(s => s.CATE_CODE).FirstOrDefault();
 
-                    if (cateCode == "17")//rice
-                    {
-                        objProdduct.PRODUCT_NAME = objProdduct.PRODUCT_NAME + " *[" + typeProduct.NAME + "]";
-                        objProdduct.RETAILPRICE = InvData.RETAILPRICE;
-                        objProdduct.SELLPRICE = InvData.RETAILPRICE.Value;
-                    }
+                        objProdduct.COSTPRICE = InvData.AMOUNT.Value;
+                        objProdduct.QTY = InvData.QTY;
+                        objProdduct.UNIT = InvData.UNIT;
+                        objProdduct.AVG_ITEM = InvData.AVG_ITEM;
+                        objProdduct.AVG_PACK = InvData.AVG_PACK;
+                        //objProdduct.RETAILPRICE = inventoryData.RETAILPRICE;
+                        objProdduct.WHOLESALEPRICE = InvData.WHOLESALEPRICE;
+                        objProdduct.AVGCOST = InvData.AVGCOST;
+                        objProdduct.WHOLESALEPROFIT = InvData.WHOLESALEPROFIT.HasValue ? InvData.WHOLESALEPROFIT : 0;
+                        objProdduct.RETAILPROFIT = InvData.RETAILPROFIT.HasValue ? InvData.RETAILPROFIT : 0;
+                        objProdduct.WHOLESALEPRICE_ITEM = InvData.WHOLESALEPRICE_ITEM.HasValue ? InvData.WHOLESALEPRICE_ITEM : 0;
+                        objProdduct.SELLPRICE = InvData.WHOLESALEPRICE.HasValue ? InvData.WHOLESALEPRICE.Value : 0;
+                        objProdduct.BOXPRICE = InvData.BOXPRICE.HasValue ? InvData.BOXPRICE.Value : 0;
 
-                    _db.Entry(objProdduct).State = EntityState.Modified;
-
-                    if (masterUnit.Select(s => s.MINOR_CODE).Contains(InvData.UNIT))
-                    {
-                        var objUnit = masterUnit.Where(w => w.MINOR_CODE == InvData.UNIT).FirstOrDefault();
-                        //if (objUnit.NAME.Contains("ลัง") || objUnit.NAME.Contains("โหล"))
-                        //{
-                        int con1Qty = string.IsNullOrEmpty(objUnit.CONDITION1) ? 0 : int.Parse(objUnit.CONDITION1);
-
-                        var flagPCS = false;
-                        if (con1Qty == 0)
+                        if (typeProduct.NAME.Contains("ลัง"))
                         {
-                            flagPCS = true;
+                            objProdduct.SELLPRICE = objProdduct.BOXPRICE.Value;
                         }
 
-                        for (int i = 0; i < 2; i++)
+                        if (cateCode == "17")//rice
                         {
-                            PRODUCTS pd = new PRODUCTS();
-                            INV_PRODUCTS inv = new INV_PRODUCTS();
+                            objProdduct.PRODUCT_NAME = objProdduct.PRODUCT_NAME + " *[" + typeProduct.NAME + "]";
+                            objProdduct.RETAILPRICE = InvData.RETAILPRICE;
+                            objProdduct.SELLPRICE = InvData.RETAILPRICE.Value;
+                        }
 
-                            decimal? wholeSellPrice = 0;
-                            decimal? sellPrice = 0;
+                        _db.Entry(objProdduct).State = EntityState.Modified;
 
-                            if (cateCode == "17")//rice
+                        if (masterUnit.Select(s => s.MINOR_CODE).Contains(InvData.UNIT))
+                        {
+                            var objUnit = masterUnit.Where(w => w.MINOR_CODE == InvData.UNIT).FirstOrDefault();
+                            //if (objUnit.NAME.Contains("ลัง") || objUnit.NAME.Contains("โหล"))
+                            //{
+                            int con1Qty = string.IsNullOrEmpty(objUnit.CONDITION1) ? 0 : int.Parse(objUnit.CONDITION1);
+
+                            var flagPCS = false;
+                            if (con1Qty == 0)
                             {
-                                 _db.SaveChanges();
-                                isSuccess = true;
-                                break;
+                                flagPCS = true;
                             }
 
-                            if ((con1Qty > 0 && flagPCS == false) || flagPCS)
+                            for (int i = 0; i < 2; i++)
                             {
-                                if (flagPCS)
+                                PRODUCTS pd = new PRODUCTS();
+                                INV_PRODUCTS inv = new INV_PRODUCTS();
+
+                                decimal? wholeSellPrice = 0;
+                                decimal? sellPrice = 0;
+
+                                if (cateCode == "17")//rice
                                 {
-                                    i = 1;
-                                }
-
-                                if (i == 0)
-                                {
-                                    pd.PRODUCT_CODE = objProdduct.PRODUCT_CODE + "." + objProdduct.PRODUCT_ID;
-                                    pd.PRODUCT_NAME = objProdduct.PRODUCT_NAME + " *แพ็ค [" + con1Qty + "]";
-                                    pd.UNIT = "1010";
-                                    //wholeSellPrice = (inventoryData.QTY * con1Qty * inventoryData.WHOLESALEPRICE_ITEM);
-                                    sellPrice = InvData.WHOLESALEPRICE; //wholeSellPrice;
-                                }
-                                else
-                                {
-                                    if (cateCode != "17")//rice
-                                    {
-                                        pd.PRODUCT_CODE = objProdduct.PRODUCT_CODE + "_pc" + "." + objProdduct.PRODUCT_ID;
-                                        pd.PRODUCT_NAME = objProdduct.PRODUCT_NAME + " *PCS";
-                                        pd.UNIT = "1003";
-                                        sellPrice = InvData.RETAILPRICE.Value;
-                                    }
-                                }
-
-                                pd.AVG_ITEM = objProdduct.AVG_ITEM;
-                                pd.AVG_PACK = objProdduct.AVG_PACK;
-                                pd.RETAILPRICE = InvData.RETAILPRICE;
-                                pd.SELLPRICE = sellPrice.Value;//inventoryData.RETAILPRICE.Value;
-                                pd.WHOLESALEPRICE = wholeSellPrice;
-                                pd.BOXPRICE = InvData.BOXPRICE.HasValue ? InvData.BOXPRICE.Value : 0;
-
-                                pd.AVGCOST = objProdduct.AVGCOST;
-                                pd.WHOLESALEPROFIT = objProdduct.WHOLESALEPROFIT;
-                                pd.RETAILPROFIT = objProdduct.RETAILPROFIT;
-                                pd.WHOLESALEPRICE_ITEM = objProdduct.WHOLESALEPRICE_ITEM;
-                                pd.CATEGORY_ID = objProdduct.CATEGORY_ID;
-                                pd.PRODUCT_TYPE_ID = objProdduct.PRODUCT_TYPE_ID;
-                                pd.PRODUCT_SIZE_ID = objProdduct.PRODUCT_SIZE_ID;
-                                pd.COSTPRICE = objProdduct.COSTPRICE;
-
-
-                                var unit1 = masterUnit.Where(w => w.MINOR_CODE == InvData.UNIT).SingleOrDefault();
-                                if (unit1 != null)
-                                {
-                                    int con1 = string.IsNullOrEmpty(unit1.CONDITION1) ? 0 : Convert.ToInt32(unit1.CONDITION1);
-                                    int con2 = string.IsNullOrEmpty(unit1.CONDITION2) ? 0 : Convert.ToInt32(unit1.CONDITION2);
-
-                                    var tmpQty = 0;
-                                    if (con1 > 0)
-                                    {
-                                        tmpQty = con1 * InvData.QTY.Value;
-                                    }
-                                    if (con2 > 0)
-                                    {
-                                        tmpQty = con2 * InvData.QTY.Value;
-                                    }
-
-                                    pd.QTY = tmpQty;
-                                }
-
-                                pd.STATUS = STATUS.ACTIVE;
-                                pd.C_DATE = clsFunction.GetDate();
-                                pd.E_DATE = clsFunction.GetDate();
-                                pd.C_BY = objProdduct.C_BY;
-                                pd.E_BY = objProdduct.C_BY;
-
-                                _db.PRODUCTS.Add(pd);
-                                _db.SaveChanges();
-
-                                inv.PRODUCT_ID = pd.PRODUCT_ID;
-                                inv.ORDER_DATE = InvData.ORDER_DATE;
-                                inv.QTY = InvData.QTY;
-                                inv.PACK_BALANCE = InvData.PACK_BALANCE;
-                                inv.ITEM_BALANCE = InvData.ITEM_BALANCE;
-                                inv.BOX_BALANCE = InvData.BOX_BALANCE;
-                                //inv.BALANCE = (inventoryData.BALANCE + balance);
-                                inv.ORDER_DATE = InvData.ORDER_DATE.Value.AddDays(1);
-
-                                inv.UNIT = pd.UNIT;
-                                inv.E_BY = InvData.C_BY;
-                                inv.C_DATE = clsFunction.GetDate();
-                                inv.E_DATE = clsFunction.GetDate();
-                                inv.RETAILPROFIT = InvData.RETAILPROFIT;
-                                inv.WHOLESALEPROFIT = InvData.WHOLESALEPROFIT;
-                                inv.AVG_PACK = InvData.AVG_PACK;
-                                inv.AVG_ITEM = InvData.AVG_ITEM;
-                                inv.WHOLESALEPRICE_ITEM = InvData.WHOLESALEPRICE_ITEM;
-                                inv.RETAILPRICE = InvData.RETAILPRICE;
-                                inv.WHOLESALEPRICE = InvData.WHOLESALEPRICE_ITEM;
-
-                                inv.UNIT_BALANCE_TEXT = String.Format("{0}:ลัง {1}:แพ็ค {2}:ชิ้น", InvData.BOX_BALANCE, InvData.PACK_BALANCE, InvData.ITEM_BALANCE);
-                                _db.INV_PRODUCTS.Add(inv);
-
-                                _db.SaveChanges();
-                                isSuccess = true;
-
-                                if (flagPCS)
-                                {
+                                    _db.SaveChanges();
+                                    isSuccess = true;
                                     break;
                                 }
 
+                                if ((con1Qty > 0 && flagPCS == false) || flagPCS)
+                                {
+                                    if (flagPCS)
+                                    {
+                                        i = 1;
+                                    }
+
+                                    if (i == 0)
+                                    {
+                                        pd.PRODUCT_CODE = objProdduct.PRODUCT_CODE + "." + objProdduct.PRODUCT_ID;
+                                        pd.PRODUCT_NAME = objProdduct.PRODUCT_NAME + " *แพ็ค [" + con1Qty + "]";
+                                        pd.UNIT = "1010";
+                                        //wholeSellPrice = (inventoryData.QTY * con1Qty * inventoryData.WHOLESALEPRICE_ITEM);
+                                        sellPrice = InvData.WHOLESALEPRICE; //wholeSellPrice;
+                                    }
+                                    else
+                                    {
+                                        if (cateCode != "17")//rice
+                                        {
+                                            pd.PRODUCT_CODE = objProdduct.PRODUCT_CODE + "_pc" + "." + objProdduct.PRODUCT_ID;
+                                            pd.PRODUCT_NAME = objProdduct.PRODUCT_NAME + " *PCS";
+                                            pd.UNIT = "1003";
+                                            sellPrice = InvData.RETAILPRICE.Value;
+                                        }
+                                    }
+
+                                    pd.AVG_ITEM = objProdduct.AVG_ITEM;
+                                    pd.AVG_PACK = objProdduct.AVG_PACK;
+                                    pd.RETAILPRICE = InvData.RETAILPRICE;
+                                    pd.SELLPRICE = sellPrice.Value;//inventoryData.RETAILPRICE.Value;
+                                    pd.WHOLESALEPRICE = wholeSellPrice;
+                                    pd.BOXPRICE = InvData.BOXPRICE.HasValue ? InvData.BOXPRICE.Value : 0;
+
+                                    pd.AVGCOST = objProdduct.AVGCOST;
+                                    pd.WHOLESALEPROFIT = objProdduct.WHOLESALEPROFIT;
+                                    pd.RETAILPROFIT = objProdduct.RETAILPROFIT;
+                                    pd.WHOLESALEPRICE_ITEM = objProdduct.WHOLESALEPRICE_ITEM;
+                                    pd.CATEGORY_ID = objProdduct.CATEGORY_ID;
+                                    pd.PRODUCT_TYPE_ID = objProdduct.PRODUCT_TYPE_ID;
+                                    pd.PRODUCT_SIZE_ID = objProdduct.PRODUCT_SIZE_ID;
+                                    pd.COSTPRICE = objProdduct.COSTPRICE;
+
+
+                                    var unit1 = masterUnit.Where(w => w.MINOR_CODE == InvData.UNIT).SingleOrDefault();
+                                    if (unit1 != null)
+                                    {
+                                        int con1 = string.IsNullOrEmpty(unit1.CONDITION1) ? 0 : Convert.ToInt32(unit1.CONDITION1);
+                                        int con2 = string.IsNullOrEmpty(unit1.CONDITION2) ? 0 : Convert.ToInt32(unit1.CONDITION2);
+
+                                        var tmpQty = 0;
+                                        if (con1 > 0)
+                                        {
+                                            tmpQty = con1 * InvData.QTY.Value;
+                                        }
+                                        if (con2 > 0)
+                                        {
+                                            tmpQty = con2 * InvData.QTY.Value;
+                                        }
+
+                                        pd.QTY = tmpQty;
+                                    }
+
+                                    pd.STATUS = STATUS.ACTIVE;
+                                    pd.C_DATE = clsFunction.GetDate();
+                                    pd.E_DATE = clsFunction.GetDate();
+                                    pd.C_BY = objProdduct.C_BY;
+                                    pd.E_BY = objProdduct.C_BY;
+
+                                    _db.PRODUCTS.Add(pd);
+                                    _db.SaveChanges();
+
+                                    inv.PRODUCT_ID = pd.PRODUCT_ID;
+                                    inv.ORDER_DATE = InvData.ORDER_DATE;
+                                    inv.QTY = InvData.QTY;
+                                    inv.PACK_BALANCE = InvData.PACK_BALANCE;
+                                    inv.ITEM_BALANCE = InvData.ITEM_BALANCE;
+                                    inv.BOX_BALANCE = InvData.BOX_BALANCE;
+                                    //inv.BALANCE = (inventoryData.BALANCE + balance);
+                                    inv.ORDER_DATE = InvData.ORDER_DATE.Value.AddDays(1);
+
+                                    inv.UNIT = pd.UNIT;
+                                    inv.E_BY = InvData.C_BY;
+                                    inv.C_DATE = clsFunction.GetDate();
+                                    inv.E_DATE = clsFunction.GetDate();
+                                    inv.RETAILPROFIT = InvData.RETAILPROFIT;
+                                    inv.WHOLESALEPROFIT = InvData.WHOLESALEPROFIT;
+                                    inv.AVG_PACK = InvData.AVG_PACK;
+                                    inv.AVG_ITEM = InvData.AVG_ITEM;
+                                    inv.WHOLESALEPRICE_ITEM = InvData.WHOLESALEPRICE_ITEM;
+                                    inv.RETAILPRICE = InvData.RETAILPRICE;
+                                    inv.WHOLESALEPRICE = InvData.WHOLESALEPRICE_ITEM;
+
+                                    inv.UNIT_BALANCE_TEXT = String.Format("{0}:ลัง {1}:แพ็ค {2}:ชิ้น", InvData.BOX_BALANCE, InvData.PACK_BALANCE, InvData.ITEM_BALANCE);
+                                    _db.INV_PRODUCTS.Add(inv);
+
+                                    _db.SaveChanges();
+                                    isSuccess = true;
+
+                                    if (flagPCS)
+                                    {
+                                        break;
+                                    }
+
+                                }
                             }
                         }
                     }
+                    _db.Dispose();
                 }
-                _db.Dispose();
             }
-
+            catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
             return isSuccess;
         }
 

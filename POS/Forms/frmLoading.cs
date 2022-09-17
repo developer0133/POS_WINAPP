@@ -44,6 +44,7 @@ namespace POS.Forms
                 if (PrintModel.Flag == "SellItem")
                 {
                     objRp.reportFlag = "SellItem";
+                    objRp.param = objRp.code;
                     clsLog.Info("PrintReport SellItem:"+ objRp.code);
                     isSuccess = clsFunction.PrintReport(objRp, ref fileName);
                 }

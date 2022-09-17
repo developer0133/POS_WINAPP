@@ -496,3 +496,6 @@ D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS\obj\Debug\POS.applicati
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS\obj\Debug\POS.csproj.CopyComplete
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS\obj\Debug\POS.exe
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS\obj\Debug\POS.pdb
+D:\POSAPP\POS\bin\Debug\Reports\Daily_rpt.rdlc
+D:\POSAPP\POS\bin\Debug\Reports\Report1.rdlc
+D:\POSAPP\POS\bin\Debug\Reports\SellReport.rdlc

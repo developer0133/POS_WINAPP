@@ -354,10 +354,13 @@ namespace POS.Forms
         {
             INV_PRODUCTS obj = new INV_PRODUCTS();
             bool isSuccess = false;
+            string unit = string.Empty;
+            unit = cboUnit.SelectedValue == null ? "" : cboUnit.SelectedValue.ToString();
 
-           
+
+
             obj.QTY = string.IsNullOrEmpty(txtQty.Text) ? 0 : int.Parse(txtQty.Text);
-            obj.UNIT = cboUnit.SelectedValue.ToString();
+            obj.UNIT = unit;
             obj.AMOUNT = string.IsNullOrEmpty(txtAmount.Text) ? 0 : decimal.Parse(txtAmount.Text);
             obj.AVG_ITEM = string.IsNullOrEmpty(txtCostAvgItem.Text) ? 0 : decimal.Parse(txtCostAvgItem.Text);
             obj.AVG_PACK = string.IsNullOrEmpty(txtCostAvgPack.Text) ? 0 : decimal.Parse(txtCostAvgPack.Text);
