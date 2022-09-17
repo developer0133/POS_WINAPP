@@ -406,7 +406,7 @@ namespace POS.Forms
         private void BindDGV()
         {
             dt = new List<InventoryDTO>();
-            dt = InvService.GetAllInventory(string.Empty);
+            //dt = InvService.GetAllInventory(string.Empty);
 
             var tmp = (from a in InvService.GetAllInventory(string.Empty)
                        select new
@@ -495,6 +495,13 @@ namespace POS.Forms
         private void txtAmount_Leave(object sender, EventArgs e)
         {
             this.PriceCaculate();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            var tmp = InvService.GetAllInventory(txtSearch.Text);
+            dgvInv.DataSource = tmp;
+
         }
     }
 }
