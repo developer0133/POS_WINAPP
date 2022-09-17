@@ -52,7 +52,7 @@ namespace POS.Forms
             dgvReport.Columns[5].HeaderText = "หน่วย";
             dgvReport.Columns[6].HeaderText = "ราคา(บาท)";
             dgvReport.Columns[7].HeaderText = "ส่วนลด(บาท)";
-            //dgvReport.Columns[8].HeaderText = "รวม(บาท)";
+            dgvReport.Columns[8].HeaderText = "รวม(บาท)";
 
             dgvReport.Columns[0].Name = "NO";
             dgvReport.Columns[1].Name = "SELL_NO";
@@ -82,7 +82,7 @@ namespace POS.Forms
             dgvReport.Columns[7].Width = 130;
             dgvReport.Columns[8].Width = 130;
 
-            dgvReport.Columns[8].Visible = false;
+            //dgvReport.Columns[8].Visible = false;
             dgvReport.Columns[9].Visible = false;
 
 
