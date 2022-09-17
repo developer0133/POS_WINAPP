@@ -9,6 +9,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using POS_Utility;
+using BL;
+using POS.Reports;
 
 namespace POS.Forms
 {
@@ -28,25 +31,42 @@ namespace POS.Forms
             {
                 timer1.Enabled = false;
 
-                var sellNO = frmProduct.sellNo;
+                var sellNO = PrintModel.SellNo;
 
                 string fileName = string.Empty;
                 GenReportModel objRp = new GenReportModel();
                 objRp.code = sellNO;
                 objRp.printby = UserModel.USERNAME;
+               
 
                 bool isSuccess = false;
 
-                if (frmProduct.flag == "SellItem")
+                if (PrintModel.Flag == "SellItem")
                 {
+                    objRp.reportFlag = "SellItem";
+                    clsLog.Info("PrintReport SellItem:"+ objRp.code);
                     isSuccess = clsFunction.PrintReport(objRp, ref fileName);
                 }
+                else if (PrintModel.Flag == "Daily")
+                {
+                    var sp = PrintModel.DateRpt.Split('/');
+                    string sp2= sp[0].ToString()+sp[1].ToString() + sp[2].ToString();
+
+                    objRp.reportFlag = "Daily";
+                    objRp.code = PrintModel.DateRpt;
+                    objRp.param = sp2;
+                    clsLog.Info("PrintReport DailyReport:" + PrintModel.DateRpt);
+                    isSuccess = clsFunction.PrintDailyReport(objRp, ref fileName);
+
+                    //var test = ReportService.SellSummaryReport(PrintModel.DateRpt.ToString(), "");
+                }
+
 
                 if (isSuccess)
                 {
                     System.Diagnostics.Process.Start(fileName);
-                    this.Close();
                 }
+                this.Close();
             }
         }
     }

@@ -80,11 +80,11 @@ namespace DAL
                     //var sellItem = _db.SELLITEMS.AsNoTracking().Where(w => System.Data.Entity.DbFunctions.TruncateTime(w.C_DATE) == dt);
                     var sellItem = _db.SELLITEMS.Where(w => System.Data.Entity.DbFunctions.TruncateTime(w.C_DATE) == dt);
 
-                    if (flag == "M")
+                    if (flag == "M")//month
                     {
                         sellItem = _db.SELLITEMS.Where(w => w.C_DATE.Value.Month == dt.Value.Month && w.C_DATE.Value.Year == dt.Value.Year);
                     }
-                    if (flag == "Y")
+                    if (flag == "Y")//year
                     {
                         sellItem = _db.SELLITEMS.Where(w => w.C_DATE.Value.Year == dt.Value.Year);
                     }

@@ -75,5 +75,9 @@ namespace DATA_Models.Models
         public string filename { get; set; }
         public string code { get; set; }
         public string printby { get; set; }
+        public string reportFlag { get; set; }
+        public string reportName { get; set; }
+        public string dailyDate { get; set; }
+        public string param { get; set; }
     }
 }

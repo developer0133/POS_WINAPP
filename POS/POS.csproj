@@ -314,6 +314,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Reports\clsRpt.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Utils\clsFunction.cs" />
     <Compile Include="Utils\Enum.cs" />
@@ -355,6 +356,7 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Daily_rpt.rdlc" />
     <EmbeddedResource Include="Reports\Report1.rdlc" />
     <EmbeddedResource Include="Reports\SellReport.rdlc" />
     <EmbeddedResource Include="Reports\SellReport2.rdlc">
@@ -363,6 +365,7 @@
     <None Include="packages.config" />
     <None Include="POS_TemporaryKey.pfx" />
     <None Include="Properties\DataSources\DATA_Models.Models.ReportModel.datasource" />
+    <None Include="Properties\DataSources\DATA_Models.Models.ReportModel2.datasource" />
     <None Include="Properties\DataSources\DATA_Models.Models.SellReportModel.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -399,6 +402,10 @@
     <ProjectReference Include="..\DATA-Models\DATA-Models.csproj">
       <Project>{a0ce23bb-ce41-43c5-a1e6-a83a4d26c07d}</Project>
       <Name>DATA-Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\POS-Utility\POS-Utility.csproj">
+      <Project>{53fca435-950f-4264-9746-bed108042c25}</Project>
+      <Name>POS-Utility</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

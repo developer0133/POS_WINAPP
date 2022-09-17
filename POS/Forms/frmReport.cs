@@ -21,16 +21,28 @@ namespace POS.Forms
         public frmReport()
         {
             InitializeComponent();
+            btnPrint.Enabled = false;
         }
 
         private void btnOK_Click(object sender, EventArgs e)
         {
+            dgvReport.DataSource = null;
+            dgvReport.Columns.Clear();
+
             var tmpdate = rptDate.Value.ToShortDateString();
             var data = ReportService.SellSummaryReport(tmpdate, "");
             dgvReport.DataSource = data;
 
             if (data.Count() > 0)
+            {
                 lblSum.Text = string.Format("{0} {1} บาท", "รวมทั้งสิน", data[0].SUM_TOTAL_AMOUNT.ToString());
+                btnPrint.Enabled = true;
+            }
+            else
+            {
+                btnPrint.Enabled = false;
+                MessageBox.Show("ไม่พบข้อมูล", "POS", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
 
             dgvReport.Columns[0].HeaderText = "NO.";
             dgvReport.Columns[1].HeaderText = "เลขที่การขาย";
@@ -74,6 +86,98 @@ namespace POS.Forms
             dgvReport.Columns[9].Visible = false;
 
 
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            dgvReport.DataSource = null;
+            dgvReport.Columns.Clear();
+
+            string sellNo = txtSellNo.Text;
+
+            var rptData = ReportService.SellItemReport(sellNo);
+
+            dgvReport.DataSource = rptData;
+
+            dgvReport.Columns[0].HeaderText = "รายการสินค้า";
+            dgvReport.Columns[1].HeaderText = "จำนวน";
+            dgvReport.Columns[2].HeaderText = "หน่วย";
+            dgvReport.Columns[3].HeaderText = "ส่วนลด(บาท)";
+            dgvReport.Columns[4].HeaderText = "ราคารวม(บาท)";
+ 
+            dgvReport.Columns[0].Width = 130;
+            dgvReport.Columns[1].Width = 130;
+            dgvReport.Columns[2].Width = 130;
+            dgvReport.Columns[3].Width = 130;
+            dgvReport.Columns[4].Width = 130;
+
+            dgvReport.Columns[0].Name = "Item";
+            dgvReport.Columns[1].Name = "Qty";
+            dgvReport.Columns[2].Name = "UNIT";
+            dgvReport.Columns[3].Name = "DISCOUNT";
+            dgvReport.Columns[4].Name = "AMOUNT";
+
+            dgvReport.Columns[0].DataPropertyName = "Item";
+            dgvReport.Columns[1].DataPropertyName = "Qty";
+            dgvReport.Columns[2].DataPropertyName = "UNIT";
+            dgvReport.Columns[3].DataPropertyName = "DISCOUNT";
+            dgvReport.Columns[4].DataPropertyName = "AMOUNT";
+
+            dgvReport.Columns[5].Visible = false;
+            dgvReport.Columns[6].Visible = false;
+
+            decimal sum = 0;
+            lblSum.Text = string.Empty;
+
+            foreach (DataGridViewRow rw in dgvReport.Rows)
+            {
+                rw.HeaderCell.Value = (rw.Index + 1).ToString();
+                sum += decimal.Parse(rw.Cells["AMOUNT"].Value.ToString());
+            }
+            lblSum.Text = string.Format("{0} {1} บาท", "รวมทั้งสิน", sum.ToString("#,###.00"));
+
+            if (rptData.Count() > 0)
+            {
+                btnPrint.Enabled = true;
+            }
+            else
+            {
+                btnPrint.Enabled = false;
+                MessageBox.Show("ไม่พบข้อมูล", "POS", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            string tabName = tabcontrol1.SelectedTab.Name;
+
+            if (tabName == "tbSellSearch")
+            {
+                if (MessageBox.Show(string.Format("ต้องการพิมพ์รายงานหรือไม่ ?", ""), "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    PrintModel.Flag = "SellItem";
+                    PrintModel.SellNo = txtSellNo.Text;
+                    frmLoading frmload = new frmLoading();
+                    frmload.Show();
+                }
+            }
+            else if(tabName == "tbDaily")
+            {
+                if (MessageBox.Show(string.Format("ต้องการพิมพ์รายงานหรือไม่ ?", ""), "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    var tmpdate = rptDate.Value.ToShortDateString();
+                    //var data = ReportService.SellSummaryReport(tmpdate, "");
+                    PrintModel.Flag = "Daily";
+                    PrintModel.SellNo = string.Empty;
+                    PrintModel.DateRpt = tmpdate;
+                    frmLoading frmload = new frmLoading();
+                    frmload.Show();
+                }
+            }
+
+
+            
         }
     }
 }

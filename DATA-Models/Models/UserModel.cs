@@ -14,4 +14,11 @@ namespace DATA_Models.Models
         public static string LAST_NAME = string.Empty;
         public static string USER_CODE = string.Empty;
     }
+
+    public class PrintModel
+    {
+        public static string Flag = string.Empty;
+        public static string SellNo = string.Empty;
+        public static string DateRpt = string.Empty;
+    }
 }

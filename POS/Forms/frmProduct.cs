@@ -285,9 +285,11 @@ namespace POS.Forms
             {
                 DataGridViewRow row = dgvSellHist.Rows[e.RowIndex];
                 sellNo = row.Cells["SELLITEM_NO"].Value.ToString(); //SELLITEM_NO
+                PrintModel.SellNo = sellNo;
+
                 if (MessageBox.Show(string.Format("ต้องการพิมพ์รายงาน" + sellNo + " หรือไม่ ?", ""), "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    flag = "SellItem";
+                    PrintModel.Flag = "SellItem";
                     frmLoading frmload = new frmLoading();
                     frmload.Show();
 

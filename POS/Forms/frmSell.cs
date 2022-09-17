@@ -240,7 +240,7 @@ namespace POS.Forms
         {
             GenReportModel objRp = new GenReportModel();
             objRp.code = strSellNo;// "SE12700253";
-            objRp.printby = "test";
+            objRp.printby = UserModel.USERNAME;
 
             var printRp = this.PrintReport(objRp);
 

@@ -52,6 +52,7 @@ namespace POS.Utils
         public const string SELL_REPORT = "SellReport";
         public const string SELL_REPORT2 = "SellReport2";
         public const string Report1 = "Report1";
+        public const string DailyRpt = "Daily_rpt";
     }
 
 }

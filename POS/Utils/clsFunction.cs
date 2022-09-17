@@ -170,7 +170,7 @@ namespace POS.Utils
 
 
             ReportParameterCollection parameters = new ReportParameterCollection();
-            parameters.Add(new ReportParameter("printby", "TEST"));
+            parameters.Add(new ReportParameter("printby", OReport.printby));
             parameters.Add(new ReportParameter("total", strsSumAmount.ToString()));
             parameters.Add(new ReportParameter("cdate", Utils.clsFunction.setFormatDateWithTime(rptData.First().CDATE, true).ToString()));
             parameters.Add(new ReportParameter("date", Utils.clsFunction.setFormatDateWithTime(Utils.clsFunction.GetDate(), true).ToString()));
@@ -201,6 +201,71 @@ namespace POS.Utils
                     //client.DownloadFile(FileName, PDFUrl);
                     //FileInfo PDFFile = new FileInfo(FileName);
 
+                    isSuccess = true;
+                    FileName = saveFile;
+                }
+            }
+            catch (Exception ex)
+            {
+                isSuccess = false;
+            }
+
+            return isSuccess;
+        }
+
+        public static bool PrintDailyReport(GenReportModel OReport, ref string FileName)
+        {
+            bool isSuccess = false;
+            string saveFile = string.Empty;
+
+            Warning[] warnings;
+            string[] streamids;
+            string mimeType;
+            string encoding;
+            string filenameExtension;
+
+            string genRpt = System.IO.Directory.GetCurrentDirectory();
+            genRpt = string.Format("{0}/{1}", genRpt, POS_PATH.GEN_REPORT);
+            DAL.Utils.clsFunction.MakePath(genRpt);
+
+            var rptPath = string.Format("{0}/{1}{2}", POS_PATH.REPORTS, REPORT_NAME.DailyRpt, ".rdlc");
+            var savePath = string.Format("{0}/{1}{2}", POS_PATH.GEN_REPORT, OReport.param.ToString(), ".pdf");
+
+            string path1 = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName + "\\POS" + "\\";
+            string path = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName + "\\POS" + "\\" + rptPath;
+            saveFile = path1 + savePath;//Path.Combine(Directory.GetCurrentDirectory(), savePath);
+
+            var rptData = ReportService.SellSummaryReport(OReport.code, "D");
+            decimal? sumAmount = rptData.Sum(s => s.AMOUNT);
+            string strsSumAmount = "";
+            strsSumAmount = sumAmount.HasValue ? string.Format("{0} {1}", Utils.clsFunction.setFormatCurrency(sumAmount), "บาท") : string.Empty;
+
+
+            ReportParameterCollection parameters = new ReportParameterCollection();
+            parameters.Add(new ReportParameter("printby", OReport.printby));
+            parameters.Add(new ReportParameter("cdate", OReport.code));
+            parameters.Add(new ReportParameter("date", Utils.clsFunction.setFormatDateWithTime(Utils.clsFunction.GetDate(), true).ToString()));
+            parameters.Add(new ReportParameter("total", strsSumAmount.ToString()));
+
+
+            try
+            {
+
+                ReportViewer viewer = new ReportViewer();
+                viewer.ProcessingMode = ProcessingMode.Local;
+                viewer.LocalReport.ReportPath = path;//"D:/Workspace/DotNet/Inventory/POS_WINAPP3/POS_WINAPP/POS/Reports/SellReport.rdlc";
+                viewer.LocalReport.SetParameters(parameters);
+                viewer.LocalReport.DataSources.Add(new ReportDataSource("Daily_DS", rptData));
+
+                byte[] bytes = viewer.LocalReport.Render("PDF", null, out mimeType, out encoding, out filenameExtension, out streamids, out warnings);
+
+                using (FileStream fs = new FileStream(saveFile, FileMode.Create))
+                {
+                    fs.Write(bytes, 0, bytes.Length);
+                }
+
+                if (bytes.Length > 0)
+                {
                     isSuccess = true;
                     FileName = saveFile;
                 }
