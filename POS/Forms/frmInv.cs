@@ -378,6 +378,8 @@ namespace POS.Forms
             obj.ITEM_BALANCE = string.IsNullOrEmpty(txtItemBalance.Text) ? 0 : int.Parse(txtItemBalance.Text);
 
             obj.ORDER_DATE = invdate.Value;
+            obj.C_BY = UserModel.USERNAME;
+            obj.E_BY = UserModel.USERNAME;
 
             if (pModel != null && pModel.PRODUCT_ID > 0 && pModel.INV_ID > 0)
             {
@@ -400,6 +402,8 @@ namespace POS.Forms
                 MessageBox.Show("Completed", "POS");
                 BindDGV();
                 Clear();
+
+
             }
         }
 

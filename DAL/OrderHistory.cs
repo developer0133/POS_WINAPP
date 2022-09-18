@@ -98,7 +98,7 @@ namespace DAL
             bool isSuccess = false;
             try
             {
-                orderhist.ORDER_DATE = orderhist.ORDER_DATE.Value.AddDays(1);
+                orderhist.ORDER_DATE = orderhist.ORDER_DATE.Value;
                 orderhist.C_DATE = clsFunction.GetDate();
                 orderhist.E_DATE = clsFunction.GetDate();
 

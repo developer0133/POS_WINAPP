@@ -60,7 +60,7 @@ namespace DAL
                     InvData.BOX_BALANCE = InvData.BOX_BALANCE + old_boxBalance;
 
                     InvData.BALANCE = (InvData.BALANCE + balance);
-                    InvData.ORDER_DATE = InvData.ORDER_DATE.Value.AddDays(1);
+                    InvData.ORDER_DATE = InvData.ORDER_DATE.Value;
                     InvData.E_BY = InvData.C_BY;
                     InvData.C_DATE = clsFunction.GetDate();
                     InvData.E_DATE = clsFunction.GetDate();
@@ -72,6 +72,33 @@ namespace DAL
                     var masterUnit = _db.PARAMETER.Where(w => w.MAJOR_CODE == PARAMETERCODE.UNIT && (w.MINOR_CODE != "1003" && w.MINOR_CODE != "1012")).ToList();
                     var typeProduct = masterUnit.Where(w => w.MINOR_CODE == InvData.UNIT).FirstOrDefault();
                     var cateCode = "x";
+
+
+
+                    ////// Insert OrderHistory
+                    ///
+                    ORDER_HISTORY objHist = new ORDER_HISTORY();
+                    objHist.PRODUCT_ID = InvData.PRODUCT_ID;
+                    objHist.ORDER_DATE = InvData.ORDER_DATE;
+                    objHist.QTY = InvData.QTY;
+                    objHist.UNIT = InvData.UNIT;
+                    objHist.AMOUNT = InvData.AMOUNT;
+                    objHist.TOTAL_AMOUNT = InvData.TOTAL_AMOUNT;
+                    objHist.REMARK = InvData.REMARK;
+                    objHist.C_BY = InvData.C_BY;
+                    objHist.E_BY = InvData.C_BY;
+                    objHist.C_DATE = clsFunction.GetDate();
+                    objHist.E_DATE = clsFunction.GetDate();
+                    objHist.RETAILPRICE = InvData.RETAILPRICE;
+                    objHist.WHOLESALEPRICE = InvData.WHOLESALEPRICE;
+                    objHist.AVGCOST = objProdduct.AVGCOST;
+                    objHist.WHOLESALEPROFIT = InvData.WHOLESALEPROFIT;
+                    objHist.RETAILPROFIT = InvData.RETAILPROFIT;
+                    objHist.AVG_PACK = InvData.AVG_PACK;
+                    objHist.AVG_ITEM = InvData.AVG_ITEM;
+
+                    _db.ORDER_HISTORY.Add(objHist);
+
 
                     if (objProdduct != null)
                     {
@@ -122,6 +149,7 @@ namespace DAL
                             {
                                 PRODUCTS pd = new PRODUCTS();
                                 INV_PRODUCTS inv = new INV_PRODUCTS();
+                               
 
                                 decimal? wholeSellPrice = 0;
                                 decimal? sellPrice = 0;
@@ -211,7 +239,7 @@ namespace DAL
                                     inv.ITEM_BALANCE = InvData.ITEM_BALANCE;
                                     inv.BOX_BALANCE = InvData.BOX_BALANCE;
                                     //inv.BALANCE = (inventoryData.BALANCE + balance);
-                                    inv.ORDER_DATE = InvData.ORDER_DATE.Value.AddDays(1);
+                                    inv.ORDER_DATE = InvData.ORDER_DATE.Value;
 
                                     inv.UNIT = pd.UNIT;
                                     inv.E_BY = InvData.C_BY;
@@ -230,6 +258,33 @@ namespace DAL
 
                                     _db.SaveChanges();
                                     isSuccess = true;
+
+                                    //////// Insert OrderHistory
+                                    /////
+
+                                    //objHist.PRODUCT_ID = pd.PRODUCT_ID;
+                                    //objHist.ORDER_DATE = inv.ORDER_DATE;
+                                    //objHist.QTY = InvData.QTY;
+                                    //objHist.UNIT = InvData.UNIT;
+                                    //objHist.AMOUNT = InvData.AMOUNT;
+                                    //objHist.TOTAL_AMOUNT = InvData.TOTAL_AMOUNT;
+                                    //objHist.REMARK = InvData.REMARK;
+                                    //objHist.C_BY = InvData.C_BY;
+                                    //objHist.E_BY = InvData.C_BY;
+                                    //objHist.C_DATE = clsFunction.GetDate();
+                                    //objHist.E_DATE = clsFunction.GetDate();
+                                    //objHist.RETAILPRICE = InvData.RETAILPRICE;
+                                    //objHist.WHOLESALEPRICE = InvData.WHOLESALEPRICE;
+                                    //objHist.AVGCOST = objProdduct.AVGCOST;
+                                    //objHist.WHOLESALEPROFIT = InvData.WHOLESALEPROFIT;
+                                    //objHist.RETAILPROFIT = InvData.RETAILPROFIT;
+                                    //objHist.AVG_PACK = InvData.AVG_PACK;
+                                    //objHist.AVG_ITEM = InvData.AVG_ITEM;
+
+                                    //_db.ORDER_HISTORY.Add(objHist);
+
+                                   // _db.SaveChanges();
+                                    //isSuccess = true;
 
                                     if (flagPCS)
                                     {
