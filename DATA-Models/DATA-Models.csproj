@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="DTO\InventoryDTO.cs" />
     <Compile Include="DTO\MasterUserDTO.cs" />
+    <Compile Include="DTO\OrderHistoryDTO.cs" />
     <Compile Include="DTO\ProductDTO.cs" />
     <Compile Include="DTO\SellsItemDTO.cs" />
     <Compile Include="Models\CategoryModel.cs" />

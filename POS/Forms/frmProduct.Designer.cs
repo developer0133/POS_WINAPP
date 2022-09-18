@@ -69,11 +69,15 @@ namespace POS.Forms
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.dgvOrderHist = new System.Windows.Forms.DataGridView();
             this.grbGeneral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduct)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSellHist)).BeginInit();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOrderHist)).BeginInit();
             this.SuspendLayout();
             // 
             // grbGeneral
@@ -507,12 +511,34 @@ namespace POS.Forms
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.dgvOrderHist);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.groupBox3.Location = new System.Drawing.Point(507, 882);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(1303, 388);
+            this.groupBox3.TabIndex = 46;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "ประวัติการสั่ง";
+            // 
+            // dgvOrderHist
+            // 
+            this.dgvOrderHist.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOrderHist.Location = new System.Drawing.Point(19, 26);
+            this.dgvOrderHist.Name = "dgvOrderHist";
+            this.dgvOrderHist.RowHeadersWidth = 51;
+            this.dgvOrderHist.RowTemplate.Height = 24;
+            this.dgvOrderHist.Size = new System.Drawing.Size(1266, 340);
+            this.dgvOrderHist.TabIndex = 0;
+            // 
             // frmProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1872, 871);
+            this.ClientSize = new System.Drawing.Size(1872, 1055);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label8);
@@ -530,6 +556,8 @@ namespace POS.Forms
             ((System.ComponentModel.ISupportInitialize)(this.dgvSellHist)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOrderHist)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -576,5 +604,7 @@ namespace POS.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn PRODUCT_TYPE;
         private System.Windows.Forms.DataGridViewTextBoxColumn AVGCOST;
         private System.Windows.Forms.DataGridViewTextBoxColumn RETAILPRICE;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.DataGridView dgvOrderHist;
     }
 }

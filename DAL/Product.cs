@@ -233,7 +233,7 @@ namespace DAL
                 }
                     
             }
-            catch (ExecutionEngineException ex)
+            catch (Exception ex)
             {
                 clsLog.Error("UpdateProduct Error:" + ex.Message);
                 isSuccess = false;

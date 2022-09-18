@@ -44,6 +44,7 @@
     <Compile Include="CategoryService.cs" />
     <Compile Include="InvService.cs" />
     <Compile Include="LoginService.cs" />
+    <Compile Include="OrderHistoryService.cs" />
     <Compile Include="ParameterService.cs" />
     <Compile Include="ProductService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

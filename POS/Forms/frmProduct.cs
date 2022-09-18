@@ -120,8 +120,8 @@ namespace POS.Forms
                 obj.PRODUCT_NAME = txtProductName.Text.Trim();
                 obj.BARCODE = txtBarcode.Text.Trim();
                 obj.CATEGORY_ID = Convert.ToInt32(cboCategory.SelectedValue);
-                obj.PRODUCT_TYPE_ID = cboType.SelectedValue.ToString();
-                obj.PRODUCT_SIZE_ID = cboSize.SelectedValue.ToString();
+                obj.PRODUCT_TYPE_ID = cboType.SelectedValue != null ? cboType.SelectedValue.ToString() : string.Empty;
+                obj.PRODUCT_SIZE_ID = cboSize.SelectedValue != null ? cboSize.SelectedValue.ToString() : string.Empty;
                 obj.REMARK = txtRemark.Text.Trim();
 
                 if (chkStatus.Checked == true)
@@ -165,6 +165,11 @@ namespace POS.Forms
             txtLastCost.Clear();
             txtCostAvg.Clear();
             pModel = null;
+            dgvOrderHist.Columns.Clear();
+            dgvSellHist.Columns.Clear();
+
+            dgvSellHist.DataSource = null;
+            dgvOrderHist.DataSource = null;
         }
 
         private void btnFirst_Click(object sender, EventArgs e)
@@ -222,6 +227,7 @@ namespace POS.Forms
                 cboCategory.SelectedValue = pModel.CATEGORY_ID;
 
                 this.GetSellHistory(pModel.PRODUCT_ID);
+                this.GetOrderHistory(pModel.PRODUCT_ID);
             }
         }
 
@@ -272,6 +278,52 @@ namespace POS.Forms
             btnColumn.UseColumnTextForButtonValue = true;
             dgvSellHist.Columns.Insert(7, btnColumn);
             dgvSellHist.Columns[7].Width = 130;
+        }
+
+        void GetOrderHistory(int ProductID)
+        {
+            dgvOrderHist.Columns.Clear();
+            dgvOrderHist.DataSource = null;
+            var orderData = OrderHistoryService.GetOrderHistory(ProductID);
+            dgvOrderHist.DataSource = orderData;
+
+            dgvOrderHist.Columns[0].HeaderText = "วันที่";
+            dgvOrderHist.Columns[1].HeaderText = "จำนวน";
+            dgvOrderHist.Columns[2].HeaderText = "หน่วย";
+            dgvOrderHist.Columns[3].HeaderText = "ราคา";
+            dgvOrderHist.Columns[4].HeaderText = "รวม(THB)";
+            dgvOrderHist.Columns[5].HeaderText = "ราคา/ชิ้น(บาท)";
+            dgvOrderHist.Columns[6].HeaderText = "ราคา/โหล/แพ็ค(บาท)";
+            dgvOrderHist.Columns[7].HeaderText = "หมายเหตุ";
+
+            dgvOrderHist.Columns[0].Width = 130;
+            dgvOrderHist.Columns[1].Width = 130;
+            dgvOrderHist.Columns[2].Width = 100;
+            dgvOrderHist.Columns[3].Width = 100;
+            dgvOrderHist.Columns[4].Width = 100;
+            dgvOrderHist.Columns[5].Width = 130;
+            dgvOrderHist.Columns[6].Width = 130;
+            dgvOrderHist.Columns[7].Width = 130;
+
+            dgvOrderHist.Columns[0].Name = "STR_ORDERDATE";
+            dgvOrderHist.Columns[1].Name = "QTY";
+            dgvOrderHist.Columns[2].Name = "STR_UNIT";
+            dgvOrderHist.Columns[3].Name = "STR_AMOUNT";
+            dgvOrderHist.Columns[4].Name = "STR_TOTAL_AMOUNT";
+            dgvOrderHist.Columns[5].Name = "AVG_ITEM";
+            dgvOrderHist.Columns[6].Name = "AVG_PACK";
+            dgvOrderHist.Columns[7].Name = "REMARK";
+
+            dgvOrderHist.Columns[0].DataPropertyName = "STR_ORDERDATE";
+            dgvOrderHist.Columns[1].DataPropertyName = "QTY";
+            dgvOrderHist.Columns[2].DataPropertyName = "STR_UNIT";
+            dgvOrderHist.Columns[3].DataPropertyName = "STR_AMOUNT";
+            dgvOrderHist.Columns[4].DataPropertyName = "STR_TOTAL_AMOUNT";
+            dgvOrderHist.Columns[5].DataPropertyName = "AVG_ITEM";
+            dgvOrderHist.Columns[6].DataPropertyName = "AVG_PACK";
+            dgvOrderHist.Columns[7].DataPropertyName = "REMARK";
+
+
         }
 
         private void dgvProduct_CellContentClick(object sender, DataGridViewCellEventArgs e)
