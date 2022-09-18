@@ -24,6 +24,16 @@ namespace POS.Forms
         {
             InitializeComponent();
             PopulateDataGridView();
+
+
+            DataGridViewButtonColumn btnColumn = new DataGridViewButtonColumn();
+            btnColumn.HeaderText = "";
+            btnColumn.Width = 60;
+            btnColumn.Name = "btndelete";
+            btnColumn.Text = "ลบ";
+            btnColumn.HeaderText = "ลบ";
+            btnColumn.UseColumnTextForButtonValue = true;
+            dgvCate.Columns.Insert(4, btnColumn);
         }
 
         void PopulateDataGridView()
@@ -45,14 +55,14 @@ namespace POS.Forms
 
             clsFunction.FormatHeaderDatagrid(dgvCate);
 
-            DataGridViewButtonColumn btnColumn = new DataGridViewButtonColumn();
-            btnColumn.HeaderText = "";
-            btnColumn.Width = 60;
-            btnColumn.Name = "btndelete";
-            btnColumn.Text = "ลบ";
-            btnColumn.HeaderText = "ลบ";
-            btnColumn.UseColumnTextForButtonValue = true;
-            dgvCate.Columns.Insert(4, btnColumn);
+            //DataGridViewButtonColumn btnColumn = new DataGridViewButtonColumn();
+            //btnColumn.HeaderText = "";
+            //btnColumn.Width = 60;
+            //btnColumn.Name = "btndelete";
+            //btnColumn.Text = "ลบ";
+            //btnColumn.HeaderText = "ลบ";
+            //btnColumn.UseColumnTextForButtonValue = true;
+            //dgvCate.Columns.Insert(4, btnColumn);
 
         }
 
@@ -61,7 +71,7 @@ namespace POS.Forms
             CATEGORY obj = new CATEGORY();
             bool isSuccess = false;
 
-            if(string.IsNullOrEmpty(txtCode.Text) || string.IsNullOrEmpty(txtName.Text))
+            if(string.IsNullOrEmpty(txtName.Text))
             {
                 MessageBox.Show("กรุณาระบุข้อมูล", "POS", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }

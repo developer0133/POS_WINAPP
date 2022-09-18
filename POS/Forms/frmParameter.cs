@@ -25,6 +25,14 @@ namespace POS.Forms
         {
             InitializeComponent();
             PopulateDataGridView();
+            DataGridViewButtonColumn btnColumn = new DataGridViewButtonColumn();
+            btnColumn.HeaderText = "";
+            btnColumn.Width = 60;
+            btnColumn.Name = "btndelete";
+            btnColumn.Text = "ลบ";
+            btnColumn.HeaderText = "ลบ";
+            btnColumn.UseColumnTextForButtonValue = true;
+            dgvParameter.Columns.Insert(7, btnColumn);
         }
 
         void PopulateDataGridView()
@@ -37,14 +45,7 @@ namespace POS.Forms
       
             clsFunction.FormatHeaderDatagrid(dgvParameter);
 
-            DataGridViewButtonColumn btnColumn = new DataGridViewButtonColumn();
-            btnColumn.HeaderText = "";
-            btnColumn.Width = 60;
-            btnColumn.Name = "btndelete";
-            btnColumn.Text = "ลบ";
-            btnColumn.HeaderText = "ลบ";
-            btnColumn.UseColumnTextForButtonValue = true;
-            dgvParameter.Columns.Insert(7, btnColumn);
+         
         }
 
         private void dgvParameter_CellClick(object sender, DataGridViewCellEventArgs e)

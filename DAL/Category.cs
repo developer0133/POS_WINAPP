@@ -15,6 +15,7 @@ namespace DAL
 {
     public class Category : ICategory
     {
+        POSSYSTEMEntities _db;
         public List<CategoryModel> GetCategories()
         {
             clsLog.Info("GetCategories");
@@ -97,7 +98,7 @@ namespace DAL
 
         public  bool InsertCategory(CATEGORY category)
         {
-            POSSYSTEMEntities _db = new POSSYSTEMEntities();
+            _db = new POSSYSTEMEntities();
 
             bool isSuccess = false;
             
