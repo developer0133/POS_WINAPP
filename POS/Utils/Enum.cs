@@ -34,8 +34,8 @@ namespace POS.Utils
     public sealed class PARAMETERCODE
     {
         public PARAMETERCODE() { }
-        public const string PARAMETER_SIZE = "TYPE";
-        public const string PARAMETER_TYPE = "SIZE";
+        public const string PARAMETER_SIZE = "SIZE";
+        public const string PARAMETER_TYPE = "TYPE";
         public const string UNIT = "UNIT";
 
     }

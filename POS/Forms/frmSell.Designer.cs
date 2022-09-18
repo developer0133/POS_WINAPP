@@ -47,6 +47,7 @@ namespace POS.Forms
             this.btnReport = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
+            this.lblSum = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSell)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,26 +55,29 @@ namespace POS.Forms
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label8.Location = new System.Drawing.Point(12, 20);
+            this.label8.Location = new System.Drawing.Point(9, 16);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(43, 25);
+            this.label8.Size = new System.Drawing.Size(36, 20);
             this.label8.TabIndex = 41;
             this.label8.Text = "ขาย";
             // 
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(17, 75);
+            this.lblName.Location = new System.Drawing.Point(13, 61);
+            this.lblName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(61, 17);
+            this.lblName.Size = new System.Drawing.Size(47, 13);
             this.lblName.TabIndex = 42;
             this.lblName.Text = "Barcode";
             // 
             // txtBarcode
             // 
-            this.txtBarcode.Location = new System.Drawing.Point(95, 75);
+            this.txtBarcode.Location = new System.Drawing.Point(71, 61);
+            this.txtBarcode.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtBarcode.Name = "txtBarcode";
-            this.txtBarcode.Size = new System.Drawing.Size(186, 22);
+            this.txtBarcode.Size = new System.Drawing.Size(140, 20);
             this.txtBarcode.TabIndex = 43;
             this.txtBarcode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBarcode_KeyDown);
             // 
@@ -91,11 +95,12 @@ namespace POS.Forms
             this.PRODUCT_CODE,
             this.PRODUCT_ID,
             this.UNIT_ID});
-            this.dgvSell.Location = new System.Drawing.Point(20, 168);
+            this.dgvSell.Location = new System.Drawing.Point(15, 136);
+            this.dgvSell.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvSell.Name = "dgvSell";
             this.dgvSell.RowHeadersWidth = 51;
             this.dgvSell.RowTemplate.Height = 24;
-            this.dgvSell.Size = new System.Drawing.Size(1038, 315);
+            this.dgvSell.Size = new System.Drawing.Size(951, 256);
             this.dgvSell.TabIndex = 44;
             this.dgvSell.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSell_CellDoubleClick);
             this.dgvSell.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSell_CellValueChanged);
@@ -185,9 +190,10 @@ namespace POS.Forms
             // 
             this.btnReport.Image = global::POS.Properties.Resources.search24;
             this.btnReport.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnReport.Location = new System.Drawing.Point(874, 540);
+            this.btnReport.Location = new System.Drawing.Point(815, 467);
+            this.btnReport.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnReport.Name = "btnReport";
-            this.btnReport.Size = new System.Drawing.Size(158, 82);
+            this.btnReport.Size = new System.Drawing.Size(118, 67);
             this.btnReport.TabIndex = 47;
             this.btnReport.Text = "รายงาน";
             this.btnReport.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -198,9 +204,10 @@ namespace POS.Forms
             // 
             this.btnSave.Image = global::POS.Properties.Resources.save;
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnSave.Location = new System.Drawing.Point(662, 46);
+            this.btnSave.Location = new System.Drawing.Point(640, 37);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(170, 83);
+            this.btnSave.Size = new System.Drawing.Size(128, 67);
             this.btnSave.TabIndex = 46;
             this.btnSave.Tag = "";
             this.btnSave.Text = " บันทึก";
@@ -212,21 +219,33 @@ namespace POS.Forms
             // 
             this.btnClear.Image = global::POS.Properties.Resources.cancel;
             this.btnClear.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnClear.Location = new System.Drawing.Point(858, 46);
+            this.btnClear.Location = new System.Drawing.Point(788, 37);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(170, 83);
+            this.btnClear.Size = new System.Drawing.Size(128, 67);
             this.btnClear.TabIndex = 45;
             this.btnClear.Text = "ยกเลิก";
             this.btnClear.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
+            // lblSum
+            // 
+            this.lblSum.AutoSize = true;
+            this.lblSum.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.lblSum.Location = new System.Drawing.Point(802, 414);
+            this.lblSum.Name = "lblSum";
+            this.lblSum.Size = new System.Drawing.Size(114, 20);
+            this.lblSum.TabIndex = 48;
+            this.lblSum.Text = "รวมสุทธิ 0 บาท";
+            // 
             // frmSell
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1056, 917);
+            this.ClientSize = new System.Drawing.Size(977, 602);
+            this.Controls.Add(this.lblSum);
             this.Controls.Add(this.btnReport);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnClear);
@@ -235,6 +254,7 @@ namespace POS.Forms
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.label8);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmSell";
             this.Text = "Product System Service";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -263,5 +283,6 @@ namespace POS.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn PRODUCT_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn UNIT_ID;
         private System.Windows.Forms.Button btnReport;
+        private System.Windows.Forms.Label lblSum;
     }
 }

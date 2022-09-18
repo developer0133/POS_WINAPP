@@ -134,6 +134,7 @@ namespace DAL
                 using (POSSYSTEMEntities db = new POSSYSTEMEntities())
                 {
                     db.Entry(category).State = EntityState.Modified;
+                    db.SaveChanges();
                     isSuccess = true;
                 }
             }

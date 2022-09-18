@@ -81,8 +81,8 @@ namespace POS.Forms
   
             //dgvSell.Rows[dgvSell.Rows.Count - 1].DefaultCellStyle.BackColor = Color.Red;
             //dgvSell.Rows[dgvSell.Rows.Count - 1].DefaultCellStyle.SelectionBackColor = Color.Red;
-            dgvSell.Rows[dgvSell.Rows.Count - 1].Cells[4].Style.Font = new Font("Microsoft Sans Serif", 12f, FontStyle.Bold);
-            dgvSell.Rows[dgvSell.Rows.Count - 1].Cells[4].Value = "รวมทั้งสิ้น";
+            //dgvSell.Rows[dgvSell.Rows.Count - 1].Cells[4].Style.Font = new Font("Microsoft Sans Serif", 12f, FontStyle.Bold);
+            //dgvSell.Rows[dgvSell.Rows.Count - 1].Cells[4].Value = "รวมทั้งสิ้น";
 
         }
 
@@ -168,7 +168,8 @@ namespace POS.Forms
                 }
             }
 
-            dgvSell.Rows[dgvSell.Rows.Count - 1].Cells[5].Value = total.ToString("#,###.00");
+            lblSum.Text = string.Format("{0} {1} บาท", "รวมสุทธิ", total.ToString("#,###.00"));
+            //dgvSell.Rows[dgvSell.Rows.Count - 1].Cells[5].Value = total.ToString("#,###.00");
         }
 
         private void btnClear_Click(object sender, EventArgs e)

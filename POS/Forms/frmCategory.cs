@@ -84,9 +84,9 @@ namespace POS.Forms
                 if (pModel != null && pModel.CATEGORY_ID > 0)
                 {
                     obj.CATEGORY_ID = pModel.CATEGORY_ID;
-                    obj.CATE_CODE = pModel.CATE_CODE;
-                    obj.CATEGORY_NAME = pModel.CATEGORY_NAME;
-                    obj.REMARK = pModel.REMARK;
+                    //obj.CATE_CODE = pModel.CATE_CODE;
+                    //obj.CATEGORY_NAME = pModel.CATEGORY_NAME;
+                    //obj.REMARK = pModel.REMARK;
                     obj.STATUS = pModel.STATUS;
 
                     isSuccess = CategoryService.UpdateCategory(obj);
