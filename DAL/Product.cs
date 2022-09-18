@@ -201,7 +201,7 @@ namespace DAL
             try
             {
                 _db.Entry(masterrunning).State = EntityState.Added;
-                //_db.SaveChangesAsync();
+                _db.SaveChanges();
             }
             catch (DbUpdateConcurrencyException)
             {

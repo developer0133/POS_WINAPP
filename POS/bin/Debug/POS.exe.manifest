@@ -49,7 +49,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>IXSV7aP48GLSFpRxKbS5D+kKU9fRw7VhhYPNhbn61mg=</dsig:DigestValue>
+        <dsig:DigestValue>oRS/qRtQwOQ3wpS1i8NsKxxV6IkWPSDziQgl+Ca0nB0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -66,26 +66,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DAL.dll" size="108032">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DAL.dll" size="108544">
       <assemblyIdentity name="DAL" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>veWGjXcep1Z0PB66xjGNvM0p8EbAbsLFYI9DJ2Kro8E=</dsig:DigestValue>
+        <dsig:DigestValue>qPHyz82HeKonrrDW4t2xl6KWFx21+C/YkdE2d6+McwM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DATA-EF.dll" size="64512">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DATA-EF.dll" size="64000">
       <assemblyIdentity name="DATA-EF" version="0.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>USzedq9oajG49gMHDv4WVj+acMsVq2HtRagAqK2Lekw=</dsig:DigestValue>
+        <dsig:DigestValue>ymU3REcxZ+KfXyQYgiTZ1nS4U1mpSa1P+DDwCUTs78Y=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -625,7 +625,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>t/hQ+Su2Ilv8PxgYgSNj8ai6wTiGLyGJtih2wkL2iAQ=</dsig:DigestValue>
+        <dsig:DigestValue>CXcHQvgt60/+fk9Lf0hEZXSx+5ZZTGn2iOXTfOFGWRw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -842,13 +842,13 @@
       <dsig:DigestValue>NtZ3W1zxfgBdy1N4F/YC9qfxvIEwgpEe4D0jLPvGmyU=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="POS.exe.config" size="6001">
+  <file name="POS.exe.config" size="6002">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>PwWBKeTXMkl8UoJCHNdvlYmagQx7fgNFk7medIb/7Yo=</dsig:DigestValue>
+      <dsig:DigestValue>BfpFNZy1Fc7wRbIiVEYRhf6Bao6CD+DzsKEnQ71pwyY=</dsig:DigestValue>
     </hash>
   </file>
   <file name="SqlServerTypes\readme.htm" size="2369">
