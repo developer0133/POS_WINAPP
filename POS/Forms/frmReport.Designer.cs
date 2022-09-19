@@ -33,6 +33,9 @@ namespace POS.Forms
             this.label2 = new System.Windows.Forms.Label();
             this.tabcontrol1 = new System.Windows.Forms.TabControl();
             this.tbSellSearch = new System.Windows.Forms.TabPage();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtSellNo = new System.Windows.Forms.TextBox();
             this.tbDaily = new System.Windows.Forms.TabPage();
             this.btnOK = new System.Windows.Forms.Button();
             this.rptDate = new System.Windows.Forms.DateTimePicker();
@@ -40,9 +43,6 @@ namespace POS.Forms
             this.lblSum = new System.Windows.Forms.Label();
             this.dgvReport = new System.Windows.Forms.DataGridView();
             this.btnPrint = new System.Windows.Forms.Button();
-            this.txtSellNo = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.tabcontrol1.SuspendLayout();
             this.tbSellSearch.SuspendLayout();
             this.tbDaily.SuspendLayout();
@@ -78,13 +78,44 @@ namespace POS.Forms
             this.tbSellSearch.Controls.Add(this.label1);
             this.tbSellSearch.Controls.Add(this.txtSellNo);
             this.tbSellSearch.Location = new System.Drawing.Point(4, 29);
-            this.tbSellSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbSellSearch.Margin = new System.Windows.Forms.Padding(4);
             this.tbSellSearch.Name = "tbSellSearch";
-            this.tbSellSearch.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbSellSearch.Padding = new System.Windows.Forms.Padding(4);
             this.tbSellSearch.Size = new System.Drawing.Size(1193, 165);
             this.tbSellSearch.TabIndex = 1;
             this.tbSellSearch.Text = "ค้นหารายการขาย";
             this.tbSellSearch.UseVisualStyleBackColor = true;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Image = global::POS.Properties.Resources.search2;
+            this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnSearch.Location = new System.Drawing.Point(439, 27);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(155, 89);
+            this.btnSearch.TabIndex = 47;
+            this.btnSearch.Text = "ค้นหา";
+            this.btnSearch.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(10, 30);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(98, 20);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "เลขที่การขาย";
+            // 
+            // txtSellNo
+            // 
+            this.txtSellNo.Location = new System.Drawing.Point(153, 27);
+            this.txtSellNo.MaxLength = 15;
+            this.txtSellNo.Name = "txtSellNo";
+            this.txtSellNo.Size = new System.Drawing.Size(221, 27);
+            this.txtSellNo.TabIndex = 0;
             // 
             // tbDaily
             // 
@@ -171,37 +202,6 @@ namespace POS.Forms
             this.btnPrint.UseVisualStyleBackColor = true;
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
-            // txtSellNo
-            // 
-            this.txtSellNo.Location = new System.Drawing.Point(153, 27);
-            this.txtSellNo.MaxLength = 15;
-            this.txtSellNo.Name = "txtSellNo";
-            this.txtSellNo.Size = new System.Drawing.Size(221, 27);
-            this.txtSellNo.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 20);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "เลขที่การขาย";
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Image = global::POS.Properties.Resources.search2;
-            this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnSearch.Location = new System.Drawing.Point(439, 27);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(155, 89);
-            this.btnSearch.TabIndex = 47;
-            this.btnSearch.Text = "ค้นหา";
-            this.btnSearch.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
             // frmReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -215,6 +215,7 @@ namespace POS.Forms
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmReport";
             this.Text = "Product Service System";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.tabcontrol1.ResumeLayout(false);
             this.tbSellSearch.ResumeLayout(false);
             this.tbSellSearch.PerformLayout();

@@ -114,8 +114,6 @@ namespace POS.Forms
             }
         }
 
-
-
         private void PriceCaculate()
         {
             object objUnit = cboUnit.SelectedItem;
@@ -195,12 +193,20 @@ namespace POS.Forms
             decimal _wholeSale = 0;
             decimal _retailPrice = 0;
             decimal _avgItem = 0;
+            string objName = string.Empty;
+            int con1 = 0;
+            int con2 = 0;
+            decimal amount = 0;
 
             object objUnit = cboUnit.SelectedItem;
-            string objName = string.IsNullOrEmpty(((PARAMETER)objUnit).NAME) ? string.Empty : ((PARAMETER)objUnit).NAME;
-            int con1 = string.IsNullOrEmpty(((PARAMETER)objUnit).CONDITION1) ? 0 : int.Parse(((PARAMETER)objUnit).CONDITION1);
-            int con2 = string.IsNullOrEmpty(((PARAMETER)objUnit).CONDITION2) ? 0 : int.Parse(((PARAMETER)objUnit).CONDITION2);
-            decimal amount = string.IsNullOrEmpty(txtAmount.Text) ? 0 : decimal.Parse(txtAmount.Text);
+            if (objUnit != null)
+            {
+                objName = string.IsNullOrEmpty(((PARAMETER)objUnit).NAME) ? string.Empty : ((PARAMETER)objUnit).NAME;
+                con1 = string.IsNullOrEmpty(((PARAMETER)objUnit).CONDITION1) ? 0 : int.Parse(((PARAMETER)objUnit).CONDITION1);
+                con2 = string.IsNullOrEmpty(((PARAMETER)objUnit).CONDITION2) ? 0 : int.Parse(((PARAMETER)objUnit).CONDITION2);
+                amount = string.IsNullOrEmpty(txtAmount.Text) ? 0 : decimal.Parse(txtAmount.Text);
+            }
+
 
             if (flag == "w")
             {
@@ -376,6 +382,7 @@ namespace POS.Forms
             obj.BOX_BALANCE = string.IsNullOrEmpty(txtBoxBalance.Text) ? 0 : int.Parse(txtBoxBalance.Text);
             obj.PACK_BALANCE = string.IsNullOrEmpty(txtPackBalance.Text) ? 0 : int.Parse(txtPackBalance.Text);
             obj.ITEM_BALANCE = string.IsNullOrEmpty(txtItemBalance.Text) ? 0 : int.Parse(txtItemBalance.Text);
+            obj.REMARK = txtRemark.Text;
 
             obj.ORDER_DATE = invdate.Value;
             obj.C_BY = UserModel.USERNAME;
@@ -402,30 +409,68 @@ namespace POS.Forms
                 MessageBox.Show("Completed", "POS");
                 BindDGV();
                 Clear();
-
-
             }
         }
 
         private void BindDGV()
         {
             dt = new List<InventoryDTO>();
-            //dt = InvService.GetAllInventory(string.Empty);
 
-            var tmp = (from a in InvService.GetAllInventory(string.Empty)
-                       select new
+            dgvInv.Columns.Clear();
+            dgvInv.DataSource = null;
+            var invData = InvService.GetAllInventory(string.Empty);
+          
+
+            var tmp = (from a in invData
+                       select new 
                        {
-                           PRODUCT_CODE = a.PRODUCT_CODE,
+                           INV_ID=a.INV_ID,
+                           PRODUCT_CODE=a.PRODUCT_CODE,
                            PRODUCT_NAME = a.PRODUCT_NAME,
-                           INV_ID = a.INV_ID,
-                           PRODUCT_ID = a.PRODUCT_ID,
+                           STR_ORDERDATE = a.STR_ORDERDATE,
                            QTY = a.QTY,
                            STR_UNIT = a.STR_UNIT,
-                           STR_AMOUNT = a.STR_AMOUNT,
                            STR_TOTAL_AMOUNT = a.STR_TOTAL_AMOUNT,
-                           REMARK = a.REMARK
+                           REMARK = a.REMARK,
                        }).ToList();
+
             dgvInv.DataSource = tmp;
+
+            dgvInv.Columns[0].HeaderText = "ID";
+            dgvInv.Columns[1].HeaderText = "รหัสสินค้า";
+            dgvInv.Columns[2].HeaderText = "ชื่อสินค้า";
+            dgvInv.Columns[3].HeaderText = "วันที่สั่ง";
+            dgvInv.Columns[4].HeaderText = "จำนวน";
+            dgvInv.Columns[5].HeaderText = "หน่วย";
+            dgvInv.Columns[6].HeaderText = "รวมสุทธิ(บาท)";
+            dgvInv.Columns[7].HeaderText = "หมายเหตุ";
+
+            dgvInv.Columns[0].Width = 130;
+            dgvInv.Columns[1].Width = 130;
+            dgvInv.Columns[2].Width = 100;
+            dgvInv.Columns[3].Width = 100;
+            dgvInv.Columns[4].Width = 100;
+            dgvInv.Columns[5].Width = 130;
+            dgvInv.Columns[6].Width = 130;
+            dgvInv.Columns[7].Width = 130;
+
+            dgvInv.Columns[0].Name = "INV_ID";
+            dgvInv.Columns[1].Name = "PRODUCT_CODE";
+            dgvInv.Columns[2].Name = "PRODUCT_NAME";
+            dgvInv.Columns[3].Name = "STR_ORDERDATE";
+            dgvInv.Columns[4].Name = "QTY";
+            dgvInv.Columns[5].Name = "STR_UNIT";
+            dgvInv.Columns[6].Name = "STR_TOTAL_AMOUNT";
+            dgvInv.Columns[7].Name = "REMARK";
+
+            dgvInv.Columns[0].DataPropertyName = "INV_ID";
+            dgvInv.Columns[1].DataPropertyName = "PRODUCT_CODE";
+            dgvInv.Columns[2].DataPropertyName = "PRODUCT_NAME";
+            dgvInv.Columns[3].DataPropertyName = "STR_ORDERDATE";
+            dgvInv.Columns[4].DataPropertyName = "QTY";
+            dgvInv.Columns[5].DataPropertyName = "STR_UNIT";
+            dgvInv.Columns[6].DataPropertyName = "STR_TOTAL_AMOUNT";
+            dgvInv.Columns[7].DataPropertyName = "REMARK";
         }
 
         private void dgvInv_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -457,6 +502,7 @@ namespace POS.Forms
                     txtItemBalance.Text = pModel.ITEM_BALANCE.HasValue ? pModel.ITEM_BALANCE.Value.ToString() : string.Empty;
                     invdate.Value = pModel.ORDER_DATE.Value;
                     txtProductName.Text = pModel.PRODUCT_NAME;
+                    txtRemark.Text = pModel.REMARK;
                 }
             }
         }
@@ -487,6 +533,7 @@ namespace POS.Forms
             txtPackBalance.Clear();
             txtItemBalance.Clear();
             txtProductName.Clear();
+            txtRemark.Clear();
 
             pModel = new InventoryDTO();//test
         }

@@ -79,6 +79,8 @@ namespace POS.Forms
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
+            this.txtRemark = new System.Windows.Forms.TextBox();
+            this.lblRemark = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInv)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -88,57 +90,54 @@ namespace POS.Forms
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label8.Location = new System.Drawing.Point(9, 7);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label8.Location = new System.Drawing.Point(12, 9);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(89, 20);
+            this.label8.Size = new System.Drawing.Size(104, 25);
             this.label8.TabIndex = 40;
             this.label8.Text = "รับสินค้าเข้า";
             // 
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(13, 58);
-            this.lblName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblName.Location = new System.Drawing.Point(17, 71);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(33, 13);
+            this.lblName.Size = new System.Drawing.Size(38, 17);
             this.lblName.TabIndex = 41;
             this.lblName.Text = "สินค้า";
             // 
             // txtProductName
             // 
-            this.txtProductName.Location = new System.Drawing.Point(141, 55);
-            this.txtProductName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtProductName.Location = new System.Drawing.Point(188, 68);
+            this.txtProductName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtProductName.Name = "txtProductName";
-            this.txtProductName.Size = new System.Drawing.Size(212, 20);
+            this.txtProductName.Size = new System.Drawing.Size(281, 22);
             this.txtProductName.TabIndex = 42;
             // 
             // lblDate
             // 
             this.lblDate.AutoSize = true;
-            this.lblDate.Location = new System.Drawing.Point(13, 94);
-            this.lblDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDate.Location = new System.Drawing.Point(17, 116);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(28, 13);
+            this.lblDate.Size = new System.Drawing.Size(32, 17);
             this.lblDate.TabIndex = 43;
             this.lblDate.Text = "วันที่";
             // 
             // invdate
             // 
-            this.invdate.Location = new System.Drawing.Point(141, 90);
-            this.invdate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.invdate.Location = new System.Drawing.Point(188, 111);
+            this.invdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.invdate.Name = "invdate";
-            this.invdate.Size = new System.Drawing.Size(151, 20);
+            this.invdate.Size = new System.Drawing.Size(200, 22);
             this.invdate.TabIndex = 44;
             // 
             // btnSave
             // 
             this.btnSave.Image = global::POS.Properties.Resources.save;
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnSave.Location = new System.Drawing.Point(80, 330);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSave.Location = new System.Drawing.Point(107, 406);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(96, 67);
+            this.btnSave.Size = new System.Drawing.Size(128, 82);
             this.btnSave.TabIndex = 45;
             this.btnSave.Text = "บันทึก";
             this.btnSave.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -148,118 +147,116 @@ namespace POS.Forms
             // lblQty
             // 
             this.lblQty.AutoSize = true;
-            this.lblQty.Location = new System.Drawing.Point(13, 131);
-            this.lblQty.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblQty.Location = new System.Drawing.Point(17, 161);
             this.lblQty.Name = "lblQty";
-            this.lblQty.Size = new System.Drawing.Size(40, 13);
+            this.lblQty.Size = new System.Drawing.Size(46, 17);
             this.lblQty.TabIndex = 46;
             this.lblQty.Text = "จำนวน";
             // 
             // txtQty
             // 
-            this.txtQty.Location = new System.Drawing.Point(141, 131);
-            this.txtQty.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtQty.Location = new System.Drawing.Point(188, 161);
+            this.txtQty.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtQty.MaxLength = 5;
             this.txtQty.Name = "txtQty";
-            this.txtQty.Size = new System.Drawing.Size(151, 20);
+            this.txtQty.Size = new System.Drawing.Size(200, 22);
             this.txtQty.TabIndex = 47;
             this.txtQty.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQty_KeyPress);
             // 
             // lblUnit
             // 
             this.lblUnit.AutoSize = true;
-            this.lblUnit.Location = new System.Drawing.Point(13, 166);
-            this.lblUnit.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblUnit.Location = new System.Drawing.Point(17, 204);
             this.lblUnit.Name = "lblUnit";
-            this.lblUnit.Size = new System.Drawing.Size(35, 13);
+            this.lblUnit.Size = new System.Drawing.Size(40, 17);
             this.lblUnit.TabIndex = 48;
             this.lblUnit.Text = "หน่วย";
             // 
             // cboUnit
             // 
             this.cboUnit.FormattingEnabled = true;
-            this.cboUnit.Location = new System.Drawing.Point(141, 166);
-            this.cboUnit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboUnit.Location = new System.Drawing.Point(188, 204);
+            this.cboUnit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboUnit.Name = "cboUnit";
-            this.cboUnit.Size = new System.Drawing.Size(151, 21);
+            this.cboUnit.Size = new System.Drawing.Size(200, 24);
             this.cboUnit.TabIndex = 49;
             this.cboUnit.DropDownClosed += new System.EventHandler(this.cboUnit_DropDownClosed);
             // 
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
-            this.lblTotal.Location = new System.Drawing.Point(13, 202);
-            this.lblTotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTotal.Location = new System.Drawing.Point(17, 249);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(74, 13);
+            this.lblTotal.Size = new System.Drawing.Size(89, 17);
             this.lblTotal.TabIndex = 50;
             this.lblTotal.Text = "ราคารวม(บาท)";
             // 
             // txtAmount
             // 
-            this.txtAmount.Location = new System.Drawing.Point(141, 202);
-            this.txtAmount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtAmount.Location = new System.Drawing.Point(188, 249);
+            this.txtAmount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtAmount.MaxLength = 5;
             this.txtAmount.Name = "txtAmount";
-            this.txtAmount.Size = new System.Drawing.Size(151, 20);
+            this.txtAmount.Size = new System.Drawing.Size(200, 22);
             this.txtAmount.TabIndex = 51;
             this.txtAmount.Leave += new System.EventHandler(this.txtAmount_Leave);
             // 
             // lblCostAvg1
             // 
             this.lblCostAvg1.AutoSize = true;
-            this.lblCostAvg1.Location = new System.Drawing.Point(13, 242);
-            this.lblCostAvg1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCostAvg1.Location = new System.Drawing.Point(17, 298);
             this.lblCostAvg1.Name = "lblCostAvg1";
-            this.lblCostAvg1.Size = new System.Drawing.Size(116, 13);
+            this.lblCostAvg1.Size = new System.Drawing.Size(132, 17);
             this.lblCostAvg1.TabIndex = 52;
             this.lblCostAvg1.Text = "ราคาทุนเฉลี่ย/ชิ้น(บาท)";
             // 
             // txtCostAvgItem
             // 
-            this.txtCostAvgItem.Location = new System.Drawing.Point(141, 242);
-            this.txtCostAvgItem.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCostAvgItem.BackColor = System.Drawing.SystemColors.Control;
+            this.txtCostAvgItem.Enabled = false;
+            this.txtCostAvgItem.Location = new System.Drawing.Point(188, 298);
+            this.txtCostAvgItem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCostAvgItem.MaxLength = 5;
             this.txtCostAvgItem.Name = "txtCostAvgItem";
-            this.txtCostAvgItem.Size = new System.Drawing.Size(151, 20);
+            this.txtCostAvgItem.Size = new System.Drawing.Size(200, 22);
             this.txtCostAvgItem.TabIndex = 53;
             // 
             // txtCostAvgPack
             // 
-            this.txtCostAvgPack.Location = new System.Drawing.Point(141, 283);
-            this.txtCostAvgPack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCostAvgPack.BackColor = System.Drawing.SystemColors.Control;
+            this.txtCostAvgPack.Enabled = false;
+            this.txtCostAvgPack.Location = new System.Drawing.Point(188, 348);
+            this.txtCostAvgPack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCostAvgPack.MaxLength = 5;
             this.txtCostAvgPack.Name = "txtCostAvgPack";
-            this.txtCostAvgPack.Size = new System.Drawing.Size(151, 20);
+            this.txtCostAvgPack.Size = new System.Drawing.Size(200, 22);
             this.txtCostAvgPack.TabIndex = 55;
             // 
             // lblCostAvgPack
             // 
             this.lblCostAvgPack.AutoSize = true;
-            this.lblCostAvgPack.Location = new System.Drawing.Point(13, 283);
-            this.lblCostAvgPack.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCostAvgPack.Location = new System.Drawing.Point(17, 348);
             this.lblCostAvgPack.Name = "lblCostAvgPack";
-            this.lblCostAvgPack.Size = new System.Drawing.Size(124, 13);
+            this.lblCostAvgPack.Size = new System.Drawing.Size(140, 17);
             this.lblCostAvgPack.TabIndex = 54;
             this.lblCostAvgPack.Text = "ราคาทุนเฉลี่ย/แพ็ค(บาท)";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(382, 94);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(509, 116);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 13);
+            this.label1.Size = new System.Drawing.Size(132, 17);
             this.label1.TabIndex = 56;
             this.label1.Text = "ราคาขายปลีก/ชิ้น(บาท)";
             // 
             // txtRetailprice
             // 
-            this.txtRetailprice.Location = new System.Drawing.Point(523, 94);
-            this.txtRetailprice.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtRetailprice.Location = new System.Drawing.Point(697, 116);
+            this.txtRetailprice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtRetailprice.MaxLength = 9;
             this.txtRetailprice.Name = "txtRetailprice";
-            this.txtRetailprice.Size = new System.Drawing.Size(78, 20);
+            this.txtRetailprice.Size = new System.Drawing.Size(103, 22);
             this.txtRetailprice.TabIndex = 57;
             this.txtRetailprice.TextChanged += new System.EventHandler(this.txtRetailprice_TextChanged);
             this.txtRetailprice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRetailprice_KeyPress);
@@ -267,20 +264,18 @@ namespace POS.Forms
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(382, 135);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(509, 166);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(135, 13);
+            this.label2.Size = new System.Drawing.Size(156, 17);
             this.label2.TabIndex = 58;
             this.label2.Text = "ราคาขายส่ง/แพ็ค/โหล(บาท)";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(622, 97);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(829, 119);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(57, 13);
+            this.label3.Size = new System.Drawing.Size(69, 17);
             this.label3.TabIndex = 59;
             this.label3.Text = "กำไร(ปลีก)";
             // 
@@ -288,20 +283,20 @@ namespace POS.Forms
             // 
             this.txtProfitRetail.BackColor = System.Drawing.SystemColors.Control;
             this.txtProfitRetail.Enabled = false;
-            this.txtProfitRetail.Location = new System.Drawing.Point(679, 93);
-            this.txtProfitRetail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtProfitRetail.Location = new System.Drawing.Point(905, 114);
+            this.txtProfitRetail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtProfitRetail.MaxLength = 5;
             this.txtProfitRetail.Name = "txtProfitRetail";
-            this.txtProfitRetail.Size = new System.Drawing.Size(64, 20);
+            this.txtProfitRetail.Size = new System.Drawing.Size(84, 22);
             this.txtProfitRetail.TabIndex = 60;
             // 
             // txtWholesaleprice
             // 
-            this.txtWholesaleprice.Location = new System.Drawing.Point(523, 131);
-            this.txtWholesaleprice.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtWholesaleprice.Location = new System.Drawing.Point(697, 161);
+            this.txtWholesaleprice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtWholesaleprice.MaxLength = 9;
             this.txtWholesaleprice.Name = "txtWholesaleprice";
-            this.txtWholesaleprice.Size = new System.Drawing.Size(78, 20);
+            this.txtWholesaleprice.Size = new System.Drawing.Size(103, 22);
             this.txtWholesaleprice.TabIndex = 61;
             this.txtWholesaleprice.TextChanged += new System.EventHandler(this.txtWholesaleprice_TextChanged);
             this.txtWholesaleprice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtWholesaleprice_KeyPress);
@@ -310,20 +305,19 @@ namespace POS.Forms
             // 
             this.txtWholesaleprofit.BackColor = System.Drawing.SystemColors.Control;
             this.txtWholesaleprofit.Enabled = false;
-            this.txtWholesaleprofit.Location = new System.Drawing.Point(679, 129);
-            this.txtWholesaleprofit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtWholesaleprofit.Location = new System.Drawing.Point(905, 159);
+            this.txtWholesaleprofit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtWholesaleprofit.MaxLength = 5;
             this.txtWholesaleprofit.Name = "txtWholesaleprofit";
-            this.txtWholesaleprofit.Size = new System.Drawing.Size(64, 20);
+            this.txtWholesaleprofit.Size = new System.Drawing.Size(84, 22);
             this.txtWholesaleprofit.TabIndex = 63;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(622, 133);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(829, 164);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(48, 13);
+            this.label4.Size = new System.Drawing.Size(59, 17);
             this.label4.TabIndex = 62;
             this.label4.Text = "กำไร(ส่ง)";
             // 
@@ -331,40 +325,38 @@ namespace POS.Forms
             // 
             this.txtWholesalePriceItem.BackColor = System.Drawing.SystemColors.Control;
             this.txtWholesalePriceItem.Enabled = false;
-            this.txtWholesalePriceItem.Location = new System.Drawing.Point(679, 162);
-            this.txtWholesalePriceItem.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtWholesalePriceItem.Location = new System.Drawing.Point(905, 199);
+            this.txtWholesalePriceItem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtWholesalePriceItem.MaxLength = 5;
             this.txtWholesalePriceItem.Name = "txtWholesalePriceItem";
-            this.txtWholesalePriceItem.Size = new System.Drawing.Size(64, 20);
+            this.txtWholesalePriceItem.Size = new System.Drawing.Size(84, 22);
             this.txtWholesalePriceItem.TabIndex = 65;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(622, 166);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Location = new System.Drawing.Point(829, 204);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(53, 13);
+            this.label5.Size = new System.Drawing.Size(56, 17);
             this.label5.TabIndex = 64;
             this.label5.Text = "เฉลี่ย/ชิ้น";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(382, 209);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Location = new System.Drawing.Point(509, 257);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(89, 13);
+            this.label6.Size = new System.Drawing.Size(105, 17);
             this.label6.TabIndex = 66;
             this.label6.Text = "ราคาขาย/ลัง(บาท)";
             // 
             // txtBoxprice
             // 
-            this.txtBoxprice.Location = new System.Drawing.Point(523, 206);
-            this.txtBoxprice.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtBoxprice.Location = new System.Drawing.Point(697, 254);
+            this.txtBoxprice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBoxprice.MaxLength = 9;
             this.txtBoxprice.Name = "txtBoxprice";
-            this.txtBoxprice.Size = new System.Drawing.Size(78, 20);
+            this.txtBoxprice.Size = new System.Drawing.Size(103, 22);
             this.txtBoxprice.TabIndex = 67;
             this.txtBoxprice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxprice_KeyPress);
             // 
@@ -376,10 +368,10 @@ namespace POS.Forms
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.txtBoxBalance);
             this.panel1.Controls.Add(this.label7);
-            this.panel1.Location = new System.Drawing.Point(375, 242);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Location = new System.Drawing.Point(500, 298);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(358, 128);
+            this.panel1.Size = new System.Drawing.Size(477, 158);
             this.panel1.TabIndex = 68;
             this.panel1.Tag = "";
             // 
@@ -387,19 +379,18 @@ namespace POS.Forms
             // 
             this.txtItemBalance.BackColor = System.Drawing.SystemColors.Control;
             this.txtItemBalance.Enabled = false;
-            this.txtItemBalance.Location = new System.Drawing.Point(84, 88);
-            this.txtItemBalance.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtItemBalance.Location = new System.Drawing.Point(112, 108);
+            this.txtItemBalance.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtItemBalance.Name = "txtItemBalance";
-            this.txtItemBalance.Size = new System.Drawing.Size(101, 20);
+            this.txtItemBalance.Size = new System.Drawing.Size(133, 22);
             this.txtItemBalance.TabIndex = 72;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(14, 88);
-            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label10.Location = new System.Drawing.Point(19, 108);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(63, 13);
+            this.label10.Size = new System.Drawing.Size(70, 17);
             this.label10.TabIndex = 71;
             this.label10.Text = "คงเหลือ/ชิ้น";
             // 
@@ -407,19 +398,18 @@ namespace POS.Forms
             // 
             this.txtPackBalance.BackColor = System.Drawing.SystemColors.Control;
             this.txtPackBalance.Enabled = false;
-            this.txtPackBalance.Location = new System.Drawing.Point(84, 54);
-            this.txtPackBalance.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPackBalance.Location = new System.Drawing.Point(112, 66);
+            this.txtPackBalance.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPackBalance.Name = "txtPackBalance";
-            this.txtPackBalance.Size = new System.Drawing.Size(101, 20);
+            this.txtPackBalance.Size = new System.Drawing.Size(133, 22);
             this.txtPackBalance.TabIndex = 70;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(14, 54);
-            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label9.Location = new System.Drawing.Point(19, 66);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(71, 13);
+            this.label9.Size = new System.Drawing.Size(78, 17);
             this.label9.TabIndex = 69;
             this.label9.Text = "คงเหลือ/แพ็ค";
             // 
@@ -427,19 +417,18 @@ namespace POS.Forms
             // 
             this.txtBoxBalance.BackColor = System.Drawing.SystemColors.Control;
             this.txtBoxBalance.Enabled = false;
-            this.txtBoxBalance.Location = new System.Drawing.Point(84, 17);
-            this.txtBoxBalance.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtBoxBalance.Location = new System.Drawing.Point(112, 21);
+            this.txtBoxBalance.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBoxBalance.Name = "txtBoxBalance";
-            this.txtBoxBalance.Size = new System.Drawing.Size(101, 20);
+            this.txtBoxBalance.Size = new System.Drawing.Size(133, 22);
             this.txtBoxBalance.TabIndex = 68;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(14, 17);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Location = new System.Drawing.Point(19, 21);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(59, 13);
+            this.label7.Size = new System.Drawing.Size(66, 17);
             this.label7.TabIndex = 67;
             this.label7.Text = "คงเหลือ/ลัง";
             // 
@@ -447,10 +436,10 @@ namespace POS.Forms
             // 
             this.btnCancel.Image = global::POS.Properties.Resources.cancel;
             this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnCancel.Location = new System.Drawing.Point(217, 330);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCancel.Location = new System.Drawing.Point(289, 406);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(100, 67);
+            this.btnCancel.Size = new System.Drawing.Size(133, 82);
             this.btnCancel.TabIndex = 69;
             this.btnCancel.Text = "ยกเลิก";
             this.btnCancel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -472,14 +461,14 @@ namespace POS.Forms
             this.STR_TOTAL_AMOUNT,
             this.REMARK});
             this.dgvInv.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dgvInv.Location = new System.Drawing.Point(5, 52);
-            this.dgvInv.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvInv.Location = new System.Drawing.Point(7, 64);
+            this.dgvInv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvInv.Name = "dgvInv";
             this.dgvInv.ReadOnly = true;
             this.dgvInv.RowHeadersWidth = 51;
             this.dgvInv.RowTemplate.Height = 24;
             this.dgvInv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvInv.Size = new System.Drawing.Size(963, 178);
+            this.dgvInv.Size = new System.Drawing.Size(1284, 219);
             this.dgvInv.TabIndex = 70;
             this.dgvInv.TabStop = false;
             this.dgvInv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInv_CellClick);
@@ -573,40 +562,61 @@ namespace POS.Forms
             this.groupBox1.Controls.Add(this.btnSearch);
             this.groupBox1.Controls.Add(this.dgvInv);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.groupBox1.Location = new System.Drawing.Point(50, 413);
+            this.groupBox1.Location = new System.Drawing.Point(67, 508);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(994, 246);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(1325, 303);
             this.groupBox1.TabIndex = 71;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ข้อมูลรายการ";
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(5, 18);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSearch.Location = new System.Drawing.Point(7, 22);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(192, 21);
+            this.txtSearch.Size = new System.Drawing.Size(255, 24);
             this.txtSearch.TabIndex = 72;
             // 
             // btnSearch
             // 
             this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
             this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSearch.Location = new System.Drawing.Point(218, 13);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSearch.Location = new System.Drawing.Point(291, 16);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(80, 28);
+            this.btnSearch.Size = new System.Drawing.Size(107, 34);
             this.btnSearch.TabIndex = 71;
             this.btnSearch.Text = "    ค้นหา";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
+            // txtRemark
+            // 
+            this.txtRemark.Location = new System.Drawing.Point(1007, 298);
+            this.txtRemark.Multiline = true;
+            this.txtRemark.Name = "txtRemark";
+            this.txtRemark.Size = new System.Drawing.Size(351, 158);
+            this.txtRemark.TabIndex = 72;
+            // 
+            // lblRemark
+            // 
+            this.lblRemark.AutoSize = true;
+            this.lblRemark.Location = new System.Drawing.Point(1004, 259);
+            this.lblRemark.Name = "lblRemark";
+            this.lblRemark.Size = new System.Drawing.Size(59, 17);
+            this.lblRemark.TabIndex = 73;
+            this.lblRemark.Text = "หมายเหตุ";
+            // 
             // frmInv
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1066, 671);
+            this.ClientSize = new System.Drawing.Size(1421, 826);
+            this.Controls.Add(this.lblRemark);
+            this.Controls.Add(this.txtRemark);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.panel1);
@@ -639,7 +649,7 @@ namespace POS.Forms
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.label8);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmInv";
             this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "Product Service System";
@@ -706,5 +716,7 @@ namespace POS.Forms
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.TextBox txtRemark;
+        private System.Windows.Forms.Label lblRemark;
     }
 }
