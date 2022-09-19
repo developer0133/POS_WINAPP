@@ -221,51 +221,59 @@ namespace POS.Forms
                 amount = string.IsNullOrEmpty(txtAmount.Text) ? 0 : decimal.Parse(txtAmount.Text);
             }
 
-
-            if (flag == "w")
+            if (con1 != 0 && con2 != 0)
             {
-                _avgPack = decimal.Parse(txtCostAvgPack.Text);
-                _wholeSale = decimal.Parse(txtWholesaleprice.Text);
-                var cal = (_wholeSale - _avgPack);
-                txtWholesaleprofit.Text = cal.ToString("#,###.00");
 
-                if (con1 == 0)
+                if (flag == "w")
                 {
-                    var cal2 = (_wholeSale / con2);
-                    txtWholesalePriceItem.Text = cal2.ToString("#,###.00");
+                    _avgPack = decimal.Parse(txtCostAvgPack.Text);
+                    _wholeSale = decimal.Parse(txtWholesaleprice.Text);
+                    var cal = (_wholeSale - _avgPack);
+                    txtWholesaleprofit.Text = cal.ToString("#,###.00");
 
-                    if (objName.Contains("ลัง"))
+                    if (con1 == 0)
                     {
-                        txtBoxprice.Text = (cal2 * con2).ToString("#,###.00");
+                        var cal2 = (_wholeSale / con2);
+                        txtWholesalePriceItem.Text = cal2.ToString("#,###.00");
+
+                        if (objName.Contains("ลัง"))
+                        {
+                            txtBoxprice.Text = (cal2 * con2).ToString("#,###.00");
+                        }
+                    }
+                    else
+                    {
+                        var cal2 = (_wholeSale / con1);
+                        txtWholesalePriceItem.Text = cal2.ToString("#,###.00");
+
+                        if (objName.Contains("ลัง"))
+                        {
+                            txtBoxprice.Text = (cal2 * con2).ToString("#,###.00");
+                        }
+                    }
+
+                    if (con1 > 0 && con2 > 0)
+                    {
+                        var w = decimal.Parse(txtWholesalePriceItem.Text);
+
+                        if (objName.Contains("ลัง"))
+                        {
+                            txtBoxprice.Text = (w * con1 * con2).ToString("#,###.00");
+                        }
                     }
                 }
                 else
                 {
-                    var cal2 = (_wholeSale / con1);
-                    txtWholesalePriceItem.Text = cal2.ToString("#,###.00");
-
-                    if (objName.Contains("ลัง"))
-                    {
-                        txtBoxprice.Text = (cal2 * con2).ToString("#,###.00");
-                    }
-                }
-
-                if (con1 > 0 && con2 > 0)
-                {
-                    var w = decimal.Parse(txtWholesalePriceItem.Text);
-
-                    if (objName.Contains("ลัง"))
-                    {
-                        txtBoxprice.Text = (w * con1 * con2).ToString("#,###.00");
-                    }
+                    _retailPrice = decimal.Parse(txtRetailprice.Text);
+                    _avgItem = decimal.Parse(txtCostAvgItem.Text);
+                    var cal = _retailPrice - _avgItem;
+                    txtProfitRetail.Text = cal.ToString("#,###.00");
                 }
             }
             else
             {
-                _retailPrice = decimal.Parse(txtRetailprice.Text);
-                _avgItem = decimal.Parse(txtCostAvgItem.Text);
-                var cal = _retailPrice - _avgItem;
-                txtProfitRetail.Text = cal.ToString("#,###.00");
+                txtBoxprice.Text = "0";
+                txtProfitRetail.Text = "0";
             }
         }
         private void QtyBalance()
@@ -283,6 +291,15 @@ namespace POS.Forms
             var flagPack = false;
             int qty = 0;
             qty = string.IsNullOrEmpty(txtQty.Text) ? 0 : int.Parse(txtQty.Text);
+
+            if (con1 == 0 && con2 == 0)
+            {
+                txtPackBalance.Text = "0";
+                txtItemBalance.Text = "0";
+                txtBoxBalance.Text = "0";
+
+                return;
+            }
 
             if (con1 > 0)
             {
