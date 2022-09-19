@@ -14,6 +14,9 @@ namespace POS
         [STAThread]
         static void Main()
         {
+            ////decimal num = "43.2";
+            // var test = Math.Round(20.4, MidpointRounding.AwayFromZero); // 1
+            //var test2 = Math.Ceiling(20.4); // 1
             //DateTime dateTime = DateTime.UtcNow.Date;
             //var strDate = dateTime.ToString("ddMMyyyy");
 
