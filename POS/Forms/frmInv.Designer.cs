@@ -81,6 +81,7 @@ namespace POS.Forms
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtRemark = new System.Windows.Forms.TextBox();
             this.lblRemark = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInv)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -609,12 +610,22 @@ namespace POS.Forms
             this.lblRemark.TabIndex = 73;
             this.lblRemark.Text = "หมายเหตุ";
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(509, 199);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(94, 17);
+            this.label11.TabIndex = 74;
+            this.label11.Text = "ถาด/กล่อง(บาท)";
+            // 
             // frmInv
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1421, 826);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.lblRemark);
             this.Controls.Add(this.txtRemark);
             this.Controls.Add(this.groupBox1);
@@ -718,5 +729,6 @@ namespace POS.Forms
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox txtRemark;
         private System.Windows.Forms.Label lblRemark;
+        private System.Windows.Forms.Label label11;
     }
 }
