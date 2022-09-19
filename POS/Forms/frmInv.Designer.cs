@@ -596,6 +596,7 @@ namespace POS.Forms
             // txtRemark
             // 
             this.txtRemark.Location = new System.Drawing.Point(1007, 298);
+            this.txtRemark.MaxLength = 300;
             this.txtRemark.Multiline = true;
             this.txtRemark.Name = "txtRemark";
             this.txtRemark.Size = new System.Drawing.Size(351, 158);
