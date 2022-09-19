@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
+using System.Web.Configuration;
 
 namespace POS.Utils
 {
@@ -55,6 +56,15 @@ namespace POS.Utils
         public const string Report1 = "Report1";
         public const string DailyRpt = "Daily_rpt";
     }
+    public sealed class REPORT_PATH_CONFIG
+    {
+        public REPORT_PATH_CONFIG() { }
 
- 
+        public static readonly string ROOT_PATH = WebConfigurationManager.AppSettings["RootPath"];
+        public static readonly string RPT_PATH = WebConfigurationManager.AppSettings["RptPath"];
+        public static readonly string GEN_REPORT = WebConfigurationManager.AppSettings["GenReport"];
+
+    }
+
+
 }

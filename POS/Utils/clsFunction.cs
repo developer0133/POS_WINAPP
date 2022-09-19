@@ -154,13 +154,13 @@ namespace POS.Utils
             string encoding;
             string filenameExtension;
 
-            string genRpt = ConfigurationSettings.AppSettings["RootPath"];//System.IO.Directory.GetCurrentDirectory();
+            string genRpt = REPORT_PATH_CONFIG.RPT_PATH;//  ConfigurationSettings.AppSettings["RootPath"];//System.IO.Directory.GetCurrentDirectory();
             genRpt = string.Format("{0}/{1}", genRpt, POS_PATH.GEN_REPORT);
             DAL.Utils.clsFunction.MakePath(genRpt);
             clsLog.Info("make path:" + genRpt);
 
-            var rptPath = ConfigurationSettings.AppSettings["RptPath"] + REPORT_NAME.SELL_REPORT + ".rdlc";//string.Format("{0}/{1}{2}", POS_PATH.REPORTS, REPORT_NAME.DailyRpt, ".rdlc");
-            var savePath = ConfigurationSettings.AppSettings["GenReport"] + OReport.param.ToString() + ".pdf";//string.Format("{0}/{1}{2}", POS_PATH.GEN_REPORT, OReport.param.ToString(), ".pdf");
+            var rptPath = REPORT_PATH_CONFIG.RPT_PATH + REPORT_NAME.SELL_REPORT + ".rdlc";// ConfigurationSettings.AppSettings["RptPath"] + REPORT_NAME.SELL_REPORT + ".rdlc";//string.Format("{0}/{1}{2}", POS_PATH.REPORTS, REPORT_NAME.DailyRpt, ".rdlc");
+            var savePath = REPORT_PATH_CONFIG.GEN_REPORT + OReport.param.ToString() + ".pdf";//string.Format("{0}/{1}{2}", POS_PATH.GEN_REPORT, OReport.param.ToString(), ".pdf");
             clsLog.Info("genRpt :" + genRpt);
             clsLog.Info("savePath :" + savePath);
 
@@ -234,14 +234,14 @@ namespace POS.Utils
             string mimeType;
             string encoding;
             string filenameExtension;
-          
-            string genRpt = ConfigurationSettings.AppSettings["RootPath"];//System.IO.Directory.GetCurrentDirectory();
+
+            string genRpt = REPORT_PATH_CONFIG.ROOT_PATH;// ConfigurationSettings.AppSettings["RootPath"];//System.IO.Directory.GetCurrentDirectory();
             genRpt = string.Format("{0}/{1}", genRpt, POS_PATH.GEN_REPORT);
             DAL.Utils.clsFunction.MakePath(genRpt);
             clsLog.Info("make path:" + genRpt);
 
-            var rptPath = ConfigurationSettings.AppSettings["RptPath"] + REPORT_NAME.DailyRpt + ".rdlc";//string.Format("{0}/{1}{2}", POS_PATH.REPORTS, REPORT_NAME.DailyRpt, ".rdlc");
-            var savePath = ConfigurationSettings.AppSettings["GenReport"] + OReport.param.ToString()+".pdf";//string.Format("{0}/{1}{2}", POS_PATH.GEN_REPORT, OReport.param.ToString(), ".pdf");
+            var rptPath = REPORT_PATH_CONFIG.RPT_PATH + REPORT_NAME.DailyRpt + ".rdlc";// ConfigurationSettings.AppSettings["RptPath"] + REPORT_NAME.DailyRpt + ".rdlc";//string.Format("{0}/{1}{2}", POS_PATH.REPORTS, REPORT_NAME.DailyRpt, ".rdlc");
+            var savePath = REPORT_PATH_CONFIG.GEN_REPORT + OReport.param.ToString() + ".pdf";//ConfigurationSettings.AppSettings["GenReport"] + OReport.param.ToString()+".pdf";//string.Format("{0}/{1}{2}", POS_PATH.GEN_REPORT, OReport.param.ToString(), ".pdf");
             clsLog.Info("genRpt :" + genRpt);
             clsLog.Info("savePath :" + savePath);
 
