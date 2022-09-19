@@ -109,7 +109,7 @@ namespace POS.Forms
 
                     if (isSuccess)
                     {
-                        MessageBox.Show("Completed", "POS");
+                        MessageBox.Show("บันทึกสำเร็จ", "POS");
                         Clear();
                         PopulateDataGridView();
                     }

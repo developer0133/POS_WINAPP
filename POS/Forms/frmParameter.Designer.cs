@@ -45,6 +45,12 @@ namespace POS.Forms
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.dgvParameter = new System.Windows.Forms.DataGridView();
+            this.btnNext = new System.Windows.Forms.Button();
+            this.lblPage = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.PARAMETER_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MAJOR_CODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MINOR_CODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,12 +58,6 @@ namespace POS.Forms
             this.CONDITION1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CONDITION2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DESCRIPTION = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnNext = new System.Windows.Forms.Button();
-            this.lblPage = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtSearch = new System.Windows.Forms.TextBox();
-            this.btnSearch = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvParameter)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -212,69 +212,6 @@ namespace POS.Forms
             this.dgvParameter.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvParameter_CellContentClick);
             this.dgvParameter.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvParameter_RowPostPaint);
             // 
-            // PARAMETER_ID
-            // 
-            this.PARAMETER_ID.DataPropertyName = "PARAMETER_ID";
-            this.PARAMETER_ID.HeaderText = "ID";
-            this.PARAMETER_ID.MinimumWidth = 6;
-            this.PARAMETER_ID.Name = "PARAMETER_ID";
-            this.PARAMETER_ID.ReadOnly = true;
-            this.PARAMETER_ID.Width = 90;
-            // 
-            // MAJOR_CODE
-            // 
-            this.MAJOR_CODE.DataPropertyName = "MAJOR_CODE";
-            this.MAJOR_CODE.HeaderText = "รหัสหลัก";
-            this.MAJOR_CODE.MinimumWidth = 6;
-            this.MAJOR_CODE.Name = "MAJOR_CODE";
-            this.MAJOR_CODE.ReadOnly = true;
-            this.MAJOR_CODE.Width = 125;
-            // 
-            // MINOR_CODE
-            // 
-            this.MINOR_CODE.DataPropertyName = "MINOR_CODE";
-            this.MINOR_CODE.HeaderText = "รหัสรอง";
-            this.MINOR_CODE.MinimumWidth = 6;
-            this.MINOR_CODE.Name = "MINOR_CODE";
-            this.MINOR_CODE.ReadOnly = true;
-            this.MINOR_CODE.Width = 125;
-            // 
-            // NAME
-            // 
-            this.NAME.DataPropertyName = "NAME";
-            this.NAME.HeaderText = "ชื่อ";
-            this.NAME.MinimumWidth = 6;
-            this.NAME.Name = "NAME";
-            this.NAME.ReadOnly = true;
-            this.NAME.Width = 230;
-            // 
-            // CONDITION1
-            // 
-            this.CONDITION1.DataPropertyName = "CONDITION1";
-            this.CONDITION1.HeaderText = "CONDITION1";
-            this.CONDITION1.MinimumWidth = 6;
-            this.CONDITION1.Name = "CONDITION1";
-            this.CONDITION1.ReadOnly = true;
-            this.CONDITION1.Width = 125;
-            // 
-            // CONDITION2
-            // 
-            this.CONDITION2.DataPropertyName = "CONDITION2";
-            this.CONDITION2.HeaderText = "CONDITION2";
-            this.CONDITION2.MinimumWidth = 6;
-            this.CONDITION2.Name = "CONDITION2";
-            this.CONDITION2.ReadOnly = true;
-            this.CONDITION2.Width = 125;
-            // 
-            // DESCRIPTION
-            // 
-            this.DESCRIPTION.DataPropertyName = "DESCRIPTION";
-            this.DESCRIPTION.HeaderText = "หมายเหตุ";
-            this.DESCRIPTION.MinimumWidth = 6;
-            this.DESCRIPTION.Name = "DESCRIPTION";
-            this.DESCRIPTION.ReadOnly = true;
-            this.DESCRIPTION.Width = 125;
-            // 
             // btnNext
             // 
             this.btnNext.Location = new System.Drawing.Point(0, 0);
@@ -330,6 +267,70 @@ namespace POS.Forms
             this.btnSearch.Text = "    ค้นหา";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // PARAMETER_ID
+            // 
+            this.PARAMETER_ID.DataPropertyName = "PARAMETER_ID";
+            this.PARAMETER_ID.HeaderText = "ID";
+            this.PARAMETER_ID.MinimumWidth = 6;
+            this.PARAMETER_ID.Name = "PARAMETER_ID";
+            this.PARAMETER_ID.ReadOnly = true;
+            this.PARAMETER_ID.Visible = false;
+            this.PARAMETER_ID.Width = 90;
+            // 
+            // MAJOR_CODE
+            // 
+            this.MAJOR_CODE.DataPropertyName = "MAJOR_CODE";
+            this.MAJOR_CODE.HeaderText = "รหัสหลัก";
+            this.MAJOR_CODE.MinimumWidth = 6;
+            this.MAJOR_CODE.Name = "MAJOR_CODE";
+            this.MAJOR_CODE.ReadOnly = true;
+            this.MAJOR_CODE.Width = 125;
+            // 
+            // MINOR_CODE
+            // 
+            this.MINOR_CODE.DataPropertyName = "MINOR_CODE";
+            this.MINOR_CODE.HeaderText = "รหัสรอง";
+            this.MINOR_CODE.MinimumWidth = 6;
+            this.MINOR_CODE.Name = "MINOR_CODE";
+            this.MINOR_CODE.ReadOnly = true;
+            this.MINOR_CODE.Width = 125;
+            // 
+            // NAME
+            // 
+            this.NAME.DataPropertyName = "NAME";
+            this.NAME.HeaderText = "ชื่อ";
+            this.NAME.MinimumWidth = 6;
+            this.NAME.Name = "NAME";
+            this.NAME.ReadOnly = true;
+            this.NAME.Width = 230;
+            // 
+            // CONDITION1
+            // 
+            this.CONDITION1.DataPropertyName = "CONDITION1";
+            this.CONDITION1.HeaderText = "CONDITION1";
+            this.CONDITION1.MinimumWidth = 6;
+            this.CONDITION1.Name = "CONDITION1";
+            this.CONDITION1.ReadOnly = true;
+            this.CONDITION1.Width = 125;
+            // 
+            // CONDITION2
+            // 
+            this.CONDITION2.DataPropertyName = "CONDITION2";
+            this.CONDITION2.HeaderText = "CONDITION2";
+            this.CONDITION2.MinimumWidth = 6;
+            this.CONDITION2.Name = "CONDITION2";
+            this.CONDITION2.ReadOnly = true;
+            this.CONDITION2.Width = 125;
+            // 
+            // DESCRIPTION
+            // 
+            this.DESCRIPTION.DataPropertyName = "DESCRIPTION";
+            this.DESCRIPTION.HeaderText = "หมายเหตุ";
+            this.DESCRIPTION.MinimumWidth = 6;
+            this.DESCRIPTION.Name = "DESCRIPTION";
+            this.DESCRIPTION.ReadOnly = true;
+            this.DESCRIPTION.Width = 125;
             // 
             // frmParameter
             // 
