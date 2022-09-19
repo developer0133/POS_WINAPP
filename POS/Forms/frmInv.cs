@@ -171,9 +171,23 @@ namespace POS.Forms
                         }
                         else
                         {
-                            var cal = (amount / tmpQty);
-                            packPrice = cal;
-                            itemPrice = cal;
+                            if (con1 == 0 && con2 == 0)
+                            {
+                                packPrice = 0;
+                                itemPrice = 0;
+                            }
+                            try
+                            {
+                                var cal = (amount / tmpQty);
+                                packPrice = cal;
+                                itemPrice = cal;
+                            }
+                            catch
+                            {
+                                packPrice = 0;
+                                itemPrice = 0;
+                            }
+                           
                         }
                     }
                 }
