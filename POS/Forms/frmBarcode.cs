@@ -41,13 +41,14 @@ namespace POS.Forms
                 qr.Format = ZXing.BarcodeFormat.CODE_128;
                 var result = new Bitmap(qr.Write(txtBarcode.Text.Trim()));
                 pictureBox1.Image = result;
-                txtBarcode.Clear();
+                //txtBarcode.Clear();
             }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             txtBarcode.Text = string.Empty;
+            pictureBox1.Image = null;
         }
 
         private void btnDownload_Click(object sender, EventArgs e)
@@ -61,7 +62,7 @@ namespace POS.Forms
                 SaveFileDialog save = new SaveFileDialog();
                 save.CreatePrompt = true;
                 save.OverwritePrompt = true;
-                save.FileName = "br";
+                save.FileName = "br_" + txtBarcode.Text.Trim();
                 save.Filter = "PNG|*.png|JPEG|*.jpg";
                 if (save.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
