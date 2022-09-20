@@ -243,13 +243,22 @@ namespace POS.Forms
             objRp.code = strSellNo;// "SE12700253";
             objRp.printby = UserModel.USERNAME;
 
-            var printRp = this.PrintReport(objRp);
 
-            if(printRp)
+            if (MessageBox.Show(string.Format("ต้องการพิมพ์รายงาน" + strSellNo + "หรือไม่ ? ", ""), "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                MessageBox.Show("สำเร็จ", "POS");
-                System.Diagnostics.Process.Start(saveFile);
+                PrintModel.Flag = "SellItem";
+                PrintModel.SellNo = objRp.code;
+                PrintModel.DateRpt = "";
+                frmLoading frmload = new frmLoading();
+                frmload.Show();
             }
+
+            //var printRp = this.PrintReport(objRp);
+            //if(printRp)
+            //{
+            //    MessageBox.Show("สำเร็จ", "POS");
+            //    System.Diagnostics.Process.Start(saveFile);
+            //}
         }
 
         private bool PrintReport(GenReportModel OReport)
