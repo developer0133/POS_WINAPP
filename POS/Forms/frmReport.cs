@@ -22,6 +22,31 @@ namespace POS.Forms
         {
             InitializeComponent();
             btnPrint.Enabled = false;
+
+            LoadMonthYear();
+        }
+
+        void LoadMonthYear()
+        {
+            List<string> monthList = new List<string>();
+            List<string> yearList = new List<string>();
+            var dt = DateTime.Now;
+            var year = dt.Year + 543;
+
+            for (int i = 1; i <= 12; i++)
+            {
+                monthList.Add(i.ToString());
+            }
+
+            for (var i = year - 1; i <= year + 3; i++)
+            {
+                yearList.Add(i.ToString());
+            }
+
+            cmbMonth.DataSource = monthList;
+            cmbYear.DataSource = yearList;
+
+
         }
 
         private void btnOK_Click(object sender, EventArgs e)
