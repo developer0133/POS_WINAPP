@@ -138,7 +138,7 @@ namespace POS.Forms
                     obj.PRODUCT_ID = pModel.PRODUCT_ID;
                     obj.PRODUCT_CODE = pModel.PRODUCT_CODE;
                     obj.AVGCOST = pModel.AVGCOST;
-                    obj.STATUS = pModel.STATUS;
+                    //obj.STATUS = pModel.STATUS;
 
                     isSuccess = ProductService.UpdateProduct(obj);
                 }
@@ -167,6 +167,7 @@ namespace POS.Forms
             pModel = null;
             dgvOrderHist.Columns.Clear();
             dgvSellHist.Columns.Clear();
+            chkStatus.Checked = false;
 
             dgvSellHist.DataSource = null;
             dgvOrderHist.DataSource = null;
