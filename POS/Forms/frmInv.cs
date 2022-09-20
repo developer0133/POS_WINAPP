@@ -238,7 +238,8 @@ namespace POS.Forms
 
                         if (objName.Contains("ลัง"))
                         {
-                            txtBoxprice.Text = (cal2 * con2).ToString("#,###.00");
+                            var calB = Math.Ceiling((cal2 * con2));
+                            txtBoxprice.Text = calB.ToString("#,###.00");
                         }
                     }
                     else
@@ -248,7 +249,8 @@ namespace POS.Forms
 
                         if (objName.Contains("ลัง"))
                         {
-                            txtBoxprice.Text = (cal2 * con2).ToString("#,###.00");
+                            var calB = Math.Ceiling((cal2 * con2));
+                            txtBoxprice.Text = calB.ToString("#,###.00");
                         }
                     }
 
@@ -258,7 +260,8 @@ namespace POS.Forms
 
                         if (objName.Contains("ลัง"))
                         {
-                            txtBoxprice.Text = (w * con1 * con2).ToString("#,###.00");
+                            var calB = Math.Ceiling((w * con1 * con2));
+                            txtBoxprice.Text = calB.ToString("#,###.00");
                         }
                     }
                 }

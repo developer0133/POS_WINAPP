@@ -43,6 +43,7 @@ namespace POS.Forms
             this.lblSum = new System.Windows.Forms.Label();
             this.dgvReport = new System.Windows.Forms.DataGridView();
             this.btnPrint = new System.Windows.Forms.Button();
+            this.tbMonthlyYearly = new System.Windows.Forms.TabPage();
             this.tabcontrol1.SuspendLayout();
             this.tbSellSearch.SuspendLayout();
             this.tbDaily.SuspendLayout();
@@ -64,6 +65,7 @@ namespace POS.Forms
             // 
             this.tabcontrol1.Controls.Add(this.tbSellSearch);
             this.tabcontrol1.Controls.Add(this.tbDaily);
+            this.tabcontrol1.Controls.Add(this.tbMonthlyYearly);
             this.tabcontrol1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.tabcontrol1.Location = new System.Drawing.Point(17, 82);
             this.tabcontrol1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -202,6 +204,15 @@ namespace POS.Forms
             this.btnPrint.UseVisualStyleBackColor = true;
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
+            // tbMonthlyYearly
+            // 
+            this.tbMonthlyYearly.Location = new System.Drawing.Point(4, 29);
+            this.tbMonthlyYearly.Name = "tbMonthlyYearly";
+            this.tbMonthlyYearly.Size = new System.Drawing.Size(1193, 165);
+            this.tbMonthlyYearly.TabIndex = 2;
+            this.tbMonthlyYearly.Text = "ประจำเดือน/ปี";
+            this.tbMonthlyYearly.UseVisualStyleBackColor = true;
+            // 
             // frmReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -243,5 +254,6 @@ namespace POS.Forms
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtSellNo;
+        private System.Windows.Forms.TabPage tbMonthlyYearly;
     }
 }
