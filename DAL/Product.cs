@@ -163,8 +163,16 @@ namespace DAL
                         catecode = category.CATE_CODE;
                     }
 
-                    pcode = clsFunction.GenFormatCode(mstRunning.RUNNING_NO.Value, catecode, "P"); // string.Format("{0}{1}{2}{3}{4}", category.CATE_CODE, d, m, y, mstRunning.RUNNING_NO);
-                    product.PRODUCT_CODE = pcode;
+                    if(!string.IsNullOrEmpty(product.BARCODE))
+                    {
+                        product.PRODUCT_CODE = product.BARCODE;
+                    }
+                    else
+                    {
+                        pcode = clsFunction.GenFormatCode(mstRunning.RUNNING_NO.Value, catecode, "P"); // string.Format("{0}{1}{2}{3}{4}", category.CATE_CODE, d, m, y, mstRunning.RUNNING_NO);
+                        product.PRODUCT_CODE = pcode;
+                    }
+                    
                     product.STATUS = STATUS.ACTIVE;
                     product.C_DATE = clsFunction.GetDate();
                     product.E_DATE = clsFunction.GetDate();
@@ -222,7 +230,7 @@ namespace DAL
 
                     if (!string.IsNullOrEmpty(product.BARCODE))
                     {
-                        product.PRODUCT_CODE = string.Empty;
+                        product.PRODUCT_CODE = product.BARCODE;
                         product.PRODUCT_CODE = product.BARCODE;
                     }
 

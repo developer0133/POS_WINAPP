@@ -433,8 +433,10 @@ namespace DAL
                            STRUNIT = t2.NAME
                        }).FirstOrDefault();
 
-            strunit = qry.STRUNIT;
-
+            if (qry != null)
+            {
+                strunit = qry.STRUNIT;
+            }
             return strunit;
         }
 

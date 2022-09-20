@@ -51,6 +51,13 @@ namespace POS.Forms
 
             if (obj != null)
             {
+                var invChk = InvService.GetInventory(obj.PRODUCT_ID).Count();
+                if (invChk == 0)
+                {
+                    MessageBox.Show("ไม่พบข้อมูล", "POS");
+                    return;
+                }
+
                 var strUnit = InvService.SRTUNIT(obj.PRODUCT_ID);
 
                 DataGridViewRow row = (DataGridViewRow)dgvSell.Rows[0].Clone();
