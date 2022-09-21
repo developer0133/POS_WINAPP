@@ -94,6 +94,7 @@
                                 <TextRun>
                                   <Value>ลำดับ</Value>
                                   <Style>
+                                    <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -128,6 +129,7 @@
                                 <TextRun>
                                   <Value>รายการ</Value>
                                   <Style>
+                                    <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -162,6 +164,7 @@
                                 <TextRun>
                                   <Value>จำนวน</Value>
                                   <Style>
+                                    <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -196,6 +199,7 @@
                                 <TextRun>
                                   <Value>หน่วย</Value>
                                   <Style>
+                                    <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -230,6 +234,7 @@
                                 <TextRun>
                                   <Value>ส่วนลด (บาท)</Value>
                                   <Style>
+                                    <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -264,6 +269,7 @@
                                 <TextRun>
                                   <Value>รวม</Value>
                                   <Style>
+                                    <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -302,7 +308,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!No.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontSize>9pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -334,7 +342,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!Item.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontSize>9pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -366,7 +376,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!Qty.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontSize>9pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -398,7 +410,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!UNIT.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontSize>9pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
@@ -428,7 +442,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!DISCOUNT.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontSize>9pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style />
@@ -458,7 +474,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!AMOUNT.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontSize>9pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -718,7 +736,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox7</rd:DefaultName>
             <Top>4.91186cm</Top>
-            <Left>11.43434cm</Left>
+            <Left>12.38684cm</Left>
             <Height>0.6cm</Height>
             <Width>1.46989cm</Width>
             <ZIndex>7</ZIndex>
@@ -752,7 +770,7 @@
             </Paragraphs>
             <rd:DefaultName>total</rd:DefaultName>
             <Top>4.91186cm</Top>
-            <Left>12.90423cm</Left>
+            <Left>13.85673cm</Left>
             <Height>0.6cm</Height>
             <Width>2.5cm</Width>
             <ZIndex>8</ZIndex>
@@ -945,10 +963,10 @@
             </Style>
           </Image>
         </ReportItems>
-        <Height>2.23289in</Height>
+        <Height>2.33028in</Height>
         <Style />
       </Body>
-      <Width>8.37901in</Width>
+      <Width>6.66571in</Width>
       <Page>
         <PageHeight>29.7cm</PageHeight>
         <PageWidth>21cm</PageWidth>
