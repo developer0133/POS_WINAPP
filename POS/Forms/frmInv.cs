@@ -422,6 +422,7 @@ namespace POS.Forms
             obj.C_BY = UserModel.USERNAME;
             obj.E_BY = UserModel.USERNAME;
 
+
             if (pModel != null && pModel.PRODUCT_ID > 0 && pModel.INV_ID > 0)
             {
                 ////update 

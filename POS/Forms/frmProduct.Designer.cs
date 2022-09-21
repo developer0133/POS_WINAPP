@@ -320,6 +320,7 @@ namespace POS.Forms
             this.dgvProduct.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvProduct.Location = new System.Drawing.Point(19, 94);
             this.dgvProduct.Name = "dgvProduct";
+            this.dgvProduct.ReadOnly = true;
             this.dgvProduct.RowHeadersWidth = 51;
             this.dgvProduct.RowTemplate.Height = 24;
             this.dgvProduct.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -420,6 +421,7 @@ namespace POS.Forms
             // dgvSellHist
             // 
             this.dgvSellHist.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSellHist.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvSellHist.Location = new System.Drawing.Point(19, 42);
             this.dgvSellHist.Name = "dgvSellHist";
             this.dgvSellHist.RowHeadersWidth = 51;
@@ -525,6 +527,7 @@ namespace POS.Forms
             // dgvOrderHist
             // 
             this.dgvOrderHist.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOrderHist.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvOrderHist.Location = new System.Drawing.Point(19, 26);
             this.dgvOrderHist.Name = "dgvOrderHist";
             this.dgvOrderHist.RowHeadersWidth = 51;
