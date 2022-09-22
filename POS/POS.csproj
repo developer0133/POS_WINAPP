@@ -426,6 +426,7 @@
     <None Include="images\Chart.ico" />
     <None Include="images\logout.ico" />
     <None Include="images\Download-icon.png" />
+    <None Include="images\Order.ico" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
