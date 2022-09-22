@@ -56,7 +56,7 @@ namespace POS.Forms
                     objRp.reportFlag = "Daily";
                     objRp.code = PrintModel.DateRpt;
                     objRp.param = sp2;
-                    clsLog.Info("PrintReport DailyReport:" + PrintModel.DateRpt);
+                    clsLog.Info("PrintReport DailyReport:" + PrintModel.DateRpt); 
                     isSuccess = clsFunction.PrintDailyReport(objRp, ref fileName);
 
                     //var test = ReportService.SellSummaryReport(PrintModel.DateRpt.ToString(), "");

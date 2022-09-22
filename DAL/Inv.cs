@@ -390,8 +390,8 @@ namespace DAL
                             invpd.PACK_BALANCE = InvData.PACK_BALANCE;
                             invpd.ITEM_BALANCE = InvData.ITEM_BALANCE;
                             invpd.ORDER_DATE = InvData.ORDER_DATE;
+                            invpd.UNIT = InvData.UNIT;
 
-                            
                             _db.Entry(invpd).State = EntityState.Modified;
                         }
                         _db.Entry(objProdduct).State = EntityState.Modified;
