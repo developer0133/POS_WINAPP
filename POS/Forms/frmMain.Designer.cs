@@ -33,17 +33,18 @@ namespace POS.Forms
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.panel1 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.btnProduct = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
-            this.btnProductIn = new System.Windows.Forms.Button();
+            this.btnMaster = new System.Windows.Forms.Button();
             this.btnReport = new System.Windows.Forms.Button();
-            this.btnSell = new System.Windows.Forms.Button();
+            this.btnCate = new System.Windows.Forms.Button();
+            this.btnProductIn = new System.Windows.Forms.Button();
             this.btnBarcode = new System.Windows.Forms.Button();
             this.btnOutOfStock = new System.Windows.Forms.Button();
-            this.btnCate = new System.Windows.Forms.Button();
-            this.btnMaster = new System.Windows.Forms.Button();
-            this.btnProduct = new System.Windows.Forms.Button();
+            this.btnSell = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
+            this.btnProductOrder = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -66,7 +67,7 @@ namespace POS.Forms
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 24);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(233, 804);
+            this.panel1.Size = new System.Drawing.Size(233, 879);
             this.panel1.TabIndex = 2;
             // 
             // splitContainer1
@@ -79,10 +80,11 @@ namespace POS.Forms
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.btnProduct);
+            this.splitContainer1.Panel1.Controls.Add(this.btnProductOrder);
             this.splitContainer1.Panel1.Controls.Add(this.btnLogout);
-            this.splitContainer1.Panel1.Controls.Add(this.btnMaster);
             this.splitContainer1.Panel1.Controls.Add(this.btnReport);
+            this.splitContainer1.Panel1.Controls.Add(this.btnProduct);
+            this.splitContainer1.Panel1.Controls.Add(this.btnMaster);
             this.splitContainer1.Panel1.Controls.Add(this.btnCate);
             this.splitContainer1.Panel1.Controls.Add(this.btnProductIn);
             this.splitContainer1.Panel1.Controls.Add(this.btnBarcode);
@@ -92,16 +94,31 @@ namespace POS.Forms
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.label1);
-            this.splitContainer1.Size = new System.Drawing.Size(233, 804);
-            this.splitContainer1.SplitterDistance = 756;
+            this.splitContainer1.Size = new System.Drawing.Size(233, 879);
+            this.splitContainer1.SplitterDistance = 829;
             this.splitContainer1.SplitterWidth = 20;
             this.splitContainer1.TabIndex = 1;
+            this.splitContainer1.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainer1_SplitterMoved);
+            // 
+            // btnProduct
+            // 
+            this.btnProduct.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnProduct.Image = global::POS.Properties.Resources.product1;
+            this.btnProduct.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnProduct.Location = new System.Drawing.Point(0, 0);
+            this.btnProduct.Name = "btnProduct";
+            this.btnProduct.Size = new System.Drawing.Size(233, 82);
+            this.btnProduct.TabIndex = 0;
+            this.btnProduct.Text = "สินค้า";
+            this.btnProduct.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnProduct.UseVisualStyleBackColor = true;
+            this.btnProduct.Click += new System.EventHandler(this.btnProduct_Click);
             // 
             // btnLogout
             // 
             this.btnLogout.Image = global::POS.Properties.Resources.logout;
             this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnLogout.Location = new System.Drawing.Point(0, 655);
+            this.btnLogout.Location = new System.Drawing.Point(0, 740);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(233, 82);
             this.btnLogout.TabIndex = 7;
@@ -109,6 +126,45 @@ namespace POS.Forms
             this.btnLogout.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
+            // btnMaster
+            // 
+            this.btnMaster.Image = global::POS.Properties.Resources.Finance_Order;
+            this.btnMaster.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnMaster.Location = new System.Drawing.Point(0, 81);
+            this.btnMaster.Name = "btnMaster";
+            this.btnMaster.Size = new System.Drawing.Size(233, 82);
+            this.btnMaster.TabIndex = 1;
+            this.btnMaster.Text = "Master";
+            this.btnMaster.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnMaster.UseVisualStyleBackColor = true;
+            this.btnMaster.Click += new System.EventHandler(this.btnMaster_Click);
+            // 
+            // btnReport
+            // 
+            this.btnReport.Image = global::POS.Properties.Resources.Chart;
+            this.btnReport.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnReport.Location = new System.Drawing.Point(1, 656);
+            this.btnReport.Name = "btnReport";
+            this.btnReport.Size = new System.Drawing.Size(233, 82);
+            this.btnReport.TabIndex = 6;
+            this.btnReport.Text = "รายงาน";
+            this.btnReport.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnReport.UseVisualStyleBackColor = true;
+            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
+            // 
+            // btnCate
+            // 
+            this.btnCate.Image = global::POS.Properties.Resources.Category;
+            this.btnCate.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnCate.Location = new System.Drawing.Point(0, 162);
+            this.btnCate.Name = "btnCate";
+            this.btnCate.Size = new System.Drawing.Size(233, 82);
+            this.btnCate.TabIndex = 2;
+            this.btnCate.Text = "หมวดหมู่สินค้า";
+            this.btnCate.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnCate.UseVisualStyleBackColor = true;
+            this.btnCate.Click += new System.EventHandler(this.btnCate_Click);
             // 
             // btnProductIn
             // 
@@ -122,32 +178,6 @@ namespace POS.Forms
             this.btnProductIn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnProductIn.UseVisualStyleBackColor = true;
             this.btnProductIn.Click += new System.EventHandler(this.btnProductIn_Click);
-            // 
-            // btnReport
-            // 
-            this.btnReport.Image = global::POS.Properties.Resources.Chart;
-            this.btnReport.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnReport.Location = new System.Drawing.Point(0, 572);
-            this.btnReport.Name = "btnReport";
-            this.btnReport.Size = new System.Drawing.Size(233, 82);
-            this.btnReport.TabIndex = 6;
-            this.btnReport.Text = "รายงาน";
-            this.btnReport.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnReport.UseVisualStyleBackColor = true;
-            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
-            // 
-            // btnSell
-            // 
-            this.btnSell.Image = global::POS.Properties.Resources.sale;
-            this.btnSell.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnSell.Location = new System.Drawing.Point(0, 326);
-            this.btnSell.Name = "btnSell";
-            this.btnSell.Size = new System.Drawing.Size(233, 82);
-            this.btnSell.TabIndex = 8;
-            this.btnSell.Text = "ขาย";
-            this.btnSell.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnSell.UseVisualStyleBackColor = true;
-            this.btnSell.Click += new System.EventHandler(this.btnSell_Click);
             // 
             // btnBarcode
             // 
@@ -175,51 +205,24 @@ namespace POS.Forms
             this.btnOutOfStock.UseVisualStyleBackColor = true;
             this.btnOutOfStock.Click += new System.EventHandler(this.btnOutOfStock_Click);
             // 
-            // btnCate
+            // btnSell
             // 
-            this.btnCate.Image = global::POS.Properties.Resources.Category;
-            this.btnCate.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnCate.Location = new System.Drawing.Point(0, 162);
-            this.btnCate.Name = "btnCate";
-            this.btnCate.Size = new System.Drawing.Size(233, 82);
-            this.btnCate.TabIndex = 2;
-            this.btnCate.Text = "หมวดหมู่สินค้า";
-            this.btnCate.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnCate.UseVisualStyleBackColor = true;
-            this.btnCate.Click += new System.EventHandler(this.btnCate_Click);
-            // 
-            // btnMaster
-            // 
-            this.btnMaster.Image = global::POS.Properties.Resources.Finance_Order;
-            this.btnMaster.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnMaster.Location = new System.Drawing.Point(0, 81);
-            this.btnMaster.Name = "btnMaster";
-            this.btnMaster.Size = new System.Drawing.Size(233, 82);
-            this.btnMaster.TabIndex = 1;
-            this.btnMaster.Text = "Master";
-            this.btnMaster.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnMaster.UseVisualStyleBackColor = true;
-            this.btnMaster.Click += new System.EventHandler(this.btnMaster_Click);
-            // 
-            // btnProduct
-            // 
-            this.btnProduct.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnProduct.Image = global::POS.Properties.Resources.product1;
-            this.btnProduct.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnProduct.Location = new System.Drawing.Point(0, 0);
-            this.btnProduct.Name = "btnProduct";
-            this.btnProduct.Size = new System.Drawing.Size(233, 82);
-            this.btnProduct.TabIndex = 0;
-            this.btnProduct.Text = "สินค้า";
-            this.btnProduct.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnProduct.UseVisualStyleBackColor = true;
-            this.btnProduct.Click += new System.EventHandler(this.btnProduct_Click);
+            this.btnSell.Image = global::POS.Properties.Resources.sale;
+            this.btnSell.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnSell.Location = new System.Drawing.Point(0, 326);
+            this.btnSell.Name = "btnSell";
+            this.btnSell.Size = new System.Drawing.Size(233, 82);
+            this.btnSell.TabIndex = 8;
+            this.btnSell.Text = "ขาย";
+            this.btnSell.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnSell.UseVisualStyleBackColor = true;
+            this.btnSell.Click += new System.EventHandler(this.btnSell_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label1.Location = new System.Drawing.Point(0, 11);
+            this.label1.Location = new System.Drawing.Point(0, 13);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(155, 17);
             this.label1.TabIndex = 0;
@@ -237,11 +240,23 @@ namespace POS.Forms
             this.lblName.Text = "lblName";
             this.lblName.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
+            // btnProductOrder
+            // 
+            this.btnProductOrder.Image = global::POS.Properties.Resources.Chart;
+            this.btnProductOrder.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnProductOrder.Location = new System.Drawing.Point(0, 573);
+            this.btnProductOrder.Name = "btnProductOrder";
+            this.btnProductOrder.Size = new System.Drawing.Size(233, 82);
+            this.btnProductOrder.TabIndex = 9;
+            this.btnProductOrder.Text = "รายการสั่งสินค้า";
+            this.btnProductOrder.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnProductOrder.UseVisualStyleBackColor = true;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1371, 828);
+            this.ClientSize = new System.Drawing.Size(1371, 903);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
@@ -278,5 +293,6 @@ namespace POS.Forms
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Button btnSell;
         private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Button btnProductOrder;
     }
 }
