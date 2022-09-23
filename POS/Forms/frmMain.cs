@@ -120,5 +120,14 @@ namespace POS.Forms
         {
 
         }
+
+        private void btnProductOrder_Click(object sender, EventArgs e)
+        {
+            CloseAllChildForm();
+
+            frmOrder f = new frmOrder();
+            f.MdiParent = this;
+            f.Show();
+        }
     }
 }

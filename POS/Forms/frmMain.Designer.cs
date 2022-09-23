@@ -33,8 +33,6 @@ namespace POS.Forms
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.panel1 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblName = new System.Windows.Forms.Label();
             this.btnProductOrder = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.btnReport = new System.Windows.Forms.Button();
@@ -45,6 +43,8 @@ namespace POS.Forms
             this.btnBarcode = new System.Windows.Forms.Button();
             this.btnOutOfStock = new System.Windows.Forms.Button();
             this.btnSell = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -57,7 +57,7 @@ namespace POS.Forms
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1371, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1371, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -65,9 +65,9 @@ namespace POS.Forms
             // 
             this.panel1.Controls.Add(this.splitContainer1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 30);
+            this.panel1.Location = new System.Drawing.Point(0, 24);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(233, 873);
+            this.panel1.Size = new System.Drawing.Size(233, 879);
             this.panel1.TabIndex = 2;
             // 
             // splitContainer1
@@ -94,33 +94,11 @@ namespace POS.Forms
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.label1);
-            this.splitContainer1.Size = new System.Drawing.Size(233, 873);
-            this.splitContainer1.SplitterDistance = 823;
+            this.splitContainer1.Size = new System.Drawing.Size(233, 879);
+            this.splitContainer1.SplitterDistance = 828;
             this.splitContainer1.SplitterWidth = 20;
             this.splitContainer1.TabIndex = 1;
             this.splitContainer1.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainer1_SplitterMoved);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label1.Location = new System.Drawing.Point(0, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(155, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "© Copy right 2022 KNN";
-            // 
-            // lblName
-            // 
-            this.lblName.AutoSize = true;
-            this.lblName.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.lblName.Location = new System.Drawing.Point(233, 30);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(70, 20);
-            this.lblName.TabIndex = 6;
-            this.lblName.Text = "lblName";
-            this.lblName.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // btnProductOrder
             // 
@@ -133,6 +111,7 @@ namespace POS.Forms
             this.btnProductOrder.Text = "รายการสั่งสินค้า";
             this.btnProductOrder.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnProductOrder.UseVisualStyleBackColor = true;
+            this.btnProductOrder.Click += new System.EventHandler(this.btnProductOrder_Click);
             // 
             // btnLogout
             // 
@@ -251,6 +230,28 @@ namespace POS.Forms
             this.btnSell.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnSell.UseVisualStyleBackColor = true;
             this.btnSell.Click += new System.EventHandler(this.btnSell_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label1.Location = new System.Drawing.Point(0, 14);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(155, 17);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "© Copy right 2022 KNN";
+            // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.lblName.Location = new System.Drawing.Point(233, 24);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(70, 20);
+            this.lblName.TabIndex = 6;
+            this.lblName.Text = "lblName";
+            this.lblName.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // frmMain
             // 
