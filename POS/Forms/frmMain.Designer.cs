@@ -30,7 +30,6 @@ namespace POS.Forms
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.panel1 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.btnProductOrder = new System.Windows.Forms.Button();
@@ -52,22 +51,13 @@ namespace POS.Forms
             this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // menuStrip1
-            // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1371, 24);
-            this.menuStrip1.TabIndex = 1;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.splitContainer1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 24);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(233, 879);
+            this.panel1.Size = new System.Drawing.Size(233, 903);
             this.panel1.TabIndex = 2;
             // 
             // splitContainer1
@@ -94,8 +84,8 @@ namespace POS.Forms
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.label1);
-            this.splitContainer1.Size = new System.Drawing.Size(233, 879);
-            this.splitContainer1.SplitterDistance = 828;
+            this.splitContainer1.Size = new System.Drawing.Size(233, 903);
+            this.splitContainer1.SplitterDistance = 850;
             this.splitContainer1.SplitterWidth = 20;
             this.splitContainer1.TabIndex = 1;
             this.splitContainer1.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainer1_SplitterMoved);
@@ -235,7 +225,7 @@ namespace POS.Forms
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label1.Location = new System.Drawing.Point(0, 14);
+            this.label1.Location = new System.Drawing.Point(0, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(155, 17);
             this.label1.TabIndex = 0;
@@ -246,7 +236,7 @@ namespace POS.Forms
             this.lblName.AutoSize = true;
             this.lblName.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.lblName.Location = new System.Drawing.Point(233, 24);
+            this.lblName.Location = new System.Drawing.Point(233, 0);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(70, 20);
             this.lblName.TabIndex = 6;
@@ -260,10 +250,8 @@ namespace POS.Forms
             this.ClientSize = new System.Drawing.Size(1371, 903);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
-            this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmMain";
             this.Text = "Product Service System";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -279,8 +267,6 @@ namespace POS.Forms
         }
 
         #endregion
-
-        private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Button btnOutOfStock;
