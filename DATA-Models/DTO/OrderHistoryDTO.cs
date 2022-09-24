@@ -46,5 +46,6 @@ namespace DATA_Models.DTO
         public decimal? AVG_PACK { get; set; }
         public decimal? AVG_ITEM { get; set; }
         public string REMARK { get; set; }
+        public string  PRODUCT_NAME { get; set; }
     }
 }

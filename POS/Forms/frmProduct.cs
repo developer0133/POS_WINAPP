@@ -285,7 +285,7 @@ namespace POS.Forms
         {
             dgvOrderHist.Columns.Clear();
             dgvOrderHist.DataSource = null;
-            var orderData = OrderHistoryService.GetOrderHistory(ProductID);
+            var orderData = OrderHistoryService.GetOrderHistory(ProductID, null);
             dgvOrderHist.DataSource = orderData;
 
             dgvOrderHist.Columns[0].HeaderText = "วันที่";
@@ -324,7 +324,7 @@ namespace POS.Forms
             dgvOrderHist.Columns[6].DataPropertyName = "AVG_PACK";
             dgvOrderHist.Columns[7].DataPropertyName = "REMARK";
 
-
+            dgvOrderHist.Columns[8].Visible = false;
         }
 
         private void dgvProduct_CellContentClick(object sender, DataGridViewCellEventArgs e)

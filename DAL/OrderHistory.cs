@@ -22,17 +22,30 @@ namespace DAL
             return _db.ORDER_HISTORY.ToList();
         }
 
-        public List<OrderHistoryDTO2> GetOrderHistory(int id)
+        public List<OrderHistoryDTO2> GetOrderHistory(int id, string orderDate)
         {
             List<OrderHistoryDTO2> oList = new List<OrderHistoryDTO2>();
             POSSYSTEMEntities _db = new POSSYSTEMEntities();
             try
             {
-                var qrydata = (from t in _db.ORDER_HISTORY.Where(w => w.PRODUCT_ID == id)
+                List<DATA_EF.ORDER_HISTORY> ORDER_HISTORY = new List<DATA_EF.ORDER_HISTORY>();
+                DateTime? dt = null;
+
+                if (string.IsNullOrEmpty(orderDate) && id > 0)
+                {
+                    ORDER_HISTORY = _db.ORDER_HISTORY.Where(w => w.PRODUCT_ID == id).ToList();
+                }
+                else
+                {
+                    dt = clsFunction.strDateToDateTime(orderDate);
+                    ORDER_HISTORY = _db.ORDER_HISTORY.Where(w => System.Data.Entity.DbFunctions.TruncateTime(w.ORDER_DATE) == dt).ToList();
+                }
+
+                var qrydata = (from t in ORDER_HISTORY//_db.ORDER_HISTORY.Where(w => w.PRODUCT_ID == id)
                                join t2 in _db.PRODUCTS on t.PRODUCT_ID equals t2.PRODUCT_ID
                                join t3 in _db.PARAMETER.Where(w => w.MAJOR_CODE == POSPARAMETER.UNIT && w.STATUS == STATUS.ACTIVE) on t2.UNIT equals t3.MINOR_CODE into c1
                                from t4 in c1.DefaultIfEmpty()
-                               select new 
+                               select new
                                {
                                    HIST_ID = t.HIST_ID,
                                    PRODUCT_ID = t.PRODUCT_ID.Value,
@@ -55,12 +68,13 @@ namespace DAL
                                    RETAILPROFIT = t2.RETAILPROFIT,
                                    AVG_ITEM = t2.AVG_ITEM,
                                    AVG_PACK = t2.AVG_PACK,
+                                   PRODUCT_NAME = t2.PRODUCT_NAME
 
                                }).AsQueryable();
                 oList = (List<OrderHistoryDTO2>)qrydata.AsEnumerable().Select((s, index) => new OrderHistoryDTO2
                 {
                     //No = (index + 1),
-                   // HIST_ID = s.HIST_ID,
+                    // HIST_ID = s.HIST_ID,
                     //PRODUCT_ID = s.PRODUCT_ID,
                     REMARK = s.REMARK,
                     QTY = s.QTY,
@@ -82,6 +96,7 @@ namespace DAL
                     //RETAILPROFIT = s.RETAILPROFIT,
                     AVG_ITEM = s.AVG_ITEM,
                     AVG_PACK = s.AVG_PACK,
+                    PRODUCT_NAME = s.PRODUCT_NAME
                 }).OrderBy(a => a.STR_ORDERDATE).ToList();
 
                 return oList;

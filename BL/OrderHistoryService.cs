@@ -25,9 +25,9 @@ namespace BL
             return _orderHist.GetOrderHistory();
         }
 
-        public static List<OrderHistoryDTO2> GetOrderHistory(int id)
+        public static List<OrderHistoryDTO2> GetOrderHistory(int id, string orderDate)
         {
-            return _orderHist.GetOrderHistory(id);
+            return _orderHist.GetOrderHistory(id, orderDate);
         }
 
         public static bool InsertOrderHistory(ORDER_HISTORY orderhist)

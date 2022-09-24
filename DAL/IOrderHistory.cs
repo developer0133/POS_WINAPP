@@ -12,7 +12,7 @@ namespace DAL
     public interface IOrderHistory
     {
         List<ORDER_HISTORY> GetOrderHistory();
-        List<OrderHistoryDTO2> GetOrderHistory(int PRODUCT_ID);
+        List<OrderHistoryDTO2> GetOrderHistory(int PRODUCT_ID, string orderDate);
         bool InsertOrderHistory(ORDER_HISTORY orderhist);
     }
 }
