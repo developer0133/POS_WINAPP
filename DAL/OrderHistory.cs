@@ -29,20 +29,43 @@ namespace DAL
             try
             {
                 List<DATA_EF.ORDER_HISTORY> ORDER_HISTORY = new List<DATA_EF.ORDER_HISTORY>();
+                List<DATA_EF.PRODUCTS> PRODUCTS = new List<DATA_EF.PRODUCTS>();
+
                 DateTime? dt = null;
+
+                var tmpProduct = _db.PRODUCTS.ToList().OrderBy(s => s.PRODUCT_ID);
+                List<string> tmpCode = new List<string>();
+                List<string> tmpCodeNew = new List<string>();
+
+                tmpCode = tmpProduct.Select(s => s.PRODUCT_CODE).ToList();
+
+                foreach (var item in tmpCode)
+                {
+                    string[] sp = item.Split('_');
+
+                    if (!tmpCodeNew.Any(p => p == item))
+                    {
+                        tmpCodeNew.Add(sp[0]);
+                    }
+
+                }
 
                 if (string.IsNullOrEmpty(orderDate) && id > 0)
                 {
                     ORDER_HISTORY = _db.ORDER_HISTORY.Where(w => w.PRODUCT_ID == id).ToList();
+                    PRODUCTS = _db.PRODUCTS.Where(w => w.PRODUCT_ID == id).ToList();
                 }
                 else
                 {
                     dt = clsFunction.strDateToDateTime(orderDate);
                     ORDER_HISTORY = _db.ORDER_HISTORY.Where(w => System.Data.Entity.DbFunctions.TruncateTime(w.ORDER_DATE) == dt).ToList();
+                    PRODUCTS = _db.PRODUCTS.Where(w => tmpCodeNew.Contains(w.PRODUCT_CODE)).ToList();
                 }
 
+               
+
                 var qrydata = (from t in ORDER_HISTORY//_db.ORDER_HISTORY.Where(w => w.PRODUCT_ID == id)
-                               join t2 in _db.PRODUCTS on t.PRODUCT_ID equals t2.PRODUCT_ID
+                               join t2 in PRODUCTS on t.PRODUCT_ID equals t2.PRODUCT_ID //_db.PRODUCTS on t.PRODUCT_ID equals t2.PRODUCT_ID
                                join t3 in _db.PARAMETER.Where(w => w.MAJOR_CODE == POSPARAMETER.UNIT && w.STATUS == STATUS.ACTIVE) on t2.UNIT equals t3.MINOR_CODE into c1
                                from t4 in c1.DefaultIfEmpty()
                                select new
