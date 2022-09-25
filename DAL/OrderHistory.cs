@@ -33,7 +33,7 @@ namespace DAL
 
                 DateTime? dt = null;
 
-                var tmpProduct = _db.PRODUCTS.ToList().OrderBy(s => s.PRODUCT_ID);
+                var tmpProduct = _db.PRODUCTS.OrderBy(s => s.PRODUCT_ID);
                 List<string> tmpCode = new List<string>();
                 List<string> tmpCodeNew = new List<string>();
 
@@ -47,22 +47,19 @@ namespace DAL
                     {
                         tmpCodeNew.Add(sp[0]);
                     }
-
                 }
 
                 if (string.IsNullOrEmpty(orderDate) && id > 0)
                 {
                     ORDER_HISTORY = _db.ORDER_HISTORY.Where(w => w.PRODUCT_ID == id).ToList();
-                    PRODUCTS = _db.PRODUCTS.Where(w => w.PRODUCT_ID == id).ToList();
+                    PRODUCTS = tmpProduct.Where(w => w.PRODUCT_ID == id).ToList();
                 }
                 else
                 {
                     dt = clsFunction.strDateToDateTime(orderDate);
                     ORDER_HISTORY = _db.ORDER_HISTORY.Where(w => System.Data.Entity.DbFunctions.TruncateTime(w.ORDER_DATE) == dt).ToList();
-                    PRODUCTS = _db.PRODUCTS.Where(w => tmpCodeNew.Contains(w.PRODUCT_CODE)).ToList();
+                    PRODUCTS = tmpProduct.Where(w => tmpCodeNew.Contains(w.PRODUCT_CODE)).ToList();
                 }
-
-               
 
                 var qrydata = (from t in ORDER_HISTORY//_db.ORDER_HISTORY.Where(w => w.PRODUCT_ID == id)
                                join t2 in PRODUCTS on t.PRODUCT_ID equals t2.PRODUCT_ID //_db.PRODUCTS on t.PRODUCT_ID equals t2.PRODUCT_ID
