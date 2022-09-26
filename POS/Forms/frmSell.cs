@@ -63,7 +63,7 @@ namespace POS.Forms
                 DataGridViewRow row = (DataGridViewRow)dgvSell.Rows[0].Clone();
                 row.Cells[0].Value = obj.PRODUCT_NAME;
                 row.Cells[7].Value = obj.PRODUCT_CODE;//obj.STRSELLPRICE;
-                //row.Cells[1].Value = 1;
+                row.Cells[1].Value = 1;
                 row.Cells[2].Value = strUnit;
                 row.Cells[3].Value = obj.SELLPRICE;//obj.STRSELLPRICE;
                 row.Cells[8].Value = obj.PRODUCT_ID;
