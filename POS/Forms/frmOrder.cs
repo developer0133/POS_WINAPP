@@ -36,7 +36,7 @@ namespace POS.Forms
 
             if (orderData.Count == 0)
             {
-                MessageBox.Show("ไม่พบข้อมูล", "POS");
+                MessageBox.Show("ไม่พบข้อมูล", "POS", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
             dgvOrder.DataSource = orderData;

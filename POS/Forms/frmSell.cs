@@ -185,6 +185,8 @@ namespace POS.Forms
             this.dgvSell.Rows.Clear();
             pcode = new List<string>();
             obj = new ProductDTO();
+            lblSum.Text = string.Empty;
+            lblSum.Text = string.Format("{0} {1} บาท", "รวมสุทธิ", "0.00");
         }
         private void dgvSell_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
