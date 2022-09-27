@@ -98,6 +98,7 @@ namespace POS.Forms
             this.PRODUCT_CODE,
             this.PRODUCT_ID,
             this.UNIT_ID});
+            this.dgvSell.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvSell.Location = new System.Drawing.Point(20, 167);
             this.dgvSell.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvSell.Name = "dgvSell";
