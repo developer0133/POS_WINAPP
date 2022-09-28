@@ -63,7 +63,7 @@ namespace POS.Forms
                 DataGridViewRow row = (DataGridViewRow)dgvSell.Rows[0].Clone();
                 row.Cells[0].Value = obj.PRODUCT_NAME;
                 row.Cells[7].Value = obj.PRODUCT_CODE;//obj.STRSELLPRICE;
-                row.Cells[1].Value = 1;
+                //row.Cells[1].Value = 1;
                 row.Cells[2].Value = strUnit;
                 row.Cells[3].Value = obj.SELLPRICE;//obj.STRSELLPRICE;
                 row.Cells[8].Value = obj.PRODUCT_ID;
@@ -158,17 +158,27 @@ namespace POS.Forms
             decimal sum = 0;
             decimal disc = 0;
 
-            disc = dgvSell.CurrentRow.Cells["Discount"].Value == null ? 0 : decimal.Parse(dgvSell.CurrentRow.Cells["Discount"].Value.ToString());
-            qty = dgvSell.CurrentRow.Cells["Qty"].Value == null ? 0 : decimal.Parse(dgvSell.CurrentRow.Cells["Qty"].Value.ToString());
-            price = dgvSell.CurrentRow.Cells["SellPrice"].Value == null ? 0 : decimal.Parse(dgvSell.CurrentRow.Cells["SellPrice"].Value.ToString());
+            //disc = dgvSell.CurrentRow.Cells["Discount"].Value == null ? 0 : decimal.Parse(dgvSell.CurrentRow.Cells["Discount"].Value.ToString());
+            //qty = dgvSell.CurrentRow.Cells["Qty"].Value == null ? 0 : decimal.Parse(dgvSell.CurrentRow.Cells["Qty"].Value.ToString());
+            //price = dgvSell.CurrentRow.Cells["SellPrice"].Value == null ? 0 : decimal.Parse(dgvSell.CurrentRow.Cells["SellPrice"].Value.ToString());
 
-            sum = (price * qty) - (disc);
+            //sum = (price * qty) - (disc);
 
-            dgvSell.CurrentRow.Cells[5].Value = sum.ToString();
+            //dgvSell.CurrentRow.Cells[5].Value = sum.ToString();
 
             decimal total = 0;
             for (int j = 0; j < dgvSell.Rows.Count - 1; j++)
             {
+
+                disc = dgvSell.Rows[j].Cells["Discount"].Value == null ? 0 : decimal.Parse(dgvSell.Rows[j].Cells["Discount"].Value.ToString());
+                qty = dgvSell.Rows[j].Cells["Qty"].Value == null ? 0 : decimal.Parse(dgvSell.Rows[j].Cells["Qty"].Value.ToString());
+                price = dgvSell.Rows[j].Cells["SellPrice"].Value == null ? 0 : decimal.Parse(dgvSell.Rows[j].Cells["SellPrice"].Value.ToString());
+
+
+                sum = (price * qty) - (disc);
+
+                dgvSell.Rows[j].Cells[5].Value = sum.ToString();
+
                 if (dgvSell.Rows[j].Cells[5].Value != null)
                 {
                     total += decimal.Parse(dgvSell.Rows[j].Cells[5].Value.ToString());
