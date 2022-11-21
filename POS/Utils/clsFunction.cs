@@ -174,50 +174,58 @@ namespace POS.Utils
             saveFile = savePath;//Path.Combine(Directory.GetCurrentDirectory(), savePath);
 
             var rptData = ReportService.SellItemReport(OReport.code);
-            decimal? sumAmount = rptData.Sum(s => s.AMOUNT);
-            string strsSumAmount = "";
-            strsSumAmount = sumAmount.HasValue ? string.Format("{0} {1}", Utils.clsFunction.setFormatCurrency(sumAmount), "บาท") : string.Empty;
 
-
-            ReportParameterCollection parameters = new ReportParameterCollection();
-            parameters.Add(new ReportParameter("printby", OReport.printby));
-            parameters.Add(new ReportParameter("total", strsSumAmount.ToString()));
-            parameters.Add(new ReportParameter("cdate", Utils.clsFunction.setFormatDateWithTime(rptData.First().CDATE, true).ToString()));
-            parameters.Add(new ReportParameter("date", Utils.clsFunction.setFormatDateWithTime(Utils.clsFunction.GetDate(), true).ToString()));
-            parameters.Add(new ReportParameter("no", OReport.code.ToString()));
-
-            try
+            if (rptData.Count > 0)
             {
+                decimal? sumAmount = rptData.Sum(s => s.AMOUNT);
+                string strsSumAmount = "";
+                strsSumAmount = sumAmount.HasValue ? string.Format("{0} {1}", Utils.clsFunction.setFormatCurrency(sumAmount), "บาท") : string.Empty;
 
-                ReportViewer viewer = new ReportViewer();
-                viewer.ProcessingMode = ProcessingMode.Local;
-                viewer.LocalReport.ReportPath = rptPath;//"D:/Workspace/DotNet/Inventory/POS_WINAPP3/POS_WINAPP/POS/Reports/SellReport.rdlc";
-                viewer.LocalReport.SetParameters(parameters);
-                viewer.LocalReport.DataSources.Add(new ReportDataSource("sell_DS", rptData));
 
-                byte[] bytes = viewer.LocalReport.Render("PDF", null, out mimeType, out encoding, out filenameExtension, out streamids, out warnings);
+                ReportParameterCollection parameters = new ReportParameterCollection();
+                parameters.Add(new ReportParameter("printby", OReport.printby));
+                parameters.Add(new ReportParameter("total", strsSumAmount.ToString()));
+                parameters.Add(new ReportParameter("cdate", Utils.clsFunction.setFormatDateWithTime(rptData.First().CDATE, true).ToString()));
+                parameters.Add(new ReportParameter("date", Utils.clsFunction.setFormatDateWithTime(Utils.clsFunction.GetDate(), true).ToString()));
+                parameters.Add(new ReportParameter("no", OReport.code.ToString()));
 
-                using (FileStream fs = new FileStream(saveFile, FileMode.Create))
+                try
                 {
-                    fs.Write(bytes, 0, bytes.Length);
+
+                    ReportViewer viewer = new ReportViewer();
+                    viewer.ProcessingMode = ProcessingMode.Local;
+                    viewer.LocalReport.ReportPath = rptPath;//"D:/Workspace/DotNet/Inventory/POS_WINAPP3/POS_WINAPP/POS/Reports/SellReport.rdlc";
+                    viewer.LocalReport.SetParameters(parameters);
+                    viewer.LocalReport.DataSources.Add(new ReportDataSource("sell_DS", rptData));
+
+                    byte[] bytes = viewer.LocalReport.Render("PDF", null, out mimeType, out encoding, out filenameExtension, out streamids, out warnings);
+
+                    using (FileStream fs = new FileStream(saveFile, FileMode.Create))
+                    {
+                        fs.Write(bytes, 0, bytes.Length);
+                    }
+
+                    if (bytes.Length > 0)
+                    {
+                        ////download
+                        //string FileName = @"D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS\GenReports\SE12700253.pdf";
+                        //string PDFUrl = @"C:\Users\CUBE\Desktop\test\testtest.pdf";
+                        //System.Net.WebClient client = new System.Net.WebClient();
+                        //client.DownloadFile(FileName, PDFUrl);
+                        //FileInfo PDFFile = new FileInfo(FileName);
+
+                        isSuccess = true;
+                        FileName = saveFile;
+                    }
                 }
-
-                if (bytes.Length > 0)
+                catch (Exception ex)
                 {
-                    ////download
-                    //string FileName = @"D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS\GenReports\SE12700253.pdf";
-                    //string PDFUrl = @"C:\Users\CUBE\Desktop\test\testtest.pdf";
-                    //System.Net.WebClient client = new System.Net.WebClient();
-                    //client.DownloadFile(FileName, PDFUrl);
-                    //FileInfo PDFFile = new FileInfo(FileName);
-
-                    isSuccess = true;
-                    FileName = saveFile;
+                    isSuccess = false;
                 }
             }
-            catch (Exception ex)
+            else
             {
-                isSuccess = false;
+                MessageBox.Show("Report not found", "POS");
             }
 
             return isSuccess;
