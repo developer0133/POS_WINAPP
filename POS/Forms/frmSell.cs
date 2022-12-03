@@ -31,6 +31,8 @@ namespace POS.Forms
 
             btnReport.Enabled = false;
 
+            this.GridStyle(dgvSell);
+
             // dgvSell.CellValueChanged += new DataGridViewCellEventHandler(dgvSell_CellValueChanged);
         }
 
@@ -348,6 +350,11 @@ namespace POS.Forms
             }
 
             return isSuccess;
+        }
+
+        void GridStyle(DataGridView Dgv)
+        {
+            Dgv.ColumnHeadersDefaultCellStyle.Font = new Font("Tahoma", 9.75F, FontStyle.Bold);
         }
     }
 }
