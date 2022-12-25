@@ -21,6 +21,8 @@ namespace DAL
 
             try
             {
+                //clsFunction.DecryptText("000");
+
                 using (var db = new POSSYSTEMEntities())
                 {
                     var obj = db.MASTER_USER.Where(w => w.STATUS == STATUS.ACTIVE && w.USERNAME == oLogin.UserName).SingleOrDefault();

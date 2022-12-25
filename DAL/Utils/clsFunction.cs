@@ -27,8 +27,14 @@ namespace DAL.Utils
         {
             var key = KEY.KEY_STRING;
 
+            //pZrh33eb/GMQzjXA6SC6HQ ==  :000
+            //Y + ZeQ74DLebrzzB + ogmTLg == :test
+
             //var encryptedString = EncryptString(key, "test");
             //var decryptedString = DecryptString(key, encryptedString);
+
+            var encryptedString = EncryptString(key, input);
+            var decryptedString = DecryptString(key, encryptedString);
 
 
             string result = DecryptString(key, input);

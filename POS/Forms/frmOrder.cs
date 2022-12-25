@@ -26,6 +26,8 @@ namespace POS.Forms
         private void btnSearch_Click(object sender, EventArgs e)
         {
             this.GetOrderHistory();
+
+            clsFunction.FormatHeaderDatagrid(this.dgvOrder);
         }
 
         void GetOrderHistory()
