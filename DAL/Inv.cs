@@ -357,6 +357,7 @@ namespace DAL
                         objProdduct = _db.PRODUCTS.Where(w => w.PRODUCT_ID == item.PRODUCT_ID).SingleOrDefault();
 
                         var invpd = _db.INV_PRODUCTS.Where(w => w.PRODUCT_ID == item.PRODUCT_ID && w.INV_ID != InvData.INV_ID).SingleOrDefault();
+                        var ordHist = _db.ORDER_HISTORY.Where(w => w.PRODUCT_ID == item.PRODUCT_ID).SingleOrDefault();
 
                         objProdduct.COSTPRICE = InvData.AMOUNT.HasValue ? InvData.AMOUNT.Value : 0;
                         objProdduct.QTY = InvData.QTY;
@@ -395,6 +396,12 @@ namespace DAL
                             _db.Entry(invpd).State = EntityState.Modified;
                         }
                         _db.Entry(objProdduct).State = EntityState.Modified;
+
+                        if(ordHist !=null)
+                        {
+                            ordHist.ORDER_DATE = InvData.ORDER_DATE;
+                            _db.Entry(ordHist).State = EntityState.Modified;
+                        }
                     }
                 }
                  _db.SaveChanges();
