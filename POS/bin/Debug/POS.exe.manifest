@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
   <asmv1:assemblyIdentity name="POS.exe" version="1.0.0.9" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
+  <description asmv2:iconFile="product.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
     <assemblyIdentity name="POS" version="1.0.0.1" language="neutral" processorArchitecture="msil" />
@@ -618,14 +619,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="POS.exe" size="591320">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="POS.exe" size="757720">
       <assemblyIdentity name="POS" version="1.0.0.1" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>F0Lt/dEiRaM4CDyORJhUxKCFysnezVK4YjYZSVIhEVs=</dsig:DigestValue>
+        <dsig:DigestValue>UYnhzWnuuGkkEegBpxRWfNcGsXKux3ieFBFtyb7Wwz8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -842,13 +843,22 @@
       <dsig:DigestValue>NtZ3W1zxfgBdy1N4F/YC9qfxvIEwgpEe4D0jLPvGmyU=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="POS.exe.config" size="6002">
+  <file name="POS.exe.config" size="6837">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>S2ddw77qbvchfJsdL3vU7+y3/kdlTc/dfNn/Hg3haOk=</dsig:DigestValue>
+      <dsig:DigestValue>ryPDYnyDMskP6zQUV8ZitwISXyA+JeaofG0WogEY82c=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="product.ico" size="165639">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>TiBsOnt3QyEPrLFVmKmzOKGmwSNRl2EhxvkujPxWduw=</dsig:DigestValue>
     </hash>
   </file>
   <file name="SqlServerTypes\readme.htm" size="2369">
