@@ -159,7 +159,7 @@ namespace POS.Utils
             DAL.Utils.clsFunction.MakePath(genRpt);
             clsLog.Info("make path:" + genRpt);
 
-            var rptPath = REPORT_PATH_CONFIG.RPT_PATH + REPORT_NAME.SELL_REPORT + ".rdlc";// ConfigurationSettings.AppSettings["RptPath"] + REPORT_NAME.SELL_REPORT + ".rdlc";//string.Format("{0}/{1}{2}", POS_PATH.REPORTS, REPORT_NAME.DailyRpt, ".rdlc");
+            var rptPath = REPORT_PATH_CONFIG.RPT_PATH + REPORT_NAME.SELL_REPORT3 + ".rdlc";// ConfigurationSettings.AppSettings["RptPath"] + REPORT_NAME.SELL_REPORT + ".rdlc";//string.Format("{0}/{1}{2}", POS_PATH.REPORTS, REPORT_NAME.DailyRpt, ".rdlc");
             var savePath = REPORT_PATH_CONFIG.GEN_REPORT + OReport.param.ToString() + ".pdf";//string.Format("{0}/{1}{2}", POS_PATH.GEN_REPORT, OReport.param.ToString(), ".pdf");
             clsLog.Info("genRpt :" + genRpt);
             clsLog.Info("savePath :" + savePath);

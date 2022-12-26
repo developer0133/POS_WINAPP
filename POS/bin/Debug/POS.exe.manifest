@@ -50,7 +50,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Eip96HW4PccWAarW79dAJra6XF29LrHmqeKCQI/HTnw=</dsig:DigestValue>
+        <dsig:DigestValue>2ukDMDIn0/DPTvd9Wy+O7vypZ63F85qdPri0aku4c7I=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -74,19 +74,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>xt5QCtPh2M3ZtxJDjEoQ/HQ0Ldk/5oM3zIvVuyvBfs8=</dsig:DigestValue>
+        <dsig:DigestValue>/wZNK/OU6P3BEn84f3YzCFp4BWC4u951isHR5UX3unk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DATA-EF.dll" size="64000">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DATA-EF.dll" size="64512">
       <assemblyIdentity name="DATA-EF" version="0.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>ymU3REcxZ+KfXyQYgiTZ1nS4U1mpSa1P+DDwCUTs78Y=</dsig:DigestValue>
+        <dsig:DigestValue>USzedq9oajG49gMHDv4WVj+acMsVq2HtRagAqK2Lekw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -619,14 +619,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="POS.exe" size="757720">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="POS.exe" size="841688">
       <assemblyIdentity name="POS" version="1.0.0.1" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>oCK8mBI9G5EH6vhB/iRzXOfdAlso1403TJLqFQpELn0=</dsig:DigestValue>
+        <dsig:DigestValue>ndKBTE3NZK55Hvft93enpEvCbFZ06Odvgw6cvwcOEnU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -843,13 +843,22 @@
       <dsig:DigestValue>NtZ3W1zxfgBdy1N4F/YC9qfxvIEwgpEe4D0jLPvGmyU=</dsig:DigestValue>
     </hash>
   </file>
+  <file name="images\logo2.jpg" size="8988">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>B+rdiRZqSpSof6mm7eX615nuPCQT5qzRfaWUlbeAoxI=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="POS.exe.config" size="6838">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>mBe9euX4NBzFQW47vwxgLRXi0ySw/k/yi10+zaKPctI=</dsig:DigestValue>
+      <dsig:DigestValue>hY8WvzKR1SdhuZJ9AE1kDKQK0Ttqtr2ujgIq6vJSG/w=</dsig:DigestValue>
     </hash>
   </file>
   <file name="product.ico" size="165639">

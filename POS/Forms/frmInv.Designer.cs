@@ -196,7 +196,7 @@ namespace POS.Forms
             // 
             this.txtAmount.Location = new System.Drawing.Point(188, 249);
             this.txtAmount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtAmount.MaxLength = 5;
+            this.txtAmount.MaxLength = 10;
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.Size = new System.Drawing.Size(200, 22);
             this.txtAmount.TabIndex = 51;

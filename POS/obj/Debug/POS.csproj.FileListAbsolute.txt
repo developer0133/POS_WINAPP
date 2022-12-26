@@ -504,3 +504,4 @@ D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS\bin\Debug\Reports\Repor
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS\bin\Debug\Reports\SellReport.rdlc
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS\obj\Debug\POS.Forms.frmOrder.resources
 D:\POSAPP\POS\obj\Debug\POS.Forms.frmOrder.resources
+D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS\bin\Debug\Reports\SellReport3.rdlc

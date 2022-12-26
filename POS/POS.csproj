@@ -376,6 +376,9 @@
     <EmbeddedResource Include="Reports\Report1.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SellReport3.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\SellReport.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
@@ -441,6 +444,7 @@
     <None Include="images\logout.ico" />
     <None Include="images\Download-icon.png" />
     <None Include="images\Order.ico" />
+    <Content Include="images\logo2.jpg" />
     <Content Include="product.ico" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
