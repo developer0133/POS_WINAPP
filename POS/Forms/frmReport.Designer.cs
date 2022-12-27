@@ -39,21 +39,21 @@ namespace POS.Forms
             this.tbDaily = new System.Windows.Forms.TabPage();
             this.btnOK = new System.Windows.Forms.Button();
             this.rptDate = new System.Windows.Forms.DateTimePicker();
+            this.tbMonthlyYearly = new System.Windows.Forms.TabPage();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cmbYear = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cmbMonth = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblSum = new System.Windows.Forms.Label();
             this.dgvReport = new System.Windows.Forms.DataGridView();
             this.btnPrint = new System.Windows.Forms.Button();
-            this.tbMonthlyYearly = new System.Windows.Forms.TabPage();
-            this.cmbMonth = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.cmbYear = new System.Windows.Forms.ComboBox();
             this.tabcontrol1.SuspendLayout();
             this.tbSellSearch.SuspendLayout();
             this.tbDaily.SuspendLayout();
+            this.tbMonthlyYearly.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReport)).BeginInit();
-            this.tbMonthlyYearly.SuspendLayout();
             this.SuspendLayout();
             // 
             // label2
@@ -159,6 +159,57 @@ namespace POS.Forms
             this.rptDate.Size = new System.Drawing.Size(272, 27);
             this.rptDate.TabIndex = 45;
             // 
+            // tbMonthlyYearly
+            // 
+            this.tbMonthlyYearly.Controls.Add(this.label4);
+            this.tbMonthlyYearly.Controls.Add(this.cmbYear);
+            this.tbMonthlyYearly.Controls.Add(this.label3);
+            this.tbMonthlyYearly.Controls.Add(this.cmbMonth);
+            this.tbMonthlyYearly.Location = new System.Drawing.Point(4, 29);
+            this.tbMonthlyYearly.Name = "tbMonthlyYearly";
+            this.tbMonthlyYearly.Size = new System.Drawing.Size(1193, 165);
+            this.tbMonthlyYearly.TabIndex = 2;
+            this.tbMonthlyYearly.Text = "ประจำเดือน/ปี";
+            this.tbMonthlyYearly.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(227, 49);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(19, 20);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "ปี";
+            // 
+            // cmbYear
+            // 
+            this.cmbYear.FormattingEnabled = true;
+            this.cmbYear.Location = new System.Drawing.Point(252, 49);
+            this.cmbYear.Name = "cmbYear";
+            this.cmbYear.Size = new System.Drawing.Size(121, 28);
+            this.cmbYear.TabIndex = 2;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(16, 49);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(44, 20);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "เดือน";
+            // 
+            // cmbMonth
+            // 
+            this.cmbMonth.FormattingEnabled = true;
+            this.cmbMonth.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3"});
+            this.cmbMonth.Location = new System.Drawing.Point(81, 49);
+            this.cmbMonth.Name = "cmbMonth";
+            this.cmbMonth.Size = new System.Drawing.Size(121, 28);
+            this.cmbMonth.TabIndex = 0;
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.lblSum);
@@ -179,9 +230,8 @@ namespace POS.Forms
             this.lblSum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.lblSum.Location = new System.Drawing.Point(1107, 298);
             this.lblSum.Name = "lblSum";
-            this.lblSum.Size = new System.Drawing.Size(66, 24);
+            this.lblSum.Size = new System.Drawing.Size(0, 24);
             this.lblSum.TabIndex = 25;
-            this.lblSum.Text = "label1";
             // 
             // dgvReport
             // 
@@ -209,57 +259,6 @@ namespace POS.Forms
             this.btnPrint.UseVisualStyleBackColor = true;
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
-            // tbMonthlyYearly
-            // 
-            this.tbMonthlyYearly.Controls.Add(this.label4);
-            this.tbMonthlyYearly.Controls.Add(this.cmbYear);
-            this.tbMonthlyYearly.Controls.Add(this.label3);
-            this.tbMonthlyYearly.Controls.Add(this.cmbMonth);
-            this.tbMonthlyYearly.Location = new System.Drawing.Point(4, 29);
-            this.tbMonthlyYearly.Name = "tbMonthlyYearly";
-            this.tbMonthlyYearly.Size = new System.Drawing.Size(1193, 165);
-            this.tbMonthlyYearly.TabIndex = 2;
-            this.tbMonthlyYearly.Text = "ประจำเดือน/ปี";
-            this.tbMonthlyYearly.UseVisualStyleBackColor = true;
-            // 
-            // cmbMonth
-            // 
-            this.cmbMonth.FormattingEnabled = true;
-            this.cmbMonth.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3"});
-            this.cmbMonth.Location = new System.Drawing.Point(81, 49);
-            this.cmbMonth.Name = "cmbMonth";
-            this.cmbMonth.Size = new System.Drawing.Size(121, 28);
-            this.cmbMonth.TabIndex = 0;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 49);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 20);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "เดือน";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(227, 49);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(19, 20);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "ปี";
-            // 
-            // cmbYear
-            // 
-            this.cmbYear.FormattingEnabled = true;
-            this.cmbYear.Location = new System.Drawing.Point(252, 49);
-            this.cmbYear.Name = "cmbYear";
-            this.cmbYear.Size = new System.Drawing.Size(121, 28);
-            this.cmbYear.TabIndex = 2;
-            // 
             // frmReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -278,11 +277,11 @@ namespace POS.Forms
             this.tbSellSearch.ResumeLayout(false);
             this.tbSellSearch.PerformLayout();
             this.tbDaily.ResumeLayout(false);
+            this.tbMonthlyYearly.ResumeLayout(false);
+            this.tbMonthlyYearly.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReport)).EndInit();
-            this.tbMonthlyYearly.ResumeLayout(false);
-            this.tbMonthlyYearly.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
