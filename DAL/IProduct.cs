@@ -19,5 +19,6 @@ namespace DAL
 
         List<ProductAutoCompleteDTO> GetProductAutoComplete();
         List<ProductOutOfStockDTO> GetOutOfStock();
+        PRODUCTS GetProductByCODE(string code);
     }
 }

@@ -312,5 +312,16 @@ namespace DAL
             return oList;
         }
 
+        public PRODUCTS GetProductByCODE(string code)
+        {
+            POSSYSTEMEntities _db = new POSSYSTEMEntities();
+
+            var obj = _db.PRODUCTS.Where(w => w.PRODUCT_CODE == code).SingleOrDefault();
+
+            _db.Dispose();
+            return obj;
+        }
+
+
     }
 }

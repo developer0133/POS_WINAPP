@@ -435,6 +435,12 @@ namespace POS.Forms
                 var sp = name.Split('-');
                 var pid = ProductService.GetProduct(sp[1]).Select(s=>s.PRODUCT_ID).FirstOrDefault();
 
+                if (pid == 0)
+                {
+                    pid = ProductService.GetProductByCODE(sp[1]).PRODUCT_ID;
+                    obj.PRODUCT_ID = pid;
+                }
+
                 obj.PRODUCT_ID = pid;
                 isSuccess = InvService.InsertInventory(obj);
             }

@@ -40,5 +40,10 @@ namespace BL
         {
             return _product.GetOutOfStock();
         }
+
+        public static PRODUCTS GetProductByCODE(string code)
+        {
+            return _product.GetProductByCODE(code);
+        }
     }
 }
