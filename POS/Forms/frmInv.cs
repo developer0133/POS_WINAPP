@@ -433,7 +433,7 @@ namespace POS.Forms
             {
                 var name = txtProductName.Text;
                 var sp = name.Split('-');
-                var pid = ProductService.GetProduct(sp[1]).Select(s=>s.PRODUCT_ID).FirstOrDefault();
+                var pid = ProductService.GetProduct(sp[1]).Select(s => s.PRODUCT_ID).FirstOrDefault();
 
                 if (pid == 0)
                 {
