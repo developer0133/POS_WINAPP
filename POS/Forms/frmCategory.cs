@@ -181,7 +181,6 @@ namespace POS.Forms
             btnNext.Enabled = true;
             btnFirst.Enabled = !(pageNumber == 1);
             lblPage.Text = string.Format("Page {0}/{1}", (pageNumber), dt.Count() / pageSize);
-
         }
 
         private void btnNext_Click(object sender, EventArgs e)
