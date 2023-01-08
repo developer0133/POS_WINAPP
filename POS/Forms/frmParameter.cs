@@ -91,7 +91,7 @@ namespace POS.Forms
             }
             else
             {
-                obj.MAJOR_CODE = txtMajorCode.Text.Trim();
+                obj.MAJOR_CODE = txtMajorCode.Text.Trim().ToUpper();
                 obj.MINOR_CODE = txtMinorCode.Text.Trim();
                 obj.NAME = txtName.Text.Trim();
                 obj.CONDITION1 = txtCon1.Text.Trim();
