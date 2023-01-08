@@ -100,26 +100,29 @@ namespace POS.Forms
             // lblName
             // 
             this.lblName.AutoSize = true;
+            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.lblName.Location = new System.Drawing.Point(17, 71);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(38, 17);
+            this.lblName.Size = new System.Drawing.Size(39, 18);
             this.lblName.TabIndex = 41;
             this.lblName.Text = "สินค้า";
             // 
             // txtProductName
             // 
+            this.txtProductName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.txtProductName.Location = new System.Drawing.Point(188, 68);
             this.txtProductName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtProductName.Name = "txtProductName";
-            this.txtProductName.Size = new System.Drawing.Size(281, 22);
+            this.txtProductName.Size = new System.Drawing.Size(281, 24);
             this.txtProductName.TabIndex = 42;
             // 
             // lblDate
             // 
             this.lblDate.AutoSize = true;
+            this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.lblDate.Location = new System.Drawing.Point(17, 116);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(32, 17);
+            this.lblDate.Size = new System.Drawing.Size(33, 18);
             this.lblDate.TabIndex = 43;
             this.lblDate.Text = "วันที่";
             // 
@@ -148,66 +151,73 @@ namespace POS.Forms
             // lblQty
             // 
             this.lblQty.AutoSize = true;
+            this.lblQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.lblQty.Location = new System.Drawing.Point(17, 161);
             this.lblQty.Name = "lblQty";
-            this.lblQty.Size = new System.Drawing.Size(46, 17);
+            this.lblQty.Size = new System.Drawing.Size(46, 18);
             this.lblQty.TabIndex = 46;
             this.lblQty.Text = "จำนวน";
             // 
             // txtQty
             // 
+            this.txtQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.txtQty.Location = new System.Drawing.Point(188, 161);
             this.txtQty.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtQty.MaxLength = 5;
             this.txtQty.Name = "txtQty";
-            this.txtQty.Size = new System.Drawing.Size(200, 22);
+            this.txtQty.Size = new System.Drawing.Size(200, 24);
             this.txtQty.TabIndex = 47;
             this.txtQty.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQty_KeyPress);
             // 
             // lblUnit
             // 
             this.lblUnit.AutoSize = true;
+            this.lblUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.lblUnit.Location = new System.Drawing.Point(17, 204);
             this.lblUnit.Name = "lblUnit";
-            this.lblUnit.Size = new System.Drawing.Size(40, 17);
+            this.lblUnit.Size = new System.Drawing.Size(41, 18);
             this.lblUnit.TabIndex = 48;
             this.lblUnit.Text = "หน่วย";
             // 
             // cboUnit
             // 
+            this.cboUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.cboUnit.FormattingEnabled = true;
             this.cboUnit.Location = new System.Drawing.Point(188, 204);
             this.cboUnit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboUnit.Name = "cboUnit";
-            this.cboUnit.Size = new System.Drawing.Size(200, 24);
+            this.cboUnit.Size = new System.Drawing.Size(200, 26);
             this.cboUnit.TabIndex = 49;
             this.cboUnit.DropDownClosed += new System.EventHandler(this.cboUnit_DropDownClosed);
             // 
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
+            this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.lblTotal.Location = new System.Drawing.Point(17, 249);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(89, 17);
+            this.lblTotal.Size = new System.Drawing.Size(92, 18);
             this.lblTotal.TabIndex = 50;
             this.lblTotal.Text = "ราคารวม(บาท)";
             // 
             // txtAmount
             // 
+            this.txtAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.txtAmount.Location = new System.Drawing.Point(188, 249);
             this.txtAmount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtAmount.MaxLength = 10;
             this.txtAmount.Name = "txtAmount";
-            this.txtAmount.Size = new System.Drawing.Size(200, 22);
+            this.txtAmount.Size = new System.Drawing.Size(200, 24);
             this.txtAmount.TabIndex = 51;
             this.txtAmount.Leave += new System.EventHandler(this.txtAmount_Leave);
             // 
             // lblCostAvg1
             // 
             this.lblCostAvg1.AutoSize = true;
+            this.lblCostAvg1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.lblCostAvg1.Location = new System.Drawing.Point(17, 298);
             this.lblCostAvg1.Name = "lblCostAvg1";
-            this.lblCostAvg1.Size = new System.Drawing.Size(132, 17);
+            this.lblCostAvg1.Size = new System.Drawing.Size(137, 18);
             this.lblCostAvg1.TabIndex = 52;
             this.lblCostAvg1.Text = "ราคาทุนเฉลี่ย/ชิ้น(บาท)";
             // 
@@ -215,49 +225,54 @@ namespace POS.Forms
             // 
             this.txtCostAvgItem.BackColor = System.Drawing.SystemColors.Control;
             this.txtCostAvgItem.Enabled = false;
+            this.txtCostAvgItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.txtCostAvgItem.Location = new System.Drawing.Point(188, 298);
             this.txtCostAvgItem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCostAvgItem.MaxLength = 5;
             this.txtCostAvgItem.Name = "txtCostAvgItem";
-            this.txtCostAvgItem.Size = new System.Drawing.Size(200, 22);
+            this.txtCostAvgItem.Size = new System.Drawing.Size(200, 24);
             this.txtCostAvgItem.TabIndex = 53;
             // 
             // txtCostAvgPack
             // 
             this.txtCostAvgPack.BackColor = System.Drawing.SystemColors.Control;
             this.txtCostAvgPack.Enabled = false;
+            this.txtCostAvgPack.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.txtCostAvgPack.Location = new System.Drawing.Point(188, 348);
             this.txtCostAvgPack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCostAvgPack.MaxLength = 5;
             this.txtCostAvgPack.Name = "txtCostAvgPack";
-            this.txtCostAvgPack.Size = new System.Drawing.Size(200, 22);
+            this.txtCostAvgPack.Size = new System.Drawing.Size(200, 24);
             this.txtCostAvgPack.TabIndex = 55;
             // 
             // lblCostAvgPack
             // 
             this.lblCostAvgPack.AutoSize = true;
+            this.lblCostAvgPack.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.lblCostAvgPack.Location = new System.Drawing.Point(17, 348);
             this.lblCostAvgPack.Name = "lblCostAvgPack";
-            this.lblCostAvgPack.Size = new System.Drawing.Size(140, 17);
+            this.lblCostAvgPack.Size = new System.Drawing.Size(147, 18);
             this.lblCostAvgPack.TabIndex = 54;
             this.lblCostAvgPack.Text = "ราคาทุนเฉลี่ย/แพ็ค(บาท)";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label1.Location = new System.Drawing.Point(509, 116);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(132, 17);
+            this.label1.Size = new System.Drawing.Size(136, 18);
             this.label1.TabIndex = 56;
             this.label1.Text = "ราคาขายปลีก/ชิ้น(บาท)";
             // 
             // txtRetailprice
             // 
+            this.txtRetailprice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.txtRetailprice.Location = new System.Drawing.Point(697, 116);
             this.txtRetailprice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtRetailprice.MaxLength = 9;
             this.txtRetailprice.Name = "txtRetailprice";
-            this.txtRetailprice.Size = new System.Drawing.Size(103, 22);
+            this.txtRetailprice.Size = new System.Drawing.Size(103, 24);
             this.txtRetailprice.TabIndex = 57;
             this.txtRetailprice.TextChanged += new System.EventHandler(this.txtRetailprice_TextChanged);
             this.txtRetailprice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRetailprice_KeyPress);
@@ -265,18 +280,20 @@ namespace POS.Forms
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label2.Location = new System.Drawing.Point(509, 166);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(156, 17);
+            this.label2.Size = new System.Drawing.Size(162, 18);
             this.label2.TabIndex = 58;
             this.label2.Text = "ราคาขายส่ง/แพ็ค/โหล(บาท)";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label3.Location = new System.Drawing.Point(829, 119);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(69, 17);
+            this.label3.Size = new System.Drawing.Size(70, 18);
             this.label3.TabIndex = 59;
             this.label3.Text = "กำไร(ปลีก)";
             // 
@@ -284,20 +301,22 @@ namespace POS.Forms
             // 
             this.txtProfitRetail.BackColor = System.Drawing.SystemColors.Control;
             this.txtProfitRetail.Enabled = false;
+            this.txtProfitRetail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.txtProfitRetail.Location = new System.Drawing.Point(905, 114);
             this.txtProfitRetail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtProfitRetail.MaxLength = 5;
             this.txtProfitRetail.Name = "txtProfitRetail";
-            this.txtProfitRetail.Size = new System.Drawing.Size(84, 22);
+            this.txtProfitRetail.Size = new System.Drawing.Size(84, 24);
             this.txtProfitRetail.TabIndex = 60;
             // 
             // txtWholesaleprice
             // 
+            this.txtWholesaleprice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.txtWholesaleprice.Location = new System.Drawing.Point(697, 161);
             this.txtWholesaleprice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtWholesaleprice.MaxLength = 9;
             this.txtWholesaleprice.Name = "txtWholesaleprice";
-            this.txtWholesaleprice.Size = new System.Drawing.Size(103, 22);
+            this.txtWholesaleprice.Size = new System.Drawing.Size(103, 24);
             this.txtWholesaleprice.TabIndex = 61;
             this.txtWholesaleprice.TextChanged += new System.EventHandler(this.txtWholesaleprice_TextChanged);
             this.txtWholesaleprice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtWholesaleprice_KeyPress);
@@ -306,19 +325,21 @@ namespace POS.Forms
             // 
             this.txtWholesaleprofit.BackColor = System.Drawing.SystemColors.Control;
             this.txtWholesaleprofit.Enabled = false;
+            this.txtWholesaleprofit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.txtWholesaleprofit.Location = new System.Drawing.Point(905, 159);
             this.txtWholesaleprofit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtWholesaleprofit.MaxLength = 5;
             this.txtWholesaleprofit.Name = "txtWholesaleprofit";
-            this.txtWholesaleprofit.Size = new System.Drawing.Size(84, 22);
+            this.txtWholesaleprofit.Size = new System.Drawing.Size(84, 24);
             this.txtWholesaleprofit.TabIndex = 63;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label4.Location = new System.Drawing.Point(829, 164);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(59, 17);
+            this.label4.Size = new System.Drawing.Size(60, 18);
             this.label4.TabIndex = 62;
             this.label4.Text = "กำไร(ส่ง)";
             // 
@@ -326,38 +347,42 @@ namespace POS.Forms
             // 
             this.txtWholesalePriceItem.BackColor = System.Drawing.SystemColors.Control;
             this.txtWholesalePriceItem.Enabled = false;
+            this.txtWholesalePriceItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.txtWholesalePriceItem.Location = new System.Drawing.Point(905, 199);
             this.txtWholesalePriceItem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtWholesalePriceItem.MaxLength = 5;
             this.txtWholesalePriceItem.Name = "txtWholesalePriceItem";
-            this.txtWholesalePriceItem.Size = new System.Drawing.Size(84, 22);
+            this.txtWholesalePriceItem.Size = new System.Drawing.Size(84, 24);
             this.txtWholesalePriceItem.TabIndex = 65;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label5.Location = new System.Drawing.Point(829, 204);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(56, 17);
+            this.label5.Size = new System.Drawing.Size(58, 18);
             this.label5.TabIndex = 64;
             this.label5.Text = "เฉลี่ย/ชิ้น";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label6.Location = new System.Drawing.Point(509, 257);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(105, 17);
+            this.label6.Size = new System.Drawing.Size(108, 18);
             this.label6.TabIndex = 66;
             this.label6.Text = "ราคาขาย/ลัง(บาท)";
             // 
             // txtBoxprice
             // 
+            this.txtBoxprice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.txtBoxprice.Location = new System.Drawing.Point(697, 254);
             this.txtBoxprice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBoxprice.MaxLength = 9;
             this.txtBoxprice.Name = "txtBoxprice";
-            this.txtBoxprice.Size = new System.Drawing.Size(103, 22);
+            this.txtBoxprice.Size = new System.Drawing.Size(103, 24);
             this.txtBoxprice.TabIndex = 67;
             this.txtBoxprice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxprice_KeyPress);
             // 
@@ -369,6 +394,7 @@ namespace POS.Forms
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.txtBoxBalance);
             this.panel1.Controls.Add(this.label7);
+            this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.panel1.Location = new System.Drawing.Point(500, 298);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
@@ -383,7 +409,7 @@ namespace POS.Forms
             this.txtItemBalance.Location = new System.Drawing.Point(112, 108);
             this.txtItemBalance.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtItemBalance.Name = "txtItemBalance";
-            this.txtItemBalance.Size = new System.Drawing.Size(133, 22);
+            this.txtItemBalance.Size = new System.Drawing.Size(133, 24);
             this.txtItemBalance.TabIndex = 72;
             // 
             // label10
@@ -391,7 +417,7 @@ namespace POS.Forms
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(19, 108);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(70, 17);
+            this.label10.Size = new System.Drawing.Size(71, 18);
             this.label10.TabIndex = 71;
             this.label10.Text = "คงเหลือ/ชิ้น";
             // 
@@ -402,7 +428,7 @@ namespace POS.Forms
             this.txtPackBalance.Location = new System.Drawing.Point(112, 66);
             this.txtPackBalance.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPackBalance.Name = "txtPackBalance";
-            this.txtPackBalance.Size = new System.Drawing.Size(133, 22);
+            this.txtPackBalance.Size = new System.Drawing.Size(133, 24);
             this.txtPackBalance.TabIndex = 70;
             // 
             // label9
@@ -410,7 +436,7 @@ namespace POS.Forms
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(19, 66);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(78, 17);
+            this.label9.Size = new System.Drawing.Size(81, 18);
             this.label9.TabIndex = 69;
             this.label9.Text = "คงเหลือ/แพ็ค";
             // 
@@ -421,7 +447,7 @@ namespace POS.Forms
             this.txtBoxBalance.Location = new System.Drawing.Point(112, 21);
             this.txtBoxBalance.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBoxBalance.Name = "txtBoxBalance";
-            this.txtBoxBalance.Size = new System.Drawing.Size(133, 22);
+            this.txtBoxBalance.Size = new System.Drawing.Size(133, 24);
             this.txtBoxBalance.TabIndex = 68;
             // 
             // label7
@@ -429,7 +455,7 @@ namespace POS.Forms
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(19, 21);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(66, 17);
+            this.label7.Size = new System.Drawing.Size(67, 18);
             this.label7.TabIndex = 67;
             this.label7.Text = "คงเหลือ/ลัง";
             // 
@@ -595,6 +621,7 @@ namespace POS.Forms
             // 
             // txtRemark
             // 
+            this.txtRemark.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.txtRemark.Location = new System.Drawing.Point(1007, 298);
             this.txtRemark.MaxLength = 300;
             this.txtRemark.Multiline = true;
@@ -605,18 +632,20 @@ namespace POS.Forms
             // lblRemark
             // 
             this.lblRemark.AutoSize = true;
+            this.lblRemark.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.lblRemark.Location = new System.Drawing.Point(1004, 259);
             this.lblRemark.Name = "lblRemark";
-            this.lblRemark.Size = new System.Drawing.Size(59, 17);
+            this.lblRemark.Size = new System.Drawing.Size(61, 18);
             this.lblRemark.TabIndex = 73;
             this.lblRemark.Text = "หมายเหตุ";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label11.Location = new System.Drawing.Point(509, 199);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(94, 17);
+            this.label11.Size = new System.Drawing.Size(97, 18);
             this.label11.TabIndex = 74;
             this.label11.Text = "ถาด/กล่อง(บาท)";
             // 
