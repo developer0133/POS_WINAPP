@@ -227,6 +227,7 @@ namespace POS.Forms
 
                 cboType.SelectedValue = pModel.PRODUCT_TYPE_ID;
                 cboCategory.SelectedValue = pModel.CATEGORY_ID;
+                cboSize.SelectedValue = pModel.PRODUCT_SIZE_ID;
 
                 this.GetSellHistory(pModel.PRODUCT_ID);
                 this.GetOrderHistory(pModel.PRODUCT_ID);
