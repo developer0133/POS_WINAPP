@@ -221,8 +221,8 @@ namespace POS.Forms
                 amount = string.IsNullOrEmpty(txtAmount.Text) ? 0 : decimal.Parse(txtAmount.Text);
             }
 
-            if (con1 != 0 && con2 != 0)
-            {
+            //if (con1 != 0 && con2 != 0)
+            //{
 
                 if (flag == "w")
                 {
@@ -270,14 +270,16 @@ namespace POS.Forms
                     _retailPrice = decimal.Parse(txtRetailprice.Text);
                     _avgItem = decimal.Parse(txtCostAvgItem.Text);
                     var cal = _retailPrice - _avgItem;
-                    txtProfitRetail.Text = cal.ToString("#,###.00");
+                txtProfitRetail.Text = cal.ToString("#,###.00");
                 }
-            }
-            else
-            {
-                txtBoxprice.Text = "0";
-                txtProfitRetail.Text = "0";
-            }
+            //}
+            //else
+            //{
+
+
+            //    txtBoxprice.Text = "0";
+            //    txtProfitRetail.Text = "0";
+            //}
         }
         private void QtyBalance()
         {

@@ -292,7 +292,7 @@ namespace POS.Forms
             this.txtProductID.Margin = new System.Windows.Forms.Padding(4);
             this.txtProductID.MaxLength = 13;
             this.txtProductID.Name = "txtProductID";
-            this.txtProductID.Size = new System.Drawing.Size(131, 27);
+            this.txtProductID.Size = new System.Drawing.Size(363, 27);
             this.txtProductID.TabIndex = 1;
             // 
             // Label2
@@ -336,6 +336,7 @@ namespace POS.Forms
             this.PRODUCT_ID.HeaderText = "รหัส";
             this.PRODUCT_ID.MinimumWidth = 6;
             this.PRODUCT_ID.Name = "PRODUCT_ID";
+            this.PRODUCT_ID.ReadOnly = true;
             this.PRODUCT_ID.Visible = false;
             this.PRODUCT_ID.Width = 125;
             // 
@@ -345,6 +346,7 @@ namespace POS.Forms
             this.PRODUCT_CODE.HeaderText = "รหัส";
             this.PRODUCT_CODE.MinimumWidth = 6;
             this.PRODUCT_CODE.Name = "PRODUCT_CODE";
+            this.PRODUCT_CODE.ReadOnly = true;
             this.PRODUCT_CODE.Width = 125;
             // 
             // PRODUCT_NAME
@@ -353,6 +355,7 @@ namespace POS.Forms
             this.PRODUCT_NAME.HeaderText = "ชื่อสินค้า";
             this.PRODUCT_NAME.MinimumWidth = 6;
             this.PRODUCT_NAME.Name = "PRODUCT_NAME";
+            this.PRODUCT_NAME.ReadOnly = true;
             this.PRODUCT_NAME.Width = 125;
             // 
             // CATEGORYNAME
@@ -361,6 +364,7 @@ namespace POS.Forms
             this.CATEGORYNAME.HeaderText = "หมวดหมู่";
             this.CATEGORYNAME.MinimumWidth = 6;
             this.CATEGORYNAME.Name = "CATEGORYNAME";
+            this.CATEGORYNAME.ReadOnly = true;
             this.CATEGORYNAME.Width = 125;
             // 
             // PRODUCT_TYPE
@@ -369,6 +373,7 @@ namespace POS.Forms
             this.PRODUCT_TYPE.HeaderText = "ชนิดสินค้า";
             this.PRODUCT_TYPE.MinimumWidth = 6;
             this.PRODUCT_TYPE.Name = "PRODUCT_TYPE";
+            this.PRODUCT_TYPE.ReadOnly = true;
             this.PRODUCT_TYPE.Width = 125;
             // 
             // AVGCOST
@@ -377,6 +382,7 @@ namespace POS.Forms
             this.AVGCOST.HeaderText = "ทุน(บาท)";
             this.AVGCOST.MinimumWidth = 6;
             this.AVGCOST.Name = "AVGCOST";
+            this.AVGCOST.ReadOnly = true;
             this.AVGCOST.Width = 125;
             // 
             // RETAILPRICE
@@ -385,6 +391,7 @@ namespace POS.Forms
             this.RETAILPRICE.HeaderText = "ราคาขาย(บาท)";
             this.RETAILPRICE.MinimumWidth = 6;
             this.RETAILPRICE.Name = "RETAILPRICE";
+            this.RETAILPRICE.ReadOnly = true;
             this.RETAILPRICE.Width = 130;
             // 
             // label8
