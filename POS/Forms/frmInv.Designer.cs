@@ -306,7 +306,7 @@ namespace POS.Forms
             this.txtProfitRetail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtProfitRetail.MaxLength = 5;
             this.txtProfitRetail.Name = "txtProfitRetail";
-            this.txtProfitRetail.Size = new System.Drawing.Size(84, 24);
+            this.txtProfitRetail.Size = new System.Drawing.Size(106, 24);
             this.txtProfitRetail.TabIndex = 60;
             // 
             // txtWholesaleprice
@@ -330,7 +330,7 @@ namespace POS.Forms
             this.txtWholesaleprofit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtWholesaleprofit.MaxLength = 5;
             this.txtWholesaleprofit.Name = "txtWholesaleprofit";
-            this.txtWholesaleprofit.Size = new System.Drawing.Size(84, 24);
+            this.txtWholesaleprofit.Size = new System.Drawing.Size(106, 24);
             this.txtWholesaleprofit.TabIndex = 63;
             // 
             // label4
@@ -352,7 +352,7 @@ namespace POS.Forms
             this.txtWholesalePriceItem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtWholesalePriceItem.MaxLength = 5;
             this.txtWholesalePriceItem.Name = "txtWholesalePriceItem";
-            this.txtWholesalePriceItem.Size = new System.Drawing.Size(84, 24);
+            this.txtWholesalePriceItem.Size = new System.Drawing.Size(106, 24);
             this.txtWholesalePriceItem.TabIndex = 65;
             // 
             // label5
