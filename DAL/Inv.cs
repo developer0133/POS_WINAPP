@@ -119,17 +119,28 @@ namespace DAL
                         objProdduct.SELLPRICE = InvData.WHOLESALEPRICE.HasValue ? InvData.WHOLESALEPRICE.Value : 0;
                         objProdduct.BOXPRICE = InvData.BOXPRICE.HasValue ? InvData.BOXPRICE.Value : 0;
 
-                        if (typeProduct.NAME.Contains("ลัง"))
+                        if (typeProduct != null)
                         {
-                            objProdduct.SELLPRICE = objProdduct.BOXPRICE.Value;
-                        }
+                            if (typeProduct.NAME.Contains("ลัง"))
+                            {
+                                objProdduct.SELLPRICE = objProdduct.BOXPRICE.Value;
+                            }
 
-                        if (cateCode == "17")//rice
-                        {
-                            objProdduct.PRODUCT_NAME = objProdduct.PRODUCT_NAME + " *[" + typeProduct.NAME + "]";
-                            objProdduct.RETAILPRICE = InvData.RETAILPRICE;
-                            objProdduct.SELLPRICE = InvData.RETAILPRICE.Value;
+                            if (cateCode == "17")//rice
+                            {
+                                objProdduct.PRODUCT_NAME = objProdduct.PRODUCT_NAME + " *[" + typeProduct.NAME + "]";
+                                objProdduct.RETAILPRICE = InvData.RETAILPRICE;
+                                objProdduct.SELLPRICE = InvData.RETAILPRICE.Value;
+                            }
                         }
+                      
+
+                        //if (cateCode == "17")//rice
+                        //{
+                        //    objProdduct.PRODUCT_NAME = objProdduct.PRODUCT_NAME + " *[" + typeProduct.NAME + "]";
+                        //    objProdduct.RETAILPRICE = InvData.RETAILPRICE;
+                        //    objProdduct.SELLPRICE = InvData.RETAILPRICE.Value;
+                        //}
 
                         _db.Entry(objProdduct).State = EntityState.Modified;
 
