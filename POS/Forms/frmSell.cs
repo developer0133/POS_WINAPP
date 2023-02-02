@@ -49,7 +49,7 @@ namespace POS.Forms
         {
             string code = txtBarcode.Text;
 
-            obj = ProductService.GetProduct(code).SingleOrDefault();
+            obj = ProductService.GetProduct(code, "sell").SingleOrDefault();
 
             if (obj != null)
             {

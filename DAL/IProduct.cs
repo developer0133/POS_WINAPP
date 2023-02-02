@@ -12,7 +12,7 @@ namespace DAL
 {
     public interface IProduct
     {
-        List<ProductDTO> GetProduct(string code);
+        List<ProductDTO> GetProduct(string code, string flag);
 
         bool InsertProduct(PRODUCTS product);
         bool UpdateProduct(PRODUCTS product);

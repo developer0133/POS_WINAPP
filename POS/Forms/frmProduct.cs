@@ -39,7 +39,7 @@ namespace POS.Forms
             dgvProduct.AutoGenerateColumns = false;
 
             dt = new List<ProductDTO>();
-            dt = ProductService.GetProduct(string.Empty); //140000101
+            dt = ProductService.GetProduct(string.Empty, string.Empty); //140000101
             dgvProduct.DataSource = dt;//.Skip(pageSize * (pageNumber - 1)).Take(pageSize).ToList();
 
             lblPage.Text = string.Format("Page {0}/{1}", (pageNumber), dt.Count() / pageSize);
@@ -217,7 +217,7 @@ namespace POS.Forms
             {
                 pModel = new ProductDTO();
                 string code = dgvProduct.CurrentRow.Cells["PRODUCT_CODE"].Value.ToString();
-                pModel = ProductService.GetProduct(code).SingleOrDefault();
+                pModel = ProductService.GetProduct(code, string.Empty).SingleOrDefault();
 
                 txtProductID.Text = pModel.PRODUCT_CODE;
                 txtProductName.Text = pModel.PRODUCT_NAME;
@@ -370,7 +370,7 @@ namespace POS.Forms
             dgvProduct.AutoGenerateColumns = false;
             pageNumber = 1;
             dt = new List<ProductDTO>();
-            dt = ProductService.GetProduct(txtSearch.Text); //140000101
+            dt = ProductService.GetProduct(txtSearch.Text, string.Empty); //140000101
             dgvProduct.DataSource = dt;//.Skip(pageSize * (pageNumber - 1)).Take(pageSize).ToList();
 
             lblPage.Text = string.Format("Page {0}/{1}", (pageNumber), dt.Count() / pageSize);

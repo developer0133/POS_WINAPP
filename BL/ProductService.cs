@@ -19,9 +19,9 @@ namespace BL
             _product = new Product();
         }
 
-        public static List<ProductDTO> GetProduct(string code)
+        public static List<ProductDTO> GetProduct(string code, string flag)
         {
-            return _product.GetProduct(code);
+            return _product.GetProduct(code, flag);
         }
         public static bool UpdateProduct(PRODUCTS product)
         {
