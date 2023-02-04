@@ -270,9 +270,31 @@ namespace DAL
 
             try
             {
+                POSSYSTEMEntities _db2 = new POSSYSTEMEntities();
+
                 using (POSSYSTEMEntities _db = new POSSYSTEMEntities())
                 {
                     product.E_DATE = clsFunction.GetDate();
+                    var obj = _db2.PRODUCTS.Where(w => w.PRODUCT_ID == product.PRODUCT_ID).SingleOrDefault();
+                    product.COSTPRICE = obj.COSTPRICE;
+                    product.SELLPRICE = obj.SELLPRICE;
+                    product.C_BY = obj.C_BY;
+                    product.C_DATE = obj.C_DATE;
+                    product.E_BY = UserModel.USER_CODE;
+                    product.E_DATE = clsFunction.GetDate();
+
+                    product.RETAILPRICE = obj.RETAILPRICE;
+                    product.WHOLESALEPRICE = obj.WHOLESALEPRICE;
+                    product.WHOLESALEPROFIT = obj.WHOLESALEPROFIT;
+                    product.RETAILPROFIT = obj.RETAILPROFIT;
+                    product.QTY = obj.QTY;
+                    product.UNIT = obj.UNIT;
+                    product.AVG_PACK = obj.AVG_PACK;
+
+                    product.AVG_ITEM = obj.AVG_ITEM;
+                    product.WHOLESALEPRICE_ITEM = obj.WHOLESALEPRICE_ITEM;
+                    product.BOXPRICE = obj.BOXPRICE;
+
                     _db.Entry(product).State = EntityState.Modified;
 
                     if (!string.IsNullOrEmpty(product.BARCODE))
@@ -285,6 +307,7 @@ namespace DAL
                     isSuccess = true;
 
                     _db.Dispose();
+                    _db2.Dispose();
                 }
                     
             }
