@@ -123,7 +123,7 @@ namespace POS.Forms
                 obj.PRODUCT_TYPE_ID = cboType.SelectedValue != null ? cboType.SelectedValue.ToString() : string.Empty;
                 obj.PRODUCT_SIZE_ID = cboSize.SelectedValue != null ? cboSize.SelectedValue.ToString() : string.Empty;
                 obj.REMARK = txtRemark.Text.Trim();
-                
+
                 if (chkStatus.Checked == true)
                 {
                     obj.STATUS = STATUS.INACTIVE;
@@ -145,6 +145,28 @@ namespace POS.Forms
                 }
                 else
                 {
+                    obj.RETAILPRICE = 0;
+                    obj.WHOLESALEPRICE = 0;
+                    obj.AVGCOST = 0;
+                    obj.WHOLESALEPROFIT = 0;
+                    obj.RETAILPROFIT = 0;
+                    obj.QTY = 0;
+                    obj.UNIT = "0";
+                    obj.AVG_PACK = 0;
+                    obj.AVG_ITEM = 0;
+                    obj.WHOLESALEPRICE_ITEM = 0;
+                    obj.BOXPRICE = 0; obj.RETAILPRICE = 0;
+                    obj.WHOLESALEPRICE = 0;
+                    obj.AVGCOST = 0;
+                    obj.WHOLESALEPROFIT = 0;
+                    obj.RETAILPROFIT = 0;
+                    obj.QTY = 0;
+                    obj.UNIT = "0";
+                    obj.AVG_PACK = 0;
+                    obj.AVG_ITEM = 0;
+                    obj.WHOLESALEPRICE_ITEM = 0;
+                    obj.BOXPRICE = 0;
+
                     isSuccess = ProductService.InsertProduct(obj);
                 }
 
