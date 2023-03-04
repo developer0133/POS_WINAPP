@@ -85,6 +85,7 @@ namespace POS.Forms
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.CHKType = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInv)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -682,12 +683,24 @@ namespace POS.Forms
             this.label14.TabIndex = 77;
             this.label14.Text = "บาท";
             // 
+            // CHKType
+            // 
+            this.CHKType.AutoSize = true;
+            this.CHKType.Location = new System.Drawing.Point(512, 68);
+            this.CHKType.Name = "CHKType";
+            this.CHKType.Size = new System.Drawing.Size(53, 21);
+            this.CHKType.TabIndex = 78;
+            this.CHKType.Text = "ปลีก";
+            this.CHKType.UseVisualStyleBackColor = true;
+            this.CHKType.CheckedChanged += new System.EventHandler(this.CHKType_CheckedChanged);
+            // 
             // frmInv
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1421, 826);
+            this.Controls.Add(this.CHKType);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
@@ -799,5 +812,6 @@ namespace POS.Forms
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.CheckBox CHKType;
     }
 }

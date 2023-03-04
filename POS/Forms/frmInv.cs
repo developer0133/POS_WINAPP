@@ -595,5 +595,20 @@ namespace POS.Forms
             dgvInv.DataSource = tmp;
 
         }
+
+        private void CHKType_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CHKType.Checked == true)
+            {
+                txtWholesaleprice.Enabled = false;
+                txtBoxprice.Enabled = false;
+            }
+            else
+            {
+                txtWholesaleprice.Enabled = true;
+                txtBoxprice.Enabled = true;
+            }
+           
+        }
     }
 }
