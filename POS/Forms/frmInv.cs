@@ -577,6 +577,13 @@ namespace POS.Forms
             txtRemark.Clear();
 
             pModel = new InventoryDTO();//test
+
+            if (CHKType.Checked == true)
+            {
+                txtWholesaleprice.Enabled = true;
+                txtBoxprice.Enabled = true;
+                CHKType.Checked = false;
+            }
         }
 
         private void cboUnit_DropDownClosed(object sender, EventArgs e)
