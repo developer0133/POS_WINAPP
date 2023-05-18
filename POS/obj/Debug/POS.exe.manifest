@@ -50,7 +50,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>F+eSq2a5p2URNHchf4r+g9X+zPfnyOkCL5SrN9hpLJA=</dsig:DigestValue>
+        <dsig:DigestValue>6s421HfpSQD4c07v+I8Gln7pxOOTtXKTgqzmIXcTKDY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -74,7 +74,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>KiURa6S3+xYSuVHeHG2EPYvn1Kil1oTENu9hgO3o8qA=</dsig:DigestValue>
+        <dsig:DigestValue>7L0eW9Y/Hl3Pkz0oY+PPqugiGzllegyK2MrPEoXV70I=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -86,7 +86,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>USzedq9oajG49gMHDv4WVj+acMsVq2HtRagAqK2Lekw=</dsig:DigestValue>
+        <dsig:DigestValue>zqmnKipHQVZnnDyhslyWwGheaIAy23n3rp6TZImKibo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -98,7 +98,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>zgmpxYvJM8cphUiS1AxzglpDOq0pYqKJckWYXXwGcmA=</dsig:DigestValue>
+        <dsig:DigestValue>v6/9QS/BIbPDxubBd72kdg6MdOEHQSA1Hy+MwoZZljA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -619,14 +619,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="POS.exe" size="844760">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="POS.exe" size="847320">
       <assemblyIdentity name="POS" version="1.0.0.1" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>4KQwLjXK4XN9TGFmNzmVcLoTwLQTDmMxeGltu2z43e4=</dsig:DigestValue>
+        <dsig:DigestValue>4np2oNXbGKRkhSgIEV5c7e+VFO7pAuu3aSshdYuK3XA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -638,7 +638,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>z+mXVAM1+3M30k4Kc9JzVVDbYkpx6cKpOoM+1E3GqKE=</dsig:DigestValue>
+        <dsig:DigestValue>gqRem+vbKoQl4uGT04dV+1zwfWODj9ftLyRqpnzgcfU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -795,6 +795,18 @@
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
         <dsig:DigestValue>T4H/0NxyBNt1r8NepCkXabB8RAWS8oiUJg7qdmJqI8Y=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ThaiBahtText.dll" size="10240">
+      <assemblyIdentity name="ThaiBahtText" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>eopWoZCC0MpRb1k36h/l0Ud3f+rbrD3EwZpGI4C3HKA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

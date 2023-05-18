@@ -48,6 +48,9 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="ThaiBahtText, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\POS\packages\ThaiBahtText.1.0.103\lib\net40\ThaiBahtText.dll</HintPath>
+    </Reference>
     <Reference Include="zxing, Version=0.16.8.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
       <HintPath>..\POS\packages\ZXing.Net.0.16.8\lib\net47\zxing.dll</HintPath>
     </Reference>

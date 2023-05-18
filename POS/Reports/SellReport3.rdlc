@@ -725,7 +725,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>รวมสุทธิ</Value>
+                    <Value>รวมทั้งสิ้น</Value>
                     <Style>
                       <FontWeight>Bold</FontWeight>
                     </Style>
@@ -736,9 +736,9 @@
             </Paragraphs>
             <rd:DefaultName>Textbox7</rd:DefaultName>
             <Top>4.91186cm</Top>
-            <Left>12.38684cm</Left>
+            <Left>12.00584cm</Left>
             <Height>0.6cm</Height>
-            <Width>1.46989cm</Width>
+            <Width>1.85089cm</Width>
             <ZIndex>7</ZIndex>
             <Style>
               <Border>
@@ -977,6 +977,68 @@
               </Border>
             </Style>
           </Image>
+          <Textbox Name="Textbox13">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>รวมทั้งสิ้น(ตัวอักษร)</Value>
+                    <Style>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox7</rd:DefaultName>
+            <Top>4.92356cm</Top>
+            <Left>2.62934cm</Left>
+            <Height>0.6cm</Height>
+            <Width>3.39606cm</Width>
+            <ZIndex>16</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="bahttext">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Parameters!bahttext.Value</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>bahttext</rd:DefaultName>
+            <Top>4.92356cm</Top>
+            <Left>5.87587cm</Left>
+            <Height>0.6cm</Height>
+            <Width>5.20605cm</Width>
+            <ZIndex>17</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
         </ReportItems>
         <Height>2.33028in</Height>
         <Style />
@@ -1017,6 +1079,12 @@
       <DataType>String</DataType>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
+    <ReportParameter Name="bahttext">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
@@ -1047,6 +1115,11 @@
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>1</RowIndex>
           <ParameterName>cdate</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>1</RowIndex>
+          <ParameterName>bahttext</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>

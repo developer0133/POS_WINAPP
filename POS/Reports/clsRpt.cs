@@ -45,7 +45,7 @@ namespace POS.Reports
             {
                 if (OReport.reportFlag == "SellItem")
                 {
-                    rptPath = string.Format("{0}/{1}{2}", POS_PATH.REPORTS, REPORT_NAME.SELL_REPORT, ".rdlc");
+                    rptPath = string.Format("{0}/{1}{2}", POS_PATH.REPORTS, REPORT_NAME.SELL_REPORT3, ".rdlc");
 
                     var rptData = ReportService.SellItemReport(OReport.code);
                     decimal? sumAmount = rptData.Sum(s => s.AMOUNT);

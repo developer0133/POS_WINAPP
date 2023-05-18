@@ -16,3 +16,5 @@ D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\DATA-Models\obj\Debug\DATA-
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\DATA-Models\obj\Debug\DATA-Models.csproj.CoreCompileInputs.cache
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\DATA-Models\obj\Debug\DATA-Models.dll
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\DATA-Models\obj\Debug\DATA-Models.pdb
+D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\DATA-Models\bin\Debug\ThaiBahtText.dll
+D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\DATA-Models\obj\Debug\DATA-Models.csproj.CopyComplete

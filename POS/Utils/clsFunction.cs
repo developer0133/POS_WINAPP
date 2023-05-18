@@ -13,6 +13,7 @@ using Microsoft.Reporting.WebForms;
 using BL;
 using POS_Utility;
 using System.Configuration;
+using GreatFriends.ThaiBahtText;
 
 namespace POS.Utils
 {
@@ -180,7 +181,8 @@ namespace POS.Utils
                 decimal? sumAmount = rptData.Sum(s => s.AMOUNT);
                 string strsSumAmount = "";
                 strsSumAmount = sumAmount.HasValue ? string.Format("{0} {1}", Utils.clsFunction.setFormatCurrency(sumAmount), "บาท") : string.Empty;
-
+                decimal amount = 121.50M;
+                string bahtText = sumAmount.ThaiBahtText();
 
                 ReportParameterCollection parameters = new ReportParameterCollection();
                 parameters.Add(new ReportParameter("printby", OReport.printby));
@@ -188,6 +190,7 @@ namespace POS.Utils
                 parameters.Add(new ReportParameter("cdate", Utils.clsFunction.setFormatDateWithTime(rptData.First().CDATE, true).ToString()));
                 parameters.Add(new ReportParameter("date", Utils.clsFunction.setFormatDateWithTime(Utils.clsFunction.GetDate(), true).ToString()));
                 parameters.Add(new ReportParameter("no", OReport.code.ToString()));
+                parameters.Add(new ReportParameter("bahttext", bahtText));
 
                 try
                 {

@@ -11,6 +11,7 @@ using System.Data.SqlClient;
 using DAL;
 using BL;
 using DATA_Models.Models;
+using GreatFriends.ThaiBahtText;
 
 namespace POS.Forms
 {
@@ -26,6 +27,11 @@ namespace POS.Forms
             lblwarning1.Text = string.Empty;
             var version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
             lblversion.Text = String.Format("version {0}", version);
+
+            //https://github.com/greatfriends/ThaiBahtText
+            //decimal amount = 121.50M;
+            //string s = amount.ThaiBahtText();
+            //string s23 = (11m).ThaiBahtText();   // สิบเอ็ดบาทถ้วน
         }
 
         private void btnLogin_Click(object sender, EventArgs e)

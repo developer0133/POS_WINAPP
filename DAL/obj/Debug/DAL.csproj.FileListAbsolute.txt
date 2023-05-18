@@ -65,3 +65,4 @@ D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\DAL\obj\Debug\DAL.csproj.Co
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\DAL\obj\Debug\DAL.csproj.CopyComplete
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\DAL\obj\Debug\DAL.dll
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\DAL\obj\Debug\DAL.pdb
+D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\DAL\bin\Debug\ThaiBahtText.dll

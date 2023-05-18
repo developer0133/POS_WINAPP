@@ -68,3 +68,4 @@ D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS-Utility\obj\Debug\POS-U
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS-Utility\obj\Debug\POS-Utility.csproj.CopyComplete
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS-Utility\obj\Debug\POS-Utility.dll
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS-Utility\obj\Debug\POS-Utility.pdb
+D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS-Utility\bin\Debug\ThaiBahtText.dll

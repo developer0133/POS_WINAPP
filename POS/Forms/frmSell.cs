@@ -16,6 +16,7 @@ using System.IO;
 using DATA_Models.Models;
 //using Microsoft.Reporting.WinForms;
 using Microsoft.Reporting.WebForms;
+using GreatFriends.ThaiBahtText;
 
 namespace POS.Forms
 {
@@ -296,7 +297,7 @@ namespace POS.Forms
             genRpt = string.Format("{0}/{1}", genRpt, POS_PATH.GEN_REPORT);
             DAL.Utils.clsFunction.MakePath(genRpt);
 
-            var rptPath = string.Format("{0}/{1}{2}", POS_PATH.REPORTS, REPORT_NAME.SELL_REPORT, ".rdlc");
+            var rptPath = string.Format("{0}/{1}{2}", POS_PATH.REPORTS, REPORT_NAME.SELL_REPORT3, ".rdlc");
             var savePath = string.Format("{0}/{1}{2}", POS_PATH.GEN_REPORT, OReport.code, ".pdf");
 
             string path1 = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName + "\\POS" + "\\";
