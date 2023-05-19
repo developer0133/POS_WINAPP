@@ -23,6 +23,7 @@ namespace POS.Forms
             progressbar.Value = 0;
         }
 
+        [Obsolete]
         private void timer1_Tick(object sender, EventArgs e)
         {
             progressbar.Value += 5; //we will increment the value of the progressbar by +2

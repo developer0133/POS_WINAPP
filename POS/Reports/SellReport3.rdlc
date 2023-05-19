@@ -232,7 +232,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>ส่วนลด (บาท)</Value>
+                                  <Value>ส่วนลด(บาท)</Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -267,7 +267,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>รวม</Value>
+                                  <Value>รวม(บาท)</Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -348,7 +348,7 @@
                                 </TextRun>
                               </TextRuns>
                               <Style>
-                                <TextAlign>Right</TextAlign>
+                                <TextAlign>Left</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
@@ -735,8 +735,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox7</rd:DefaultName>
-            <Top>4.91186cm</Top>
-            <Left>12.00584cm</Left>
+            <Top>6.18186cm</Top>
+            <Left>12.32334cm</Left>
             <Height>0.6cm</Height>
             <Width>1.85089cm</Width>
             <ZIndex>7</ZIndex>
@@ -769,8 +769,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>total</rd:DefaultName>
-            <Top>4.91186cm</Top>
-            <Left>13.85673cm</Left>
+            <Top>6.18186cm</Top>
+            <Left>14.17423cm</Left>
             <Height>0.6cm</Height>
             <Width>2.5cm</Width>
             <ZIndex>8</ZIndex>
@@ -791,7 +791,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>NO.</Value>
+                    <Value>เลขที่</Value>
                     <Style />
                   </TextRun>
                 </TextRuns>
@@ -830,7 +830,7 @@
             </Paragraphs>
             <rd:DefaultName>no</rd:DefaultName>
             <Top>2.03675cm</Top>
-            <Left>10.85303cm</Left>
+            <Left>11.17053cm</Left>
             <Height>0.6cm</Height>
             <Width>4.65236cm</Width>
             <ZIndex>10</ZIndex>
@@ -994,8 +994,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox7</rd:DefaultName>
-            <Top>4.92356cm</Top>
-            <Left>2.62934cm</Left>
+            <Top>6.19356cm</Top>
+            <Left>2.94684cm</Left>
             <Height>0.6cm</Height>
             <Width>3.39606cm</Width>
             <ZIndex>16</ZIndex>
@@ -1024,8 +1024,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>bahttext</rd:DefaultName>
-            <Top>4.92356cm</Top>
-            <Left>5.87587cm</Left>
+            <Top>6.19356cm</Top>
+            <Left>6.19337cm</Left>
             <Height>0.6cm</Height>
             <Width>5.20605cm</Width>
             <ZIndex>17</ZIndex>
@@ -1039,8 +1039,72 @@
               <PaddingBottom>2pt</PaddingBottom>
             </Style>
           </Textbox>
+          <Textbox Name="Textbox15">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>ผู้รับเงิน</Value>
+                    <Style>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox7</rd:DefaultName>
+            <Top>7.71111cm</Top>
+            <Left>2.94684cm</Left>
+            <Height>0.6cm</Height>
+            <Width>1.38522cm</Width>
+            <ZIndex>18</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox17">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>.........................................................</Value>
+                    <Style>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox7</rd:DefaultName>
+            <Top>7.71111cm</Top>
+            <Left>4.33206cm</Left>
+            <Height>1.27733cm</Height>
+            <Width>7.06736cm</Width>
+            <ZIndex>19</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
         </ReportItems>
-        <Height>2.33028in</Height>
+        <Height>3.87463in</Height>
         <Style />
       </Body>
       <Width>6.66571in</Width>
