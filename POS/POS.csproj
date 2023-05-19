@@ -261,6 +261,12 @@
     <Compile Include="Forms\frmCategory.Designer.cs">
       <DependentUpon>frmCategory.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmInv2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmInv2.Designer.cs">
+      <DependentUpon>frmInv2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmInv.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -337,6 +343,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmCategory.resx">
       <DependentUpon>frmCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmInv2.resx">
+      <DependentUpon>frmInv2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmInv.resx">
       <DependentUpon>frmInv.cs</DependentUpon>

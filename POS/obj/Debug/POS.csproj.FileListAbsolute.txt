@@ -505,3 +505,4 @@ D:\POSAPP\POS\obj\Debug\POS.Forms.frmOrder.resources
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS\bin\Debug\Reports\SellReport3.rdlc
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS\obj\Debug\POS.csproj.SuggestedBindingRedirects.cache
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS\bin\Debug\ThaiBahtText.dll
+D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS\obj\Debug\POS.Forms.frmInv2.resources
