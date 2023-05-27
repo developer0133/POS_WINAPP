@@ -44,14 +44,10 @@ namespace POS.Forms
             this.txtAmount = new System.Windows.Forms.TextBox();
             this.lblCostAvg1 = new System.Windows.Forms.Label();
             this.txtCostAvgItem = new System.Windows.Forms.TextBox();
-            this.txtCostAvgPack = new System.Windows.Forms.TextBox();
-            this.lblCostAvgPack = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtRetailprice = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtProfitRetail = new System.Windows.Forms.TextBox();
-            this.txtWholesaleprice = new System.Windows.Forms.TextBox();
             this.txtWholesaleprofit = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtWholesalePriceItem = new System.Windows.Forms.TextBox();
@@ -233,28 +229,6 @@ namespace POS.Forms
             this.txtCostAvgItem.Size = new System.Drawing.Size(200, 24);
             this.txtCostAvgItem.TabIndex = 53;
             // 
-            // txtCostAvgPack
-            // 
-            this.txtCostAvgPack.BackColor = System.Drawing.SystemColors.Control;
-            this.txtCostAvgPack.Enabled = false;
-            this.txtCostAvgPack.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtCostAvgPack.Location = new System.Drawing.Point(188, 348);
-            this.txtCostAvgPack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtCostAvgPack.MaxLength = 5;
-            this.txtCostAvgPack.Name = "txtCostAvgPack";
-            this.txtCostAvgPack.Size = new System.Drawing.Size(200, 24);
-            this.txtCostAvgPack.TabIndex = 55;
-            // 
-            // lblCostAvgPack
-            // 
-            this.lblCostAvgPack.AutoSize = true;
-            this.lblCostAvgPack.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.lblCostAvgPack.Location = new System.Drawing.Point(17, 348);
-            this.lblCostAvgPack.Name = "lblCostAvgPack";
-            this.lblCostAvgPack.Size = new System.Drawing.Size(147, 18);
-            this.lblCostAvgPack.TabIndex = 54;
-            this.lblCostAvgPack.Text = "ราคาทุนเฉลี่ย/แพ็ค(บาท)";
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -277,16 +251,6 @@ namespace POS.Forms
             this.txtRetailprice.TextChanged += new System.EventHandler(this.txtRetailprice_TextChanged);
             this.txtRetailprice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRetailprice_KeyPress);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label2.Location = new System.Drawing.Point(509, 166);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(162, 18);
-            this.label2.TabIndex = 58;
-            this.label2.Text = "ราคาขายส่ง/แพ็ค/โหล(บาท)";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -308,18 +272,6 @@ namespace POS.Forms
             this.txtProfitRetail.Name = "txtProfitRetail";
             this.txtProfitRetail.Size = new System.Drawing.Size(106, 24);
             this.txtProfitRetail.TabIndex = 60;
-            // 
-            // txtWholesaleprice
-            // 
-            this.txtWholesaleprice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.txtWholesaleprice.Location = new System.Drawing.Point(697, 161);
-            this.txtWholesaleprice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtWholesaleprice.MaxLength = 9;
-            this.txtWholesaleprice.Name = "txtWholesaleprice";
-            this.txtWholesaleprice.Size = new System.Drawing.Size(103, 24);
-            this.txtWholesaleprice.TabIndex = 61;
-            this.txtWholesaleprice.TextChanged += new System.EventHandler(this.txtWholesaleprice_TextChanged);
-            this.txtWholesaleprice.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtWholesaleprice_KeyPress);
             // 
             // txtWholesaleprofit
             // 
@@ -666,14 +618,10 @@ namespace POS.Forms
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtWholesaleprofit);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtWholesaleprice);
             this.Controls.Add(this.txtProfitRetail);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.txtRetailprice);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtCostAvgPack);
-            this.Controls.Add(this.lblCostAvgPack);
             this.Controls.Add(this.txtCostAvgItem);
             this.Controls.Add(this.lblCostAvg1);
             this.Controls.Add(this.txtAmount);
@@ -721,14 +669,10 @@ namespace POS.Forms
         private System.Windows.Forms.TextBox txtAmount;
         private System.Windows.Forms.Label lblCostAvg1;
         private System.Windows.Forms.TextBox txtCostAvgItem;
-        private System.Windows.Forms.TextBox txtCostAvgPack;
-        private System.Windows.Forms.Label lblCostAvgPack;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtRetailprice;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtProfitRetail;
-        private System.Windows.Forms.TextBox txtWholesaleprice;
         private System.Windows.Forms.TextBox txtWholesaleprofit;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtWholesalePriceItem;

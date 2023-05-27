@@ -32,6 +32,7 @@ namespace POS.Forms
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.panel1 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.btnPManagement = new System.Windows.Forms.Button();
             this.btnProductOrder = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.btnReport = new System.Windows.Forms.Button();
@@ -57,7 +58,7 @@ namespace POS.Forms
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(233, 903);
+            this.panel1.Size = new System.Drawing.Size(233, 953);
             this.panel1.TabIndex = 2;
             // 
             // splitContainer1
@@ -70,6 +71,7 @@ namespace POS.Forms
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.btnPManagement);
             this.splitContainer1.Panel1.Controls.Add(this.btnProductOrder);
             this.splitContainer1.Panel1.Controls.Add(this.btnLogout);
             this.splitContainer1.Panel1.Controls.Add(this.btnReport);
@@ -84,17 +86,32 @@ namespace POS.Forms
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.label1);
-            this.splitContainer1.Size = new System.Drawing.Size(233, 903);
-            this.splitContainer1.SplitterDistance = 850;
+            this.splitContainer1.Size = new System.Drawing.Size(233, 953);
+            this.splitContainer1.SplitterDistance = 905;
             this.splitContainer1.SplitterWidth = 20;
             this.splitContainer1.TabIndex = 1;
             this.splitContainer1.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainer1_SplitterMoved);
             // 
+            // btnPManagement
+            // 
+            this.btnPManagement.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.btnPManagement.Image = ((System.Drawing.Image)(resources.GetObject("btnPManagement.Image")));
+            this.btnPManagement.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnPManagement.Location = new System.Drawing.Point(0, 491);
+            this.btnPManagement.Name = "btnPManagement";
+            this.btnPManagement.Size = new System.Drawing.Size(236, 89);
+            this.btnPManagement.TabIndex = 10;
+            this.btnPManagement.Text = "จัดการสินค้า";
+            this.btnPManagement.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnPManagement.UseVisualStyleBackColor = true;
+            this.btnPManagement.Click += new System.EventHandler(this.btnPManagement_Click);
+            // 
             // btnProductOrder
             // 
+            this.btnProductOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.btnProductOrder.Image = global::POS.Properties.Resources.Order;
             this.btnProductOrder.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnProductOrder.Location = new System.Drawing.Point(0, 572);
+            this.btnProductOrder.Location = new System.Drawing.Point(0, 655);
             this.btnProductOrder.Name = "btnProductOrder";
             this.btnProductOrder.Size = new System.Drawing.Size(233, 82);
             this.btnProductOrder.TabIndex = 9;
@@ -105,9 +122,10 @@ namespace POS.Forms
             // 
             // btnLogout
             // 
+            this.btnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.btnLogout.Image = global::POS.Properties.Resources.logout;
             this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnLogout.Location = new System.Drawing.Point(0, 736);
+            this.btnLogout.Location = new System.Drawing.Point(3, 820);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(233, 82);
             this.btnLogout.TabIndex = 7;
@@ -118,9 +136,10 @@ namespace POS.Forms
             // 
             // btnReport
             // 
+            this.btnReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.btnReport.Image = global::POS.Properties.Resources.Chart;
             this.btnReport.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnReport.Location = new System.Drawing.Point(1, 654);
+            this.btnReport.Location = new System.Drawing.Point(1, 739);
             this.btnReport.Name = "btnReport";
             this.btnReport.Size = new System.Drawing.Size(233, 82);
             this.btnReport.TabIndex = 6;
@@ -132,6 +151,7 @@ namespace POS.Forms
             // btnProduct
             // 
             this.btnProduct.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.btnProduct.Image = global::POS.Properties.Resources.product1;
             this.btnProduct.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnProduct.Location = new System.Drawing.Point(0, 0);
@@ -145,6 +165,7 @@ namespace POS.Forms
             // 
             // btnMaster
             // 
+            this.btnMaster.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.btnMaster.Image = global::POS.Properties.Resources.Finance_Order;
             this.btnMaster.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnMaster.Location = new System.Drawing.Point(0, 81);
@@ -158,6 +179,7 @@ namespace POS.Forms
             // 
             // btnCate
             // 
+            this.btnCate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.btnCate.Image = global::POS.Properties.Resources.Category;
             this.btnCate.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnCate.Location = new System.Drawing.Point(0, 162);
@@ -171,6 +193,7 @@ namespace POS.Forms
             // 
             // btnProductIn
             // 
+            this.btnProductIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.btnProductIn.Image = global::POS.Properties.Resources.Order_history;
             this.btnProductIn.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnProductIn.Location = new System.Drawing.Point(0, 408);
@@ -184,6 +207,7 @@ namespace POS.Forms
             // 
             // btnBarcode
             // 
+            this.btnBarcode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.btnBarcode.Image = global::POS.Properties.Resources.Barcodes;
             this.btnBarcode.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnBarcode.Location = new System.Drawing.Point(0, 244);
@@ -197,9 +221,10 @@ namespace POS.Forms
             // 
             // btnOutOfStock
             // 
+            this.btnOutOfStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.btnOutOfStock.Image = global::POS.Properties.Resources.Zoom_out;
             this.btnOutOfStock.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnOutOfStock.Location = new System.Drawing.Point(0, 490);
+            this.btnOutOfStock.Location = new System.Drawing.Point(0, 574);
             this.btnOutOfStock.Name = "btnOutOfStock";
             this.btnOutOfStock.Size = new System.Drawing.Size(233, 82);
             this.btnOutOfStock.TabIndex = 5;
@@ -210,6 +235,7 @@ namespace POS.Forms
             // 
             // btnSell
             // 
+            this.btnSell.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.btnSell.Image = global::POS.Properties.Resources.sale;
             this.btnSell.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnSell.Location = new System.Drawing.Point(0, 326);
@@ -225,9 +251,9 @@ namespace POS.Forms
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label1.Location = new System.Drawing.Point(0, 16);
+            this.label1.Location = new System.Drawing.Point(0, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(155, 17);
+            this.label1.Size = new System.Drawing.Size(140, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "© Copy right 2022 KNN";
             // 
@@ -247,7 +273,7 @@ namespace POS.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1371, 903);
+            this.ClientSize = new System.Drawing.Size(1371, 953);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -281,5 +307,6 @@ namespace POS.Forms
         private System.Windows.Forms.Button btnSell;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Button btnProductOrder;
+        private System.Windows.Forms.Button btnPManagement;
     }
 }

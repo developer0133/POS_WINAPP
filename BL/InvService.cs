@@ -24,6 +24,11 @@ namespace BL
         {
             return _inv.InsertInventory(InvData);
         }
+
+        public static bool InsertInventory2(INV_PRODUCTS InvData)
+        {
+            return _inv.InsertInventory2(InvData);
+        }
         public static bool UpdateInventory(INV_PRODUCTS InvData)
         {
             return _inv.UpdateInventory(InvData);

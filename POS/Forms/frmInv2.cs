@@ -30,7 +30,7 @@ namespace POS.Forms
         void InitPage()
         {
             invdate.CustomFormat = "MMMM dd, yyyy - dddd";
-            invdate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            invdate.Format = DateTimePickerFormat.Short;
 
             LoadTexboxComplete();
             GetUnit();
@@ -155,6 +155,13 @@ namespace POS.Forms
 
                             var calItem = (amount) / (tmpQty * con2);
                             itemPrice = calItem;
+
+                            string strName = txtProductName.Text;
+
+                            if (strName.Contains("ท่อ"))
+                            {
+                                itemPrice = packPrice;
+                            }
                         }
 
                     }
@@ -193,8 +200,7 @@ namespace POS.Forms
                 }
 
                 txtCostAvgItem.Text = itemPrice.ToString("#,###.00");
-                txtCostAvgPack.Text = packPrice.ToString("#,###.00");
-
+        
                 this.QtyBalance();
             }
         }
@@ -224,9 +230,9 @@ namespace POS.Forms
             //if (con1 != 0 && con2 != 0)
             //{
 
-                if (flag == "w")
+                /*if (flag == "w")
                 {
-                    _avgPack = decimal.Parse(txtCostAvgPack.Text);
+                    
                     _wholeSale = decimal.Parse(txtWholesaleprice.Text);
                     var cal = (_wholeSale - _avgPack);
                     txtWholesaleprofit.Text = cal.ToString("#,###.00");
@@ -264,14 +270,14 @@ namespace POS.Forms
                             
                         }
                     }
-                }
-                else
-                {
+                }*/
+                
+                
                     _retailPrice = decimal.Parse(txtRetailprice.Text);
                     _avgItem = decimal.Parse(txtCostAvgItem.Text);
                     var cal = _retailPrice - _avgItem;
                 txtProfitRetail.Text = cal.ToString("#,###.00");
-                }
+                
             //}
             //else
             //{
@@ -373,10 +379,7 @@ namespace POS.Forms
 
         private void txtWholesaleprice_TextChanged(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtWholesaleprice.Text))
-            {
-                this.ProfitCalculate("w", 0, decimal.Parse(txtWholesaleprice.Text));
-            }
+            
         }
 
         private void txtRetailprice_TextChanged(object sender, EventArgs e)
@@ -403,9 +406,9 @@ namespace POS.Forms
             obj.UNIT = unit;
             obj.AMOUNT = string.IsNullOrEmpty(txtAmount.Text) ? 0 : decimal.Parse(txtAmount.Text);
             obj.AVG_ITEM = string.IsNullOrEmpty(txtCostAvgItem.Text) ? 0 : decimal.Parse(txtCostAvgItem.Text);
-            obj.AVG_PACK = string.IsNullOrEmpty(txtCostAvgPack.Text) ? 0 : decimal.Parse(txtCostAvgPack.Text);
+            //obj.AVG_PACK = string.IsNullOrEmpty(txtCostAvgPack.Text) ? 0 : decimal.Parse(txtCostAvgPack.Text);
             obj.RETAILPRICE = string.IsNullOrEmpty(txtRetailprice.Text) ? 0 : decimal.Parse(txtRetailprice.Text);
-            obj.WHOLESALEPRICE = string.IsNullOrEmpty(txtWholesaleprice.Text) ? 0 : decimal.Parse(txtWholesaleprice.Text);
+            obj.WHOLESALEPRICE = 0; //string.IsNullOrEmpty(txtWholesaleprice.Text) ? 0 : decimal.Parse(txtWholesaleprice.Text);
            
 
             obj.RETAILPROFIT = string.IsNullOrEmpty(txtProfitRetail.Text) ? 0 : decimal.Parse(txtProfitRetail.Text);
@@ -442,7 +445,7 @@ namespace POS.Forms
                 }
 
                 obj.PRODUCT_ID = pid;
-                isSuccess = InvService.InsertInventory(obj);
+                isSuccess = InvService.InsertInventory2(obj);
             }
 
             if(isSuccess)
@@ -530,9 +533,9 @@ namespace POS.Forms
                     cboUnit.SelectedValue = pModel.UNIT;
                     txtAmount.Text = pModel.AMOUNT.HasValue ? pModel.AMOUNT.Value.ToString() : string.Empty;
                     txtCostAvgItem.Text = pModel.AVG_ITEM.HasValue ? pModel.AVG_ITEM.Value.ToString() : string.Empty;
-                    txtCostAvgPack.Text = pModel.AVG_PACK.HasValue ? pModel.AVG_PACK.Value.ToString() : string.Empty;
+                   //txtCostAvgPack.Text = pModel.AVG_PACK.HasValue ? pModel.AVG_PACK.Value.ToString() : string.Empty;
                     txtRetailprice.Text = pModel.RETAILPRICE.HasValue ? pModel.RETAILPRICE.Value.ToString() : string.Empty;
-                    txtWholesaleprice.Text = pModel.WHOLESALEPRICE.HasValue ? pModel.WHOLESALEPRICE.Value.ToString() : string.Empty;
+                    //txtWholesaleprice.Text = pModel.WHOLESALEPRICE.HasValue ? pModel.WHOLESALEPRICE.Value.ToString() : string.Empty;
                    
                     txtProfitRetail.Text=pModel.RETAILPROFIT.HasValue ? pModel.RETAILPROFIT.Value.ToString() : string.Empty;
                     txtWholesaleprofit.Text = pModel.WHOLESALEPROFIT.HasValue ? pModel.WHOLESALEPROFIT.Value.ToString() : string.Empty;
@@ -563,9 +566,9 @@ namespace POS.Forms
             txtQty.Clear();
             txtAmount.Clear();
             txtCostAvgItem.Clear();
-            txtCostAvgPack.Clear();
+           
             txtRetailprice.Clear();
-            txtWholesaleprice.Clear();
+            //txtWholesaleprice.Clear();
           
             txtProfitRetail.Clear();
             txtWholesaleprofit.Clear();

@@ -84,7 +84,8 @@ namespace POS.Forms
         {
             CloseAllChildForm();
 
-            frmInv f = new frmInv();
+            //frmInv f = new frmInv();
+            frmInv2 f = new frmInv2();
             f.MdiParent = this;
             f.Show();
         }
@@ -126,6 +127,15 @@ namespace POS.Forms
             CloseAllChildForm();
 
             frmOrder f = new frmOrder();
+            f.MdiParent = this;
+            f.Show();
+        }
+
+        private void btnPManagement_Click(object sender, EventArgs e)
+        {
+            CloseAllChildForm();
+
+            frmProductManagement f = new frmProductManagement();
             f.MdiParent = this;
             f.Show();
         }

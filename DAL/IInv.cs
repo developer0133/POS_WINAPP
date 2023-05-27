@@ -12,6 +12,7 @@ namespace DAL
     public interface IInv
     {
         bool InsertInventory(INV_PRODUCTS InvData);
+        bool InsertInventory2(INV_PRODUCTS InvData);
 
         bool UpdateInventory(INV_PRODUCTS InvData);
 
