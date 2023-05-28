@@ -36,6 +36,7 @@ namespace DAL.Utils
         public const string PARAMETER_SIZE = "SIZE";
         public const string PARAMETER_TYPE = "TYPE";
         public const string UNIT = "UNIT";
+        public const string UNITSELL = "UNITSELL";
 
     }
 }

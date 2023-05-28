@@ -58,18 +58,21 @@ namespace DAL
             bool isSuccess = false;
             try
             {
-                var checkname = _db.PARAMETER.Where(w => w.NAME.ToLower() == pData.NAME.ToLower() && w.STATUS == STATUS.ACTIVE).FirstOrDefault();
+                var checkname = _db.PARAMETER.Where(w => w.NAME.ToLower() == pData.NAME.ToLower() && w.MAJOR_CODE == pData.MAJOR_CODE.ToLower() && w.STATUS == STATUS.ACTIVE).FirstOrDefault();
+               
                 if (checkname != null)
                 {
-                    throw new Exception("Data exist");
+                    //throw new Exception("Data exist");
                 }
+                else
+                {
+                    pData.C_DATE = clsFunction.GetDate();
+                    pData.STATUS = STATUS.ACTIVE;
+                    _db.PARAMETER.Add(pData);
 
-                pData.C_DATE = clsFunction.GetDate();
-                pData.STATUS = STATUS.ACTIVE;
-                _db.PARAMETER.Add(pData);
-
-                _db.SaveChanges();
-                isSuccess = true;
+                    _db.SaveChanges();
+                    isSuccess = true;
+                }
             }
             catch (Exception ex)
             {

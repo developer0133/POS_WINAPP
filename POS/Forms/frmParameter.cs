@@ -135,7 +135,7 @@ namespace POS.Forms
                     }
                     else
                     {
-
+                        MessageBox.Show("ข้อมูลซ้ำ", "POS");
                     }
                 }
             }

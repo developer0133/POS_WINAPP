@@ -1,4 +1,5 @@
 ﻿using BL;
+using DAL.Utils;
 using DATA_EF;
 using DATA_Models.DTO;
 using System;
@@ -27,6 +28,16 @@ namespace POS.Forms
         {
            
             LoadTexboxComplete();
+            GetUnit();
+        }
+
+        private void GetUnit()
+        {
+            var parm = ParameterService.GetParameter(PARAMETERCODE.UNITSELL);
+
+            cboUnit.DisplayMember = "NAME";
+            cboUnit.ValueMember = "MINOR_CODE";
+            cboUnit.DataSource = parm;
         }
         void LoadTexboxComplete()
         {

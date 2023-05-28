@@ -45,12 +45,6 @@ namespace POS.Forms
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.dgvParameter = new System.Windows.Forms.DataGridView();
-            this.btnNext = new System.Windows.Forms.Button();
-            this.lblPage = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtSearch = new System.Windows.Forms.TextBox();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.PARAMETER_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MAJOR_CODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MINOR_CODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,6 +52,12 @@ namespace POS.Forms
             this.CONDITION1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CONDITION2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DESCRIPTION = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnNext = new System.Windows.Forms.Button();
+            this.lblPage = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.btnSearch = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvParameter)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -67,7 +67,7 @@ namespace POS.Forms
             this.lblMajorCode.AutoSize = true;
             this.lblMajorCode.Location = new System.Drawing.Point(13, 82);
             this.lblMajorCode.Name = "lblMajorCode";
-            this.lblMajorCode.Size = new System.Drawing.Size(64, 17);
+            this.lblMajorCode.Size = new System.Drawing.Size(56, 16);
             this.lblMajorCode.TabIndex = 0;
             this.lblMajorCode.Text = "รหัสหลัก *";
             // 
@@ -90,7 +90,7 @@ namespace POS.Forms
             this.lblMinorCode.AutoSize = true;
             this.lblMinorCode.Location = new System.Drawing.Point(13, 119);
             this.lblMinorCode.Name = "lblMinorCode";
-            this.lblMinorCode.Size = new System.Drawing.Size(60, 17);
+            this.lblMinorCode.Size = new System.Drawing.Size(54, 16);
             this.lblMinorCode.TabIndex = 2;
             this.lblMinorCode.Text = "รหัสรอง *";
             // 
@@ -106,7 +106,7 @@ namespace POS.Forms
             this.lblName.AutoSize = true;
             this.lblName.Location = new System.Drawing.Point(13, 156);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(32, 17);
+            this.lblName.Size = new System.Drawing.Size(28, 16);
             this.lblName.TabIndex = 4;
             this.lblName.Text = "ชื่อ *";
             // 
@@ -122,7 +122,7 @@ namespace POS.Forms
             this.lblCondition1.AutoSize = true;
             this.lblCondition1.Location = new System.Drawing.Point(13, 194);
             this.lblCondition1.Name = "lblCondition1";
-            this.lblCondition1.Size = new System.Drawing.Size(75, 17);
+            this.lblCondition1.Size = new System.Drawing.Size(70, 16);
             this.lblCondition1.TabIndex = 6;
             this.lblCondition1.Text = "Condition1";
             // 
@@ -138,7 +138,7 @@ namespace POS.Forms
             this.lblCondition2.AutoSize = true;
             this.lblCondition2.Location = new System.Drawing.Point(13, 233);
             this.lblCondition2.Name = "lblCondition2";
-            this.lblCondition2.Size = new System.Drawing.Size(75, 17);
+            this.lblCondition2.Size = new System.Drawing.Size(70, 16);
             this.lblCondition2.TabIndex = 8;
             this.lblCondition2.Text = "Condition2";
             // 
@@ -156,7 +156,7 @@ namespace POS.Forms
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(13, 269);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 17);
+            this.label1.Size = new System.Drawing.Size(51, 16);
             this.label1.TabIndex = 10;
             this.label1.Text = "หมายเหตุ";
             // 
@@ -211,62 +211,6 @@ namespace POS.Forms
             this.dgvParameter.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvParameter_CellClick);
             this.dgvParameter.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvParameter_CellContentClick);
             this.dgvParameter.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvParameter_RowPostPaint);
-            // 
-            // btnNext
-            // 
-            this.btnNext.Location = new System.Drawing.Point(0, 0);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(75, 23);
-            this.btnNext.TabIndex = 24;
-            // 
-            // lblPage
-            // 
-            this.lblPage.Location = new System.Drawing.Point(0, 0);
-            this.lblPage.Name = "lblPage";
-            this.lblPage.Size = new System.Drawing.Size(100, 23);
-            this.lblPage.TabIndex = 23;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label2.Location = new System.Drawing.Point(16, 13);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(102, 25);
-            this.label2.TabIndex = 20;
-            this.label2.Text = "MASTER";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.txtSearch);
-            this.groupBox1.Controls.Add(this.btnSearch);
-            this.groupBox1.Controls.Add(this.dgvParameter);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.groupBox1.Location = new System.Drawing.Point(479, 35);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1275, 425);
-            this.groupBox1.TabIndex = 21;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Parameter";
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.Location = new System.Drawing.Point(19, 32);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(254, 27);
-            this.txtSearch.TabIndex = 44;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
-            this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSearch.Location = new System.Drawing.Point(302, 26);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(106, 35);
-            this.btnSearch.TabIndex = 43;
-            this.btnSearch.Text = "    ค้นหา";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // PARAMETER_ID
             // 
@@ -331,6 +275,62 @@ namespace POS.Forms
             this.DESCRIPTION.Name = "DESCRIPTION";
             this.DESCRIPTION.ReadOnly = true;
             this.DESCRIPTION.Width = 125;
+            // 
+            // btnNext
+            // 
+            this.btnNext.Location = new System.Drawing.Point(0, 0);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(75, 23);
+            this.btnNext.TabIndex = 24;
+            // 
+            // lblPage
+            // 
+            this.lblPage.Location = new System.Drawing.Point(0, 0);
+            this.lblPage.Name = "lblPage";
+            this.lblPage.Size = new System.Drawing.Size(100, 23);
+            this.lblPage.TabIndex = 23;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label2.Location = new System.Drawing.Point(16, 13);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(102, 25);
+            this.label2.TabIndex = 20;
+            this.label2.Text = "MASTER";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.txtSearch);
+            this.groupBox1.Controls.Add(this.btnSearch);
+            this.groupBox1.Controls.Add(this.dgvParameter);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.groupBox1.Location = new System.Drawing.Point(479, 35);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1275, 425);
+            this.groupBox1.TabIndex = 21;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Parameter";
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(19, 32);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(254, 27);
+            this.txtSearch.TabIndex = 44;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
+            this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSearch.Location = new System.Drawing.Point(302, 26);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(106, 35);
+            this.btnSearch.TabIndex = 43;
+            this.btnSearch.Text = "    ค้นหา";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // frmParameter
             // 

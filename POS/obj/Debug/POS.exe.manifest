@@ -74,7 +74,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>7Gf/OZ91ZqnFgjD7SizdBkc8VJl9tG4S1MZb6DEQXv4=</dsig:DigestValue>
+        <dsig:DigestValue>1ApGR83yWlE/VG2DINy/Xi7ffQGVC3XbufeQaXliO6E=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -619,14 +619,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="POS.exe" size="878040">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="POS.exe" size="885208">
       <assemblyIdentity name="POS" version="1.0.0.1" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>DtFM5rgZjO+vBPcxnp8Il07LgkYvQYv5OtZm6zJ5ggY=</dsig:DigestValue>
+        <dsig:DigestValue>Mweh9gnQ27ueKeAGxXjSV+Ewv9eeGG6LllbdaB38/bU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -864,13 +864,13 @@
       <dsig:DigestValue>B+rdiRZqSpSof6mm7eX615nuPCQT5qzRfaWUlbeAoxI=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="POS.exe.config" size="6838">
+  <file name="POS.exe.config" size="6797">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>hY8WvzKR1SdhuZJ9AE1kDKQK0Ttqtr2ujgIq6vJSG/w=</dsig:DigestValue>
+      <dsig:DigestValue>y/VNsfy/sGcu5y5bJMDuPtxD+4kgvo5secHr07gAEmE=</dsig:DigestValue>
     </hash>
   </file>
   <file name="product.ico" size="165639">
