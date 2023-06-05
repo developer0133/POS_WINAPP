@@ -54,6 +54,8 @@ namespace DATA_Models.DTO
 
         public string STRUNIT { get; set; }
         public decimal? BOXPRICE { get; set; }
+
+        public int? PARENT_ID { get; set; }
     }
 
     public class ProductAutoCompleteDTO

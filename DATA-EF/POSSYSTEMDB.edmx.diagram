@@ -14,9 +14,9 @@
         <EntityTypeShape EntityType="POSSYSTEMModel.MASTER_USER" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="POSSYSTEMModel.ORDER_HISTORY" Width="1.5" PointX="6.75" PointY="5.75" IsExpanded="true" />
         <EntityTypeShape EntityType="POSSYSTEMModel.PARAMETER" Width="1.5" PointX="2.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSSYSTEMModel.PRODUCTS" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="POSSYSTEMModel.SELLITEMS" Width="1.5" PointX="8.75" PointY="8.75" IsExpanded="true" />
         <EntityTypeShape EntityType="POSSYSTEMModel.sysdiagrams" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSSYSTEMModel.PRODUCTS" Width="1.5" PointX="8.875" PointY="0.875" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="POSSYSTEMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="POSSYSTEMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CATEGORY">
           <Key>
             <PropertyRef Name="CATEGORY_ID" />
@@ -175,6 +175,7 @@
           <Property Name="AVG_ITEM" Type="decimal" Precision="18" Scale="2" />
           <Property Name="WHOLESALEPRICE_ITEM" Type="decimal" Precision="18" Scale="2" />
           <Property Name="BOXPRICE" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="PARENT_ID" Type="int" />
         </EntityType>
         <EntityType Name="SELLITEMS">
           <Key>
@@ -218,8 +219,7 @@
           <EntitySet Name="SELLITEMS" EntityType="Self.SELLITEMS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="POSSYSTEMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -361,39 +361,6 @@
           <Property Name="CONDITION1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CONDITION2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="PRODUCTS">
-          <Key>
-            <PropertyRef Name="PRODUCT_ID" />
-          </Key>
-          <Property Name="PRODUCT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="PRODUCT_NAME" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="COSTPRICE" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="SELLPRICE" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="PICTURE" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
-          <Property Name="REMARK" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-          <Property Name="ORDER_DATE" Type="DateTime" Precision="3" />
-          <Property Name="CATEGORY_ID" Type="Int32" />
-          <Property Name="PRODUCT_TYPE_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="PRODUCT_SIZE_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="C_BY" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="C_DATE" Type="DateTime" Precision="3" />
-          <Property Name="E_BY" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="E_DATE" Type="DateTime" Precision="3" />
-          <Property Name="PRODUCT_CODE" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="STATUS" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="BARCODE" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
-          <Property Name="RETAILPRICE" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="WHOLESALEPRICE" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="AVGCOST" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="WHOLESALEPROFIT" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="RETAILPROFIT" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="QTY" Type="Int32" />
-          <Property Name="UNIT" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="AVG_PACK" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="AVG_ITEM" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="WHOLESALEPRICE_ITEM" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="BOXPRICE" Type="Decimal" Precision="18" Scale="2" />
-        </EntityType>
         <EntityType Name="SELLITEMS">
           <Key>
             <PropertyRef Name="SELLITEM_ID" />
@@ -432,10 +399,44 @@
           <EntitySet Name="MASTER_USER" EntityType="Self.MASTER_USER" />
           <EntitySet Name="ORDER_HISTORY" EntityType="Self.ORDER_HISTORY" />
           <EntitySet Name="PARAMETER" EntityType="Self.PARAMETER" />
-          <EntitySet Name="PRODUCTS" EntityType="Self.PRODUCTS" />
           <EntitySet Name="SELLITEMS" EntityType="Self.SELLITEMS" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="PRODUCTS" EntityType="POSSYSTEMModel.PRODUCTS" />
         </EntityContainer>
+        <EntityType Name="PRODUCTS">
+          <Key>
+            <PropertyRef Name="PRODUCT_ID" />
+          </Key>
+          <Property Name="PRODUCT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PRODUCT_NAME" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="COSTPRICE" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="SELLPRICE" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="PICTURE" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="REMARK" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="ORDER_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CATEGORY_ID" Type="Int32" />
+          <Property Name="PRODUCT_TYPE_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="PRODUCT_SIZE_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="C_BY" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="C_DATE" Type="DateTime" Precision="3" />
+          <Property Name="E_BY" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="E_DATE" Type="DateTime" Precision="3" />
+          <Property Name="PRODUCT_CODE" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="STATUS" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="BARCODE" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
+          <Property Name="RETAILPRICE" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="WHOLESALEPRICE" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="AVGCOST" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="WHOLESALEPROFIT" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="RETAILPROFIT" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="QTY" Type="Int32" />
+          <Property Name="UNIT" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="AVG_PACK" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="AVG_ITEM" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="WHOLESALEPRICE_ITEM" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="BOXPRICE" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="PARENT_ID" Type="Int32" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -589,40 +590,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="PRODUCTS">
-            <EntityTypeMapping TypeName="POSSYSTEMModel.PRODUCTS">
-              <MappingFragment StoreEntitySet="PRODUCTS">
-                <ScalarProperty Name="PRODUCT_ID" ColumnName="PRODUCT_ID" />
-                <ScalarProperty Name="PRODUCT_NAME" ColumnName="PRODUCT_NAME" />
-                <ScalarProperty Name="COSTPRICE" ColumnName="COSTPRICE" />
-                <ScalarProperty Name="SELLPRICE" ColumnName="SELLPRICE" />
-                <ScalarProperty Name="PICTURE" ColumnName="PICTURE" />
-                <ScalarProperty Name="REMARK" ColumnName="REMARK" />
-                <ScalarProperty Name="ORDER_DATE" ColumnName="ORDER_DATE" />
-                <ScalarProperty Name="CATEGORY_ID" ColumnName="CATEGORY_ID" />
-                <ScalarProperty Name="PRODUCT_TYPE_ID" ColumnName="PRODUCT_TYPE_ID" />
-                <ScalarProperty Name="PRODUCT_SIZE_ID" ColumnName="PRODUCT_SIZE_ID" />
-                <ScalarProperty Name="C_BY" ColumnName="C_BY" />
-                <ScalarProperty Name="C_DATE" ColumnName="C_DATE" />
-                <ScalarProperty Name="E_BY" ColumnName="E_BY" />
-                <ScalarProperty Name="E_DATE" ColumnName="E_DATE" />
-                <ScalarProperty Name="PRODUCT_CODE" ColumnName="PRODUCT_CODE" />
-                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
-                <ScalarProperty Name="BARCODE" ColumnName="BARCODE" />
-                <ScalarProperty Name="RETAILPRICE" ColumnName="RETAILPRICE" />
-                <ScalarProperty Name="WHOLESALEPRICE" ColumnName="WHOLESALEPRICE" />
-                <ScalarProperty Name="AVGCOST" ColumnName="AVGCOST" />
-                <ScalarProperty Name="WHOLESALEPROFIT" ColumnName="WHOLESALEPROFIT" />
-                <ScalarProperty Name="RETAILPROFIT" ColumnName="RETAILPROFIT" />
-                <ScalarProperty Name="QTY" ColumnName="QTY" />
-                <ScalarProperty Name="UNIT" ColumnName="UNIT" />
-                <ScalarProperty Name="AVG_PACK" ColumnName="AVG_PACK" />
-                <ScalarProperty Name="AVG_ITEM" ColumnName="AVG_ITEM" />
-                <ScalarProperty Name="WHOLESALEPRICE_ITEM" ColumnName="WHOLESALEPRICE_ITEM" />
-                <ScalarProperty Name="BOXPRICE" ColumnName="BOXPRICE" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="SELLITEMS">
             <EntityTypeMapping TypeName="POSSYSTEMModel.SELLITEMS">
               <MappingFragment StoreEntitySet="SELLITEMS">
@@ -650,6 +617,41 @@
                 <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
                 <ScalarProperty Name="version" ColumnName="version" />
                 <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRODUCTS">
+            <EntityTypeMapping TypeName="POSSYSTEMModel.PRODUCTS">
+              <MappingFragment StoreEntitySet="PRODUCTS">
+                <ScalarProperty Name="PARENT_ID" ColumnName="PARENT_ID" />
+                <ScalarProperty Name="BOXPRICE" ColumnName="BOXPRICE" />
+                <ScalarProperty Name="WHOLESALEPRICE_ITEM" ColumnName="WHOLESALEPRICE_ITEM" />
+                <ScalarProperty Name="AVG_ITEM" ColumnName="AVG_ITEM" />
+                <ScalarProperty Name="AVG_PACK" ColumnName="AVG_PACK" />
+                <ScalarProperty Name="UNIT" ColumnName="UNIT" />
+                <ScalarProperty Name="QTY" ColumnName="QTY" />
+                <ScalarProperty Name="RETAILPROFIT" ColumnName="RETAILPROFIT" />
+                <ScalarProperty Name="WHOLESALEPROFIT" ColumnName="WHOLESALEPROFIT" />
+                <ScalarProperty Name="AVGCOST" ColumnName="AVGCOST" />
+                <ScalarProperty Name="WHOLESALEPRICE" ColumnName="WHOLESALEPRICE" />
+                <ScalarProperty Name="RETAILPRICE" ColumnName="RETAILPRICE" />
+                <ScalarProperty Name="BARCODE" ColumnName="BARCODE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="PRODUCT_CODE" ColumnName="PRODUCT_CODE" />
+                <ScalarProperty Name="E_DATE" ColumnName="E_DATE" />
+                <ScalarProperty Name="E_BY" ColumnName="E_BY" />
+                <ScalarProperty Name="C_DATE" ColumnName="C_DATE" />
+                <ScalarProperty Name="C_BY" ColumnName="C_BY" />
+                <ScalarProperty Name="PRODUCT_SIZE_ID" ColumnName="PRODUCT_SIZE_ID" />
+                <ScalarProperty Name="PRODUCT_TYPE_ID" ColumnName="PRODUCT_TYPE_ID" />
+                <ScalarProperty Name="CATEGORY_ID" ColumnName="CATEGORY_ID" />
+                <ScalarProperty Name="ORDER_DATE" ColumnName="ORDER_DATE" />
+                <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+                <ScalarProperty Name="PICTURE" ColumnName="PICTURE" />
+                <ScalarProperty Name="SELLPRICE" ColumnName="SELLPRICE" />
+                <ScalarProperty Name="COSTPRICE" ColumnName="COSTPRICE" />
+                <ScalarProperty Name="PRODUCT_NAME" ColumnName="PRODUCT_NAME" />
+                <ScalarProperty Name="PRODUCT_ID" ColumnName="PRODUCT_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

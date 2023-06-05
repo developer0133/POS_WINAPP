@@ -688,7 +688,7 @@ namespace POS.Forms
             this.CHKType.AutoSize = true;
             this.CHKType.Location = new System.Drawing.Point(512, 68);
             this.CHKType.Name = "CHKType";
-            this.CHKType.Size = new System.Drawing.Size(53, 21);
+            this.CHKType.Size = new System.Drawing.Size(48, 20);
             this.CHKType.TabIndex = 78;
             this.CHKType.Text = "ปลีก";
             this.CHKType.UseVisualStyleBackColor = true;
@@ -744,7 +744,6 @@ namespace POS.Forms
             this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "Product Service System";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.frmInv_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInv)).EndInit();

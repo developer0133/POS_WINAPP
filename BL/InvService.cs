@@ -38,6 +38,11 @@ namespace BL
         {
             return _inv.GetAllInventory(code);
         }
+
+        public static List<InventoryDTO> GetAllInventory2(int id)
+        {
+            return _inv.GetAllInventory2(id);
+        }
         public static List<INV_PRODUCTS> GetInventory(int id)
         {
             return _inv.GetInventory(id);

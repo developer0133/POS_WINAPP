@@ -170,6 +170,7 @@
     <Property Name="AVG_ITEM" Type="decimal" Precision="18" Scale="2" />
     <Property Name="WHOLESALEPRICE_ITEM" Type="decimal" Precision="18" Scale="2" />
     <Property Name="BOXPRICE" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="PARENT_ID" Type="int" />
   </EntityType>
   <EntityType Name="SELLITEMS">
     <Key>

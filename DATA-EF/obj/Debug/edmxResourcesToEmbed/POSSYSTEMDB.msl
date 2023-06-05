@@ -148,40 +148,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="PRODUCTS">
-      <EntityTypeMapping TypeName="POSSYSTEMModel.PRODUCTS">
-        <MappingFragment StoreEntitySet="PRODUCTS">
-          <ScalarProperty Name="PRODUCT_ID" ColumnName="PRODUCT_ID" />
-          <ScalarProperty Name="PRODUCT_NAME" ColumnName="PRODUCT_NAME" />
-          <ScalarProperty Name="COSTPRICE" ColumnName="COSTPRICE" />
-          <ScalarProperty Name="SELLPRICE" ColumnName="SELLPRICE" />
-          <ScalarProperty Name="PICTURE" ColumnName="PICTURE" />
-          <ScalarProperty Name="REMARK" ColumnName="REMARK" />
-          <ScalarProperty Name="ORDER_DATE" ColumnName="ORDER_DATE" />
-          <ScalarProperty Name="CATEGORY_ID" ColumnName="CATEGORY_ID" />
-          <ScalarProperty Name="PRODUCT_TYPE_ID" ColumnName="PRODUCT_TYPE_ID" />
-          <ScalarProperty Name="PRODUCT_SIZE_ID" ColumnName="PRODUCT_SIZE_ID" />
-          <ScalarProperty Name="C_BY" ColumnName="C_BY" />
-          <ScalarProperty Name="C_DATE" ColumnName="C_DATE" />
-          <ScalarProperty Name="E_BY" ColumnName="E_BY" />
-          <ScalarProperty Name="E_DATE" ColumnName="E_DATE" />
-          <ScalarProperty Name="PRODUCT_CODE" ColumnName="PRODUCT_CODE" />
-          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
-          <ScalarProperty Name="BARCODE" ColumnName="BARCODE" />
-          <ScalarProperty Name="RETAILPRICE" ColumnName="RETAILPRICE" />
-          <ScalarProperty Name="WHOLESALEPRICE" ColumnName="WHOLESALEPRICE" />
-          <ScalarProperty Name="AVGCOST" ColumnName="AVGCOST" />
-          <ScalarProperty Name="WHOLESALEPROFIT" ColumnName="WHOLESALEPROFIT" />
-          <ScalarProperty Name="RETAILPROFIT" ColumnName="RETAILPROFIT" />
-          <ScalarProperty Name="QTY" ColumnName="QTY" />
-          <ScalarProperty Name="UNIT" ColumnName="UNIT" />
-          <ScalarProperty Name="AVG_PACK" ColumnName="AVG_PACK" />
-          <ScalarProperty Name="AVG_ITEM" ColumnName="AVG_ITEM" />
-          <ScalarProperty Name="WHOLESALEPRICE_ITEM" ColumnName="WHOLESALEPRICE_ITEM" />
-          <ScalarProperty Name="BOXPRICE" ColumnName="BOXPRICE" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="SELLITEMS">
       <EntityTypeMapping TypeName="POSSYSTEMModel.SELLITEMS">
         <MappingFragment StoreEntitySet="SELLITEMS">
@@ -209,6 +175,41 @@
           <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
           <ScalarProperty Name="version" ColumnName="version" />
           <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PRODUCTS">
+      <EntityTypeMapping TypeName="POSSYSTEMModel.PRODUCTS">
+        <MappingFragment StoreEntitySet="PRODUCTS">
+          <ScalarProperty Name="PARENT_ID" ColumnName="PARENT_ID" />
+          <ScalarProperty Name="BOXPRICE" ColumnName="BOXPRICE" />
+          <ScalarProperty Name="WHOLESALEPRICE_ITEM" ColumnName="WHOLESALEPRICE_ITEM" />
+          <ScalarProperty Name="AVG_ITEM" ColumnName="AVG_ITEM" />
+          <ScalarProperty Name="AVG_PACK" ColumnName="AVG_PACK" />
+          <ScalarProperty Name="UNIT" ColumnName="UNIT" />
+          <ScalarProperty Name="QTY" ColumnName="QTY" />
+          <ScalarProperty Name="RETAILPROFIT" ColumnName="RETAILPROFIT" />
+          <ScalarProperty Name="WHOLESALEPROFIT" ColumnName="WHOLESALEPROFIT" />
+          <ScalarProperty Name="AVGCOST" ColumnName="AVGCOST" />
+          <ScalarProperty Name="WHOLESALEPRICE" ColumnName="WHOLESALEPRICE" />
+          <ScalarProperty Name="RETAILPRICE" ColumnName="RETAILPRICE" />
+          <ScalarProperty Name="BARCODE" ColumnName="BARCODE" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="PRODUCT_CODE" ColumnName="PRODUCT_CODE" />
+          <ScalarProperty Name="E_DATE" ColumnName="E_DATE" />
+          <ScalarProperty Name="E_BY" ColumnName="E_BY" />
+          <ScalarProperty Name="C_DATE" ColumnName="C_DATE" />
+          <ScalarProperty Name="C_BY" ColumnName="C_BY" />
+          <ScalarProperty Name="PRODUCT_SIZE_ID" ColumnName="PRODUCT_SIZE_ID" />
+          <ScalarProperty Name="PRODUCT_TYPE_ID" ColumnName="PRODUCT_TYPE_ID" />
+          <ScalarProperty Name="CATEGORY_ID" ColumnName="CATEGORY_ID" />
+          <ScalarProperty Name="ORDER_DATE" ColumnName="ORDER_DATE" />
+          <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+          <ScalarProperty Name="PICTURE" ColumnName="PICTURE" />
+          <ScalarProperty Name="SELLPRICE" ColumnName="SELLPRICE" />
+          <ScalarProperty Name="COSTPRICE" ColumnName="COSTPRICE" />
+          <ScalarProperty Name="PRODUCT_NAME" ColumnName="PRODUCT_NAME" />
+          <ScalarProperty Name="PRODUCT_ID" ColumnName="PRODUCT_ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
