@@ -8,6 +8,7 @@ using DAL.Utils;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using DATA_Models.DTO;
+using ZXing.QrCode.Internal;
 
 namespace DAL
 {
@@ -428,26 +429,29 @@ namespace DAL
 
                         ///inv
                         inv.PRODUCT_ID = pd.PRODUCT_ID;
-                        inv.ORDER_DATE = InvData.ORDER_DATE;
+                        inv.ORDER_DATE = invObj.ORDER_DATE;
                         inv.QTY = InvData.QTY;
                         inv.PACK_BALANCE = InvData.PACK_BALANCE;
                         inv.ITEM_BALANCE = InvData.ITEM_BALANCE;
                         inv.BOX_BALANCE = InvData.BOX_BALANCE;
-                        inv.ORDER_DATE = InvData.ORDER_DATE;
+                        inv.ORDER_DATE = invObj.ORDER_DATE;
 
                         inv.UNIT = InvData.UNIT;
                         inv.E_BY = InvData.C_BY;
                         inv.C_DATE = clsFunction.GetDate();
                         inv.E_DATE = clsFunction.GetDate();
                         inv.RETAILPROFIT = InvData.RETAILPROFIT;
-                        inv.WHOLESALEPROFIT = InvData.WHOLESALEPROFIT;
-                        inv.AVG_PACK = InvData.AVG_PACK;
-                        inv.AVG_ITEM = InvData.AVG_ITEM;
-                        inv.WHOLESALEPRICE_ITEM = InvData.WHOLESALEPRICE_ITEM;
+                        inv.WHOLESALEPROFIT = invObj.WHOLESALEPROFIT;
+                        inv.AVG_PACK = invObj.AVG_PACK;
+                        inv.AVG_ITEM = invObj.AVG_ITEM;
+                        inv.WHOLESALEPRICE_ITEM = invObj.WHOLESALEPRICE_ITEM;
                         inv.RETAILPRICE = InvData.RETAILPRICE;
-                        inv.WHOLESALEPRICE = InvData.WHOLESALEPRICE_ITEM;
+                        inv.WHOLESALEPRICE = invObj.WHOLESALEPRICE_ITEM;
 
                         inv.UNIT_BALANCE_TEXT = String.Format("{0}:ลัง {1}:แพ็ค {2}:ชิ้น", InvData.BOX_BALANCE, InvData.PACK_BALANCE, InvData.ITEM_BALANCE);
+
+                        InvData.C_BY = InvData.C_BY;
+                        
                         _db.INV_PRODUCTS.Add(inv);
                         _db.SaveChanges();
                     }
@@ -813,7 +817,7 @@ namespace DAL
         }
 
 
-        public List<InventoryDTO> GetAllInventory2(int id)
+        public List<InventoryDTO> GetAllInventory2(int? id)
         {
             POSSYSTEMEntities _db = new POSSYSTEMEntities();
             List<InventoryDTO> oList = new List<InventoryDTO>();
@@ -826,7 +830,7 @@ namespace DAL
                                join t2 in _db.PARAMETER.Where(w => w.MAJOR_CODE == PARAMETERCODE.PARAMETER_TYPE && w.STATUS == STATUS.ACTIVE) on t1.PRODUCT_TYPE_ID equals t2.MINOR_CODE //into ct
                                join t4 in _db.PARAMETER.Where(w => w.MAJOR_CODE == PARAMETERCODE.UNITSELL && w.STATUS == STATUS.ACTIVE) on t.UNIT equals t4.MINOR_CODE into c1
                                from t3 in c1.DefaultIfEmpty()
-                               where (t1.PRODUCT_ID == id)
+                               where (id.HasValue==false ||t1.PRODUCT_ID == id)
 
                                select new InventoryDTO
                                {

@@ -56,15 +56,6 @@
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.dgvInv = new System.Windows.Forms.DataGridView();
-            this.PRODUCT_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.inv_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PRODUCT_CODE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PRODUCT_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.QTY = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.STR_UNIT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.STR_AMOUNT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.STR_TOTAL_AMOUNT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.REMARK = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInv)).BeginInit();
@@ -297,6 +288,7 @@
             this.txtRetailprice.Name = "txtRetailprice";
             this.txtRetailprice.Size = new System.Drawing.Size(200, 24);
             this.txtRetailprice.TabIndex = 79;
+            this.txtRetailprice.TextChanged += new System.EventHandler(this.txtRetailprice_TextChanged);
             // 
             // label1
             // 
@@ -374,16 +366,6 @@
             // 
             this.dgvInv.BackgroundColor = System.Drawing.Color.White;
             this.dgvInv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvInv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.PRODUCT_ID,
-            this.inv_id,
-            this.PRODUCT_CODE,
-            this.PRODUCT_NAME,
-            this.QTY,
-            this.STR_UNIT,
-            this.STR_AMOUNT,
-            this.STR_TOTAL_AMOUNT,
-            this.REMARK});
             this.dgvInv.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvInv.Location = new System.Drawing.Point(7, 64);
             this.dgvInv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -391,94 +373,11 @@
             this.dgvInv.ReadOnly = true;
             this.dgvInv.RowHeadersWidth = 51;
             this.dgvInv.RowTemplate.Height = 24;
-            this.dgvInv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvInv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dgvInv.Size = new System.Drawing.Size(1284, 219);
             this.dgvInv.TabIndex = 70;
             this.dgvInv.TabStop = false;
             this.dgvInv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInv_CellClick);
-            // 
-            // PRODUCT_ID
-            // 
-            this.PRODUCT_ID.DataPropertyName = "PRODUCT_ID";
-            this.PRODUCT_ID.HeaderText = "รหัส";
-            this.PRODUCT_ID.MinimumWidth = 6;
-            this.PRODUCT_ID.Name = "PRODUCT_ID";
-            this.PRODUCT_ID.ReadOnly = true;
-            this.PRODUCT_ID.Visible = false;
-            this.PRODUCT_ID.Width = 125;
-            // 
-            // inv_id
-            // 
-            this.inv_id.DataPropertyName = "INV_ID";
-            this.inv_id.HeaderText = "inv_id";
-            this.inv_id.MinimumWidth = 6;
-            this.inv_id.Name = "inv_id";
-            this.inv_id.ReadOnly = true;
-            this.inv_id.Visible = false;
-            this.inv_id.Width = 125;
-            // 
-            // PRODUCT_CODE
-            // 
-            this.PRODUCT_CODE.DataPropertyName = "PRODUCT_CODE";
-            this.PRODUCT_CODE.HeaderText = "รหัส";
-            this.PRODUCT_CODE.MinimumWidth = 6;
-            this.PRODUCT_CODE.Name = "PRODUCT_CODE";
-            this.PRODUCT_CODE.ReadOnly = true;
-            this.PRODUCT_CODE.Width = 125;
-            // 
-            // PRODUCT_NAME
-            // 
-            this.PRODUCT_NAME.DataPropertyName = "PRODUCT_NAME";
-            this.PRODUCT_NAME.HeaderText = "ชื่อสินค้า";
-            this.PRODUCT_NAME.MinimumWidth = 6;
-            this.PRODUCT_NAME.Name = "PRODUCT_NAME";
-            this.PRODUCT_NAME.ReadOnly = true;
-            this.PRODUCT_NAME.Width = 140;
-            // 
-            // QTY
-            // 
-            this.QTY.DataPropertyName = "QTY";
-            this.QTY.HeaderText = "จำนวน";
-            this.QTY.MinimumWidth = 6;
-            this.QTY.Name = "QTY";
-            this.QTY.ReadOnly = true;
-            this.QTY.Width = 125;
-            // 
-            // STR_UNIT
-            // 
-            this.STR_UNIT.DataPropertyName = "STR_UNIT";
-            this.STR_UNIT.HeaderText = "หน่วย";
-            this.STR_UNIT.MinimumWidth = 6;
-            this.STR_UNIT.Name = "STR_UNIT";
-            this.STR_UNIT.ReadOnly = true;
-            this.STR_UNIT.Width = 125;
-            // 
-            // STR_AMOUNT
-            // 
-            this.STR_AMOUNT.DataPropertyName = "STR_AMOUNT";
-            this.STR_AMOUNT.HeaderText = "Amount";
-            this.STR_AMOUNT.MinimumWidth = 6;
-            this.STR_AMOUNT.Name = "STR_AMOUNT";
-            this.STR_AMOUNT.ReadOnly = true;
-            this.STR_AMOUNT.Width = 125;
-            // 
-            // STR_TOTAL_AMOUNT
-            // 
-            this.STR_TOTAL_AMOUNT.DataPropertyName = "STR_TOTAL_AMOUNT";
-            this.STR_TOTAL_AMOUNT.HeaderText = "TotalAmount(THB)";
-            this.STR_TOTAL_AMOUNT.MinimumWidth = 6;
-            this.STR_TOTAL_AMOUNT.Name = "STR_TOTAL_AMOUNT";
-            this.STR_TOTAL_AMOUNT.ReadOnly = true;
-            this.STR_TOTAL_AMOUNT.Width = 135;
-            // 
-            // REMARK
-            // 
-            this.REMARK.DataPropertyName = "REMARK";
-            this.REMARK.HeaderText = "หมายเหตุ";
-            this.REMARK.MinimumWidth = 6;
-            this.REMARK.Name = "REMARK";
-            this.REMARK.ReadOnly = true;
-            this.REMARK.Width = 140;
             // 
             // frmProductManagement
             // 
@@ -514,15 +413,6 @@
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button btnSearch;
         internal System.Windows.Forms.DataGridView dgvInv;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PRODUCT_ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn inv_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PRODUCT_CODE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PRODUCT_NAME;
-        private System.Windows.Forms.DataGridViewTextBoxColumn QTY;
-        private System.Windows.Forms.DataGridViewTextBoxColumn STR_UNIT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn STR_AMOUNT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn STR_TOTAL_AMOUNT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn REMARK;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label label14;

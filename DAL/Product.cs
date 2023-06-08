@@ -324,7 +324,7 @@ namespace DAL
 
             using (POSSYSTEMEntities _db = new POSSYSTEMEntities())
             {
-                list = (from t in _db.PRODUCTS.Where(w => w.STATUS == STATUS.ACTIVE && !w.PRODUCT_CODE.Contains(".")).AsNoTracking()
+                list = (from t in _db.PRODUCTS.Where(w => w.STATUS == STATUS.ACTIVE && !w.PRODUCT_CODE.Contains(".") && w.PARENT_ID == null).AsNoTracking()
                         select new ProductAutoCompleteDTO
                         {
                             PRODUCT_ID = t.PRODUCT_ID,

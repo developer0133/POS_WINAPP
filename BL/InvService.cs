@@ -39,7 +39,7 @@ namespace BL
             return _inv.GetAllInventory(code);
         }
 
-        public static List<InventoryDTO> GetAllInventory2(int id)
+        public static List<InventoryDTO> GetAllInventory2(int? id)
         {
             return _inv.GetAllInventory2(id);
         }
