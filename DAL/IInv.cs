@@ -15,6 +15,7 @@ namespace DAL
         bool InsertInventory2(INV_PRODUCTS InvData);
 
         bool UpdateInventory(INV_PRODUCTS InvData);
+        bool UpdateInventory2(INV_PRODUCTS InvData);
 
         List<INV_PRODUCTS> GetInventory(int id);
         List<InventoryDTO> GetAllInventory(string code);

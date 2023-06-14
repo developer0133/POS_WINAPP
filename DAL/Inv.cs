@@ -336,48 +336,6 @@ namespace DAL
 
                     var invObj = _db.INV_PRODUCTS.Where(w => w.PRODUCT_ID == InvData.PRODUCT_ID).FirstOrDefault();
 
-                    //if (invObj != null)
-                    //{
-                    //    balance = invObj.BALANCE.HasValue ? invObj.BALANCE.Value : 0;
-                    //    old_packBalance = invObj.PACK_BALANCE.HasValue ? invObj.PACK_BALANCE.Value : 0;
-                    //    old_itemBalance = invObj.ITEM_BALANCE.HasValue ? invObj.ITEM_BALANCE.Value : 0;
-                    //    old_boxBalance = invObj.BOX_BALANCE.HasValue ? invObj.BOX_BALANCE.Value : 0;
-
-                    //    var delList = _db.PRODUCTS.Where(w => w.PRODUCT_CODE.Contains(".")).ToList();
-                    //    if (delList.Count() > 0)
-                    //    {
-                    //        foreach (var itm in delList)
-                    //        {
-                    //            string[] sp = itm.PRODUCT_CODE.Split('.');
-                    //            if (int.Parse(sp[1]) == invObj.PRODUCT_ID)
-                    //            {
-                    //                _db.PRODUCTS.Remove(itm);
-                    //            }
-                    //        }
-                    //    }
-
-                    //    _db.INV_PRODUCTS.Remove(invObj);
-                    //}
-
-                    //var packBalance = InvData.PACK_BALANCE;
-                    //var itemBalance = InvData.ITEM_BALANCE;
-                    //var boxBalance = InvData.BOX_BALANCE;
-
-                    //InvData.PACK_BALANCE = InvData.PACK_BALANCE + old_packBalance;
-                    //InvData.ITEM_BALANCE = InvData.ITEM_BALANCE + old_itemBalance;
-                    //InvData.BOX_BALANCE = InvData.BOX_BALANCE + old_boxBalance;
-
-                    //InvData.BALANCE = (InvData.BALANCE + balance);
-                    //InvData.ORDER_DATE = InvData.ORDER_DATE.Value;
-                    //InvData.E_BY = InvData.C_BY;
-                    //InvData.C_DATE = clsFunction.GetDate();
-                    //InvData.E_DATE = clsFunction.GetDate();
-                    //InvData.UNIT_BALANCE_TEXT = String.Format("{0}:ลัง {1}:แพ็ค {2}:ชิ้น", InvData.BOX_BALANCE, InvData.PACK_BALANCE, InvData.ITEM_BALANCE);
-
-                    //_db.INV_PRODUCTS.Add(InvData);
-                    ////_db.SaveChanges();
-
-                    
 
                     var objProdduct = _db.PRODUCTS.Where(w => w.PRODUCT_ID == InvData.PRODUCT_ID).SingleOrDefault();
 
@@ -456,110 +414,7 @@ namespace DAL
                         _db.SaveChanges();
                     }
 
-                    var cateCode = "x";
-
-                    //if (objProdduct != null)
-                    //{
-                    //    cateCode = _db.CATEGORY.Where(w => w.CATEGORY_ID == objProdduct.CATEGORY_ID).Select(s => s.CATE_CODE).FirstOrDefault();
-
-                    //    objProdduct.COSTPRICE = InvData.AMOUNT.Value;
-                    //    objProdduct.QTY = InvData.QTY;
-                    //    objProdduct.UNIT = InvData.UNIT;
-                    //    objProdduct.AVG_ITEM = InvData.AVG_ITEM;
-                    //    objProdduct.AVG_PACK = InvData.AVG_PACK;
-                    //    //objProdduct.RETAILPRICE = inventoryData.RETAILPRICE;
-                    //    objProdduct.WHOLESALEPRICE = InvData.WHOLESALEPRICE;
-                    //    objProdduct.AVGCOST = InvData.AVGCOST;
-                    //    objProdduct.WHOLESALEPROFIT = InvData.WHOLESALEPROFIT.HasValue ? InvData.WHOLESALEPROFIT : 0;
-                    //    objProdduct.RETAILPROFIT = InvData.RETAILPROFIT.HasValue ? InvData.RETAILPROFIT : 0;
-                    //    objProdduct.WHOLESALEPRICE_ITEM = InvData.WHOLESALEPRICE_ITEM.HasValue ? InvData.WHOLESALEPRICE_ITEM : 0;
-                    //    objProdduct.SELLPRICE = InvData.WHOLESALEPRICE.HasValue ? InvData.WHOLESALEPRICE.Value : 0;
-                    //    objProdduct.BOXPRICE = InvData.BOXPRICE.HasValue ? InvData.BOXPRICE.Value : 0;
-
-                    //    _db.Entry(objProdduct).State = EntityState.Modified;
-
-                       
-
-                    //    decimal? wholeSellPrice = 0;
-                    //    decimal? sellPrice = 0;
-
-                    //    pd.AVG_ITEM = objProdduct.AVG_ITEM;
-                    //    pd.AVG_PACK = objProdduct.AVG_PACK;
-                    //    pd.RETAILPRICE = InvData.RETAILPRICE;
-                    //    pd.SELLPRICE = sellPrice.Value;//inventoryData.RETAILPRICE.Value;
-                    //    pd.WHOLESALEPRICE = wholeSellPrice;
-                    //    pd.BOXPRICE = InvData.BOXPRICE.HasValue ? InvData.BOXPRICE.Value : 0;
-
-                    //    pd.AVGCOST = objProdduct.AVGCOST;
-                    //    pd.WHOLESALEPROFIT = objProdduct.WHOLESALEPROFIT;
-                    //    pd.RETAILPROFIT = objProdduct.RETAILPROFIT;
-                    //    pd.WHOLESALEPRICE_ITEM = objProdduct.WHOLESALEPRICE_ITEM;
-                    //    pd.CATEGORY_ID = objProdduct.CATEGORY_ID;
-                    //    pd.PRODUCT_TYPE_ID = objProdduct.PRODUCT_TYPE_ID;
-                    //    pd.PRODUCT_SIZE_ID = objProdduct.PRODUCT_SIZE_ID;
-                    //    pd.COSTPRICE = objProdduct.COSTPRICE;
-
-
-                    //    pd.STATUS = STATUS.ACTIVE;
-                    //    pd.C_DATE = clsFunction.GetDate();
-                    //    pd.E_DATE = clsFunction.GetDate();
-                    //    pd.C_BY = objProdduct.C_BY;
-                    //    pd.E_BY = objProdduct.C_BY;
-
-                    //    pd.PARENT_ID = objProdduct.PRODUCT_ID;
-
-                    //    int running_id = _db.MASTER_RUNNING.Max(x => (int?)x.RUNNING_ID) ?? 0 + 1; //_db.MASTER_RUNNING.Max(s => s.RUNNING_NO);
-                    //    MASTER_RUNNING mstRunning = new MASTER_RUNNING();
-
-                    //    if (running_id > 1)
-                    //    {
-                    //        running_id++;
-                    //    }
-
-                    //    mstRunning.RUNNING_NO = running_id;
-
-                    //    UpdateMasterRunning(mstRunning); //var tm = mService.UpdateMasterRunning(mstRunning);
-
-                    //    string catecode = "1";
-                    //    //pcode = clsFunction.GenFormatCode(mstRunning.RUNNING_NO.Value, catecode, "P"); // string.Format("{0}{1}{2}{3}{4}", category.CATE_CODE, d, m, y, mstRunning.RUNNING_NO);
-                    //    pd.PRODUCT_CODE = clsFunction.GenFormatCode(mstRunning.RUNNING_NO.Value, catecode, "P"); ;
-
-                    //    _db.PRODUCTS.Add(pd);
-                    //    _db.SaveChanges();
-
-                    //    inv.PRODUCT_ID = pd.PRODUCT_ID;
-                    //    inv.ORDER_DATE = InvData.ORDER_DATE;
-                    //    inv.QTY = InvData.QTY;
-                    //    inv.PACK_BALANCE = InvData.PACK_BALANCE;
-                    //    inv.ITEM_BALANCE = InvData.ITEM_BALANCE;
-                    //    inv.BOX_BALANCE = InvData.BOX_BALANCE;
-                    //    //inv.BALANCE = (inventoryData.BALANCE + balance);
-                    //    inv.ORDER_DATE = InvData.ORDER_DATE.Value;
-
-                    //    inv.UNIT = InvData.UNIT;
-                    //    inv.E_BY = InvData.C_BY;
-                    //    inv.C_DATE = clsFunction.GetDate();
-                    //    inv.E_DATE = clsFunction.GetDate();
-                    //    inv.RETAILPROFIT = InvData.RETAILPROFIT;
-                    //    inv.WHOLESALEPROFIT = InvData.WHOLESALEPROFIT;
-                    //    inv.AVG_PACK = InvData.AVG_PACK;
-                    //    inv.AVG_ITEM = InvData.AVG_ITEM;
-                    //    inv.WHOLESALEPRICE_ITEM = InvData.WHOLESALEPRICE_ITEM;
-                    //    inv.RETAILPRICE = InvData.RETAILPRICE;
-                    //    inv.WHOLESALEPRICE = InvData.WHOLESALEPRICE_ITEM;
-
-                    //    inv.UNIT_BALANCE_TEXT = String.Format("{0}:ลัง {1}:แพ็ค {2}:ชิ้น", InvData.BOX_BALANCE, InvData.PACK_BALANCE, InvData.ITEM_BALANCE);
-                    //    _db.INV_PRODUCTS.Add(inv);
-
-                    //    _db.SaveChanges();
-                    //    isSuccess = true;
-                    //}
-                    //else
-                    //{
-                        
-
-                    //}
-
+                   
                     _db.Dispose();
                 }
             }
@@ -672,6 +527,89 @@ namespace DAL
                     }
                 }
                  _db.SaveChanges();
+                isSuccess = true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+            return isSuccess;
+        }
+
+        public bool UpdateInventory2(INV_PRODUCTS InvData)
+        {
+            POSSYSTEMEntities _db = new POSSYSTEMEntities();
+            bool isSuccess = false;
+
+            try
+            {
+                PRODUCTS objProdduct = new PRODUCTS();
+                objProdduct = _db.PRODUCTS.Where(w => w.PRODUCT_ID == InvData.PRODUCT_ID).SingleOrDefault();
+
+                List<PRODUCTS> pds = new List<PRODUCTS>();
+
+                pds = _db.PRODUCTS.Where(w => w.PRODUCT_CODE.Contains(objProdduct.PRODUCT_CODE)).ToList();
+
+                if (pds.Count() > 0)  //(objProdduct != null)
+                {
+                    foreach (var item in pds)
+                    {
+                        objProdduct = new PRODUCTS();
+                        objProdduct = _db.PRODUCTS.Where(w => w.PRODUCT_ID == item.PRODUCT_ID).SingleOrDefault();
+
+                        var invpd = _db.INV_PRODUCTS.Where(w => w.PRODUCT_ID == item.PRODUCT_ID && w.INV_ID != InvData.INV_ID).SingleOrDefault();
+                        var ordHist = _db.ORDER_HISTORY.Where(w => w.PRODUCT_ID == item.PRODUCT_ID).ToList();
+
+                        objProdduct.COSTPRICE = InvData.AMOUNT.HasValue ? InvData.AMOUNT.Value : 0;
+                        objProdduct.QTY = InvData.QTY;
+                        objProdduct.UNIT = InvData.UNIT;
+                        objProdduct.AVG_ITEM = InvData.AVG_ITEM;
+                        objProdduct.AVG_PACK = InvData.AVG_PACK;
+                        objProdduct.RETAILPRICE = InvData.RETAILPRICE.HasValue ? InvData.RETAILPRICE.Value : 0;
+                        objProdduct.WHOLESALEPRICE = InvData.WHOLESALEPRICE.HasValue ? InvData.WHOLESALEPRICE.Value : 0;
+                        objProdduct.AVGCOST = InvData.AVGCOST.HasValue ? InvData.AVGCOST.Value : 0;
+                        objProdduct.WHOLESALEPROFIT = InvData.WHOLESALEPROFIT.HasValue ? InvData.WHOLESALEPROFIT.Value : 0;
+                        objProdduct.RETAILPROFIT = InvData.RETAILPROFIT.HasValue ? InvData.RETAILPROFIT.Value : 0;
+                        objProdduct.WHOLESALEPRICE_ITEM = InvData.WHOLESALEPRICE_ITEM.HasValue ? InvData.WHOLESALEPRICE_ITEM.Value : 0;
+                        objProdduct.BOXPRICE = InvData.BOXPRICE.HasValue ? InvData.BOXPRICE.Value : 0;
+
+                        objProdduct.SELLPRICE = InvData.WHOLESALEPRICE.HasValue ? InvData.WHOLESALEPRICE.Value : 0;
+
+                        if (invpd != null)
+                        {
+                            invpd.BOXPRICE = InvData.BOXPRICE;
+                            invpd.QTY = InvData.QTY;
+                            invpd.AMOUNT = InvData.AMOUNT;
+                            invpd.AVGCOST = InvData.AVGCOST;
+                            invpd.AVG_ITEM = InvData.AVG_ITEM;
+                            invpd.AVG_PACK = InvData.AVG_PACK;
+                            invpd.RETAILPRICE = InvData.RETAILPRICE;
+                            invpd.RETAILPROFIT = InvData.RETAILPROFIT;
+                            invpd.WHOLESALEPRICE = InvData.WHOLESALEPRICE;
+                            invpd.WHOLESALEPRICE_ITEM = InvData.WHOLESALEPRICE_ITEM;
+                            invpd.WHOLESALEPROFIT = InvData.WHOLESALEPROFIT;
+                            invpd.BOX_BALANCE = InvData.BOX_BALANCE;
+                            invpd.PACK_BALANCE = InvData.PACK_BALANCE;
+                            invpd.ITEM_BALANCE = InvData.ITEM_BALANCE;
+                            invpd.ORDER_DATE = InvData.ORDER_DATE;
+                            invpd.UNIT = InvData.UNIT;
+
+                            _db.Entry(invpd).State = EntityState.Modified;
+                        }
+                        _db.Entry(objProdduct).State = EntityState.Modified;
+
+                        if (ordHist != null)
+                        {
+                            foreach (var itm in ordHist)
+                            {
+                                itm.ORDER_DATE = InvData.ORDER_DATE;
+                                _db.Entry(itm).State = EntityState.Modified;
+                            }
+                        }
+                    }
+                }
+                _db.SaveChanges();
                 isSuccess = true;
             }
             catch (Exception ex)

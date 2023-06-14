@@ -61,15 +61,25 @@ namespace POS.Forms
             INV_PRODUCTS obj = new INV_PRODUCTS();
             var productName = ((TextBox)txtProductName).Text;
 
-            var sp = productName.Split('-');
-
-            if (!string.IsNullOrEmpty(sp[1]))
+            if (!string.IsNullOrEmpty(productName))
             {
-                var pid = ProductService.GetProduct(sp[1], string.Empty).Select(s => s.PRODUCT_ID).FirstOrDefault();
-                PID = pid;
+                var sp = productName.Split('-');
 
-                var objInv = InvService.GetAllInventory2(pid).SingleOrDefault();
-                txtCostAvgItem.Text = objInv.AVG_ITEM.ToString();
+                if (sp.Count() > 0)
+                {
+                    if (!string.IsNullOrEmpty(sp[1]))
+                    {
+                        var pid = ProductService.GetProduct(sp[1], string.Empty).Select(s => s.PRODUCT_ID).FirstOrDefault();
+                        PID = pid;
+
+                        var objInv = InvService.GetAllInventory2(pid).SingleOrDefault();
+
+                        if (objInv != null)
+                        {
+                            txtCostAvgItem.Text = objInv.AVG_ITEM.HasValue ? objInv.AVG_ITEM.Value.ToString() : string.Empty;
+                        }
+                    }
+                }
             }
         }
 
@@ -91,30 +101,65 @@ namespace POS.Forms
             obj.C_BY = UserModel.USERNAME;
             obj.E_BY = UserModel.USERNAME;
 
-            isSuccess = InvService.InsertInventory2(obj);
+            if (pModel != null)
+            {
+                if (pModel.INV_ID > 0)
+                {
+                    isSuccess = InvService.UpdateInventory2(obj);
+                }
+                else
+                {
+                    isSuccess = InvService.InsertInventory2(obj);
+                }
+            }
+
+            if (isSuccess)
+            {
+                MessageBox.Show("Completed", "POS");
+                BindDGV();
+                Clear();
+            }
         }
 
         private void dgvInv_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             pModel = new InventoryDTO();
             string code = dgvInv.CurrentRow.Cells["PRODUCT_CODE"].Value.ToString();
+
+            if (dgvInv.CurrentRow.Index != -1)
+            {
+                pModel = InvService.GetAllInventory(code).SingleOrDefault();
+
+                cboUnit.SelectedValue = pModel.UNIT;
+                txtProductName.Text = pModel.PRODUCT_NAME;
+                txtRetailprice.Text = pModel.RETAILPRICE.HasValue ? pModel.RETAILPRICE.Value.ToString() : string.Empty;
+                txtCostAvgItem.Text = pModel.AVG_ITEM.HasValue ? pModel.AVG_ITEM.Value.ToString() : string.Empty;
+                txtRemark.Text = pModel.REMARK;
+
+                txtProfitRetail.Text = pModel.RETAILPROFIT.HasValue ? pModel.RETAILPROFIT.Value.ToString() : string.Empty;
+                txtWholesaleprofit.Text = pModel.WHOLESALEPROFIT.HasValue ? pModel.WHOLESALEPROFIT.Value.ToString() : string.Empty;
+                txtWholesalePriceItem.Text = pModel.WHOLESALEPRICE_ITEM.HasValue ? pModel.WHOLESALEPRICE_ITEM.Value.ToString() : string.Empty;
+            }
         }
 
         private void ProfitCalculate()
         {
-            decimal _avgPack = 0;
-            decimal _wholeSale = 0;
-            decimal _retailPrice = 0;
-            decimal _avgItem = 0;
-            string objName = string.Empty;
-            int con1 = 0;
-            int con2 = 0;
-            decimal amount = 0;
+            if (!string.IsNullOrEmpty(txtCostAvgItem.Text))
+            {
+                decimal _avgPack = 0;
+                decimal _wholeSale = 0;
+                decimal _retailPrice = 0;
+                decimal _avgItem = 0;
+                string objName = string.Empty;
+                int con1 = 0;
+                int con2 = 0;
+                decimal amount = 0;
 
-            _retailPrice = decimal.Parse(txtRetailprice.Text);
-            _avgItem = decimal.Parse(txtCostAvgItem.Text);
-            var cal = _retailPrice - _avgItem;
-            txtProfitRetail.Text = cal.ToString("#,###.00");
+                _retailPrice = decimal.Parse(txtRetailprice.Text);
+                _avgItem = decimal.Parse(txtCostAvgItem.Text);
+                var cal = _retailPrice - _avgItem;
+                txtProfitRetail.Text = cal.ToString("#,###.00");
+            }
         }
 
         private void txtRetailprice_TextChanged(object sender, EventArgs e)
@@ -174,11 +219,13 @@ namespace POS.Forms
             dgvInv.Columns[3].DataPropertyName = "STR_UNIT";
             dgvInv.Columns[4].DataPropertyName = "RETAILPRICE";
             dgvInv.Columns[5].DataPropertyName = "REMARK";
-
-
-           // dgvInv.Columns[6].Visible = false;
-           // dgvInv.Columns[7].Visible = false;
   
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            var tmp = InvService.GetAllInventory(txtSearch.Text);
+            dgvInv.DataSource = tmp;
         }
     }
 }

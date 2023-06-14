@@ -361,6 +361,7 @@
             this.btnSearch.TabIndex = 71;
             this.btnSearch.Text = "    ค้นหา";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // dgvInv
             // 

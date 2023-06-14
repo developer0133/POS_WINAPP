@@ -33,6 +33,10 @@ namespace BL
         {
             return _inv.UpdateInventory(InvData);
         }
+        public static bool UpdateInventory2(INV_PRODUCTS InvData)
+        {
+            return _inv.UpdateInventory2(InvData);
+        }
 
         public static List<InventoryDTO> GetAllInventory(string code)
         {
