@@ -50,7 +50,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Ar21rV6fSbU4+iBD0JHU77BcQZtPoJuAOLA91dewQZ4=</dsig:DigestValue>
+        <dsig:DigestValue>6eknp5tPK3H59d6gNiWJuV5X+nTLYcdlRNYCMeBO4wA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -67,14 +67,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DAL.dll" size="133632">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DAL.dll" size="134656">
       <assemblyIdentity name="DAL" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>/Byss5bye/fdhNTYCn5qAZT698xkKVi4Kl2+iLFWpes=</dsig:DigestValue>
+        <dsig:DigestValue>E8zJEfg78gjSfJGwiSvIldR7J7pm6tXjhw5qvyVCWbQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -602,7 +602,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>0VrWbiX0KwEOZKnawDDEwgEYY1UI4QXvB7zHKUBTJkk=</dsig:DigestValue>
+        <dsig:DigestValue>9BgbeHthJklb0OauMpe2fAeLjNPCyCCHJLX9rhGWz5E=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

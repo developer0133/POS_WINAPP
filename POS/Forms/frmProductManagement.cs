@@ -105,6 +105,8 @@ namespace POS.Forms
             {
                 if (pModel.INV_ID > 0)
                 {
+                    obj.PRODUCT_ID = pModel.PRODUCT_ID;
+                    obj.INV_ID = pModel.INV_ID;
                     isSuccess = InvService.UpdateInventory2(obj);
                 }
                 else
@@ -119,6 +121,20 @@ namespace POS.Forms
                 BindDGV();
                 Clear();
             }
+        }
+
+        private void Clear()
+        {
+            txtCostAvgItem.Clear();
+
+            txtRetailprice.Clear();
+            txtProfitRetail.Clear();
+            txtWholesaleprofit.Clear();
+            txtWholesalePriceItem.Clear();
+            txtProductName.Clear();
+            txtRemark.Clear();
+
+            pModel = new InventoryDTO();
         }
 
         private void dgvInv_CellClick(object sender, DataGridViewCellEventArgs e)
