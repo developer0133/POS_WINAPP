@@ -65,18 +65,22 @@ namespace POS.Forms
             {
                 var sp = productName.Split('-');
 
-                if (sp.Count() > 0)
+                if (sp.Count() > 0 && sp.Count()>=2)
                 {
                     if (!string.IsNullOrEmpty(sp[1]))
                     {
                         var pid = ProductService.GetProduct(sp[1], string.Empty).Select(s => s.PRODUCT_ID).FirstOrDefault();
-                        PID = pid;
 
-                        var objInv = InvService.GetAllInventory2(pid).SingleOrDefault();
-
-                        if (objInv != null)
+                        if (pid > 0)
                         {
-                            txtCostAvgItem.Text = objInv.AVG_ITEM.HasValue ? objInv.AVG_ITEM.Value.ToString() : string.Empty;
+                            PID = pid;
+
+                            var objInv = InvService.GetAllInventory2(pid).SingleOrDefault();
+
+                            if (objInv != null)
+                            {
+                                txtCostAvgItem.Text = objInv.AVG_ITEM.HasValue ? objInv.AVG_ITEM.Value.ToString() : string.Empty;
+                            }
                         }
                     }
                 }
@@ -87,39 +91,46 @@ namespace POS.Forms
         {
             INV_PRODUCTS obj = new INV_PRODUCTS();
 
-            bool isSuccess = false;
-            string unit = string.Empty;
-            unit = cboUnit.SelectedValue == null ? string.Empty : cboUnit.SelectedValue.ToString();
-
-            obj.RETAILPRICE = string.IsNullOrEmpty(txtRetailprice.Text) ? 0 : decimal.Parse(txtRetailprice.Text);
-
-            obj.PRODUCT_ID = PID; //master
-            obj.PRODUCT_ID2 = pModel.PRODUCT_ID;
-            obj.UNIT = unit;
-            
-            obj.REMARK = txtRemark.Text;
-            obj.C_BY = UserModel.USERNAME;
-            obj.E_BY = UserModel.USERNAME;
-
-            if (pModel != null)
+            if (string.IsNullOrEmpty(txtProductName.Text))
             {
-                if (pModel.INV_ID > 0)
-                {
-                    obj.PRODUCT_ID = pModel.PRODUCT_ID;
-                    obj.INV_ID = pModel.INV_ID;
-                    isSuccess = InvService.UpdateInventory2(obj);
-                }
-                else
-                {
-                    isSuccess = InvService.InsertInventory2(obj);
-                }
+                MessageBox.Show("กรุณาระบุข้อมูล", "POS", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-
-            if (isSuccess)
+            else
             {
-                MessageBox.Show("Completed", "POS");
-                BindDGV();
-                Clear();
+                bool isSuccess = false;
+                string unit = string.Empty;
+                unit = cboUnit.SelectedValue == null ? string.Empty : cboUnit.SelectedValue.ToString();
+
+                obj.RETAILPRICE = string.IsNullOrEmpty(txtRetailprice.Text) ? 0 : decimal.Parse(txtRetailprice.Text);
+
+                obj.PRODUCT_ID = PID; //master
+                obj.PRODUCT_ID2 = pModel.PRODUCT_ID;
+                obj.UNIT = unit;
+
+                obj.REMARK = txtRemark.Text;
+                obj.C_BY = UserModel.USERNAME;
+                obj.E_BY = UserModel.USERNAME;
+
+                if (pModel != null)
+                {
+                    if (pModel.INV_ID > 0)
+                    {
+                        obj.PRODUCT_ID = pModel.PRODUCT_ID;
+                        obj.INV_ID = pModel.INV_ID;
+                        isSuccess = InvService.UpdateInventory2(obj);
+                    }
+                    else
+                    {
+                        isSuccess = InvService.InsertInventory2(obj);
+                    }
+                }
+
+                if (isSuccess)
+                {
+                    MessageBox.Show("Completed", "POS");
+                    BindDGV();
+                    Clear();
+                }
             }
         }
 
@@ -242,6 +253,11 @@ namespace POS.Forms
         {
             var tmp = InvService.GetAllInventory(txtSearch.Text);
             dgvInv.DataSource = tmp;
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Clear();
         }
     }
 }
