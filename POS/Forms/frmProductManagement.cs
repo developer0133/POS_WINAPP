@@ -91,7 +91,7 @@ namespace POS.Forms
         {
             INV_PRODUCTS obj = new INV_PRODUCTS();
 
-            if (string.IsNullOrEmpty(txtProductName.Text))
+            if (string.IsNullOrEmpty(txtProductName.Text) || string.IsNullOrEmpty(txtRetailprice.Text))
             {
                 MessageBox.Show("กรุณาระบุข้อมูล", "POS", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
