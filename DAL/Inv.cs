@@ -366,7 +366,7 @@ namespace DAL
 
                         pd.AVGCOST = objProdduct.AVGCOST;
                         pd.WHOLESALEPROFIT = objProdduct.WHOLESALEPROFIT;
-                        pd.RETAILPROFIT = objProdduct.RETAILPROFIT;
+                        pd.RETAILPROFIT = InvData.RETAILPROFIT;//objProdduct.RETAILPROFIT;
                         pd.WHOLESALEPRICE_ITEM = objProdduct.WHOLESALEPRICE_ITEM;
                         pd.CATEGORY_ID = objProdduct.CATEGORY_ID;
                         pd.PRODUCT_TYPE_ID = objProdduct.PRODUCT_TYPE_ID;
@@ -567,7 +567,7 @@ namespace DAL
                         //objProdduct.WHOLESALEPRICE = InvData.WHOLESALEPRICE.HasValue ? InvData.WHOLESALEPRICE.Value : 0;
                         //objProdduct.AVGCOST = InvData.AVGCOST.HasValue ? InvData.AVGCOST.Value : 0;
                         //objProdduct.WHOLESALEPROFIT = InvData.WHOLESALEPROFIT.HasValue ? InvData.WHOLESALEPROFIT.Value : 0;
-                        //objProdduct.RETAILPROFIT = InvData.RETAILPROFIT.HasValue ? InvData.RETAILPROFIT.Value : 0;
+                        objProdduct.RETAILPROFIT = InvData.RETAILPROFIT.HasValue ? InvData.RETAILPROFIT.Value : 0;
                         //objProdduct.WHOLESALEPRICE_ITEM = InvData.WHOLESALEPRICE_ITEM.HasValue ? InvData.WHOLESALEPRICE_ITEM.Value : 0;
                         //objProdduct.BOXPRICE = InvData.BOXPRICE.HasValue ? InvData.BOXPRICE.Value : 0;
 
@@ -765,6 +765,106 @@ namespace DAL
 
 
         public List<InventoryDTO> GetAllInventory2(int? id)
+        {
+            POSSYSTEMEntities _db = new POSSYSTEMEntities();
+            List<InventoryDTO> oList = new List<InventoryDTO>();
+
+            try
+            {
+                var qrydata = (from t in _db.INV_PRODUCTS
+                               join t1 in _db.PRODUCTS.Where(w => w.STATUS == STATUS.ACTIVE) on t.PRODUCT_ID equals t1.PRODUCT_ID//.Where(w => w.STATUS == STATUS.ACTIVE && (string.IsNullOrEmpty(code) || w.PRODUCT_CODE == code)) on t.PRODUCT_ID equals t1.PRODUCT_ID
+                               join t5 in _db.CATEGORY on t1.CATEGORY_ID equals t5.CATEGORY_ID
+                               join t2 in _db.PARAMETER.Where(w => w.MAJOR_CODE == PARAMETERCODE.PARAMETER_TYPE && w.STATUS == STATUS.ACTIVE) on t1.PRODUCT_TYPE_ID equals t2.MINOR_CODE //into ct
+                               join t4 in _db.PARAMETER.Where(w => w.MAJOR_CODE == PARAMETERCODE.UNITSELL && w.STATUS == STATUS.ACTIVE) on t.UNIT equals t4.MINOR_CODE into c1
+                               from t3 in c1.DefaultIfEmpty()
+                               where (id.HasValue == false || t1.PRODUCT_ID == id)
+
+                               select new InventoryDTO
+                               {
+                                   INV_ID = t.INV_ID,
+                                   PRODUCT_ID = t.PRODUCT_ID.Value,
+                                   PRODUCT_NAME = t1.PRODUCT_NAME,
+                                   PRODUCT_CODE = t1.PRODUCT_CODE,
+                                   REMARK = t.REMARK,
+                                   QTY = t.QTY,
+                                   AMOUNT = t.AMOUNT,
+                                   TOTAL_AMOUNT = t.TOTAL_AMOUNT,
+                                   ORDER_DATE = t.ORDER_DATE,
+                                   UNIT = t.UNIT,
+                                   BALANCE = t.BALANCE,
+                                   C_BY = t.C_BY,
+                                   C_DATE = t.C_DATE,
+                                   CONDITION1 = t3.CONDITION1,
+                                   CONDITION2 = t3.CONDITION2,
+
+                                   RETAILPRICE = t.RETAILPRICE,
+                                   WHOLESALEPRICE = t.WHOLESALEPRICE,
+                                   AVGCOST = t.AVGCOST,
+                                   WHOLESALEPROFIT = t.WHOLESALEPROFIT,
+                                   RETAILPROFIT = t.RETAILPROFIT,
+                                   AVG_ITEM = t.AVG_ITEM,
+                                   AVG_PACK = t.AVG_PACK,
+                                   STR_UNIT = t3.NAME,
+                                   WHOLESALEPRICE_ITEM = t1.WHOLESALEPRICE_ITEM,
+                                   UNIT_BALANCE_TEXT = t.UNIT_BALANCE_TEXT,
+                                   PACK_BALANCE = t.PACK_BALANCE,
+                                   ITEM_BALANCE = t.ITEM_BALANCE,
+                                   BOX_BALANCE = t.BOX_BALANCE,
+                                   CATE_CODE = t5.CATE_CODE,
+                                   BOXPRICE = t1.BOXPRICE,
+                                   STATUS = t1.STATUS
+
+                               }).AsQueryable();
+                oList = (List<InventoryDTO>)qrydata.AsEnumerable().Select(s => new InventoryDTO
+                {
+                    INV_ID = s.INV_ID,
+                    PRODUCT_ID = s.PRODUCT_ID,
+                    PRODUCT_CODE = s.PRODUCT_CODE,
+                    PRODUCT_NAME = s.PRODUCT_NAME,
+                    REMARK = s.REMARK,
+                    QTY = s.QTY,
+                    UNIT = s.UNIT,
+                    BALANCE = s.BALANCE,
+                    ORDER_DATE = s.ORDER_DATE,
+                    C_BY = s.C_BY,
+                    C_DATE = s.C_DATE,
+                    AMOUNT = s.AMOUNT,
+                    TOTAL_AMOUNT = s.TOTAL_AMOUNT,
+                    STR_AMOUNT = string.Format("{0} {1}", s.AMOUNT, ""),
+                    STR_TOTAL_AMOUNT = string.Format("{0} {1}", s.TOTAL_AMOUNT, ""),
+                    STR_ORDERDATE = s.ORDER_DATE.Value.ToString("dd/MM/yyyy", clsFunction.formatThai),
+                    CONDITION1 = s.CONDITION1,
+                    CONDITION2 = s.CONDITION2,
+
+                    RETAILPRICE = s.RETAILPRICE,
+                    WHOLESALEPRICE = s.WHOLESALEPRICE,
+                    AVGCOST = s.AVGCOST,
+                    WHOLESALEPROFIT = s.WHOLESALEPROFIT,
+                    RETAILPROFIT = s.RETAILPROFIT,
+                    AVG_ITEM = s.AVG_ITEM,
+                    AVG_PACK = s.AVG_PACK,
+                    STR_UNIT = s.STR_UNIT,
+                    WHOLESALEPRICE_ITEM = s.WHOLESALEPRICE_ITEM,
+                    UNIT_BALANCE_TEXT = s.UNIT_BALANCE_TEXT,
+                    PACK_BALANCE = s.PACK_BALANCE,
+                    ITEM_BALANCE = s.ITEM_BALANCE,
+                    BOX_BALANCE = s.BOX_BALANCE,
+                    CATE_CODE = s.CATE_CODE,
+                    BOXPRICE = s.BOXPRICE,
+                    STATUS = s.STATUS
+
+                }).ToList();
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+            return oList;
+        }
+
+        public List<InventoryDTO> GetProductParent(int? id)
         {
             POSSYSTEMEntities _db = new POSSYSTEMEntities();
             List<InventoryDTO> oList = new List<InventoryDTO>();

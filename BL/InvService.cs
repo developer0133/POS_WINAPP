@@ -47,6 +47,12 @@ namespace BL
         {
             return _inv.GetAllInventory2(id);
         }
+
+        public static List<InventoryDTO> GetProductParent(int? id)
+        {
+            return _inv.GetProductParent(id);
+        }
+
         public static List<INV_PRODUCTS> GetInventory(int id)
         {
             return _inv.GetInventory(id);

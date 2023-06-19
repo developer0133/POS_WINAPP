@@ -106,6 +106,7 @@ namespace POS.Forms
                 obj.PRODUCT_ID = PID; //master
                 obj.PRODUCT_ID2 = pModel.PRODUCT_ID;
                 obj.UNIT = unit;
+                obj.RETAILPROFIT = decimal.Parse(txtProfitRetail.Text);
 
                 obj.REMARK = txtRemark.Text;
                 obj.C_BY = UserModel.USERNAME;
@@ -200,7 +201,7 @@ namespace POS.Forms
 
             dgvInv.Columns.Clear();
             dgvInv.DataSource = null;
-            var invData = InvService.GetAllInventory2(null);
+            var invData = InvService.GetProductParent(null);
          
 
             var tmp = (from a in invData
