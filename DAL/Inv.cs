@@ -10,6 +10,7 @@ using System.Data.Entity.Infrastructure;
 using DATA_Models.DTO;
 using ZXing.QrCode.Internal;
 using System.Runtime.Remoting.Contexts;
+using System.Runtime.InteropServices;
 
 namespace DAL
 {
@@ -373,7 +374,6 @@ namespace DAL
                         pd.PRODUCT_SIZE_ID = objProdduct.PRODUCT_SIZE_ID;
                         pd.COSTPRICE = objProdduct.COSTPRICE;
 
-
                         pd.STATUS = STATUS.ACTIVE;
                         pd.C_DATE = clsFunction.GetDate();
                         pd.E_DATE = clsFunction.GetDate();
@@ -413,9 +413,9 @@ namespace DAL
                         
                         _db.INV_PRODUCTS.Add(inv);
                         _db.SaveChanges();
-                    }
 
-                   
+                        isSuccess = true;
+                    }
                     _db.Dispose();
                 }
             }
@@ -618,8 +618,6 @@ namespace DAL
                         isSuccess = true;
                     }
                 }
-
-
             }
             catch (DbUpdateConcurrencyException ex)
             {
@@ -648,7 +646,7 @@ namespace DAL
             string strunit = string.Empty;
 
             var qry = (from t in _db.INV_PRODUCTS
-                       join t2 in _db.PARAMETER.Where(w => w.MAJOR_CODE == POSPARAMETER.UNIT && w.STATUS == STATUS.ACTIVE) on t.UNIT equals t2.MINOR_CODE
+                       join t2 in _db.PARAMETER.Where(w => w.MAJOR_CODE == POSPARAMETER.UNITSELL && w.STATUS == STATUS.ACTIVE) on t.UNIT equals t2.MINOR_CODE
                        where t.PRODUCT_ID == pid
                        select new
                        {

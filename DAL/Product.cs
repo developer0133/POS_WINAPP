@@ -72,7 +72,7 @@ namespace DAL
                         qrydata = (from t in _db.PRODUCTS.Where(w => w.STATUS == STATUS.ACTIVE)
                                    join t1 in _db.PARAMETER.Where(w => w.MAJOR_CODE == POSPARAMETER.POSPARAMETER_TYPE && w.STATUS == STATUS.ACTIVE) on t.PRODUCT_TYPE_ID equals t1.MINOR_CODE
                                    join t2 in _db.PARAMETER.Where(w => w.MAJOR_CODE == POSPARAMETER.POSPARAMETER_SIZE && w.STATUS == STATUS.ACTIVE) on t.PRODUCT_SIZE_ID equals t2.MINOR_CODE
-                                   join t6 in _db.PARAMETER.Where(w => w.MAJOR_CODE == POSPARAMETER.UNIT && w.STATUS == STATUS.ACTIVE) on t.UNIT equals t6.MINOR_CODE
+                                   join t6 in _db.PARAMETER.Where(w => w.MAJOR_CODE == POSPARAMETER.UNITSELL && w.STATUS == STATUS.ACTIVE) on t.UNIT equals t6.MINOR_CODE
                                    join t3 in _db.CATEGORY on t.CATEGORY_ID equals t3.CATEGORY_ID
                                    join t4 in _db.INV_PRODUCTS on t.PRODUCT_ID equals t4.PRODUCT_ID into ct
                                    from t5 in ct.DefaultIfEmpty()

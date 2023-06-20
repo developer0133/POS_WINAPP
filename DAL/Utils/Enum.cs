@@ -28,6 +28,7 @@ namespace DAL.Utils
         public const string POSPARAMETER_SIZE = "SIZE";
         public const string POSPARAMETER_TYPE = "TYPE";
         public const string UNIT = "UNIT";
+        public const string UNITSELL = "UNITSELL";
     }
 
     public sealed class PARAMETERCODE
