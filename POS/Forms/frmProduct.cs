@@ -113,7 +113,7 @@ namespace POS.Forms
 
             if (string.IsNullOrEmpty(txtProductName.Text))
             {
-                MessageBox.Show("กรุณาระบุข้อมูล", "POS", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(MESSAGEALERT.FULLFILL, "POS", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
@@ -172,7 +172,7 @@ namespace POS.Forms
 
                 if (isSuccess)
                 {
-                    MessageBox.Show("Completed", "POS");
+                    MessageBox.Show(MESSAGEALERT.COMPLETED, "POS");
                     Clear();
                     pageNumber = 1;
                     PopulateDataGridView();

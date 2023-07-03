@@ -246,7 +246,7 @@ namespace POS.Forms
 
                 if (!string.IsNullOrEmpty(isSuccess))
                 {
-                    MessageBox.Show("Completed", "POS");
+                    MessageBox.Show(MESSAGEALERT.COMPLETED, "POS");
                     btnReport.Enabled = true;
                     strSellNo = isSuccess;
                 }

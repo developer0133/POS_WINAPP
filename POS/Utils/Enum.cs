@@ -67,5 +67,14 @@ namespace POS.Utils
 
     }
 
+    public sealed class MESSAGEALERT
+    {
+        public MESSAGEALERT() { }
+        public const string COMPLETED = "บันทึกสำเร็จ";
+        public const string DUPLICATE = "ข้อมูลซ้ำ";
+        public const string TRYAGAIN = "ลองอีกครั้ง";
+        public const string FULLFILL = "ระบุข้อมูล";
+    }
+
 
 }

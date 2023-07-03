@@ -87,7 +87,7 @@ namespace POS.Forms
 
             if (string.IsNullOrEmpty(txtMajorCode.Text) || string.IsNullOrEmpty(txtMinorCode.Text) || string.IsNullOrEmpty(txtName.Text))
             {
-                MessageBox.Show("กรุณาระบุข้อมูล", "POS", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(MESSAGEALERT.FULLFILL, "POS", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
@@ -109,7 +109,7 @@ namespace POS.Forms
 
                     if (isSuccess)
                     {
-                        MessageBox.Show("บันทึกสำเร็จ", "POS");
+                        MessageBox.Show(MESSAGEALERT.COMPLETED, "POS");
                         Clear();
                         PopulateDataGridView();
                     }
@@ -129,13 +129,13 @@ namespace POS.Forms
                     bool isSuccess = ParameterService.InsertParameter(obj);
                     if (isSuccess)
                     {
-                        MessageBox.Show("Completed", "POS");
+                        MessageBox.Show(MESSAGEALERT.COMPLETED, "POS");
                         Clear();
                         PopulateDataGridView();
                     }
                     else
                     {
-                        MessageBox.Show("ข้อมูลซ้ำ", "POS");
+                        MessageBox.Show(MESSAGEALERT.DUPLICATE, "POS");
                     }
                 }
             }
@@ -153,13 +153,13 @@ namespace POS.Forms
 
                     if (isSuccess)
                     {
-                        MessageBox.Show("Completed", "POS");
+                        MessageBox.Show(MESSAGEALERT.COMPLETED, "POS");
                         Clear();
                         PopulateDataGridView();
                     }
                     else
                     {
-                        MessageBox.Show("Try again.", "POS");
+                        MessageBox.Show(MESSAGEALERT.TRYAGAIN, "POS");
                     }
                 }
             }
