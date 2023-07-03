@@ -14,8 +14,7 @@ using DAL.Utils;
 using POS.Utils;
 using System.IO;
 using DATA_Models.Models;
-//using Microsoft.Reporting.WinForms;
-using Microsoft.Reporting.WebForms;
+using Microsoft.Reporting.WinForms;
 using GreatFriends.ThaiBahtText;
 
 namespace POS.Forms

@@ -48,11 +48,6 @@ namespace POS.Forms
             this.btnSave = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.lblSum = new System.Windows.Forms.Label();
-            this.sqlSelectCommand1 = new System.Data.SqlClient.SqlCommand();
-            this.sqlInsertCommand1 = new System.Data.SqlClient.SqlCommand();
-            this.sqlUpdateCommand1 = new System.Data.SqlClient.SqlCommand();
-            this.sqlDeleteCommand1 = new System.Data.SqlClient.SqlCommand();
-            this.sqlDataAdapter1 = new System.Data.SqlClient.SqlDataAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSell)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,7 +66,7 @@ namespace POS.Forms
             this.lblName.AutoSize = true;
             this.lblName.Location = new System.Drawing.Point(17, 75);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(61, 17);
+            this.lblName.Size = new System.Drawing.Size(59, 16);
             this.lblName.TabIndex = 42;
             this.lblName.Text = "Barcode";
             // 
@@ -244,13 +239,6 @@ namespace POS.Forms
             this.lblSum.TabIndex = 48;
             this.lblSum.Text = "รวมสุทธิ 0 บาท";
             // 
-            // sqlDataAdapter1
-            // 
-            this.sqlDataAdapter1.DeleteCommand = this.sqlDeleteCommand1;
-            this.sqlDataAdapter1.InsertCommand = this.sqlInsertCommand1;
-            this.sqlDataAdapter1.SelectCommand = this.sqlSelectCommand1;
-            this.sqlDataAdapter1.UpdateCommand = this.sqlUpdateCommand1;
-            // 
             // frmSell
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -296,10 +284,5 @@ namespace POS.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn UNIT_ID;
         private System.Windows.Forms.Button btnReport;
         private System.Windows.Forms.Label lblSum;
-        private System.Data.SqlClient.SqlCommand sqlSelectCommand1;
-        private System.Data.SqlClient.SqlCommand sqlInsertCommand1;
-        private System.Data.SqlClient.SqlCommand sqlUpdateCommand1;
-        private System.Data.SqlClient.SqlCommand sqlDeleteCommand1;
-        private System.Data.SqlClient.SqlDataAdapter sqlDataAdapter1;
     }
 }

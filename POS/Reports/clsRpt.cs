@@ -1,6 +1,6 @@
 ﻿using BL;
 using DATA_Models.Models;
-using Microsoft.Reporting.WebForms;
+using Microsoft.Reporting.WinForms;
 using POS.Utils;
 using POS_Utility;
 using System;

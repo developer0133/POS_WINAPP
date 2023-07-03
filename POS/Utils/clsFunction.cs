@@ -9,11 +9,14 @@ using System.IO;
 using System.Drawing;
 using System.Windows.Forms;
 using DATA_Models.Models;
-using Microsoft.Reporting.WebForms;
+using Microsoft.Reporting.WinForms;
 using BL;
 using POS_Utility;
 using System.Configuration;
 using GreatFriends.ThaiBahtText;
+using Microsoft.ReportingServices.Interfaces;
+using System.Data.Entity.Core.Metadata.Edm;
+using System.Web.UI.WebControls;
 
 namespace POS.Utils
 {
@@ -181,28 +184,47 @@ namespace POS.Utils
                 decimal? sumAmount = rptData.Sum(s => s.AMOUNT);
                 string strsSumAmount = "";
                 strsSumAmount = sumAmount.HasValue ? string.Format("{0} {1}", Utils.clsFunction.setFormatCurrency(sumAmount), "บาท") : string.Empty;
-                decimal amount = 121.50M;
+                //decimal amount = 121.50M;
                 string bahtText = sumAmount.ThaiBahtText();
 
-                ReportParameterCollection parameters = new ReportParameterCollection();
-                parameters.Add(new ReportParameter("printby", OReport.printby));
-                parameters.Add(new ReportParameter("total", strsSumAmount.ToString()));
-                parameters.Add(new ReportParameter("cdate", Utils.clsFunction.setFormatDateWithTime(rptData.First().CDATE, true).ToString()));
-                parameters.Add(new ReportParameter("date", Utils.clsFunction.setFormatDateWithTime(Utils.clsFunction.GetDate(), true).ToString()));
-                parameters.Add(new ReportParameter("no", OReport.code.ToString()));
-                parameters.Add(new ReportParameter("bahttext", bahtText));
+                //ReportParameterCollection parameters = new ReportParameterCollection();
+                ////ReportParameter[] pm = new ReportParameter[6];
+                ////pm[0] = new ReportParameter("printby", OReport.printby);
+                ////pm[1] = new ReportParameter("total", strsSumAmount.ToString());
+                ////pm[2] = new ReportParameter("cdate", Utils.clsFunction.setFormatDateWithTime(rptData.First().CDATE, true).ToString());
+                ////pm[3] = new ReportParameter("date", Utils.clsFunction.setFormatDateWithTime(Utils.clsFunction.GetDate(), true).ToString());
+                ////pm[4] = new ReportParameter("no", OReport.code.ToString());
+                ////pm[5] = new ReportParameter("bahttext", bahtText);
+
+                //parameters.Add(new ReportParameter("printby", OReport.printby));
+                //parameters.Add(new ReportParameter("total", strsSumAmount.ToString()));
+                //parameters.Add(new ReportParameter("cdate", Utils.clsFunction.setFormatDateWithTime(rptData.First().CDATE, true).ToString()));
+                //parameters.Add(new ReportParameter("date", Utils.clsFunction.setFormatDateWithTime(Utils.clsFunction.GetDate(), true).ToString()));
+                //parameters.Add(new ReportParameter("no", OReport.code.ToString()));
+                //parameters.Add(new ReportParameter("bahttext", bahtText));
+
+               ReportParameter[] parameters = new ReportParameter[]
+               {
+                   new Microsoft.Reporting.WinForms.ReportParameter("printby", OReport.printby),
+                   new Microsoft.Reporting.WinForms.ReportParameter("total", strsSumAmount.ToString()),
+                   new Microsoft.Reporting.WinForms.ReportParameter("cdate", Utils.clsFunction.setFormatDateWithTime(rptData.First().CDATE, true).ToString()),
+                   new Microsoft.Reporting.WinForms.ReportParameter("date", Utils.clsFunction.setFormatDateWithTime(Utils.clsFunction.GetDate(), true).ToString()),
+                   new Microsoft.Reporting.WinForms.ReportParameter("no", OReport.code.ToString()),
+                   new Microsoft.Reporting.WinForms.ReportParameter("bahttext", bahtText)
+               };
 
                 try
                 {
 
                     ReportViewer viewer = new ReportViewer();
                     viewer.ProcessingMode = ProcessingMode.Local;
-                    viewer.LocalReport.ReportPath = rptPath;//"D:/Workspace/DotNet/Inventory/POS_WINAPP3/POS_WINAPP/POS/Reports/SellReport.rdlc";
+                    viewer.LocalReport.ReportPath = rptPath;//rptPath;//"D:/Workspace/DotNet/Inventory/POS_WINAPP3/POS_WINAPP/POS/Reports/SellReport.rdlc";
+
                     viewer.LocalReport.SetParameters(parameters);
                     viewer.LocalReport.DataSources.Add(new ReportDataSource("sell_DS", rptData));
 
                     byte[] bytes = viewer.LocalReport.Render("PDF", null, out mimeType, out encoding, out filenameExtension, out streamids, out warnings);
-
+          
                     using (FileStream fs = new FileStream(saveFile, FileMode.Create))
                     {
                         fs.Write(bytes, 0, bytes.Length);
@@ -224,6 +246,7 @@ namespace POS.Utils
                 catch (Exception ex)
                 {
                     isSuccess = false;
+                    MessageBox.Show(ex.Message);
                 }
             }
             else

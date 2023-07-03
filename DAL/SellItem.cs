@@ -167,10 +167,10 @@ namespace DAL
                             }
                             else
                             {
-                                if (calqty > itemBalance)
-                                {
-                                    throw new Exception("จำนวนสินค้าคงเหลือไม่พอ");
-                                }
+                                //if (calqty > itemBalance)
+                                //{
+                                //    throw new Exception("จำนวนสินค้าคงเหลือไม่พอ");
+                                //}
                             }
 
                             if (currentUnit.MINOR_CODE == "1016" || currentUnit.MINOR_CODE == "1017" || currentUnit.MINOR_CODE == "1018")//rice

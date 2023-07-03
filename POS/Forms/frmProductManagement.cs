@@ -202,8 +202,7 @@ namespace POS.Forms
             dgvInv.Columns.Clear();
             dgvInv.DataSource = null;
             var invData = InvService.GetProductParent(null);
-         
-
+        
             var tmp = (from a in invData
                        select new
                        {
@@ -239,7 +238,6 @@ namespace POS.Forms
             dgvInv.Columns[3].Name = "STR_UNIT";
             dgvInv.Columns[4].Name = "RETAILPRICE";
             dgvInv.Columns[5].Name = "REMARK";
-
 
             dgvInv.Columns[0].DataPropertyName = "INV_ID";
             dgvInv.Columns[1].DataPropertyName = "PRODUCT_CODE";
