@@ -293,10 +293,8 @@ namespace POS.Utils
             parameters.Add(new ReportParameter("date", Utils.clsFunction.setFormatDateWithTime(Utils.clsFunction.GetDate(), true).ToString()));
             parameters.Add(new ReportParameter("total", strsSumAmount.ToString()));
 
-
             try
             {
-
                 ReportViewer viewer = new ReportViewer();
                 viewer.ProcessingMode = ProcessingMode.Local;
                 viewer.LocalReport.ReportPath = rptPath;//path;//"D:/Workspace/DotNet/Inventory/POS_WINAPP3/POS_WINAPP/POS/Reports/SellReport.rdlc";

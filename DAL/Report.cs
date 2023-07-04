@@ -93,7 +93,7 @@ namespace DAL
                     {
                         var qry = (from t1 in sellItem
                                    join t2 in _db.PRODUCTS on t1.PRODUCT_ID equals t2.PRODUCT_ID
-                                   join t3 in _db.PARAMETER.Where(w => w.MAJOR_CODE == POSPARAMETER.UNIT && w.STATUS == STATUS.ACTIVE) on t1.UNIT equals t3.MINOR_CODE
+                                   join t3 in _db.PARAMETER.Where(w => w.MAJOR_CODE == POSPARAMETER.UNITSELL && w.STATUS == STATUS.ACTIVE) on t1.UNIT equals t3.MINOR_CODE
 
                                    select new ReportModel2
                                    {
