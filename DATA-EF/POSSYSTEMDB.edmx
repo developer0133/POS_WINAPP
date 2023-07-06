@@ -48,10 +48,11 @@
           <Property Name="AVG_ITEM" Type="decimal" Precision="18" Scale="2" />
           <Property Name="WHOLESALEPRICE_ITEM" Type="decimal" Precision="18" Scale="2" />
           <Property Name="UNIT_BALANCE_TEXT" Type="nvarchar" MaxLength="100" />
-          <Property Name="PACK_BALANCE" Type="int" />
-          <Property Name="ITEM_BALANCE" Type="int" />
-          <Property Name="BOX_BALANCE" Type="int" />
+          <Property Name="PACK_BALANCE" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="ITEM_BALANCE" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="BOX_BALANCE" Type="decimal" Precision="18" Scale="2" />
           <Property Name="BOXPRICE" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="PRODUCT_ID2" Type="int" />
         </EntityType>
         <EntityType Name="LOGIN_ACCESS">
           <Key>
@@ -270,6 +271,7 @@
           <Property Name="ITEM_BALANCE" Type="Int32" />
           <Property Name="BOX_BALANCE" Type="Int32" />
           <Property Name="BOXPRICE" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="PRODUCT_ID2" Type="Int32" />
         </EntityType>
         <EntityType Name="LOGIN_ACCESS">
           <Key>
@@ -465,6 +467,7 @@
           <EntitySetMapping Name="INV_PRODUCTS">
             <EntityTypeMapping TypeName="POSSYSTEMModel.INV_PRODUCTS">
               <MappingFragment StoreEntitySet="INV_PRODUCTS">
+                <ScalarProperty Name="PRODUCT_ID2" ColumnName="PRODUCT_ID2" />
                 <ScalarProperty Name="INV_ID" ColumnName="INV_ID" />
                 <ScalarProperty Name="PRODUCT_ID" ColumnName="PRODUCT_ID" />
                 <ScalarProperty Name="ORDER_DATE" ColumnName="ORDER_DATE" />

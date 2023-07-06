@@ -23,6 +23,7 @@
     <EntitySetMapping Name="INV_PRODUCTS">
       <EntityTypeMapping TypeName="POSSYSTEMModel.INV_PRODUCTS">
         <MappingFragment StoreEntitySet="INV_PRODUCTS">
+          <ScalarProperty Name="PRODUCT_ID2" ColumnName="PRODUCT_ID2" />
           <ScalarProperty Name="INV_ID" ColumnName="INV_ID" />
           <ScalarProperty Name="PRODUCT_ID" ColumnName="PRODUCT_ID" />
           <ScalarProperty Name="ORDER_DATE" ColumnName="ORDER_DATE" />

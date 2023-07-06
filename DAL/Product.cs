@@ -336,6 +336,24 @@ namespace DAL
             return  list;
         }
 
+        public List<ProductAutoCompleteDTO> GetProductAutoComplete2()
+        {
+            List<ProductAutoCompleteDTO> list = new List<ProductAutoCompleteDTO>();
+
+            using (POSSYSTEMEntities _db = new POSSYSTEMEntities())
+            {
+                list = (from t in _db.PRODUCTS.Where(w => w.STATUS == STATUS.ACTIVE && !w.PRODUCT_CODE.Contains(".") && w.PARENT_ID > 0).AsNoTracking()
+                        select new ProductAutoCompleteDTO
+                        {
+                            PRODUCT_ID = t.PRODUCT_ID,
+                            PRODUCT_NAME = t.PRODUCT_NAME + "-" + t.PRODUCT_CODE,
+                            PRODUCT_CODE = t.PRODUCT_CODE,
+                        }).ToList();
+            }
+
+            return list;
+        }
+
         public List<ProductOutOfStockDTO> GetOutOfStock()
         {
             POSSYSTEMEntities _db = new POSSYSTEMEntities();

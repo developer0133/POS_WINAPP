@@ -42,7 +42,6 @@ namespace DATA_EF
         public Nullable<decimal> AVG_ITEM { get; set; }
         public Nullable<decimal> WHOLESALEPRICE_ITEM { get; set; }
         public Nullable<decimal> BOXPRICE { get; set; }
-
         public Nullable<int> PARENT_ID { get; set; }
     }
 }

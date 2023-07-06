@@ -43,9 +43,9 @@ namespace DATA_Models.DTO
         public decimal? WHOLESALEPRICE_ITEM { get; set; }
         public string UNIT_BALANCE_TEXT { get; set; }
 
-        public int? PACK_BALANCE { get; set; }
-        public int? ITEM_BALANCE { get; set; }
-        public int? BOX_BALANCE { get; set; }
+        public decimal? PACK_BALANCE { get; set; }
+        public decimal? ITEM_BALANCE { get; set; }
+        public decimal? BOX_BALANCE { get; set; }
 
         public string CATE_CODE { get; set; }
         public decimal? BOXPRICE { get; set; }

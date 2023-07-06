@@ -197,8 +197,8 @@ namespace DAL
 
                                 if (currentUnit.NAME.Contains("ลัง"))
                                 {
-                                    int totalQty1 = 0;
-                                    int totalQty2 = 0;
+                                    decimal totalQty1 = 0;
+                                    decimal totalQty2 = 0;
 
                                     if (int.Parse(u1) > 0)
                                     {

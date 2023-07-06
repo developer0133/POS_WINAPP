@@ -47,6 +47,7 @@
     <Property Name="ITEM_BALANCE" Type="Int32" />
     <Property Name="BOX_BALANCE" Type="Int32" />
     <Property Name="BOXPRICE" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="PRODUCT_ID2" Type="Int32" />
   </EntityType>
   <EntityType Name="LOGIN_ACCESS">
     <Key>

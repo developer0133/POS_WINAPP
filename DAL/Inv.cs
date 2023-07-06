@@ -25,9 +25,9 @@ namespace DAL
                 using (POSSYSTEMEntities _db = new POSSYSTEMEntities())
                 {
                     decimal balance = 0;
-                    int? old_packBalance = 0;
-                    int? old_itemBalance = 0;
-                    int? old_boxBalance = 0;
+                    decimal? old_packBalance = 0;
+                    decimal? old_itemBalance = 0;
+                    decimal? old_boxBalance = 0;
 
                     var invObj = _db.INV_PRODUCTS.Where(w => w.PRODUCT_ID == InvData.PRODUCT_ID).FirstOrDefault();
                     ORDER_HISTORY objHist = new ORDER_HISTORY();
@@ -59,9 +59,9 @@ namespace DAL
                     var itemBalance = InvData.ITEM_BALANCE;
                     var boxBalance = InvData.BOX_BALANCE;
 
-                    InvData.PACK_BALANCE = InvData.PACK_BALANCE + old_packBalance;
-                    InvData.ITEM_BALANCE = InvData.ITEM_BALANCE + old_itemBalance;
-                    InvData.BOX_BALANCE = InvData.BOX_BALANCE + old_boxBalance;
+                    //InvData.PACK_BALANCE = InvData.PACK_BALANCE + old_packBalance;
+                    //InvData.ITEM_BALANCE = InvData.ITEM_BALANCE + old_itemBalance;
+                    //InvData.BOX_BALANCE = InvData.BOX_BALANCE + old_boxBalance;
 
                     InvData.BALANCE = (InvData.BALANCE + balance);
                     InvData.ORDER_DATE = InvData.ORDER_DATE.Value;
@@ -341,7 +341,7 @@ namespace DAL
 
                     var objProdduct = _db.PRODUCTS.Where(w => w.PRODUCT_ID == InvData.PRODUCT_ID).SingleOrDefault();
 
-                    if (InvData.PRODUCT_ID2 == 0)
+                    if (InvData.PRODUCT_ID2 == 0 || InvData.PRODUCT_ID2 == null)
                     {
                         int running_id = _db.MASTER_RUNNING.Max(x => (int?)x.RUNNING_ID) ?? 0 + 1; //_db.MASTER_RUNNING.Max(s => s.RUNNING_NO);
                         MASTER_RUNNING mstRunning = new MASTER_RUNNING();
@@ -382,30 +382,29 @@ namespace DAL
                         pd.UNIT = InvData.UNIT;
                         pd.PARENT_ID = objProdduct.PRODUCT_ID;
                         pd.PRODUCT_NAME = objProdduct.PRODUCT_NAME;
-
+ 
                         _db.PRODUCTS.Add(pd);
                         _db.SaveChanges();
 
                         ///inv
                         inv.PRODUCT_ID = pd.PRODUCT_ID;
-                        inv.ORDER_DATE = invObj.ORDER_DATE;
+                        inv.ORDER_DATE = InvData.ORDER_DATE;//invObj.ORDER_DATE;
                         inv.QTY = InvData.QTY;
                         inv.PACK_BALANCE = InvData.PACK_BALANCE;
                         inv.ITEM_BALANCE = InvData.ITEM_BALANCE;
                         inv.BOX_BALANCE = InvData.BOX_BALANCE;
-                        inv.ORDER_DATE = invObj.ORDER_DATE;
 
                         inv.UNIT = InvData.UNIT;
                         inv.E_BY = InvData.C_BY;
                         inv.C_DATE = clsFunction.GetDate();
                         inv.E_DATE = clsFunction.GetDate();
                         inv.RETAILPROFIT = InvData.RETAILPROFIT;
-                        inv.WHOLESALEPROFIT = invObj.WHOLESALEPROFIT;
-                        inv.AVG_PACK = invObj.AVG_PACK;
-                        inv.AVG_ITEM = invObj.AVG_ITEM;
-                        inv.WHOLESALEPRICE_ITEM = invObj.WHOLESALEPRICE_ITEM;
+                        inv.WHOLESALEPROFIT = InvData.WHOLESALEPROFIT;//invObj.WHOLESALEPROFIT;
+                        inv.AVG_PACK = InvData.AVG_PACK;//invObj.AVG_PACK;
+                        inv.AVG_ITEM = InvData.AVG_ITEM;//invObj.AVG_ITEM;
+                        inv.WHOLESALEPRICE_ITEM = InvData.WHOLESALEPRICE_ITEM;//invObj.WHOLESALEPRICE_ITEM;
                         inv.RETAILPRICE = InvData.RETAILPRICE;
-                        inv.WHOLESALEPRICE = invObj.WHOLESALEPRICE_ITEM;
+                        inv.WHOLESALEPRICE = InvData.WHOLESALEPRICE_ITEM;//invObj.WHOLESALEPRICE_ITEM;
 
                         inv.UNIT_BALANCE_TEXT = String.Format("{0}:ลัง {1}:แพ็ค {2}:ชิ้น", InvData.BOX_BALANCE, InvData.PACK_BALANCE, InvData.ITEM_BALANCE);
 
@@ -773,7 +772,7 @@ namespace DAL
                                join t1 in _db.PRODUCTS.Where(w => w.STATUS == STATUS.ACTIVE) on t.PRODUCT_ID equals t1.PRODUCT_ID//.Where(w => w.STATUS == STATUS.ACTIVE && (string.IsNullOrEmpty(code) || w.PRODUCT_CODE == code)) on t.PRODUCT_ID equals t1.PRODUCT_ID
                                join t5 in _db.CATEGORY on t1.CATEGORY_ID equals t5.CATEGORY_ID
                                join t2 in _db.PARAMETER.Where(w => w.MAJOR_CODE == PARAMETERCODE.PARAMETER_TYPE && w.STATUS == STATUS.ACTIVE) on t1.PRODUCT_TYPE_ID equals t2.MINOR_CODE //into ct
-                               join t4 in _db.PARAMETER.Where(w => w.MAJOR_CODE == PARAMETERCODE.UNITSELL && w.STATUS == STATUS.ACTIVE) on t.UNIT equals t4.MINOR_CODE into c1
+                               join t4 in _db.PARAMETER.Where(w => w.MAJOR_CODE == PARAMETERCODE.UNIT && w.STATUS == STATUS.ACTIVE) on t.UNIT equals t4.MINOR_CODE into c1
                                from t3 in c1.DefaultIfEmpty()
                                where (id.HasValue == false || t1.PRODUCT_ID == id)
 
@@ -869,7 +868,7 @@ namespace DAL
 
             try
             {
-                var qrydata = (from t in _db.INV_PRODUCTS
+                var qrydata = (from t in _db.INV_PRODUCTS.Where(w => w.PRODUCT_ID2 > 0)
                                join t1 in _db.PRODUCTS.Where(w => w.STATUS == STATUS.ACTIVE && w.PARENT_ID > 0) on t.PRODUCT_ID equals t1.PRODUCT_ID//.Where(w => w.STATUS == STATUS.ACTIVE && (string.IsNullOrEmpty(code) || w.PRODUCT_CODE == code)) on t.PRODUCT_ID equals t1.PRODUCT_ID
                                join t5 in _db.CATEGORY on t1.CATEGORY_ID equals t5.CATEGORY_ID
                                join t2 in _db.PARAMETER.Where(w => w.MAJOR_CODE == PARAMETERCODE.PARAMETER_TYPE && w.STATUS == STATUS.ACTIVE) on t1.PRODUCT_TYPE_ID equals t2.MINOR_CODE //into ct

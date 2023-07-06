@@ -18,6 +18,8 @@ namespace DAL
         bool UpdateProduct(PRODUCTS product);
 
         List<ProductAutoCompleteDTO> GetProductAutoComplete();
+
+        List<ProductAutoCompleteDTO> GetProductAutoComplete2();
         List<ProductOutOfStockDTO> GetOutOfStock();
         PRODUCTS GetProductByCODE(string code);
     }

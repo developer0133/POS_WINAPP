@@ -46,7 +46,7 @@ namespace POS.Forms
         { 
             List<ProductAutoCompleteDTO> data = new List<ProductAutoCompleteDTO>();
             AutoCompleteStringCollection coll = new AutoCompleteStringCollection();
-            data = ProductService.GetProductAutoComplete();
+            data = ProductService.GetProductAutoComplete2();
 
             coll.AddRange(data.Select(s => s.PRODUCT_NAME).ToArray());
             coll.AddRange(data.Select(s => s.PRODUCT_ID.ToString()).ToArray());
@@ -65,7 +65,7 @@ namespace POS.Forms
             {
                 var sp = productName.Split('-');
 
-                if (sp.Count() > 0 && sp.Count()>=2)
+                if (sp.Count() > 0 && sp.Count() >= 2)
                 {
                     if (!string.IsNullOrEmpty(sp[1]))
                     {

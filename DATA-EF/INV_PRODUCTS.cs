@@ -40,7 +40,6 @@ namespace DATA_EF
         public Nullable<int> ITEM_BALANCE { get; set; }
         public Nullable<int> BOX_BALANCE { get; set; }
         public Nullable<decimal> BOXPRICE { get; set; }
-
         public Nullable<int> PRODUCT_ID2 { get; set; }
     }
 }

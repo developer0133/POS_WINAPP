@@ -120,12 +120,12 @@ namespace POS.Forms
 
             if (objUnit != null)
             {
-                int con1 = string.IsNullOrEmpty(((PARAMETER)objUnit).CONDITION1) ? 0 : int.Parse(((PARAMETER)objUnit).CONDITION1);
-                int con2 = string.IsNullOrEmpty(((PARAMETER)objUnit).CONDITION2) ? 0 : int.Parse(((PARAMETER)objUnit).CONDITION2);
+                decimal con1 = string.IsNullOrEmpty(((PARAMETER)objUnit).CONDITION1) ? 0 : decimal.Parse(((PARAMETER)objUnit).CONDITION1);
+                decimal con2 = string.IsNullOrEmpty(((PARAMETER)objUnit).CONDITION2) ? 0 : decimal.Parse(((PARAMETER)objUnit).CONDITION2);
                 decimal amount = 0;
                 amount = string.IsNullOrEmpty(txtAmount.Text) ? 0 : decimal.Parse(txtAmount.Text);
 
-                int qtyTotal = 0;
+                decimal qtyTotal = 0;
                 int tmpQty = string.IsNullOrEmpty(txtQty.Text) ? 0 : int.Parse(txtQty.Text);
                 decimal packPrice = 0;
                 decimal itemPrice = 0;
@@ -200,7 +200,8 @@ namespace POS.Forms
                 }
 
                 txtCostAvgItem.Text = itemPrice.ToString("#,###.00");
-        
+                txtCostAvgBox.Text = packPrice.ToString("#,###.00");
+
                 this.QtyBalance();
             }
         }
@@ -295,8 +296,8 @@ namespace POS.Forms
 
             object objUnit = cboUnit.SelectedItem;
             string objName = string.IsNullOrEmpty(((PARAMETER)objUnit).NAME) ? string.Empty : ((PARAMETER)objUnit).NAME;
-            int con1 = string.IsNullOrEmpty(((PARAMETER)objUnit).CONDITION1) ? 0 : int.Parse(((PARAMETER)objUnit).CONDITION1);
-            int con2 = string.IsNullOrEmpty(((PARAMETER)objUnit).CONDITION2) ? 0 : int.Parse(((PARAMETER)objUnit).CONDITION2);
+            decimal con1 = string.IsNullOrEmpty(((PARAMETER)objUnit).CONDITION1) ? 0 : decimal.Parse(((PARAMETER)objUnit).CONDITION1);
+            decimal con2 = string.IsNullOrEmpty(((PARAMETER)objUnit).CONDITION2) ? 0 : decimal.Parse(((PARAMETER)objUnit).CONDITION2);
 
             var qtyTotal = 0;
             var flagPack = false;
