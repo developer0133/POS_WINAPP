@@ -22,5 +22,7 @@ namespace DAL
         List<ProductAutoCompleteDTO> GetProductAutoComplete2();
         List<ProductOutOfStockDTO> GetOutOfStock();
         PRODUCTS GetProductByCODE(string code);
+
+        PRODUCTS GetProductParent(string code);
     }
 }

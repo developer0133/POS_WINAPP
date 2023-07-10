@@ -49,5 +49,9 @@ namespace BL
         {
             return _product.GetProductByCODE(code);
         }
+        public static PRODUCTS GetProductParent(string code)
+        {
+            return _product.GetProductParent(code);
+        }
     }
 }

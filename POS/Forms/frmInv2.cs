@@ -421,6 +421,7 @@ namespace POS.Forms
             obj.PACK_BALANCE = string.IsNullOrEmpty(txtPackBalance.Text) ? 0 : int.Parse(txtPackBalance.Text);
             obj.ITEM_BALANCE = string.IsNullOrEmpty(txtItemBalance.Text) ? 0 : int.Parse(txtItemBalance.Text);
             obj.REMARK = txtRemark.Text;
+            obj.TOTAL_AMOUNT = string.IsNullOrEmpty(txtAmount.Text) ? 0 : decimal.Parse(txtAmount.Text);
 
             obj.ORDER_DATE = invdate.Value;
             obj.C_BY = UserModel.USERNAME;
@@ -431,7 +432,8 @@ namespace POS.Forms
             {
                 ////update 
                 obj.PRODUCT_ID = pModel.PRODUCT_ID;
-                isSuccess = InvService.UpdateInventory(obj);
+                obj.INV_ID = pModel.INV_ID;
+                isSuccess = InvService.UpdateInventory2(obj);
             }
             else
             {
@@ -446,6 +448,7 @@ namespace POS.Forms
                 }
 
                 obj.PRODUCT_ID = pid;
+                obj.PRODUCT_ID2 = pid;
                 isSuccess = InvService.InsertInventory2(obj);
             }
 

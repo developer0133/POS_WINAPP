@@ -336,13 +336,25 @@ namespace DAL
                     PRODUCTS pd = new PRODUCTS();
                     INV_PRODUCTS inv = new INV_PRODUCTS();
 
-                    var invObj = _db.INV_PRODUCTS.Where(w => w.PRODUCT_ID == InvData.PRODUCT_ID).FirstOrDefault();
+                    var invObj = _db.INV_PRODUCTS.Where(w => w.PRODUCT_ID == InvData.PRODUCT_ID && w.UNIT == InvData.UNIT).FirstOrDefault();
 
-
-                    var objProdduct = _db.PRODUCTS.Where(w => w.PRODUCT_ID == InvData.PRODUCT_ID).SingleOrDefault();
-
-                    if (InvData.PRODUCT_ID2 == 0 || InvData.PRODUCT_ID2 == null)
+                    var invObj2 = _db.INV_PRODUCTS.Count(w => w.PRODUCT_ID2 == InvData.PRODUCT_ID2 && w.UNIT == InvData.UNIT);
+                    if (invObj2 > 0)
                     {
+                        isSuccess = false;
+                    }
+                    else
+                    {
+                        var objP = _db.PRODUCTS.Where(w => w.PRODUCT_ID == InvData.PRODUCT_ID).FirstOrDefault();
+                        if (objP != null && objP.PARENT_ID == null)//update 
+                        {
+                        }
+
+
+                        var objProdduct = _db.PRODUCTS.Where(w => w.PRODUCT_ID == InvData.PRODUCT_ID).SingleOrDefault();
+
+                        //if (InvData.PRODUCT_ID2 == 0 || InvData.PRODUCT_ID2 == null)
+                        //{
                         int running_id = _db.MASTER_RUNNING.Max(x => (int?)x.RUNNING_ID) ?? 0 + 1; //_db.MASTER_RUNNING.Max(s => s.RUNNING_NO);
                         MASTER_RUNNING mstRunning = new MASTER_RUNNING();
 
@@ -380,15 +392,25 @@ namespace DAL
                         pd.C_BY = objProdduct.C_BY;
                         pd.E_BY = objProdduct.C_BY;
                         pd.UNIT = InvData.UNIT;
-                        pd.PARENT_ID = objProdduct.PRODUCT_ID;
+                        pd.PARENT_ID = InvData.PRODUCT_ID2;// objProdduct.PRODUCT_ID;
                         pd.PRODUCT_NAME = objProdduct.PRODUCT_NAME;
- 
+
                         _db.PRODUCTS.Add(pd);
                         _db.SaveChanges();
 
                         ///inv
                         inv.PRODUCT_ID = pd.PRODUCT_ID;
-                        inv.ORDER_DATE = InvData.ORDER_DATE;//invObj.ORDER_DATE;
+
+
+                        if (InvData.ORDER_DATE == null)
+                        {
+                            inv.ORDER_DATE = objProdduct.C_DATE;//invObj.ORDER_DATE;
+                        }
+                        else
+                        {
+                            inv.ORDER_DATE = InvData.ORDER_DATE;//invObj.ORDER_DATE;
+                        }
+
                         inv.QTY = InvData.QTY;
                         inv.PACK_BALANCE = InvData.PACK_BALANCE;
                         inv.ITEM_BALANCE = InvData.ITEM_BALANCE;
@@ -405,15 +427,111 @@ namespace DAL
                         inv.WHOLESALEPRICE_ITEM = InvData.WHOLESALEPRICE_ITEM;//invObj.WHOLESALEPRICE_ITEM;
                         inv.RETAILPRICE = InvData.RETAILPRICE;
                         inv.WHOLESALEPRICE = InvData.WHOLESALEPRICE_ITEM;//invObj.WHOLESALEPRICE_ITEM;
+                        inv.TOTAL_AMOUNT = InvData.TOTAL_AMOUNT;
 
                         inv.UNIT_BALANCE_TEXT = String.Format("{0}:ลัง {1}:แพ็ค {2}:ชิ้น", InvData.BOX_BALANCE, InvData.PACK_BALANCE, InvData.ITEM_BALANCE);
 
                         InvData.C_BY = InvData.C_BY;
-                        
+                        inv.PRODUCT_ID2 = InvData.PRODUCT_ID2;
+
                         _db.INV_PRODUCTS.Add(inv);
                         _db.SaveChanges();
 
                         isSuccess = true;
+                        //}
+
+                        //if (invObj != null)
+                        //{
+                        //    balance = invObj.BALANCE.HasValue ? invObj.BALANCE.Value : 0;
+                        //    old_packBalance = invObj.PACK_BALANCE.HasValue ? invObj.PACK_BALANCE.Value : 0;
+                        //    old_itemBalance = invObj.ITEM_BALANCE.HasValue ? invObj.ITEM_BALANCE.Value : 0;
+                        //    old_boxBalance = invObj.BOX_BALANCE.HasValue ? invObj.BOX_BALANCE.Value : 0;
+
+                        //    var delProduct = _db.PRODUCTS.Where(w => w.PRODUCT_ID == InvData.PRODUCT_ID).FirstOrDefault();
+                        //    if (delProduct != null)
+                        //    {
+                        //        _db.PRODUCTS.Remove(delProduct);
+                        //    }
+
+                        //    _db.INV_PRODUCTS.Remove(invObj);
+                        //}
+
+                        //var objProdduct = _db.PRODUCTS.Where(w => w.PRODUCT_ID == InvData.PRODUCT_ID).SingleOrDefault();
+
+                        //if (InvData.PRODUCT_ID2 == 0 || InvData.PRODUCT_ID2 == null)
+                        //{
+                        //    int running_id = _db.MASTER_RUNNING.Max(x => (int?)x.RUNNING_ID) ?? 0 + 1; //_db.MASTER_RUNNING.Max(s => s.RUNNING_NO);
+                        //    MASTER_RUNNING mstRunning = new MASTER_RUNNING();
+
+                        //    if (running_id > 1)
+                        //    {
+                        //        running_id++;
+                        //    }
+
+                        //    mstRunning.RUNNING_NO = running_id;
+
+                        //    UpdateMasterRunning(mstRunning);
+
+                        //    string catecode = "1";
+
+                        //    pd.PRODUCT_CODE = clsFunction.GenFormatCode(mstRunning.RUNNING_NO.Value, catecode, "P");
+                        //    pd.AVG_ITEM = objProdduct.AVG_ITEM;
+                        //    pd.AVG_PACK = objProdduct.AVG_PACK;
+                        //    pd.RETAILPRICE = InvData.RETAILPRICE;
+                        //    pd.SELLPRICE = InvData.RETAILPRICE;
+                        //    pd.WHOLESALEPRICE = 0;
+                        //    pd.BOXPRICE = InvData.BOXPRICE.HasValue ? InvData.BOXPRICE.Value : 0;
+
+                        //    pd.AVGCOST = objProdduct.AVGCOST;
+                        //    pd.WHOLESALEPROFIT = objProdduct.WHOLESALEPROFIT;
+                        //    pd.RETAILPROFIT = InvData.RETAILPROFIT;//objProdduct.RETAILPROFIT;
+                        //    pd.WHOLESALEPRICE_ITEM = objProdduct.WHOLESALEPRICE_ITEM;
+                        //    pd.CATEGORY_ID = objProdduct.CATEGORY_ID;
+                        //    pd.PRODUCT_TYPE_ID = objProdduct.PRODUCT_TYPE_ID;
+                        //    pd.PRODUCT_SIZE_ID = objProdduct.PRODUCT_SIZE_ID;
+                        //    pd.COSTPRICE = objProdduct.COSTPRICE;
+
+                        //    pd.STATUS = STATUS.ACTIVE;
+                        //    pd.C_DATE = clsFunction.GetDate();
+                        //    pd.E_DATE = clsFunction.GetDate();
+                        //    pd.C_BY = objProdduct.C_BY;
+                        //    pd.E_BY = objProdduct.C_BY;
+                        //    pd.UNIT = InvData.UNIT;
+                        //    pd.PARENT_ID = objProdduct.PRODUCT_ID;
+                        //    pd.PRODUCT_NAME = objProdduct.PRODUCT_NAME;
+
+                        //    _db.PRODUCTS.Add(pd);
+                        //    _db.SaveChanges();
+
+                        //    ///inv
+                        //    inv.PRODUCT_ID = pd.PRODUCT_ID;
+                        //    inv.ORDER_DATE = InvData.ORDER_DATE;//invObj.ORDER_DATE;
+                        //    inv.QTY = InvData.QTY;
+                        //    inv.PACK_BALANCE = InvData.PACK_BALANCE;
+                        //    inv.ITEM_BALANCE = InvData.ITEM_BALANCE;
+                        //    inv.BOX_BALANCE = InvData.BOX_BALANCE;
+
+                        //    inv.UNIT = InvData.UNIT;
+                        //    inv.E_BY = InvData.C_BY;
+                        //    inv.C_DATE = clsFunction.GetDate();
+                        //    inv.E_DATE = clsFunction.GetDate();
+                        //    inv.RETAILPROFIT = InvData.RETAILPROFIT;
+                        //    inv.WHOLESALEPROFIT = InvData.WHOLESALEPROFIT;//invObj.WHOLESALEPROFIT;
+                        //    inv.AVG_PACK = InvData.AVG_PACK;//invObj.AVG_PACK;
+                        //    inv.AVG_ITEM = InvData.AVG_ITEM;//invObj.AVG_ITEM;
+                        //    inv.WHOLESALEPRICE_ITEM = InvData.WHOLESALEPRICE_ITEM;//invObj.WHOLESALEPRICE_ITEM;
+                        //    inv.RETAILPRICE = InvData.RETAILPRICE;
+                        //    inv.WHOLESALEPRICE = InvData.WHOLESALEPRICE_ITEM;//invObj.WHOLESALEPRICE_ITEM;
+
+                        //    inv.UNIT_BALANCE_TEXT = String.Format("{0}:ลัง {1}:แพ็ค {2}:ชิ้น", InvData.BOX_BALANCE, InvData.PACK_BALANCE, InvData.ITEM_BALANCE);
+
+                        //    InvData.C_BY = InvData.C_BY;
+                        //    inv.PRODUCT_ID2 = pd.PRODUCT_ID;
+
+                        //    _db.INV_PRODUCTS.Add(inv);
+                        //    _db.SaveChanges();
+
+                        //    isSuccess = true;
                     }
                     _db.Dispose();
                 }
@@ -570,7 +688,7 @@ namespace DAL
                         //objProdduct.WHOLESALEPRICE_ITEM = InvData.WHOLESALEPRICE_ITEM.HasValue ? InvData.WHOLESALEPRICE_ITEM.Value : 0;
                         //objProdduct.BOXPRICE = InvData.BOXPRICE.HasValue ? InvData.BOXPRICE.Value : 0;
 
-                        //objProdduct.SELLPRICE = InvData.WHOLESALEPRICE.HasValue ? InvData.WHOLESALEPRICE.Value : 0;
+                        objProdduct.SELLPRICE = InvData.RETAILPRICE.HasValue ? InvData.RETAILPRICE.Value : 0;
 
                         objProdduct.REMARK = InvData.REMARK;
                   
@@ -593,8 +711,7 @@ namespace DAL
                             //invpd.ORDER_DATE = InvData.ORDER_DATE;
                             invpd.UNIT = InvData.UNIT;
                             invpd.REMARK = InvData.REMARK;
-
-                            
+                            invpd.TOTAL_AMOUNT = InvData.TOTAL_AMOUNT;
 
                             _db.Entry(invpd).State = EntityState.Modified;
                         }
@@ -666,14 +783,14 @@ namespace DAL
 
             try
             {
-                var qrydata = (from t in _db.INV_PRODUCTS
-                               join t1 in _db.PRODUCTS.Where(w=>w.STATUS==STATUS.ACTIVE) on t.PRODUCT_ID equals t1.PRODUCT_ID//.Where(w => w.STATUS == STATUS.ACTIVE && (string.IsNullOrEmpty(code) || w.PRODUCT_CODE == code)) on t.PRODUCT_ID equals t1.PRODUCT_ID
+                var qrydata = (from t in _db.INV_PRODUCTS.Where(w => w.QTY > 0)
+                               join t1 in _db.PRODUCTS.Where(w => w.STATUS == STATUS.ACTIVE) on t.PRODUCT_ID equals t1.PRODUCT_ID//.Where(w => w.STATUS == STATUS.ACTIVE && (string.IsNullOrEmpty(code) || w.PRODUCT_CODE == code)) on t.PRODUCT_ID equals t1.PRODUCT_ID
                                join t5 in _db.CATEGORY on t1.CATEGORY_ID equals t5.CATEGORY_ID
                                join t2 in _db.PARAMETER.Where(w => w.MAJOR_CODE == PARAMETERCODE.PARAMETER_TYPE && w.STATUS == STATUS.ACTIVE) on t1.PRODUCT_TYPE_ID equals t2.MINOR_CODE //into ct
                                join t4 in _db.PARAMETER.Where(w => w.MAJOR_CODE == PARAMETERCODE.UNIT && w.STATUS == STATUS.ACTIVE) on t.UNIT equals t4.MINOR_CODE into c1
                                from t3 in c1.DefaultIfEmpty()
                                where (string.IsNullOrEmpty(code)
-                               ||t1.PRODUCT_CODE == code || t1.PRODUCT_NAME.Trim().Contains(code.Trim()))
+                               || t1.PRODUCT_CODE == code || t1.PRODUCT_NAME.Trim().Contains(code.Trim()))
 
                                select new InventoryDTO
                                {
@@ -883,7 +1000,7 @@ namespace DAL
                                    PRODUCT_NAME = t1.PRODUCT_NAME,
                                    PRODUCT_CODE = t1.PRODUCT_CODE,
                                    REMARK = t.REMARK,
-                                   QTY = t.QTY,
+                                   QTY = t.QTY, 
                                    AMOUNT = t.AMOUNT,
                                    TOTAL_AMOUNT = t.TOTAL_AMOUNT,
                                    ORDER_DATE = t.ORDER_DATE,

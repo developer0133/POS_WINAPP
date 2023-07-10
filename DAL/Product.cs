@@ -10,12 +10,14 @@ using DAL.Utils;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using POS_Utility;
+using ZXing.QrCode.Internal;
+using System.Data.Odbc;
 
 namespace DAL
 {
     public class Product : IProduct
     {
-        public List<ProductDTO> GetProduct(string code,string flag)
+        public List<ProductDTO> GetProduct(string code, string flag)
         {
             clsLog.Info("GetProduct");
 
@@ -25,8 +27,8 @@ namespace DAL
                 using (POSSYSTEMEntities _db = new POSSYSTEMEntities())
                 {
                     var test = _db.PRODUCTS.ToList();
-                   
-                    var qrydata = (from t in _db.PRODUCTS.Where(w => w.STATUS == STATUS.ACTIVE)
+
+                    var qrydata = (from t in _db.PRODUCTS.Where(w => w.STATUS == STATUS.ACTIVE && w.PARENT_ID.HasValue == false)
                                    join t1 in _db.PARAMETER.Where(w => w.MAJOR_CODE == POSPARAMETER.POSPARAMETER_TYPE && w.STATUS == STATUS.ACTIVE) on t.PRODUCT_TYPE_ID equals t1.MINOR_CODE
                                    join t2 in _db.PARAMETER.Where(w => w.MAJOR_CODE == POSPARAMETER.POSPARAMETER_SIZE && w.STATUS == STATUS.ACTIVE) on t.PRODUCT_SIZE_ID equals t2.MINOR_CODE
                                    //join t6 in _db.PARAMETER.Where(w => w.MAJOR_CODE == POSPARAMETER.UNIT && w.STATUS == STATUS.ACTIVE) on t.UNIT equals t6.MINOR_CODE
@@ -408,6 +410,17 @@ namespace DAL
             return obj;
         }
 
+        public PRODUCTS GetProductParent(string code)
+        {
+            POSSYSTEMEntities _db = new POSSYSTEMEntities();
+            int parentId = 0;
+
+            var obj = _db.PRODUCTS.Where(w => w.PRODUCT_CODE == code).SingleOrDefault();
+
+            var obj2 = _db.PRODUCTS.Where(w => w.PARENT_ID == obj.PRODUCT_ID).FirstOrDefault();
+
+            return obj2;
+        }
 
     }
 }

@@ -286,10 +286,11 @@ namespace DAL
                 using (var scope = new TransactionScope(TransactionScopeOption.Required,
                           new TransactionOptions { IsolationLevel = IsolationLevel.ReadUncommitted }))
                 {
-                    var qry = (from t1 in _db.SELLITEMS.Where(w => w.PRODUCT_ID == productid)
+                    var qry = (from t1 in _db.SELLITEMS
                                join t2 in _db.PRODUCTS on t1.PRODUCT_ID equals t2.PRODUCT_ID
-                               join t3 in _db.PARAMETER.Where(w => w.MAJOR_CODE == POSPARAMETER.UNIT && w.STATUS == STATUS.ACTIVE) on t2.UNIT equals t3.MINOR_CODE into c1
+                               join t3 in _db.PARAMETER.Where(w => w.MAJOR_CODE == POSPARAMETER.UNITSELL && w.STATUS == STATUS.ACTIVE) on t2.UNIT equals t3.MINOR_CODE into c1
                                from t4 in c1.DefaultIfEmpty()
+                               where productid.ToString().Contains(t2.PARENT_ID.ToString())//.ToString().Contains(productid.ToString())
                                select new //SellsItemDTO
                                {
                                    PRODUCT_CODE = t1.PRODUCT_CODE,
@@ -302,6 +303,25 @@ namespace DAL
                                    SELLITEM_NO = t1.SELLITEM_NO,
                                    STR_UNIT = t4.NAME
                                }).AsQueryable();
+
+
+                    //var qry = (from t1 in _db.SELLITEMS.Where(w => w.PRODUCT_ID == productid)
+                    //           join t2 in _db.PRODUCTS on t1.PRODUCT_ID equals t2.PRODUCT_ID
+                    //           join t5 in _db.INV_PRODUCTS on t2.PARENT_ID equals t5.PRODUCT_ID2
+                    //           join t3 in _db.PARAMETER.Where(w => w.MAJOR_CODE == POSPARAMETER.UNIT && w.STATUS == STATUS.ACTIVE) on t2.UNIT equals t3.MINOR_CODE into c1
+                    //           from t4 in c1.DefaultIfEmpty()
+                    //           select new //SellsItemDTO
+                    //           {
+                    //               PRODUCT_CODE = t1.PRODUCT_CODE,
+                    //               //PRODUCT_NAME = t2.PRODUCT_NAME,
+                    //               Qty = t1.QTY,
+                    //               //UNIT = t1.UNIT,
+                    //               AMOUNT = t1.AMOUNT,
+                    //               DISCOUNT = t1.DISCOUNT,
+                    //               SELL_DATE = t1.C_DATE,
+                    //               SELLITEM_NO = t1.SELLITEM_NO,
+                    //               STR_UNIT = t4.NAME
+                    //           }).AsQueryable();
 
                     var test = qry.AsEnumerable().Select((s, index) => new 
                     {

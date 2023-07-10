@@ -21,6 +21,7 @@ namespace POS.Forms
         InventoryDTO pModel = new InventoryDTO();
         List<InventoryDTO> dt = null;
         private int PID = 0;
+        private int MasterID = 0;
         public frmProductManagement()
         {
             InitializeComponent();
@@ -46,7 +47,7 @@ namespace POS.Forms
         { 
             List<ProductAutoCompleteDTO> data = new List<ProductAutoCompleteDTO>();
             AutoCompleteStringCollection coll = new AutoCompleteStringCollection();
-            data = ProductService.GetProductAutoComplete2();
+            data = ProductService.GetProductAutoComplete();
 
             coll.AddRange(data.Select(s => s.PRODUCT_NAME).ToArray());
             coll.AddRange(data.Select(s => s.PRODUCT_ID.ToString()).ToArray());
@@ -70,12 +71,14 @@ namespace POS.Forms
                     if (!string.IsNullOrEmpty(sp[1]))
                     {
                         var pid = ProductService.GetProduct(sp[1], string.Empty).Select(s => s.PRODUCT_ID).FirstOrDefault();
+                        var productObj = ProductService.GetProductParent(sp[1]);
 
-                        if (pid > 0)
+                        if (productObj != null)
                         {
-                            PID = pid;
+                            PID = productObj.PRODUCT_ID;
+                            MasterID = pid;
 
-                            var objInv = InvService.GetAllInventory2(pid).SingleOrDefault();
+                            var objInv = InvService.GetAllInventory2(PID).SingleOrDefault();
 
                             if (objInv != null)
                             {
@@ -104,7 +107,7 @@ namespace POS.Forms
                 obj.RETAILPRICE = string.IsNullOrEmpty(txtRetailprice.Text) ? 0 : decimal.Parse(txtRetailprice.Text);
 
                 obj.PRODUCT_ID = PID; //master
-                obj.PRODUCT_ID2 = pModel.PRODUCT_ID;
+                obj.PRODUCT_ID2 = MasterID; // pModel.PRODUCT_ID;
                 obj.UNIT = unit;
                 obj.RETAILPROFIT = decimal.Parse(txtProfitRetail.Text);
 
@@ -158,15 +161,18 @@ namespace POS.Forms
             {
                 pModel = InvService.GetAllInventory(code).SingleOrDefault();
 
-                cboUnit.SelectedValue = pModel.UNIT;
-                txtProductName.Text = pModel.PRODUCT_NAME;
-                txtRetailprice.Text = pModel.RETAILPRICE.HasValue ? pModel.RETAILPRICE.Value.ToString() : string.Empty;
-                txtCostAvgItem.Text = pModel.AVG_ITEM.HasValue ? pModel.AVG_ITEM.Value.ToString() : string.Empty;
-                txtRemark.Text = pModel.REMARK;
+                if (pModel != null)
+                {
+                    cboUnit.SelectedValue = pModel.UNIT;
+                    txtProductName.Text = pModel.PRODUCT_NAME;
+                    txtRetailprice.Text = pModel.RETAILPRICE.HasValue ? pModel.RETAILPRICE.Value.ToString() : string.Empty;
+                    txtCostAvgItem.Text = pModel.AVG_ITEM.HasValue ? pModel.AVG_ITEM.Value.ToString() : string.Empty;
+                    txtRemark.Text = pModel.REMARK;
 
-                txtProfitRetail.Text = pModel.RETAILPROFIT.HasValue ? pModel.RETAILPROFIT.Value.ToString() : string.Empty;
-                txtWholesaleprofit.Text = pModel.WHOLESALEPROFIT.HasValue ? pModel.WHOLESALEPROFIT.Value.ToString() : string.Empty;
-                txtWholesalePriceItem.Text = pModel.WHOLESALEPRICE_ITEM.HasValue ? pModel.WHOLESALEPRICE_ITEM.Value.ToString() : string.Empty;
+                    txtProfitRetail.Text = pModel.RETAILPROFIT.HasValue ? pModel.RETAILPROFIT.Value.ToString() : string.Empty;
+                    txtWholesaleprofit.Text = pModel.WHOLESALEPROFIT.HasValue ? pModel.WHOLESALEPROFIT.Value.ToString() : string.Empty;
+                    txtWholesalePriceItem.Text = pModel.WHOLESALEPRICE_ITEM.HasValue ? pModel.WHOLESALEPRICE_ITEM.Value.ToString() : string.Empty;
+                }
             }
         }
 
