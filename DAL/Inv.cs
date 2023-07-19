@@ -342,13 +342,13 @@ namespace DAL
                     var invObj2 = _db.INV_PRODUCTS.Where(w => w.PRODUCT_ID2 == InvData.PRODUCT_ID && w.UNIT == InvData.UNIT).FirstOrDefault();
                     if (invObj2 != null)
                     {
-                        isSuccess = false;
                         _db.INV_PRODUCTS.Remove(invObj);
                     }
 
-                    var objP = _db.PRODUCTS.Where(w => w.PRODUCT_ID == InvData.PRODUCT_ID).FirstOrDefault();
-                    if (objP != null && objP.PARENT_ID == null)//update 
+                    var objP = _db.PRODUCTS.Where(w => w.PARENT_ID == InvData.PRODUCT_ID && w.UNIT == InvData.UNIT).FirstOrDefault();
+                    if (objP != null)
                     {
+                        _db.PRODUCTS.Remove(objP);
                     }
 
                     var objProdduct = _db.PRODUCTS.Where(w => w.PRODUCT_ID == InvData.PRODUCT_ID).SingleOrDefault();
