@@ -26,8 +26,6 @@ namespace DAL
             {
                 using (POSSYSTEMEntities _db = new POSSYSTEMEntities())
                 {
-                    var test = _db.PRODUCTS.ToList();
-
                     var qrydata = (from t in _db.PRODUCTS.Where(w => w.STATUS == STATUS.ACTIVE && w.PARENT_ID.HasValue == false)
                                    join t1 in _db.PARAMETER.Where(w => w.MAJOR_CODE == POSPARAMETER.POSPARAMETER_TYPE && w.STATUS == STATUS.ACTIVE) on t.PRODUCT_TYPE_ID equals t1.MINOR_CODE
                                    join t2 in _db.PARAMETER.Where(w => w.MAJOR_CODE == POSPARAMETER.POSPARAMETER_SIZE && w.STATUS == STATUS.ACTIVE) on t.PRODUCT_SIZE_ID equals t2.MINOR_CODE
@@ -71,13 +69,14 @@ namespace DAL
 
                     if (flag == "sell")
                     {
-                        qrydata = (from t in _db.PRODUCTS.Where(w => w.STATUS == STATUS.ACTIVE)
-                                   join t1 in _db.PARAMETER.Where(w => w.MAJOR_CODE == POSPARAMETER.POSPARAMETER_TYPE && w.STATUS == STATUS.ACTIVE) on t.PRODUCT_TYPE_ID equals t1.MINOR_CODE
-                                   join t2 in _db.PARAMETER.Where(w => w.MAJOR_CODE == POSPARAMETER.POSPARAMETER_SIZE && w.STATUS == STATUS.ACTIVE) on t.PRODUCT_SIZE_ID equals t2.MINOR_CODE
-                                   join t6 in _db.PARAMETER.Where(w => w.MAJOR_CODE == POSPARAMETER.UNITSELL && w.STATUS == STATUS.ACTIVE) on t.UNIT equals t6.MINOR_CODE
-                                   join t3 in _db.CATEGORY on t.CATEGORY_ID equals t3.CATEGORY_ID
-                                   join t4 in _db.INV_PRODUCTS on t.PRODUCT_ID equals t4.PRODUCT_ID into ct
-                                   from t5 in ct.DefaultIfEmpty()
+                        qrydata = (from t in _db.PRODUCTS.Where(w => w.STATUS == STATUS.ACTIVE && w.PARENT_ID.HasValue == true)
+                                   join t2 in _db.INV_PRODUCTS on t.PRODUCT_ID equals t2.PRODUCT_ID
+                                   //join t3 in _db.PARAMETER.Where(w => w.MAJOR_CODE == POSPARAMETER.POSPARAMETER_TYPE && w.STATUS == STATUS.ACTIVE) on t.PRODUCT_TYPE_ID equals t1.MINOR_CODE
+                                   //join t2 in _db.PARAMETER.Where(w => w.MAJOR_CODE == POSPARAMETER.POSPARAMETER_SIZE && w.STATUS == STATUS.ACTIVE) on t.PRODUCT_SIZE_ID equals t2.MINOR_CODE
+                                   join t5 in _db.PARAMETER.Where(w => w.MAJOR_CODE == POSPARAMETER.UNIT && w.STATUS == STATUS.ACTIVE) on t2.UNIT equals t5.MINOR_CODE
+                                   //join t3 in _db.CATEGORY on t.CATEGORY_ID equals t3.CATEGORY_ID
+                                   //join t4 in _db.INV_PRODUCTS on t.PRODUCT_ID equals t4.PRODUCT_ID into ct
+                                   //from t5 in ct.DefaultIfEmpty()
 
                                    where (string.IsNullOrEmpty(code) || t.PRODUCT_CODE == code) || t.PRODUCT_NAME.Trim().Contains(code.Trim())
                                    select new ProductDTO //ProductsModel
@@ -86,17 +85,17 @@ namespace DAL
                                        PRODUCT_CODE = t.PRODUCT_CODE,
                                        PRODUCT_NAME = t.PRODUCT_NAME,
                                        REMARK = t.REMARK,
-                                       PRODUCT_TYPE = t1.NAME,
-                                       PRODUCT_SIZE = t2.NAME,
+                                       //PRODUCT_TYPE = t1.NAME,
+                                       //PRODUCT_SIZE = t2.NAME,
                                        SELLPRICE = t.SELLPRICE,
-                                       CATEGORYNAME = t3.CATEGORY_NAME,
+                                       //CATEGORYNAME = t3.CATEGORY_NAME,
                                        STATUS = t.STATUS,
                                        CATEGORY_ID = t.CATEGORY_ID,
                                        PRODUCT_SIZE_ID = t.PRODUCT_SIZE_ID,
                                        PRODUCT_TYPE_ID = t.PRODUCT_TYPE_ID,
-                                       UNIT = t5.UNIT,
+                                       UNIT = t2.UNIT,
                                        QTY = t.QTY,//t5.QTY,
-                                       BALANCE = t5.UNIT_BALANCE_TEXT,
+                                       BALANCE = t2.UNIT_BALANCE_TEXT,
                                        BARCODE = t.BARCODE,
                                        RETAILPRICE = t.RETAILPRICE,
                                        WHOLESALEPRICE = t.WHOLESALEPRICE,
@@ -107,7 +106,7 @@ namespace DAL
                                        AVG_PACK = t.AVG_PACK,
                                        WHOLESALEPRICE_ITEM = t.WHOLESALEPRICE_ITEM,
                                        UNIT_ID = t.UNIT,
-                                       UNIT_BALANCE_TEXT = t5.UNIT_BALANCE_TEXT,
+                                       UNIT_BALANCE_TEXT = t2.UNIT_BALANCE_TEXT,
                                        //STRUNIT = t6.NAME,
                                        BOXPRICE = t.BOXPRICE
                                    }).AsQueryable();
@@ -223,8 +222,8 @@ namespace DAL
                     product.STATUS = STATUS.ACTIVE;
                     product.C_DATE = clsFunction.GetDate();
                     product.E_DATE = clsFunction.GetDate();
-                    product.C_BY = product.C_BY;
-                    product.E_BY = product.C_BY;
+                    product.C_BY = UserModel.USERNAME;
+                    product.E_BY = UserModel.USERNAME;
 
                     _db.PRODUCTS.Add(product);
                      _db.SaveChanges();

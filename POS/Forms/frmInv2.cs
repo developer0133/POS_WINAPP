@@ -20,7 +20,7 @@ namespace POS.Forms
     {
         List<InventoryDTO> dt = null;
         InventoryDTO pModel = null;
-
+        List<PARAMETER> dtUnit = null;
         public frmInv2()
         {
             InitializeComponent();
@@ -70,6 +70,8 @@ namespace POS.Forms
             cboUnit.DisplayMember = "NAME";
             cboUnit.ValueMember = "MINOR_CODE";
             cboUnit.DataSource = parm;
+
+            dtUnit = parm;
         }
 
         private void txtRetailprice_KeyPress(object sender, KeyPressEventArgs e)
@@ -170,8 +172,18 @@ namespace POS.Forms
                         if (con1 > 0)
                         {
                             var qtyPack = tmpQty * con1;
-                            var calitem = (amount / qtyPack);
-                            var calpack = (amount / tmpQty);
+                            decimal calitem = 0; //(amount / qtyPack);
+                            decimal calpack = 0; //(amount / tmpQty);
+
+                            if (amount > 0 && qtyPack > 0)
+                            {
+                                calitem = (amount / qtyPack);
+                            }
+
+                            if (amount > 0 && qtyPack > 0)
+                            {
+                                calpack = (amount / tmpQty);
+                            }
 
                             packPrice = calitem;
                             itemPrice = calpack;
@@ -604,6 +616,64 @@ namespace POS.Forms
 
         }
 
-      
+        private void cboUnit_TextChanged(object sender, EventArgs e)
+        {
+
+            //DataTable dt = (DataTable)cboUnit.DataSource;
+            //var qry = from DataRow dr in dt.Rows
+            //          where dr["Name"].ToString().ToLower().Contains(cboUnit.Text)
+            //          select dr;
+            //dt = qry.CopyToDataTable();
+            //this.cboUnit.DataSource = dt;
+
+
+            //if (cboUnit.Text.Length > 1)
+            //{
+            //    if (dtUnit !=null)
+            //    {
+            //        var parm = dtUnit.Where(w => w.NAME.Contains(cboUnit.Text));
+
+            //        //cboUnit.DisplayMember = "NAME";
+            //        //cboUnit.ValueMember = "MINOR_CODE";
+            //        cboUnit.DroppedDown = true ;
+            //    }
+
+            //}
+
+        }
+
+        private void UpdateData()
+        {
+            if (cboUnit.Text.Length > 1)
+            {
+                //List<string> searchData = ParameterService.GetParameter(PARAMETERCODE.UNIT, cboUnit.Text.ToLower());
+                HandleTextChanged();
+            }
+        }
+
+
+        private void HandleTextChanged()
+        {
+            var text = cboUnit.Text;
+
+            var dataSource = ParameterService.GetParameter(PARAMETERCODE.UNIT, cboUnit.Text.ToLower());
+            if (dataSource.Count() > 0)
+            {
+                cboUnit.DataSource = dataSource;
+
+                var sText = cboUnit.Items[0].ToString();
+                cboUnit.SelectionStart = text.Length;
+                cboUnit.SelectionLength = sText.Length - text.Length;
+                cboUnit.DroppedDown = true;
+
+
+                return;
+            }
+            else
+            {
+                cboUnit.DroppedDown = false;
+                cboUnit.SelectionStart = text.Length;
+            }
+        }
     }
 }

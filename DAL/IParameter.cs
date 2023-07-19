@@ -13,6 +13,7 @@ namespace DAL
     public interface IParameter
     {
         List<PARAMETER> GetParameter(string code);
+        List<PARAMETER> GetParameter(string code, string text);
         PARAMETER GetParameterByID(int id);
         List<PARAMETER> GetParameterAll();
         List<ParameterModel> ParameterSearch(string OSearch);

@@ -37,7 +37,7 @@ namespace POS.Forms
 
         private void GetUnit()
         {
-            var unitSellData = ParameterService.GetParameter(PARAMETERCODE.UNITSELL);
+            var unitSellData = ParameterService.GetParameter(PARAMETERCODE.UNIT);
 
             cboUnit.DisplayMember = "NAME";
             cboUnit.ValueMember = "MINOR_CODE";

@@ -53,6 +53,32 @@ namespace DAL
             return listParm;
         }
 
+        public List<PARAMETER> GetParameter(string code, string text)
+        {
+            List<PARAMETER> listParm = new List<PARAMETER>();
+            _db = new POSSYSTEMEntities();
+            try
+            {
+                //listParm = _db.PARAMETER.Where(w => w.STATUS == STATUS.ACTIVE && w.MAJOR_CODE == code).ToList();
+
+                var qry = (from t in _db.PARAMETER
+                           where t.STATUS == STATUS.ACTIVE
+                            && t.MAJOR_CODE == code
+                            && string.IsNullOrEmpty(text)
+                                || t.NAME == text || t.NAME.Trim().Contains(text.Trim())
+                           select   t).ToList();
+
+                listParm = qry;
+                _db.Dispose();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+            return listParm;
+        }
+
         public bool InsertParameter(PARAMETER pData)
         {
             bool isSuccess = false;

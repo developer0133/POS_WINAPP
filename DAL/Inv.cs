@@ -762,7 +762,7 @@ namespace DAL
             string strunit = string.Empty;
 
             var qry = (from t in _db.INV_PRODUCTS
-                       join t2 in _db.PARAMETER.Where(w => w.MAJOR_CODE == POSPARAMETER.UNITSELL && w.STATUS == STATUS.ACTIVE) on t.UNIT equals t2.MINOR_CODE
+                       join t2 in _db.PARAMETER.Where(w => w.MAJOR_CODE == POSPARAMETER.UNIT && w.STATUS == STATUS.ACTIVE) on t.UNIT equals t2.MINOR_CODE
                        where t.PRODUCT_ID == pid
                        select new
                        {
@@ -786,7 +786,7 @@ namespace DAL
                 var qrydata = (from t in _db.INV_PRODUCTS.Where(w => w.QTY > 0)
                                join t1 in _db.PRODUCTS.Where(w => w.STATUS == STATUS.ACTIVE) on t.PRODUCT_ID equals t1.PRODUCT_ID//.Where(w => w.STATUS == STATUS.ACTIVE && (string.IsNullOrEmpty(code) || w.PRODUCT_CODE == code)) on t.PRODUCT_ID equals t1.PRODUCT_ID
                                join t5 in _db.CATEGORY on t1.CATEGORY_ID equals t5.CATEGORY_ID
-                               join t2 in _db.PARAMETER.Where(w => w.MAJOR_CODE == PARAMETERCODE.PARAMETER_TYPE && w.STATUS == STATUS.ACTIVE) on t1.PRODUCT_TYPE_ID equals t2.MINOR_CODE //into ct
+                               //join t2 in _db.PARAMETER.Where(w => w.MAJOR_CODE == PARAMETERCODE.PARAMETER_TYPE && w.STATUS == STATUS.ACTIVE) on t1.PRODUCT_TYPE_ID equals t2.MINOR_CODE //into ct
                                join t4 in _db.PARAMETER.Where(w => w.MAJOR_CODE == PARAMETERCODE.UNIT && w.STATUS == STATUS.ACTIVE) on t.UNIT equals t4.MINOR_CODE into c1
                                from t3 in c1.DefaultIfEmpty()
                                where (string.IsNullOrEmpty(code)
@@ -888,7 +888,7 @@ namespace DAL
                 var qrydata = (from t in _db.INV_PRODUCTS
                                join t1 in _db.PRODUCTS.Where(w => w.STATUS == STATUS.ACTIVE) on t.PRODUCT_ID equals t1.PRODUCT_ID//.Where(w => w.STATUS == STATUS.ACTIVE && (string.IsNullOrEmpty(code) || w.PRODUCT_CODE == code)) on t.PRODUCT_ID equals t1.PRODUCT_ID
                                join t5 in _db.CATEGORY on t1.CATEGORY_ID equals t5.CATEGORY_ID
-                               join t2 in _db.PARAMETER.Where(w => w.MAJOR_CODE == PARAMETERCODE.PARAMETER_TYPE && w.STATUS == STATUS.ACTIVE) on t1.PRODUCT_TYPE_ID equals t2.MINOR_CODE //into ct
+                               //join t2 in _db.PARAMETER.Where(w => w.MAJOR_CODE == PARAMETERCODE.PARAMETER_TYPE && w.STATUS == STATUS.ACTIVE) on t1.PRODUCT_TYPE_ID equals t2.MINOR_CODE //into ct
                                join t4 in _db.PARAMETER.Where(w => w.MAJOR_CODE == PARAMETERCODE.UNIT && w.STATUS == STATUS.ACTIVE) on t.UNIT equals t4.MINOR_CODE into c1
                                from t3 in c1.DefaultIfEmpty()
                                where (id.HasValue == false || t1.PRODUCT_ID == id)
@@ -987,9 +987,9 @@ namespace DAL
             {
                 var qrydata = (from t in _db.INV_PRODUCTS.Where(w => w.PRODUCT_ID2 > 0)
                                join t1 in _db.PRODUCTS.Where(w => w.STATUS == STATUS.ACTIVE && w.PARENT_ID > 0) on t.PRODUCT_ID equals t1.PRODUCT_ID//.Where(w => w.STATUS == STATUS.ACTIVE && (string.IsNullOrEmpty(code) || w.PRODUCT_CODE == code)) on t.PRODUCT_ID equals t1.PRODUCT_ID
-                               join t5 in _db.CATEGORY on t1.CATEGORY_ID equals t5.CATEGORY_ID
-                               join t2 in _db.PARAMETER.Where(w => w.MAJOR_CODE == PARAMETERCODE.PARAMETER_TYPE && w.STATUS == STATUS.ACTIVE) on t1.PRODUCT_TYPE_ID equals t2.MINOR_CODE //into ct
-                               join t4 in _db.PARAMETER.Where(w => w.MAJOR_CODE == PARAMETERCODE.UNITSELL && w.STATUS == STATUS.ACTIVE) on t.UNIT equals t4.MINOR_CODE into c1
+                               //join t5 in _db.CATEGORY on t1.CATEGORY_ID equals t5.CATEGORY_ID
+                               //join t2 in _db.PARAMETER.Where(w => w.MAJOR_CODE == PARAMETERCODE.PARAMETER_TYPE && w.STATUS == STATUS.ACTIVE) on t1.PRODUCT_TYPE_ID equals t2.MINOR_CODE //into ct
+                               join t4 in _db.PARAMETER.Where(w => w.MAJOR_CODE == PARAMETERCODE.UNIT && w.STATUS == STATUS.ACTIVE) on t.UNIT equals t4.MINOR_CODE into c1
                                from t3 in c1.DefaultIfEmpty()
                                where (id.HasValue == false || t1.PRODUCT_ID == id)
 
@@ -1024,7 +1024,7 @@ namespace DAL
                                    PACK_BALANCE = t.PACK_BALANCE,
                                    ITEM_BALANCE = t.ITEM_BALANCE,
                                    BOX_BALANCE = t.BOX_BALANCE,
-                                   CATE_CODE = t5.CATE_CODE,
+                                   //CATE_CODE = t5.CATE_CODE,
                                    BOXPRICE = t1.BOXPRICE,
                                    STATUS = t1.STATUS
 
@@ -1063,7 +1063,7 @@ namespace DAL
                     PACK_BALANCE = s.PACK_BALANCE,
                     ITEM_BALANCE = s.ITEM_BALANCE,
                     BOX_BALANCE = s.BOX_BALANCE,
-                    CATE_CODE = s.CATE_CODE,
+                    //CATE_CODE = s.CATE_CODE,
                     BOXPRICE = s.BOXPRICE,
                     STATUS = s.STATUS
 

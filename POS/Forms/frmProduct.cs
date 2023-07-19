@@ -266,8 +266,8 @@ namespace POS.Forms
             dgvSellHist.Columns[0].HeaderText = "เลขที่การขาย";
             dgvSellHist.Columns[1].HeaderText = "วันที่";
             dgvSellHist.Columns[2].HeaderText = "จำนวน";
-            dgvSellHist.Columns[3].HeaderText = "รหัสสินค้า";
-            dgvSellHist.Columns[4].HeaderText = "หน่วย";
+            dgvSellHist.Columns[3].HeaderText = "หน่วย";
+            dgvSellHist.Columns[4].HeaderText = "รหัสสินค้า";
             dgvSellHist.Columns[5].HeaderText = "ราคารวม(บาท)";
             dgvSellHist.Columns[6].HeaderText = "ส่วนลด(บาท)";
 
@@ -282,16 +282,16 @@ namespace POS.Forms
             dgvSellHist.Columns[0].Name = "SELLITEM_NO";
             dgvSellHist.Columns[1].Name = "STR_SELL_DATE";
             dgvSellHist.Columns[2].Name = "Qty";
-            dgvSellHist.Columns[3].Name = "PRODUCT_CODE";
-            dgvSellHist.Columns[4].Name = "STR_UNIT";
+            dgvSellHist.Columns[3].Name = "STR_UNIT";
+            dgvSellHist.Columns[4].Name = "PRODUCT_CODE";
             dgvSellHist.Columns[5].Name = "AMOUNT";
             dgvSellHist.Columns[6].Name = "DISCOUNT";
 
             dgvSellHist.Columns[0].DataPropertyName = "SELLITEM_NO";
             dgvSellHist.Columns[1].DataPropertyName = "STR_SELL_DATE";
             dgvSellHist.Columns[2].DataPropertyName = "Qty";
-            dgvSellHist.Columns[3].DataPropertyName = "PRODUCT_CODE";
-            dgvSellHist.Columns[4].DataPropertyName = "STR_UNIT";
+            dgvSellHist.Columns[3].DataPropertyName = "STR_UNIT";
+            dgvSellHist.Columns[4].DataPropertyName = "PRODUCT_CODE";
             dgvSellHist.Columns[5].DataPropertyName = "AMOUNT";
             dgvSellHist.Columns[6].DataPropertyName = "DISCOUNT";
 

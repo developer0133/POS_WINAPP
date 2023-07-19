@@ -187,6 +187,7 @@ namespace POS.Forms
             this.cboUnit.Size = new System.Drawing.Size(200, 26);
             this.cboUnit.TabIndex = 49;
             this.cboUnit.DropDownClosed += new System.EventHandler(this.cboUnit_DropDownClosed);
+            this.cboUnit.TextChanged += new System.EventHandler(this.cboUnit_TextChanged);
             // 
             // lblTotal
             // 

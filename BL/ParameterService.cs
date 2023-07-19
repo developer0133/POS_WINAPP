@@ -23,6 +23,11 @@ namespace BL
         {
             return _parameter.GetParameter(code);
         }
+
+        public static List<PARAMETER> GetParameter(string code, string text)
+        {
+            return _parameter.GetParameter(code, text);
+        }
         public static List<PARAMETER> GetParameterAll()
         {
             return _parameter.GetParameterAll();
