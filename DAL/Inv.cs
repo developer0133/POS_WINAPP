@@ -460,6 +460,7 @@ namespace DAL
 
                     _db.ORDER_HISTORY.Add(objHist);
 
+                    _db.SaveChanges();
                     isSuccess = true;
 
                     _db.Dispose();
