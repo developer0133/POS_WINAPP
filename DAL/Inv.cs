@@ -433,32 +433,34 @@ namespace DAL
                     _db.INV_PRODUCTS.Add(inv);
                     _db.SaveChanges();
 
-
                     //////// Insert OrderHistory
-                    ///// 
-                    objHist = new ORDER_HISTORY();
-                    objHist.PRODUCT_ID = InvData.PRODUCT_ID2; //pd.PRODUCT_ID;
-                    objHist.ORDER_DATE = inv.ORDER_DATE;
-                    objHist.QTY = InvData.QTY;
-                    objHist.UNIT = InvData.UNIT;
-                    objHist.AMOUNT = InvData.AMOUNT;
-                    objHist.TOTAL_AMOUNT = InvData.TOTAL_AMOUNT;
-                    objHist.REMARK = InvData.REMARK;
-                    objHist.C_BY = InvData.C_BY;
-                    objHist.E_BY = InvData.C_BY;
-                    objHist.C_DATE = clsFunction.GetDate();
-                    objHist.E_DATE = clsFunction.GetDate();
-                    objHist.RETAILPRICE = InvData.RETAILPRICE;
-                    objHist.WHOLESALEPRICE = InvData.WHOLESALEPRICE;
-                    objHist.AVGCOST = objProdduct.AVGCOST;
-                    objHist.WHOLESALEPROFIT = InvData.WHOLESALEPROFIT;
-                    objHist.RETAILPROFIT = InvData.RETAILPROFIT;
-                    objHist.AVG_PACK = InvData.AVG_PACK;
-                    objHist.AVG_ITEM = InvData.AVG_ITEM;
+                    if (InvData.QTY > 0)
+                    {
+                        objHist = new ORDER_HISTORY();
+                        objHist.PRODUCT_ID = InvData.PRODUCT_ID2; //pd.PRODUCT_ID;
+                        objHist.ORDER_DATE = inv.ORDER_DATE;
+                        objHist.QTY = InvData.QTY;
+                        objHist.UNIT = InvData.UNIT;
+                        objHist.AMOUNT = InvData.AMOUNT;
+                        objHist.TOTAL_AMOUNT = InvData.TOTAL_AMOUNT;
+                        objHist.REMARK = InvData.REMARK;
+                        objHist.C_BY = InvData.C_BY;
+                        objHist.E_BY = InvData.C_BY;
+                        objHist.C_DATE = clsFunction.GetDate();
+                        objHist.E_DATE = clsFunction.GetDate();
+                        objHist.RETAILPRICE = InvData.RETAILPRICE;
+                        objHist.WHOLESALEPRICE = InvData.WHOLESALEPRICE;
+                        objHist.AVGCOST = objProdduct.AVGCOST;
+                        objHist.WHOLESALEPROFIT = InvData.WHOLESALEPROFIT;
+                        objHist.RETAILPROFIT = InvData.RETAILPROFIT;
+                        objHist.AVG_PACK = InvData.AVG_PACK;
+                        objHist.AVG_ITEM = InvData.AVG_ITEM;
 
-                    _db.ORDER_HISTORY.Add(objHist);
+                        _db.ORDER_HISTORY.Add(objHist);
 
-                    _db.SaveChanges();
+                        _db.SaveChanges();
+                    }
+                   
                     isSuccess = true;
 
                     _db.Dispose();

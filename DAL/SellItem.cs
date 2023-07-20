@@ -287,8 +287,8 @@ namespace DAL
                           new TransactionOptions { IsolationLevel = IsolationLevel.ReadUncommitted }))
                 {
                     var qry = (from t1 in _db.SELLITEMS
-                               join t2 in _db.PRODUCTS on t1.PRODUCT_ID equals t2.PRODUCT_ID
-                               join t3 in _db.PARAMETER.Where(w => w.MAJOR_CODE == POSPARAMETER.UNITSELL && w.STATUS == STATUS.ACTIVE) on t2.UNIT equals t3.MINOR_CODE into c1
+                               join t2 in _db.PRODUCTS.Where(w => w.PARENT_ID == productid) on t1.PRODUCT_ID equals t2.PRODUCT_ID
+                               join t3 in _db.PARAMETER.Where(w => w.MAJOR_CODE == POSPARAMETER.UNIT && w.STATUS == STATUS.ACTIVE) on t2.UNIT equals t3.MINOR_CODE into c1
                                from t4 in c1.DefaultIfEmpty()
                                where productid.ToString().Contains(t2.PARENT_ID.ToString())//.ToString().Contains(productid.ToString())
                                select new //SellsItemDTO
@@ -323,7 +323,7 @@ namespace DAL
                     //               STR_UNIT = t4.NAME
                     //           }).AsQueryable();
 
-                    var test = qry.AsEnumerable().Select((s, index) => new 
+                    var test = qry.AsEnumerable().Select((s, index) => new
                     {
                         PRODUCT_CODE = s.PRODUCT_CODE,
                         //PRODUCT_NAME = s.PRODUCT_NAME,
