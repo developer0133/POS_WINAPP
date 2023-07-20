@@ -33,39 +33,70 @@ namespace DAL
 
                 DateTime? dt = null;
 
-                var tmpProduct = _db.PRODUCTS.OrderBy(s => s.PRODUCT_ID);
+                //var tmpProduct = _db.PRODUCTS.OrderBy(s => s.PRODUCT_ID);
                 List<string> tmpCode = new List<string>();
                 List<string> tmpCodeNew = new List<string>();
 
-                tmpCode = tmpProduct.Select(s => s.PRODUCT_CODE).ToList();
+                //tmpCode = tmpProduct.Select(s => s.PRODUCT_CODE).ToList();
 
-                foreach (var item in tmpCode)
-                {
-                    string[] sp = item.Split('_');
+                //foreach (var item in tmpCode)
+                //{
+                //    string[] sp = item.Split('_');
 
-                    if (!tmpCodeNew.Any(p => p == item))
-                    {
-                        tmpCodeNew.Add(sp[0]);
-                    }
-                }
+                //    if (!tmpCodeNew.Any(p => p == item))
+                //    {
+                //        tmpCodeNew.Add(sp[0]);
+                //    }
+                //}
 
                 if (string.IsNullOrEmpty(orderDate) && id > 0)
                 {
                     ORDER_HISTORY = _db.ORDER_HISTORY.Where(w => w.PRODUCT_ID == id).ToList();
-                    PRODUCTS = tmpProduct.Where(w => w.PRODUCT_ID == id).ToList();
+                    PRODUCTS = _db.PRODUCTS.Where(w => w.PRODUCT_ID == id).ToList();
                 }
                 else
                 {
                     dt = clsFunction.strDateToDateTime(orderDate);
                     ORDER_HISTORY = _db.ORDER_HISTORY.Where(w => System.Data.Entity.DbFunctions.TruncateTime(w.ORDER_DATE) == dt).ToList();
-                    PRODUCTS = tmpProduct.Where(w => tmpCodeNew.Contains(w.PRODUCT_CODE)).ToList();
+                   // PRODUCTS = _db.PRODUCTS.Where(w => tmpCodeNew.Contains(w.PRODUCT_CODE)).ToList();
                 }
 
                 if (ORDER_HISTORY.Count > 0 && PRODUCTS.Count() > 0)
                 {
+                    //var qrydata = (from t in ORDER_HISTORY//_db.ORDER_HISTORY.Where(w => w.PRODUCT_ID == id)
+                    //               join t2 in PRODUCTS on t.PRODUCT_ID equals t2.PRODUCT_ID //_db.PRODUCTS on t.PRODUCT_ID equals t2.PRODUCT_ID
+                    //               join t3 in _db.PARAMETER.Where(w => w.MAJOR_CODE == POSPARAMETER.UNIT && w.STATUS == STATUS.ACTIVE) on t2.UNIT equals t3.MINOR_CODE into c1
+                    //               from t4 in c1.DefaultIfEmpty()
+                    //               select new
+                    //               {
+                    //                   HIST_ID = t.HIST_ID,
+                    //                   PRODUCT_ID = t.PRODUCT_ID.Value,
+                    //                   QTY = t.QTY,
+                    //                   UNIT = t.UNIT,
+                    //                   REMARK = t.REMARK,
+                    //                   AMOUNT = t.AMOUNT,
+                    //                   TOTAL_AMOUNT = t.TOTAL_AMOUNT,
+                    //                   ORDER_DATE = t.ORDER_DATE,
+                    //                   C_BY = t.C_BY,
+                    //                   C_DATE = t.C_DATE,
+                    //                   E_BY = t.E_BY,
+                    //                   E_DATE = t.E_DATE,
+                    //                   STR_UNIT = t4.NAME,
+
+                    //                   RETAILPRICE = t2.RETAILPRICE,
+                    //                   WHOLESALEPRICE = t2.WHOLESALEPRICE,
+                    //                   AVGCOST = t2.AVGCOST,
+                    //                   WHOLESALEPROFIT = t2.WHOLESALEPROFIT,
+                    //                   RETAILPROFIT = t2.RETAILPROFIT,
+                    //                   AVG_ITEM = t2.AVG_ITEM,
+                    //                   AVG_PACK = t2.AVG_PACK,
+                    //                   PRODUCT_NAME = t2.PRODUCT_NAME
+
+                    //               }).AsQueryable();
+
                     var qrydata = (from t in ORDER_HISTORY//_db.ORDER_HISTORY.Where(w => w.PRODUCT_ID == id)
-                                   join t2 in PRODUCTS on t.PRODUCT_ID equals t2.PRODUCT_ID //_db.PRODUCTS on t.PRODUCT_ID equals t2.PRODUCT_ID
-                                   join t3 in _db.PARAMETER.Where(w => w.MAJOR_CODE == POSPARAMETER.UNIT && w.STATUS == STATUS.ACTIVE) on t2.UNIT equals t3.MINOR_CODE into c1
+                                   join t2 in _db.PRODUCTS on t.PRODUCT_ID equals t2.PRODUCT_ID
+                                   join t3 in _db.PARAMETER.Where(w => w.MAJOR_CODE == POSPARAMETER.UNIT && w.STATUS == STATUS.ACTIVE) on t.UNIT equals t3.MINOR_CODE into c1
                                    from t4 in c1.DefaultIfEmpty()
                                    select new
                                    {

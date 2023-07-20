@@ -396,9 +396,7 @@ namespace DAL
                     _db.PRODUCTS.Add(pd);
                     _db.SaveChanges();
 
-                    ///inv
                     inv.PRODUCT_ID = pd.PRODUCT_ID;
-
 
                     if (InvData.ORDER_DATE == null)
                     {
@@ -439,8 +437,8 @@ namespace DAL
                     //////// Insert OrderHistory
                     ///// 
                     objHist = new ORDER_HISTORY();
-                    objHist.PRODUCT_ID = InvData.PRODUCT_ID;
-                    objHist.ORDER_DATE = InvData.ORDER_DATE;
+                    objHist.PRODUCT_ID = InvData.PRODUCT_ID2; //pd.PRODUCT_ID;
+                    objHist.ORDER_DATE = inv.ORDER_DATE;
                     objHist.QTY = InvData.QTY;
                     objHist.UNIT = InvData.UNIT;
                     objHist.AMOUNT = InvData.AMOUNT;
