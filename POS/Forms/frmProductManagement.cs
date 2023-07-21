@@ -71,7 +71,7 @@ namespace POS.Forms
                     if (!string.IsNullOrEmpty(sp[1]))
                     {
                         var pid = ProductService.GetProduct(sp[1], string.Empty).Select(s => s.PRODUCT_ID).FirstOrDefault();
-                        var productObj = ProductService.GetProductParent(sp[1]);
+                        var productObj = ProductService.GetProductParent(sp[1]).FirstOrDefault();
 
                         if (productObj != null)
                         {

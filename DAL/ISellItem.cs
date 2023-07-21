@@ -15,6 +15,7 @@ namespace DAL
     public interface ISellItem
     {
         string InsertSellItem(List<SELLITEMS> sellitem);
-        List<SellHistDTO> GetSellItem(int productid);
+        string InsertSellItem2(List<SELLITEMS> sellitem);
+        List<SellHistDTO> GetSellItem(int productid, List<int> parentID);
     }
 }

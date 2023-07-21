@@ -70,6 +70,7 @@ namespace POS.Forms
                 row.Cells[3].Value = obj.RETAILPRICE; // obj.SELLPRICE;//obj.STRSELLPRICE;
                 row.Cells[8].Value = obj.PRODUCT_ID;
                 row.Cells[9].Value = obj.UNIT_ID;
+                row.Cells[10].Value = obj.PARENT_ID;
 
                 pcode.Add(obj.PRODUCT_CODE);
 
@@ -242,7 +243,7 @@ namespace POS.Forms
 
             if (sellData.Count() > 0)
             {
-                var isSuccess = SellItemService.InsertSellItem(sellData);
+                var isSuccess = SellItemService.InsertSellItem2(sellData);
 
                 if (!string.IsNullOrEmpty(isSuccess))
                 {

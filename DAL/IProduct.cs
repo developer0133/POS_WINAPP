@@ -23,6 +23,6 @@ namespace DAL
         List<ProductOutOfStockDTO> GetOutOfStock();
         PRODUCTS GetProductByCODE(string code);
 
-        PRODUCTS GetProductParent(string code);
+        List<PRODUCTS> GetProductParent(string code);
     }
 }

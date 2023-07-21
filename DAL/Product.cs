@@ -64,7 +64,8 @@ namespace DAL
                                        UNIT_ID = t.UNIT,
                                        //UNIT_BALANCE_TEXT = t5.UNIT_BALANCE_TEXT,
                                        //STRUNIT = t6.NAME,
-                                       BOXPRICE = t.BOXPRICE
+                                       BOXPRICE = t.BOXPRICE,
+                                       PARENT_ID = t.PARENT_ID
                                    }).AsQueryable();
 
                     if (flag == "sell")
@@ -108,7 +109,8 @@ namespace DAL
                                        UNIT_ID = t.UNIT,
                                        UNIT_BALANCE_TEXT = t2.UNIT_BALANCE_TEXT,
                                        //STRUNIT = t6.NAME,
-                                       BOXPRICE = t.BOXPRICE
+                                       BOXPRICE = t.BOXPRICE,
+                                       PARENT_ID = t2.PRODUCT_ID2
                                    }).AsQueryable();
                     }
 
@@ -149,7 +151,8 @@ namespace DAL
                         UNIT_ID = s.UNIT_ID,
                         UNIT_BALANCE_TEXT = s.UNIT_BALANCE_TEXT,
                         //STRUNIT = s.STRUNIT,
-                        BOXPRICE = s.BOXPRICE
+                        BOXPRICE = s.BOXPRICE,
+                        PARENT_ID = s.PARENT_ID
                     }).ToList();
                 }
             }
@@ -409,14 +412,14 @@ namespace DAL
             return obj;
         }
 
-        public PRODUCTS GetProductParent(string code)
+        public List<PRODUCTS> GetProductParent(string code)
         {
             POSSYSTEMEntities _db = new POSSYSTEMEntities();
             int parentId = 0;
 
             var obj = _db.PRODUCTS.Where(w => w.PRODUCT_CODE == code).SingleOrDefault();
 
-            var obj2 = _db.PRODUCTS.Where(w => w.PARENT_ID == obj.PRODUCT_ID).FirstOrDefault();
+            var obj2 = _db.PRODUCTS.Where(w => w.PARENT_ID == obj.PRODUCT_ID).OrderBy(o => o.PRODUCT_ID).ToList();
 
             return obj2;
         }
