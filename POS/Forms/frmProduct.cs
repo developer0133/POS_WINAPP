@@ -359,11 +359,6 @@ namespace POS.Forms
             dgvOrderHist.Columns[8].Visible = false;
         }
 
-        private void dgvProduct_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void dgvSellHist_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvSellHist.Columns[e.ColumnIndex].Name == "btnReport")

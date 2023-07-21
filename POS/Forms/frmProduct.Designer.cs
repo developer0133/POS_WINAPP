@@ -328,7 +328,6 @@ namespace POS.Forms
             this.dgvProduct.TabIndex = 2;
             this.dgvProduct.TabStop = false;
             this.dgvProduct.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProduct_CellClick);
-            this.dgvProduct.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProduct_CellContentClick);
             // 
             // PRODUCT_ID
             // 
