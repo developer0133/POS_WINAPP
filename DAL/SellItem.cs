@@ -329,6 +329,10 @@ namespace DAL
                             //var cateCode = _db.CATEGORY.Where(w => w.CATEGORY_ID == p.CATEGORY_ID).Select(s => s.CATE_CODE).FirstOrDefault();
 
                             var currentUnit = _db.PARAMETER.Where(w => w.MAJOR_CODE == POSPARAMETER.UNIT && w.MINOR_CODE == item.UNIT).AsNoTracking().SingleOrDefault();
+                            var obj = _db.INV_PRODUCTS.Where(w => w.PRODUCT_ID == item.PRODUCT_ID).SingleOrDefault();
+                            var objBalance = _db.INV_PRODUCTS.Where(w => w.PRODUCT_ID2 == obj.PRODUCT_ID2 && w.QTY > 0).FirstOrDefault();
+                            var currentUnit2 = _db.PARAMETER.Where(w => w.MAJOR_CODE == POSPARAMETER.UNIT && w.MINOR_CODE == objBalance.UNIT).AsNoTracking().SingleOrDefault();
+
 
                             if (currentUnit != null)
                             {
@@ -388,8 +392,7 @@ namespace DAL
                             //var tmpPro = _db.PRODUCTS.Where(w => w.PRODUCT_CODE.Contains(pcode)).AsNoTracking().ToList().OrderBy(x => x.PRODUCT_ID);
                             // tmpUnit = tmpPro.Select(s => s.UNIT).FirstOrDefault();
 
-                            var obj =_db.INV_PRODUCTS.Where(w => w.PRODUCT_ID == item.PRODUCT_ID).SingleOrDefault();
-                            var objBalance = _db.INV_PRODUCTS.Where(w => w.PRODUCT_ID2 == obj.PRODUCT_ID2 && w.QTY > 0).FirstOrDefault();
+                           
 
                             var packBalance = objBalance.PACK_BALANCE.HasValue ? objBalance.PACK_BALANCE.Value : 0;
                             var itemBalance = objBalance.ITEM_BALANCE.HasValue ? objBalance.ITEM_BALANCE.Value : 0;
@@ -431,10 +434,10 @@ namespace DAL
                             }
                             else
                             {
-                                //if (calqty > itemBalance)
-                                //{
-                                //    throw new Exception("จำนวนสินค้าคงเหลือไม่พอ");
-                                //}
+                                if (calqty > itemBalance)
+                                {
+                                    throw new Exception("จำนวนสินค้าคงเหลือไม่พอ");
+                                }
                             }
 
                             if (currentUnit.MINOR_CODE == "1016" || currentUnit.MINOR_CODE == "1017" || currentUnit.MINOR_CODE == "1018")//rice
@@ -459,7 +462,7 @@ namespace DAL
                             {
                                 decimal? box = 0;
 
-                                if (currentUnit.NAME.Contains("ลัง"))
+                                if (currentUnit.NAME.Contains("ลัง")|| currentUnit2.NAME.Contains("ลัง"))
                                 {
                                     decimal totalQty1 = 0;
                                     decimal totalQty2 = 0;
@@ -474,9 +477,13 @@ namespace DAL
                                     }
                                     else
                                     {
-                                        totalQty1 = (qtyu2 * qty);
-                                        totalQty2 = itemBalance - totalQty1;
-                                        box = (totalQty2 / qtyu2);
+                                        //totalQty1 = (qtyu2 * qty);
+                                        totalQty2 = itemBalance - item.QTY.Value;
+
+                                        u2 = string.IsNullOrEmpty(currentUnit2.CONDITION2) ? "0" : currentUnit2.CONDITION2;
+                                        qtyu2 = int.Parse(u2);
+
+                                        box = ((int)calsellItem / qtyu2);
                                         var boxbalance = (int)box;
                                         objBalance.BOX_BALANCE = boxbalance;
                                     }
