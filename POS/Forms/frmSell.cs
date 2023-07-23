@@ -247,7 +247,7 @@ namespace POS.Forms
 
                 if (!string.IsNullOrEmpty(isSuccess))
                 {
-                    MessageBox.Show(MESSAGEALERT.COMPLETED, "POS");
+                    MessageBox.Show(MESSAGEALERT.COMPLETED, "POS", MessageBoxButtons.OK);
                     btnReport.Enabled = true;
                     strSellNo = isSuccess;
                 }
@@ -255,7 +255,7 @@ namespace POS.Forms
             else
             {
                 btnReport.Enabled = false;
-                MessageBox.Show("ไม่มีรายการสินค้า", "POS");
+                MessageBox.Show("ไม่มีรายการสินค้า", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             } 
         }
 

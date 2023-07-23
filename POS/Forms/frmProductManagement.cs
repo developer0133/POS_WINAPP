@@ -131,7 +131,7 @@ namespace POS.Forms
 
                 if (isSuccess)
                 {
-                    MessageBox.Show("Completed", "POS");
+                    MessageBox.Show("Completed", "POS", MessageBoxButtons.OK);
                     BindDGV();
                     Clear();
                 }

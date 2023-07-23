@@ -36,9 +36,9 @@ namespace DATA_EF
         public Nullable<decimal> AVG_ITEM { get; set; }
         public Nullable<decimal> WHOLESALEPRICE_ITEM { get; set; }
         public string UNIT_BALANCE_TEXT { get; set; }
-        public Nullable<int> PACK_BALANCE { get; set; }
-        public Nullable<int> ITEM_BALANCE { get; set; }
-        public Nullable<int> BOX_BALANCE { get; set; }
+        public Nullable<decimal> PACK_BALANCE { get; set; }
+        public Nullable<decimal> ITEM_BALANCE { get; set; }
+        public Nullable<decimal> BOX_BALANCE { get; set; }
         public Nullable<decimal> BOXPRICE { get; set; }
         public Nullable<int> PRODUCT_ID2 { get; set; }
     }

@@ -43,9 +43,9 @@
     <Property Name="AVG_ITEM" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="WHOLESALEPRICE_ITEM" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="UNIT_BALANCE_TEXT" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="PACK_BALANCE" Type="Int32" />
-    <Property Name="ITEM_BALANCE" Type="Int32" />
-    <Property Name="BOX_BALANCE" Type="Int32" />
+    <Property Name="PACK_BALANCE" Type="Decimal" />
+    <Property Name="ITEM_BALANCE" Type="Decimal" />
+    <Property Name="BOX_BALANCE" Type="Decimal" />
     <Property Name="BOXPRICE" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="PRODUCT_ID2" Type="Int32" />
   </EntityType>

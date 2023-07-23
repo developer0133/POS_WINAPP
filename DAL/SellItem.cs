@@ -410,7 +410,7 @@ namespace DAL
                             //calpack
 
                             decimal qtyPack = 0;
-                            int qtyu2 = 0;
+                            decimal qtyu2 = 0;
 
                             if (int.Parse(u1) > 0)
                             {
@@ -422,7 +422,7 @@ namespace DAL
                                 qtyPack = decimal.Parse(u2);
                             }
                             //qtyPack = (qtyPack);
-                            qtyu2 = int.Parse(u2);
+                            qtyu2 = decimal.Parse(u2);
 
                             if (currentUnit.MINOR_CODE == "1016" || currentUnit.MINOR_CODE == "1017" || currentUnit.MINOR_CODE == "1018")//rice
                             {
@@ -443,12 +443,12 @@ namespace DAL
                             if (currentUnit.MINOR_CODE == "1016" || currentUnit.MINOR_CODE == "1017" || currentUnit.MINOR_CODE == "1018")//rice
                             {
                                 //calsellItem = (itemBalance - qty);
-                                objBalance.ITEM_BALANCE = Convert.ToInt32(calsellItem);
+                                objBalance.ITEM_BALANCE = (decimal)(calsellItem);
                             }
                             else
                             {
                                 //itemBalance = (int)calsellItem;
-                                objBalance.ITEM_BALANCE = (int)calsellItem;
+                                objBalance.ITEM_BALANCE = (decimal)calsellItem;
                             }
 
                             if (packBalance > 0)
@@ -481,9 +481,9 @@ namespace DAL
                                         totalQty2 = itemBalance - item.QTY.Value;
 
                                         u2 = string.IsNullOrEmpty(currentUnit2.CONDITION2) ? "0" : currentUnit2.CONDITION2;
-                                        qtyu2 = int.Parse(u2);
+                                        qtyu2 = decimal.Parse(u2);
 
-                                        box = ((int)calsellItem / qtyu2);
+                                        box = ((decimal)calsellItem / qtyu2);
                                         var boxbalance = (int)box;
                                         objBalance.BOX_BALANCE = boxbalance;
                                     }
