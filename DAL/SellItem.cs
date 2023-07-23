@@ -312,10 +312,10 @@ namespace DAL
 
                             string unit1 = string.Empty;
                             string unit2 = string.Empty;
-                            int qty = 0;
+                            decimal qty = 0;
                             decimal? totalitem = 0;
                             int currId = 0;
-                            int totalQty = 0;
+                            decimal totalQty = 0;
 
                             currId = item.PRODUCT_ID.Value;
                             item.SELLITEM_NO = sellno;
@@ -350,9 +350,9 @@ namespace DAL
                                 {
                                     totalQty = int.Parse(unit1) * int.Parse(unit2) * qty;
                                 }
-                                else if (int.Parse(unit1) == 0 && int.Parse(unit2) > 0)
+                                else if (decimal.Parse(unit1) == 0 && decimal.Parse(unit2) > 0)
                                 {
-                                    totalQty = int.Parse(unit2) * qty;
+                                    totalQty = decimal.Parse(unit2) * qty;
                                 }
                             }
 
@@ -405,11 +405,11 @@ namespace DAL
                             u1 = string.IsNullOrEmpty(currentUnit.CONDITION1) ? "0" : currentUnit.CONDITION1;
                             u2 = string.IsNullOrEmpty(currentUnit.CONDITION2) ? "0" : currentUnit.CONDITION2;
 
-                            int calqty = totalQty; //Decimal.Parse(tmp1) * qty;
+                            decimal calqty = totalQty; //Decimal.Parse(tmp1) * qty;
                             var calsellItem = (itemBalance - calqty);
                             //calpack
 
-                            int qtyPack = 0;
+                            decimal qtyPack = 0;
                             int qtyu2 = 0;
 
                             if (int.Parse(u1) > 0)
@@ -419,7 +419,7 @@ namespace DAL
                             }
                             else
                             {
-                                qtyPack = int.Parse(u2);
+                                qtyPack = decimal.Parse(u2);
                             }
                             //qtyPack = (qtyPack);
                             qtyu2 = int.Parse(u2);
@@ -443,7 +443,7 @@ namespace DAL
                             if (currentUnit.MINOR_CODE == "1016" || currentUnit.MINOR_CODE == "1017" || currentUnit.MINOR_CODE == "1018")//rice
                             {
                                 //calsellItem = (itemBalance - qty);
-                                objBalance.ITEM_BALANCE = calsellItem;
+                                objBalance.ITEM_BALANCE = Convert.ToInt32(calsellItem);
                             }
                             else
                             {

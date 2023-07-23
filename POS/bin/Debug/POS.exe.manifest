@@ -74,7 +74,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>mtATntJH8zMvy8afQEUBMMy/I2iJhAhDoKhh4ust8lM=</dsig:DigestValue>
+        <dsig:DigestValue>dzhi7Cb+4pCE2vfsmDPJd58D5QDyvycPnW05TQlu7yY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -1135,14 +1135,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="POS.exe" size="916952">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="POS.exe" size="917464">
       <assemblyIdentity name="POS" version="1.0.0.1" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>UVAbWbe0QiT+hIsvtlBpokA6TupxcERnD45JenDb6z4=</dsig:DigestValue>
+        <dsig:DigestValue>xF0noYhjYxgeRtPtVpA6EgRT7R2UgXxsuGVNGSoW8pU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

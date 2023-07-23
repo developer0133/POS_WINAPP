@@ -156,10 +156,11 @@ namespace POS.Forms
         {
             pModel = new InventoryDTO();
             string code = dgvInv.CurrentRow.Cells["PRODUCT_CODE"].Value.ToString();
+            int id = Convert.ToInt32(dgvInv.CurrentRow.Cells["PRODUCT_ID"].Value.ToString());
 
             if (dgvInv.CurrentRow.Index != -1)
             {
-                pModel = InvService.GetAllInventory(code).SingleOrDefault();
+                pModel = InvService.GetAllInventory2(id).SingleOrDefault();
 
                 if (pModel != null)
                 {
@@ -208,7 +209,7 @@ namespace POS.Forms
             dgvInv.Columns.Clear();
             dgvInv.DataSource = null;
             var invData = InvService.GetProductParent(null);
-        
+
             var tmp = (from a in invData
                        select new
                        {
@@ -220,6 +221,7 @@ namespace POS.Forms
                            STR_UNIT = a.STR_UNIT,
                            RETAILPRICE = a.RETAILPRICE,
                            REMARK = a.REMARK,
+                           PRODUCT_ID = a.PRODUCT_ID
                        }).ToList();
 
             dgvInv.DataSource = tmp;
@@ -230,6 +232,7 @@ namespace POS.Forms
             dgvInv.Columns[3].HeaderText = "หน่วย";
             dgvInv.Columns[4].HeaderText = "ราคาขาย";
             dgvInv.Columns[5].HeaderText = "หมายเหตุ";
+            dgvInv.Columns[6].HeaderText = "PRODUCT_ID";
 
             dgvInv.Columns[0].Width = 130;
             dgvInv.Columns[1].Width = 130;
@@ -244,6 +247,7 @@ namespace POS.Forms
             dgvInv.Columns[3].Name = "STR_UNIT";
             dgvInv.Columns[4].Name = "RETAILPRICE";
             dgvInv.Columns[5].Name = "REMARK";
+            dgvInv.Columns[6].Name = "PRODUCT_ID";
 
             dgvInv.Columns[0].DataPropertyName = "INV_ID";
             dgvInv.Columns[1].DataPropertyName = "PRODUCT_CODE";
@@ -251,7 +255,10 @@ namespace POS.Forms
             dgvInv.Columns[3].DataPropertyName = "STR_UNIT";
             dgvInv.Columns[4].DataPropertyName = "RETAILPRICE";
             dgvInv.Columns[5].DataPropertyName = "REMARK";
-  
+            dgvInv.Columns[6].DataPropertyName = "PRODUCT_ID";
+
+            dgvInv.Columns[6].Visible = false;
+
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
