@@ -411,64 +411,73 @@ namespace POS.Forms
         private void btnSave_Click(object sender, EventArgs e)
         {
             INV_PRODUCTS obj = new INV_PRODUCTS();
+
             bool isSuccess = false;
             string unit = string.Empty;
-            unit = cboUnit.SelectedValue == null ? "" : cboUnit.SelectedValue.ToString();
 
-            obj.QTY = string.IsNullOrEmpty(txtQty.Text) ? 0 : int.Parse(txtQty.Text);
-            obj.UNIT = unit;
-            obj.AMOUNT = string.IsNullOrEmpty(txtAmount.Text) ? 0 : decimal.Parse(txtAmount.Text);
-            obj.AVG_ITEM = string.IsNullOrEmpty(txtCostAvgItem.Text) ? 0 : decimal.Parse(txtCostAvgItem.Text);
-            //obj.AVG_PACK = string.IsNullOrEmpty(txtCostAvgPack.Text) ? 0 : decimal.Parse(txtCostAvgPack.Text);
-            obj.RETAILPRICE = string.IsNullOrEmpty(txtRetailprice.Text) ? 0 : decimal.Parse(txtRetailprice.Text);
-            obj.WHOLESALEPRICE = 0; //string.IsNullOrEmpty(txtWholesaleprice.Text) ? 0 : decimal.Parse(txtWholesaleprice.Text);
-           
-
-            obj.RETAILPROFIT = string.IsNullOrEmpty(txtProfitRetail.Text) ? 0 : decimal.Parse(txtProfitRetail.Text);
-            obj.WHOLESALEPROFIT = string.IsNullOrEmpty(txtWholesaleprofit.Text) ? 0 : decimal.Parse(txtWholesaleprofit.Text);
-            obj.WHOLESALEPROFIT = string.IsNullOrEmpty(txtWholesaleprofit.Text) ? 0 : decimal.Parse(txtWholesaleprofit.Text);
-            obj.WHOLESALEPRICE_ITEM = string.IsNullOrEmpty(txtWholesalePriceItem.Text) ? 0 : decimal.Parse(txtWholesalePriceItem.Text);
-
-            obj.BOX_BALANCE = string.IsNullOrEmpty(txtBoxBalance.Text) ? 0 : int.Parse(txtBoxBalance.Text);
-            obj.PACK_BALANCE = string.IsNullOrEmpty(txtPackBalance.Text) ? 0 : int.Parse(txtPackBalance.Text);
-            obj.ITEM_BALANCE = string.IsNullOrEmpty(txtItemBalance.Text) ? 0 : int.Parse(txtItemBalance.Text);
-            obj.REMARK = txtRemark.Text;
-            obj.TOTAL_AMOUNT = string.IsNullOrEmpty(txtAmount.Text) ? 0 : decimal.Parse(txtAmount.Text);
-
-            obj.ORDER_DATE = invdate.Value;
-            obj.C_BY = UserModel.USERNAME;
-            obj.E_BY = UserModel.USERNAME;
-
-
-            if (pModel != null && pModel.PRODUCT_ID > 0 && pModel.INV_ID > 0)
+            if (string.IsNullOrEmpty(txtProductName.Text) || string.IsNullOrEmpty(txtQty.Text) || string.IsNullOrEmpty(txtAmount.Text))
             {
-                ////update 
-                obj.PRODUCT_ID = pModel.PRODUCT_ID;
-                obj.INV_ID = pModel.INV_ID;
-                isSuccess = InvService.UpdateInventory2(obj);
+                MessageBox.Show(MESSAGEALERT.FULLFILL, "POS", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                var name = txtProductName.Text;
-                var sp = name.Split('-');
-                var pid = ProductService.GetProduct(sp[1], string.Empty).Select(s => s.PRODUCT_ID).FirstOrDefault();
+                unit = cboUnit.SelectedValue == null ? "" : cboUnit.SelectedValue.ToString();
 
-                if (pid == 0)
+                obj.QTY = string.IsNullOrEmpty(txtQty.Text) ? 0 : int.Parse(txtQty.Text);
+                obj.UNIT = unit;
+                obj.AMOUNT = string.IsNullOrEmpty(txtAmount.Text) ? 0 : decimal.Parse(txtAmount.Text);
+                obj.AVG_ITEM = string.IsNullOrEmpty(txtCostAvgItem.Text) ? 0 : decimal.Parse(txtCostAvgItem.Text);
+                //obj.AVG_PACK = string.IsNullOrEmpty(txtCostAvgPack.Text) ? 0 : decimal.Parse(txtCostAvgPack.Text);
+                obj.RETAILPRICE = string.IsNullOrEmpty(txtRetailprice.Text) ? 0 : decimal.Parse(txtRetailprice.Text);
+                obj.WHOLESALEPRICE = 0; //string.IsNullOrEmpty(txtWholesaleprice.Text) ? 0 : decimal.Parse(txtWholesaleprice.Text);
+
+
+                obj.RETAILPROFIT = string.IsNullOrEmpty(txtProfitRetail.Text) ? 0 : decimal.Parse(txtProfitRetail.Text);
+                obj.WHOLESALEPROFIT = string.IsNullOrEmpty(txtWholesaleprofit.Text) ? 0 : decimal.Parse(txtWholesaleprofit.Text);
+                obj.WHOLESALEPROFIT = string.IsNullOrEmpty(txtWholesaleprofit.Text) ? 0 : decimal.Parse(txtWholesaleprofit.Text);
+                obj.WHOLESALEPRICE_ITEM = string.IsNullOrEmpty(txtWholesalePriceItem.Text) ? 0 : decimal.Parse(txtWholesalePriceItem.Text);
+
+                obj.BOX_BALANCE = string.IsNullOrEmpty(txtBoxBalance.Text) ? 0 : int.Parse(txtBoxBalance.Text);
+                obj.PACK_BALANCE = string.IsNullOrEmpty(txtPackBalance.Text) ? 0 : int.Parse(txtPackBalance.Text);
+                obj.ITEM_BALANCE = string.IsNullOrEmpty(txtItemBalance.Text) ? 0 : int.Parse(txtItemBalance.Text);
+                obj.REMARK = txtRemark.Text;
+                obj.TOTAL_AMOUNT = string.IsNullOrEmpty(txtAmount.Text) ? 0 : decimal.Parse(txtAmount.Text);
+
+                obj.ORDER_DATE = invdate.Value;
+                obj.C_BY = UserModel.USERNAME;
+                obj.E_BY = UserModel.USERNAME;
+
+
+                if (pModel != null && pModel.PRODUCT_ID > 0 && pModel.INV_ID > 0)
                 {
-                    pid = ProductService.GetProductByCODE(sp[1]).PRODUCT_ID;
+                    ////update 
+                    obj.PRODUCT_ID = pModel.PRODUCT_ID;
+                    obj.INV_ID = pModel.INV_ID;
+                    isSuccess = InvService.UpdateInventory2(obj);
+                }
+                else
+                {
+                    var name = txtProductName.Text;
+                    var sp = name.Split('-');
+                    var pid = ProductService.GetProduct(sp[1], string.Empty).Select(s => s.PRODUCT_ID).FirstOrDefault();
+
+                    if (pid == 0)
+                    {
+                        pid = ProductService.GetProductByCODE(sp[1]).PRODUCT_ID;
+                        obj.PRODUCT_ID = pid;
+                    }
+
                     obj.PRODUCT_ID = pid;
+                    obj.PRODUCT_ID2 = pid;
+                    isSuccess = InvService.InsertInventory2(obj);
                 }
 
-                obj.PRODUCT_ID = pid;
-                obj.PRODUCT_ID2 = pid;
-                isSuccess = InvService.InsertInventory2(obj);
-            }
-
-            if(isSuccess)
-            {
-                MessageBox.Show(MESSAGEALERT.COMPLETED, "POS");
-                BindDGV();
-                Clear();
+                if (isSuccess)
+                {
+                    MessageBox.Show(MESSAGEALERT.COMPLETED, "POS");
+                    BindDGV();
+                    Clear();
+                }
             }
         }
 

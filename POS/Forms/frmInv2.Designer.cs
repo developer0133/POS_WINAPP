@@ -80,6 +80,9 @@ namespace POS.Forms
             this.label14 = new System.Windows.Forms.Label();
             this.txtCostAvgBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInv)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -625,12 +628,45 @@ namespace POS.Forms
             this.label2.TabIndex = 78;
             this.label2.Text = "ราคาทุนเฉลี่ย/ลัง(บาท)";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.Red;
+            this.label6.Location = new System.Drawing.Point(475, 76);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(12, 16);
+            this.label6.TabIndex = 80;
+            this.label6.Text = "*";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.ForeColor = System.Drawing.Color.Red;
+            this.label11.Location = new System.Drawing.Point(394, 167);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(12, 16);
+            this.label11.TabIndex = 81;
+            this.label11.Text = "*";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.ForeColor = System.Drawing.Color.Red;
+            this.label15.Location = new System.Drawing.Point(394, 251);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(12, 16);
+            this.label15.TabIndex = 82;
+            this.label15.Text = "*";
+            // 
             // frmInv2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1421, 826);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.txtCostAvgBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label14);
@@ -732,5 +768,8 @@ namespace POS.Forms
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txtCostAvgBox;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label15;
     }
 }
