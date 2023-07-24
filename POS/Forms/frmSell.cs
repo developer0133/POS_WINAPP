@@ -57,36 +57,41 @@ namespace POS.Forms
                 if (invChk == 0)
                 {
                     MessageBox.Show("ไม่พบข้อมูล", "POS");
-                    return;
-                }
-
-                var strUnit = InvService.SRTUNIT(obj.PRODUCT_ID);
-
-                DataGridViewRow row = (DataGridViewRow)dgvSell.Rows[0].Clone();
-                row.Cells[0].Value = obj.PRODUCT_NAME;
-                row.Cells[7].Value = obj.PRODUCT_CODE;//obj.STRSELLPRICE;
-                //row.Cells[1].Value = 1;
-                row.Cells[2].Value = strUnit;
-                row.Cells[3].Value = obj.RETAILPRICE; // obj.SELLPRICE;//obj.STRSELLPRICE;
-                row.Cells[8].Value = obj.PRODUCT_ID;
-                row.Cells[9].Value = obj.UNIT_ID;
-                row.Cells[10].Value = obj.PARENT_ID;
-
-                pcode.Add(obj.PRODUCT_CODE);
-
-                if (pcode.Where(w => w == code).Count() > 1)
-                {
-                    MessageBox.Show("ข้อมูลซ้ำ", "POS");
                 }
                 else
                 {
-                    dgvSell.Rows.Add(row);
-                    foreach (DataGridViewRow rw in dgvSell.Rows)
+                    var strUnit = InvService.SRTUNIT(obj.PRODUCT_ID);
+
+                    DataGridViewRow row = (DataGridViewRow)dgvSell.Rows[0].Clone();
+                    row.Cells[0].Value = obj.PRODUCT_NAME;
+                    row.Cells[7].Value = obj.PRODUCT_CODE;//obj.STRSELLPRICE;
+                                                          //row.Cells[1].Value = 1;
+                    row.Cells[2].Value = strUnit;
+                    row.Cells[3].Value = obj.RETAILPRICE; // obj.SELLPRICE;//obj.STRSELLPRICE;
+                    row.Cells[8].Value = obj.PRODUCT_ID;
+                    row.Cells[9].Value = obj.UNIT_ID;
+                    row.Cells[10].Value = obj.PARENT_ID;
+
+                    pcode.Add(obj.PRODUCT_CODE);
+
+                    if (pcode.Where(w => w == code).Count() > 1)
                     {
-                        rw.HeaderCell.Value = (rw.Index + 1).ToString();
-                        rw.Cells[3].Style.BackColor = Color.DarkGray;
+                        MessageBox.Show("ข้อมูลซ้ำ", "POS");
+                    }
+                    else
+                    {
+                        dgvSell.Rows.Add(row);
+                        foreach (DataGridViewRow rw in dgvSell.Rows)
+                        {
+                            rw.HeaderCell.Value = (rw.Index + 1).ToString();
+                            rw.Cells[3].Style.BackColor = Color.DarkGray;
+                        }
                     }
                 }
+            }
+            else
+            {
+                MessageBox.Show("ไม่พบข้อมูล", "POS");
             }
   
             //dgvSell.Rows[dgvSell.Rows.Count - 1].DefaultCellStyle.BackColor = Color.Red;
