@@ -95,6 +95,7 @@ namespace POS.Forms
             // 
             // btnSearch
             // 
+            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSearch.Image = global::POS.Properties.Resources.search2;
             this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnSearch.Location = new System.Drawing.Point(439, 27);
@@ -230,7 +231,7 @@ namespace POS.Forms
             this.lblSum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.lblSum.Location = new System.Drawing.Point(1107, 298);
             this.lblSum.Name = "lblSum";
-            this.lblSum.Size = new System.Drawing.Size(0, 24);
+            this.lblSum.Size = new System.Drawing.Size(0, 22);
             this.lblSum.TabIndex = 25;
             // 
             // dgvReport
@@ -246,6 +247,7 @@ namespace POS.Forms
             // 
             // btnPrint
             // 
+            this.btnPrint.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPrint.Enabled = false;
             this.btnPrint.Image = global::POS.Properties.Resources.print;
             this.btnPrint.ImageAlign = System.Drawing.ContentAlignment.TopCenter;

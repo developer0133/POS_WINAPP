@@ -198,6 +198,7 @@ namespace POS.Forms
             // 
             // btnReport
             // 
+            this.btnReport.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnReport.Image = global::POS.Properties.Resources.search24;
             this.btnReport.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnReport.Location = new System.Drawing.Point(1087, 575);
