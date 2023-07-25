@@ -327,6 +327,7 @@
             // 
             // btnCancel
             // 
+            this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
             this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnCancel.Location = new System.Drawing.Point(177, 297);
@@ -341,6 +342,7 @@
             // 
             // btnSave
             // 
+            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnSave.Location = new System.Drawing.Point(-5, 297);
@@ -378,6 +380,7 @@
             // 
             // btnSearch
             // 
+            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
             this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSearch.Location = new System.Drawing.Point(291, 16);

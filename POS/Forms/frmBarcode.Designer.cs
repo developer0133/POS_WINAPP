@@ -60,6 +60,7 @@ namespace POS.Forms
             // 
             // btnDownload
             // 
+            this.btnDownload.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDownload.Image = global::POS.Properties.Resources.download;
             this.btnDownload.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnDownload.Location = new System.Drawing.Point(393, 159);
@@ -81,6 +82,7 @@ namespace POS.Forms
             // 
             // btnCancel
             // 
+            this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancel.Image = global::POS.Properties.Resources.cancel;
             this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnCancel.Location = new System.Drawing.Point(203, 159);
@@ -94,6 +96,7 @@ namespace POS.Forms
             // 
             // btnCreate
             // 
+            this.btnCreate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCreate.Image = global::POS.Properties.Resources.save;
             this.btnCreate.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnCreate.Location = new System.Drawing.Point(31, 159);

@@ -148,6 +148,7 @@ namespace POS.Forms
             // 
             // btnCancel
             // 
+            this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancel.Image = global::POS.Properties.Resources.cancel;
             this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnCancel.Location = new System.Drawing.Point(250, 401);
@@ -161,6 +162,7 @@ namespace POS.Forms
             // 
             // btnSave
             // 
+            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSave.Image = global::POS.Properties.Resources.save;
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnSave.Location = new System.Drawing.Point(87, 401);
@@ -186,7 +188,7 @@ namespace POS.Forms
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(6, 205);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 17);
+            this.label1.Size = new System.Drawing.Size(51, 16);
             this.label1.TabIndex = 30;
             this.label1.Text = "หมายเหตุ";
             // 
@@ -202,7 +204,7 @@ namespace POS.Forms
             this.lblName.AutoSize = true;
             this.lblName.Location = new System.Drawing.Point(6, 115);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(81, 17);
+            this.lblName.Size = new System.Drawing.Size(71, 16);
             this.lblName.TabIndex = 24;
             this.lblName.Text = "ชื่อหมวดหมู่ *";
             // 
@@ -219,7 +221,7 @@ namespace POS.Forms
             this.lblCode.AutoSize = true;
             this.lblCode.Location = new System.Drawing.Point(6, 76);
             this.lblCode.Name = "lblCode";
-            this.lblCode.Size = new System.Drawing.Size(40, 17);
+            this.lblCode.Size = new System.Drawing.Size(36, 16);
             this.lblCode.TabIndex = 20;
             this.lblCode.Text = "รหัส *";
             // 
@@ -245,12 +247,13 @@ namespace POS.Forms
             this.lblCateCode.AutoSize = true;
             this.lblCateCode.Location = new System.Drawing.Point(6, 163);
             this.lblCateCode.Name = "lblCateCode";
-            this.lblCateCode.Size = new System.Drawing.Size(70, 17);
+            this.lblCateCode.Size = new System.Drawing.Size(68, 16);
             this.lblCateCode.TabIndex = 39;
             this.lblCateCode.Text = "CateCode";
             // 
             // btnSearch
             // 
+            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
             this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSearch.Location = new System.Drawing.Point(314, 33);

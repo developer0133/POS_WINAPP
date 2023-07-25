@@ -463,6 +463,7 @@ namespace POS.Forms
             // 
             // btnCancel
             // 
+            this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancel.Image = global::POS.Properties.Resources.cancel;
             this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnCancel.Location = new System.Drawing.Point(255, 471);
@@ -476,6 +477,7 @@ namespace POS.Forms
             // 
             // btnSave
             // 
+            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSave.Image = global::POS.Properties.Resources.save;
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnSave.Location = new System.Drawing.Point(58, 471);
@@ -512,6 +514,7 @@ namespace POS.Forms
             // 
             // btnSearch
             // 
+            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
             this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSearch.Location = new System.Drawing.Point(288, 31);
