@@ -134,6 +134,7 @@ namespace POS.Forms
             // cboSize
             // 
             this.cboSize.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cboSize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboSize.FormattingEnabled = true;
             this.cboSize.Location = new System.Drawing.Point(163, 175);
             this.cboSize.Margin = new System.Windows.Forms.Padding(4);
@@ -154,6 +155,7 @@ namespace POS.Forms
             // cboType
             // 
             this.cboType.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cboType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboType.FormattingEnabled = true;
             this.cboType.Location = new System.Drawing.Point(163, 144);
             this.cboType.Margin = new System.Windows.Forms.Padding(4);
@@ -249,6 +251,7 @@ namespace POS.Forms
             // cboCategory
             // 
             this.cboCategory.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cboCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboCategory.FormattingEnabled = true;
             this.cboCategory.Location = new System.Drawing.Point(163, 112);
             this.cboCategory.Margin = new System.Windows.Forms.Padding(4);

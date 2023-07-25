@@ -56,7 +56,7 @@ namespace POS.Forms
                 var invChk = InvService.GetInventory(obj.PRODUCT_ID).Count();
                 if (invChk == 0)
                 {
-                    MessageBox.Show("ไม่พบข้อมูล", "POS");
+                    MessageBox.Show("ไม่พบข้อมูล", "POS" );
                 }
                 else
                 {
@@ -91,7 +91,7 @@ namespace POS.Forms
             }
             else
             {
-                MessageBox.Show("ไม่พบข้อมูล", "POS");
+                MessageBox.Show("ไม่พบข้อมูล", "POS", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
   
             //dgvSell.Rows[dgvSell.Rows.Count - 1].DefaultCellStyle.BackColor = Color.Red;

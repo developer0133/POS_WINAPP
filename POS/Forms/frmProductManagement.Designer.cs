@@ -34,6 +34,8 @@
             this.lblName = new System.Windows.Forms.Label();
             this.cboUnit = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.txtCostAvgItem = new System.Windows.Forms.TextBox();
             this.lblCostAvg1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -56,8 +58,6 @@
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.dgvInv = new System.Windows.Forms.DataGridView();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInv)).BeginInit();
@@ -95,6 +95,7 @@
             // 
             // cboUnit
             // 
+            this.cboUnit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.cboUnit.FormattingEnabled = true;
             this.cboUnit.Location = new System.Drawing.Point(177, 78);
@@ -134,6 +135,26 @@
             this.groupBox1.Size = new System.Drawing.Size(1291, 402);
             this.groupBox1.TabIndex = 52;
             this.groupBox1.TabStop = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.Red;
+            this.label7.Location = new System.Drawing.Point(383, 139);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(15, 20);
+            this.label7.TabIndex = 97;
+            this.label7.Text = "*";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.Red;
+            this.label6.Location = new System.Drawing.Point(464, 30);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(15, 20);
+            this.label6.TabIndex = 96;
+            this.label6.Text = "*";
             // 
             // txtCostAvgItem
             // 
@@ -384,26 +405,6 @@
             this.dgvInv.TabIndex = 70;
             this.dgvInv.TabStop = false;
             this.dgvInv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInv_CellClick);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.Color.Red;
-            this.label6.Location = new System.Drawing.Point(464, 30);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(15, 20);
-            this.label6.TabIndex = 96;
-            this.label6.Text = "*";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.ForeColor = System.Drawing.Color.Red;
-            this.label7.Location = new System.Drawing.Point(383, 139);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(15, 20);
-            this.label7.TabIndex = 97;
-            this.label7.Text = "*";
             // 
             // frmProductManagement
             // 
