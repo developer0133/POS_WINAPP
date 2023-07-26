@@ -166,6 +166,102 @@ namespace DAL
             }
 
             return oList;
+        }
+
+        public List<ProductDTO> GetProductForSell(string code)
+        {
+            clsLog.Info("GetProduct");
+
+            List<ProductDTO> oList = null;
+            try
+            {
+                using (POSSYSTEMEntities _db = new POSSYSTEMEntities())
+                {
+                    var qrydata = (from t in _db.PRODUCTS.Where(w => w.STATUS == STATUS.ACTIVE && w.PARENT_ID.HasValue == false)
+                                   join t4 in _db.INV_PRODUCTS on t.PRODUCT_ID equals t4.PRODUCT_ID 
+                                   where (t.PRODUCT_CODE == code)
+                                   select new ProductDTO //ProductsModel
+                                   {
+                                       PRODUCT_ID = t.PRODUCT_ID,
+                                       PRODUCT_CODE = t.PRODUCT_CODE,
+                                       PRODUCT_NAME = t.PRODUCT_NAME,
+                                       REMARK = t.REMARK,
+                                     
+                                       SELLPRICE = t.SELLPRICE,
+                                       STATUS = t.STATUS,
+                                       CATEGORY_ID = t.CATEGORY_ID,
+                                       PRODUCT_SIZE_ID = t.PRODUCT_SIZE_ID,
+                                       PRODUCT_TYPE_ID = t.PRODUCT_TYPE_ID,
+                                       
+                                       QTY = t.QTY,//t5.QTY,
+                                       BARCODE = t.BARCODE,
+                                       RETAILPRICE = t.RETAILPRICE,
+                                       WHOLESALEPRICE = t.WHOLESALEPRICE,
+                                       AVGCOST = t.AVGCOST,
+                                       WHOLESALEPROFIT = t.WHOLESALEPROFIT,
+
+                                       RETAILPROFIT = t.RETAILPROFIT,
+                                       AVG_ITEM = t.AVG_ITEM,
+                                       AVG_PACK = t.AVG_PACK,
+                                       WHOLESALEPRICE_ITEM = t.WHOLESALEPRICE_ITEM,
+                                       UNIT_ID = t.UNIT,
+                                       UNIT_BALANCE_TEXT = t4.UNIT_BALANCE_TEXT,
+                                       BOXPRICE = t.BOXPRICE,
+                                       PARENT_ID = t.PARENT_ID
+                                   }).AsQueryable();
+
+                    oList = (List<ProductDTO>)qrydata.AsEnumerable().Select(s => new ProductDTO
+                    {
+                        PRODUCT_ID = s.PRODUCT_ID,
+                        PRODUCT_CODE = s.PRODUCT_CODE,
+                        PRODUCT_NAME = s.PRODUCT_NAME,
+                        REMARK = s.REMARK,
+                        PRODUCT_TYPE = s.PRODUCT_TYPE,
+                        PRODUCT_SIZE = s.PRODUCT_SIZE,
+                        //STRCOSTPRICE = string.Format("{0} {1}", s.COSTPRICE, "บาท"),
+                        STRSELLPRICE = string.Format("{0} {1}", s.RETAILPRICE, "บาท"),
+
+                        STRSELLPRICE_WHOLESALE = string.Format("{0} {1}", s.WHOLESALEPRICE_ITEM, "บาท"),
+                        SELLPRICE = s.SELLPRICE,
+                        CATEGORYNAME = s.CATEGORYNAME,
+                        //PROFIT = (s.SELLPRICE - s.COSTPRICE),
+                        STATUS = s.STATUS,
+
+                        CATEGORY_ID = s.CATEGORY_ID,
+                        PRODUCT_SIZE_ID = s.PRODUCT_SIZE_ID,
+                        PRODUCT_TYPE_ID = s.PRODUCT_TYPE_ID,
+                        //COSTPRICE = s.COSTPRICE,
+                        UNIT = s.UNIT,
+                        STR_QTY = s.QTY.ToString(),
+                        QTY = s.QTY,
+                        BALANCE = s.BALANCE,
+                        BARCODE = s.BARCODE,
+                        RETAILPRICE = s.RETAILPRICE,
+                        WHOLESALEPRICE = s.WHOLESALEPRICE,
+                        AVGCOST = s.AVGCOST,
+                        WHOLESALEPROFIT = s.WHOLESALEPROFIT,
+                        RETAILPROFIT = s.RETAILPROFIT,
+                        AVG_ITEM = s.AVG_ITEM,
+                        AVG_PACK = s.AVG_PACK,
+                        WHOLESALEPRICE_ITEM = s.WHOLESALEPRICE_ITEM,
+                        UNIT_ID = s.UNIT_ID,
+                        UNIT_BALANCE_TEXT = s.UNIT_BALANCE_TEXT,
+                        //STRUNIT = s.STRUNIT,
+                        BOXPRICE = s.BOXPRICE,
+                        PARENT_ID = s.PARENT_ID
+                    }).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            if (oList == null)
+            {
+                oList = new List<ProductDTO>();
+            }
+
+            return oList;
 
         }
 

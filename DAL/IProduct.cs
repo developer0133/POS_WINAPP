@@ -24,5 +24,6 @@ namespace DAL
         PRODUCTS GetProductByCODE(string code);
 
         List<PRODUCTS> GetProductParent(string code);
+        List<ProductDTO> GetProductForSell(string code);
     }
 }

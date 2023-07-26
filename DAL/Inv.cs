@@ -430,6 +430,15 @@ namespace DAL
                     InvData.C_BY = InvData.C_BY;
                     inv.PRODUCT_ID2 = InvData.PRODUCT_ID2;
 
+                    var invObjBl = _db.INV_PRODUCTS.Where(w => w.PRODUCT_ID2 == InvData.PRODUCT_ID2).FirstOrDefault();
+                    if (invObjBl != null)
+                    {
+                        inv.PACK_BALANCE = invObjBl.PACK_BALANCE;
+                        inv.ITEM_BALANCE = invObjBl.ITEM_BALANCE;
+                        inv.BOX_BALANCE = invObjBl.BOX_BALANCE;
+                        inv.UNIT_BALANCE_TEXT = invObjBl.UNIT_BALANCE_TEXT;
+                    }
+
                     _db.INV_PRODUCTS.Add(inv);
                     _db.SaveChanges();
 

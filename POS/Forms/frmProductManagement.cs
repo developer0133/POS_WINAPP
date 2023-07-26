@@ -109,8 +109,12 @@ namespace POS.Forms
                 obj.PRODUCT_ID = PID; //master
                 obj.PRODUCT_ID2 = MasterID; // pModel.PRODUCT_ID;
                 obj.UNIT = unit;
-                obj.RETAILPROFIT = decimal.Parse(txtProfitRetail.Text);
 
+                if (!string.IsNullOrEmpty(txtProfitRetail.Text))
+                {
+                    obj.RETAILPROFIT = decimal.Parse(txtProfitRetail.Text);
+                }
+               
                 obj.REMARK = txtRemark.Text;
                 obj.C_BY = UserModel.USERNAME;
                 obj.E_BY = UserModel.USERNAME;

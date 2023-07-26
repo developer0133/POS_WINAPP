@@ -23,6 +23,11 @@ namespace BL
         {
             return _product.GetProduct(code, flag);
         }
+
+        public static List<ProductDTO> GetProductForSell(string code)
+        {
+            return _product.GetProductForSell(code);
+        }
         public static bool UpdateProduct(PRODUCTS product)
         {
             return _product.UpdateProduct(product);

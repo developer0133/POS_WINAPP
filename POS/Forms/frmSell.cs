@@ -49,7 +49,7 @@ namespace POS.Forms
         {
             string code = txtBarcode.Text;
 
-            obj = ProductService.GetProduct(code, "sell").SingleOrDefault();
+            obj = ProductService.GetProduct(code, "sell").SingleOrDefault(); 
 
             if (obj != null)
             {
@@ -62,6 +62,7 @@ namespace POS.Forms
                 {
                     var strUnit = InvService.SRTUNIT(obj.PRODUCT_ID);
 
+                    
                     DataGridViewRow row = (DataGridViewRow)dgvSell.Rows[0].Clone();
                     row.Cells[0].Value = obj.PRODUCT_NAME;
                     row.Cells[7].Value = obj.PRODUCT_CODE;//obj.STRSELLPRICE;
@@ -71,6 +72,7 @@ namespace POS.Forms
                     row.Cells[8].Value = obj.PRODUCT_ID;
                     row.Cells[9].Value = obj.UNIT_ID;
                     row.Cells[10].Value = obj.PARENT_ID;
+                    row.Cells[11].Value = obj.UNIT_BALANCE_TEXT;
 
                     pcode.Add(obj.PRODUCT_CODE);
 
