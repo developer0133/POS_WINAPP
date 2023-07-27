@@ -339,16 +339,27 @@ namespace DAL
 
                     var invObj = _db.INV_PRODUCTS.Where(w => w.PRODUCT_ID2 == InvData.PRODUCT_ID).FirstOrDefault();
 
-                    var invObj2 = _db.INV_PRODUCTS.Where(w => w.PRODUCT_ID2 == InvData.PRODUCT_ID && w.UNIT == InvData.UNIT).FirstOrDefault();
-                    if (invObj2 != null)
+                    var invObj2 = _db.INV_PRODUCTS.Where(w => w.PRODUCT_ID2 == InvData.PRODUCT_ID && w.UNIT == InvData.UNIT).ToList();
+                    if (invObj2.Count>0)
                     {
 
-                        balance = invObj.BALANCE.HasValue ? invObj.BALANCE.Value : 0;
-                        old_packBalance = invObj2.PACK_BALANCE.HasValue ? invObj2.PACK_BALANCE.Value : 0;
-                        old_itemBalance = invObj2.ITEM_BALANCE.HasValue ? invObj2.ITEM_BALANCE.Value : 0;
-                        old_boxBalance = invObj2.BOX_BALANCE.HasValue ? invObj2.BOX_BALANCE.Value : 0;
+                        foreach(var item in invObj2)
+                        {
+                            old_packBalance += item.PACK_BALANCE.HasValue ? item.PACK_BALANCE.Value : 0;
+                            old_itemBalance += item.ITEM_BALANCE.HasValue ? item.ITEM_BALANCE.Value : 0;
+                            old_boxBalance += item.BOX_BALANCE.HasValue ? item.BOX_BALANCE.Value : 0;
 
-                        _db.INV_PRODUCTS.Remove(invObj);
+                            _db.INV_PRODUCTS.Remove(item);
+                        }
+
+                        inv.PACK_BALANCE = InvData.PACK_BALANCE + old_packBalance;
+                        inv.ITEM_BALANCE = InvData.ITEM_BALANCE + old_itemBalance;
+                        inv.BOX_BALANCE = InvData.BOX_BALANCE + old_boxBalance;
+
+                        //balance = invObj.BALANCE.HasValue ? invObj.BALANCE.Value : 0;
+                        //old_packBalance = invObj2.PACK_BALANCE.HasValue ? invObj2.PACK_BALANCE.Value : 0;
+                        //old_itemBalance = invObj2.ITEM_BALANCE.HasValue ? invObj2.ITEM_BALANCE.Value : 0;
+                        //old_boxBalance = invObj2.BOX_BALANCE.HasValue ? invObj2.BOX_BALANCE.Value : 0;
                     }
 
                     var objP = _db.PRODUCTS.Where(w => w.PARENT_ID == InvData.PRODUCT_ID && w.UNIT == InvData.UNIT).FirstOrDefault();
@@ -414,9 +425,7 @@ namespace DAL
                     }
 
 
-                    inv.PACK_BALANCE = InvData.PACK_BALANCE + old_packBalance;
-                    inv.ITEM_BALANCE = InvData.ITEM_BALANCE + old_itemBalance;
-                    inv.BOX_BALANCE = InvData.BOX_BALANCE + old_boxBalance;
+                  
 
                     inv.QTY = InvData.QTY;
                     //inv.PACK_BALANCE = InvData.PACK_BALANCE;
@@ -436,19 +445,19 @@ namespace DAL
                     inv.WHOLESALEPRICE = InvData.WHOLESALEPRICE_ITEM;//invObj.WHOLESALEPRICE_ITEM;
                     inv.TOTAL_AMOUNT = InvData.TOTAL_AMOUNT;
 
-                    inv.UNIT_BALANCE_TEXT = String.Format("{0}:ลัง {1}:แพ็ค {2}:ชิ้น", InvData.BOX_BALANCE, InvData.PACK_BALANCE, InvData.ITEM_BALANCE);
+                    inv.UNIT_BALANCE_TEXT = String.Format("{0}:ลัง {1}:แพ็ค {2}:ชิ้น", inv.BOX_BALANCE, inv.PACK_BALANCE, inv.ITEM_BALANCE);
 
                     InvData.C_BY = InvData.C_BY;
                     inv.PRODUCT_ID2 = InvData.PRODUCT_ID2;
 
-                    var invObjBl = _db.INV_PRODUCTS.Where(w => w.PRODUCT_ID2 == InvData.PRODUCT_ID2).FirstOrDefault();
-                    if (invObjBl != null)
-                    {
-                        inv.PACK_BALANCE = invObjBl.PACK_BALANCE;
-                        inv.ITEM_BALANCE = invObjBl.ITEM_BALANCE;
-                        inv.BOX_BALANCE = invObjBl.BOX_BALANCE;
-                        inv.UNIT_BALANCE_TEXT = invObjBl.UNIT_BALANCE_TEXT;
-                    }
+                    //var invObjBl = _db.INV_PRODUCTS.Where(w => w.PRODUCT_ID2 == InvData.PRODUCT_ID2).FirstOrDefault();
+                    //if (invObjBl != null)
+                    //{
+                    //    inv.PACK_BALANCE = invObjBl.PACK_BALANCE;
+                    //    inv.ITEM_BALANCE = invObjBl.ITEM_BALANCE;
+                    //    inv.BOX_BALANCE = invObjBl.BOX_BALANCE;
+                    //    inv.UNIT_BALANCE_TEXT = invObjBl.UNIT_BALANCE_TEXT;
+                    //}
 
                     _db.INV_PRODUCTS.Add(inv);
                     _db.SaveChanges();
