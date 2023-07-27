@@ -329,9 +329,9 @@ namespace DAL
                 using (POSSYSTEMEntities _db = new POSSYSTEMEntities())
                 {
                     decimal balance = 0;
-                    int? old_packBalance = 0;
-                    int? old_itemBalance = 0;
-                    int? old_boxBalance = 0;
+                    decimal? old_packBalance = 0;
+                    decimal? old_itemBalance = 0;
+                    decimal? old_boxBalance = 0;
 
                     PRODUCTS pd = new PRODUCTS();
                     INV_PRODUCTS inv = new INV_PRODUCTS();
@@ -342,6 +342,12 @@ namespace DAL
                     var invObj2 = _db.INV_PRODUCTS.Where(w => w.PRODUCT_ID2 == InvData.PRODUCT_ID && w.UNIT == InvData.UNIT).FirstOrDefault();
                     if (invObj2 != null)
                     {
+
+                        balance = invObj.BALANCE.HasValue ? invObj.BALANCE.Value : 0;
+                        old_packBalance = invObj2.PACK_BALANCE.HasValue ? invObj2.PACK_BALANCE.Value : 0;
+                        old_itemBalance = invObj2.ITEM_BALANCE.HasValue ? invObj2.ITEM_BALANCE.Value : 0;
+                        old_boxBalance = invObj2.BOX_BALANCE.HasValue ? invObj2.BOX_BALANCE.Value : 0;
+
                         _db.INV_PRODUCTS.Remove(invObj);
                     }
 
@@ -407,10 +413,15 @@ namespace DAL
                         inv.ORDER_DATE = InvData.ORDER_DATE;//invObj.ORDER_DATE;
                     }
 
+
+                    inv.PACK_BALANCE = InvData.PACK_BALANCE + old_packBalance;
+                    inv.ITEM_BALANCE = InvData.ITEM_BALANCE + old_itemBalance;
+                    inv.BOX_BALANCE = InvData.BOX_BALANCE + old_boxBalance;
+
                     inv.QTY = InvData.QTY;
-                    inv.PACK_BALANCE = InvData.PACK_BALANCE;
-                    inv.ITEM_BALANCE = InvData.ITEM_BALANCE;
-                    inv.BOX_BALANCE = InvData.BOX_BALANCE;
+                    //inv.PACK_BALANCE = InvData.PACK_BALANCE;
+                    //inv.ITEM_BALANCE = InvData.ITEM_BALANCE;
+                    //inv.BOX_BALANCE = InvData.BOX_BALANCE;
 
                     inv.UNIT = InvData.UNIT;
                     inv.E_BY = InvData.C_BY;
