@@ -469,7 +469,7 @@ namespace POS.Forms
 
                     obj.PRODUCT_ID = pid;
                     obj.PRODUCT_ID2 = pid;
-                    isSuccess = InvService.InsertInventory2(obj);
+                    isSuccess = InvService.UpdateINV2(obj); // InvService.InsertInventory2(obj);
                 }
 
                 if (isSuccess)

@@ -29,6 +29,7 @@ namespace POS.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.panel1 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -45,6 +46,9 @@ namespace POS.Forms
             this.btnSell = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.lbldate = new System.Windows.Forms.Label();
+            this.lbltime = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -269,11 +273,38 @@ namespace POS.Forms
             this.lblName.Text = "lblName";
             this.lblName.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // lbldate
+            // 
+            this.lbldate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.lbldate.Location = new System.Drawing.Point(1089, 0);
+            this.lbldate.Name = "lbldate";
+            this.lbldate.Size = new System.Drawing.Size(160, 20);
+            this.lbldate.TabIndex = 10;
+            this.lbldate.Text = "label2";
+            this.lbldate.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // lbltime
+            // 
+            this.lbltime.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.lbltime.Location = new System.Drawing.Point(1248, 0);
+            this.lbltime.Name = "lbltime";
+            this.lbltime.Size = new System.Drawing.Size(120, 20);
+            this.lbltime.TabIndex = 11;
+            this.lbltime.Text = "label2";
+            this.lbltime.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1371, 953);
+            this.Controls.Add(this.lbltime);
+            this.Controls.Add(this.lbldate);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -281,6 +312,7 @@ namespace POS.Forms
             this.Name = "frmMain";
             this.Text = "Product Service System";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frmMain_Load);
             this.panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -308,5 +340,8 @@ namespace POS.Forms
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Button btnProductOrder;
         private System.Windows.Forms.Button btnPManagement;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label lbldate;
+        private System.Windows.Forms.Label lbltime;
     }
 }

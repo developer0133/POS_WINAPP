@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DATA_Models.Models;
+using DAL.Utils;
 
 namespace POS.Forms
 {
@@ -28,9 +29,13 @@ namespace POS.Forms
             //string path = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName + "\\POS" + "\\" + rptPath;
             //LocalReport localReport = new LocalReport(path);
 
+            timer1.Start();
             this.lblName.Text = string.Format("เข้าสู่ระบบโดย: {0} {1}", UserModel.FIRST_NAME, UserModel.LAST_NAME);
+           // txtdate.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss", formatThai);
+            //strDate = Date.Value.ToString("dd/MM/yyyy HH:mm:ss", clsFunctions.formatThai);
         }
 
+        private static System.IFormatProvider formatThai = new System.Globalization.CultureInfo("th-TH");
         private void btnLogout_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -138,6 +143,17 @@ namespace POS.Forms
             frmProductManagement f = new frmProductManagement();
             f.MdiParent = this;
             f.Show();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lbldate.Text = DateTime.Now.ToLongDateString();
+            lbltime.Text = DateTime.Now.ToLongTimeString();
+        }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

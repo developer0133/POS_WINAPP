@@ -349,24 +349,20 @@ namespace DAL
                             old_itemBalance += item.ITEM_BALANCE.HasValue ? item.ITEM_BALANCE.Value : 0;
                             old_boxBalance += item.BOX_BALANCE.HasValue ? item.BOX_BALANCE.Value : 0;
 
-                            _db.INV_PRODUCTS.Remove(item);
+                            //_db.INV_PRODUCTS.Remove(item);
                         }
 
                         inv.PACK_BALANCE = InvData.PACK_BALANCE + old_packBalance;
                         inv.ITEM_BALANCE = InvData.ITEM_BALANCE + old_itemBalance;
                         inv.BOX_BALANCE = InvData.BOX_BALANCE + old_boxBalance;
 
-                        //balance = invObj.BALANCE.HasValue ? invObj.BALANCE.Value : 0;
-                        //old_packBalance = invObj2.PACK_BALANCE.HasValue ? invObj2.PACK_BALANCE.Value : 0;
-                        //old_itemBalance = invObj2.ITEM_BALANCE.HasValue ? invObj2.ITEM_BALANCE.Value : 0;
-                        //old_boxBalance = invObj2.BOX_BALANCE.HasValue ? invObj2.BOX_BALANCE.Value : 0;
                     }
 
-                    var objP = _db.PRODUCTS.Where(w => w.PARENT_ID == InvData.PRODUCT_ID && w.UNIT == InvData.UNIT).FirstOrDefault();
-                    if (objP != null)
-                    {
-                        _db.PRODUCTS.Remove(objP);
-                    }
+                    //var objP = _db.PRODUCTS.Where(w => w.PARENT_ID == InvData.PRODUCT_ID && w.UNIT == InvData.UNIT).FirstOrDefault();
+                    //if (objP != null)
+                    //{
+                    //    _db.PRODUCTS.Remove(objP);
+                    //}
 
                     var objProdduct = _db.PRODUCTS.Where(w => w.PRODUCT_ID == InvData.PRODUCT_ID).SingleOrDefault();
 
@@ -447,7 +443,7 @@ namespace DAL
 
                     inv.UNIT_BALANCE_TEXT = String.Format("{0}:ลัง {1}:แพ็ค {2}:ชิ้น", inv.BOX_BALANCE, inv.PACK_BALANCE, inv.ITEM_BALANCE);
 
-                    InvData.C_BY = InvData.C_BY;
+                    inv.C_BY = InvData.C_BY;
                     inv.PRODUCT_ID2 = InvData.PRODUCT_ID2;
 
                     //var invObjBl = _db.INV_PRODUCTS.Where(w => w.PRODUCT_ID2 == InvData.PRODUCT_ID2).FirstOrDefault();
@@ -462,12 +458,124 @@ namespace DAL
                     _db.INV_PRODUCTS.Add(inv);
                     _db.SaveChanges();
 
+                    ////////// Insert OrderHistory
+                    //if (InvData.QTY > 0)
+                    //{
+                    //    objHist = new ORDER_HISTORY();
+                    //    objHist.PRODUCT_ID = InvData.PRODUCT_ID2; //pd.PRODUCT_ID;
+                    //    objHist.ORDER_DATE = inv.ORDER_DATE;
+                    //    objHist.QTY = InvData.QTY;
+                    //    objHist.UNIT = InvData.UNIT;
+                    //    objHist.AMOUNT = InvData.AMOUNT;
+                    //    objHist.TOTAL_AMOUNT = InvData.TOTAL_AMOUNT;
+                    //    objHist.REMARK = InvData.REMARK;
+                    //    objHist.C_BY = InvData.C_BY;
+                    //    objHist.E_BY = InvData.C_BY;
+                    //    objHist.C_DATE = clsFunction.GetDate();
+                    //    objHist.E_DATE = clsFunction.GetDate();
+                    //    objHist.RETAILPRICE = InvData.RETAILPRICE;
+                    //    objHist.WHOLESALEPRICE = InvData.WHOLESALEPRICE;
+                    //    objHist.AVGCOST = objProdduct.AVGCOST;
+                    //    objHist.WHOLESALEPROFIT = InvData.WHOLESALEPROFIT;
+                    //    objHist.RETAILPROFIT = InvData.RETAILPROFIT;
+                    //    objHist.AVG_PACK = InvData.AVG_PACK;
+                    //    objHist.AVG_ITEM = InvData.AVG_ITEM;
+
+                    //    _db.ORDER_HISTORY.Add(objHist);
+
+                    //    _db.SaveChanges();
+                    //}
+                   
+                    isSuccess = true;
+
+                    _db.Dispose();
+                }
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return isSuccess;
+        }
+
+        public bool UpdateINV2(INV_PRODUCTS InvData)
+        {
+            bool isSuccess = false;
+
+            try
+            {
+                using (POSSYSTEMEntities _db = new POSSYSTEMEntities())
+                {
+                    decimal balance = 0;
+                    decimal? old_packBalance = 0;
+                    decimal? old_itemBalance = 0;
+                    decimal? old_boxBalance = 0;
+
+                    PRODUCTS pd = new PRODUCTS();
+                    INV_PRODUCTS inv = new INV_PRODUCTS();
+                    ORDER_HISTORY objHist = null;
+
+                    var invObj = _db.INV_PRODUCTS.Where(w => w.PRODUCT_ID2 == InvData.PRODUCT_ID).FirstOrDefault();
+
+                    var invObj2 = _db.INV_PRODUCTS.Where(w => w.PRODUCT_ID2 == InvData.PRODUCT_ID && w.UNIT == InvData.UNIT).SingleOrDefault();
+                    if (invObj2 !=null)
+                    {
+                        old_packBalance = invObj2.PACK_BALANCE.HasValue ? invObj2.PACK_BALANCE.Value : 0;
+                        old_itemBalance = invObj2.ITEM_BALANCE.HasValue ? invObj2.ITEM_BALANCE.Value : 0;
+                        old_boxBalance = invObj2.BOX_BALANCE.HasValue ? invObj2.BOX_BALANCE.Value : 0;
+                        
+
+                        invObj2.PACK_BALANCE = InvData.PACK_BALANCE + old_packBalance;
+                        invObj2.ITEM_BALANCE = InvData.ITEM_BALANCE + old_itemBalance;
+                        invObj2.BOX_BALANCE = InvData.BOX_BALANCE + old_boxBalance;
+                    }
+
+              
+                    var objProdduct = _db.PRODUCTS.Where(w => w.PRODUCT_ID == InvData.PRODUCT_ID).SingleOrDefault();
+
+                    if (InvData.ORDER_DATE == null)
+                    {
+                        invObj2.ORDER_DATE = objProdduct.C_DATE;//invObj.ORDER_DATE;
+                    }
+                    else
+                    {
+                        invObj2.ORDER_DATE = InvData.ORDER_DATE;//invObj.ORDER_DATE;
+                    }
+
+                    invObj2.QTY = InvData.QTY;
+               
+                    invObj2.UNIT = InvData.UNIT;
+                    invObj2.E_BY = InvData.C_BY;
+                    invObj2.C_DATE = clsFunction.GetDate();
+                    invObj2.E_DATE = clsFunction.GetDate();
+                    invObj2.RETAILPROFIT = InvData.RETAILPROFIT;
+                    invObj2.WHOLESALEPROFIT = InvData.WHOLESALEPROFIT;//invObj.WHOLESALEPROFIT;
+                    invObj2.AVG_PACK = InvData.AVG_PACK;//invObj.AVG_PACK;
+                    invObj2.AVG_ITEM = InvData.AVG_ITEM;//invObj.AVG_ITEM;
+                    invObj2.WHOLESALEPRICE_ITEM = InvData.WHOLESALEPRICE_ITEM;//invObj.WHOLESALEPRICE_ITEM;
+                    invObj2.RETAILPRICE = InvData.RETAILPRICE;
+                    invObj2.WHOLESALEPRICE = InvData.WHOLESALEPRICE_ITEM;//invObj.WHOLESALEPRICE_ITEM;
+                    invObj2.TOTAL_AMOUNT = InvData.TOTAL_AMOUNT;
+
+                    invObj2.UNIT_BALANCE_TEXT = String.Format("{0}:ลัง {1}:แพ็ค {2}:ชิ้น", invObj2.BOX_BALANCE, invObj2.PACK_BALANCE, invObj2.ITEM_BALANCE);
+
+                    invObj2.C_BY = InvData.C_BY;
+                    invObj2.PRODUCT_ID2 = InvData.PRODUCT_ID2;
+
+
+                    _db.Entry(invObj2).State = EntityState.Modified;
+                    _db.SaveChanges();
+
                     //////// Insert OrderHistory
                     if (InvData.QTY > 0)
                     {
                         objHist = new ORDER_HISTORY();
                         objHist.PRODUCT_ID = InvData.PRODUCT_ID2; //pd.PRODUCT_ID;
-                        objHist.ORDER_DATE = inv.ORDER_DATE;
+                        objHist.ORDER_DATE = invObj2.ORDER_DATE;
                         objHist.QTY = InvData.QTY;
                         objHist.UNIT = InvData.UNIT;
                         objHist.AMOUNT = InvData.AMOUNT;
@@ -489,7 +597,7 @@ namespace DAL
 
                         _db.SaveChanges();
                     }
-                   
+
                     isSuccess = true;
 
                     _db.Dispose();
