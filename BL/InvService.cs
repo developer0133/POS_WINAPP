@@ -38,9 +38,9 @@ namespace BL
             return _inv.UpdateInventory2(InvData);
         }
 
-        public static bool UpdateINV2(INV_PRODUCTS InvData)
+        public static bool UpdateINV2(INV_PRODUCTS InvData, ref string msg)
         {
-            return _inv.UpdateINV2(InvData);
+            return _inv.UpdateINV2(InvData,ref msg);
         }
 
         public static List<InventoryDTO> GetAllInventory(string code)

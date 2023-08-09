@@ -74,6 +74,7 @@ namespace POS.Utils
         public const string DUPLICATE = "ข้อมูลซ้ำ";
         public const string TRYAGAIN = "ลองอีกครั้ง";
         public const string FULLFILL = "ระบุข้อมูล";
+        public const string FAILED = "Error";
     }
 
 

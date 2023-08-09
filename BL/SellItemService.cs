@@ -25,9 +25,9 @@ namespace BL
             return _sellItem.InsertSellItem(sellitem);
         }
 
-        public static string InsertSellItem2(List<SELLITEMS> sellitem)
+        public static string InsertSellItem2(List<SELLITEMS> sellitem, ref string message)
         {
-            return _sellItem.InsertSellItem2(sellitem);
+            return _sellItem.InsertSellItem2(sellitem, ref message);
         }
 
         public static List<SellHistDTO> GetSellItem(int productid, List<int> parentID)

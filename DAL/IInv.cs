@@ -23,7 +23,7 @@ namespace DAL
 
         List<InventoryDTO> GetProductParent(int? id);
 
-        bool UpdateINV2(INV_PRODUCTS InvData);
+        bool UpdateINV2(INV_PRODUCTS InvData, ref string msg);
 
         string SRTUNIT(int pid);
     }

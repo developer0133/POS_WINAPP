@@ -414,6 +414,7 @@ namespace POS.Forms
 
             bool isSuccess = false;
             string unit = string.Empty;
+            string msg = string.Empty;
 
             if (string.IsNullOrEmpty(txtProductName.Text) || string.IsNullOrEmpty(txtQty.Text) || string.IsNullOrEmpty(txtAmount.Text))
             {
@@ -469,7 +470,9 @@ namespace POS.Forms
 
                     obj.PRODUCT_ID = pid;
                     obj.PRODUCT_ID2 = pid;
-                    isSuccess = InvService.UpdateINV2(obj); // InvService.InsertInventory2(obj);
+
+                   
+                    isSuccess = InvService.UpdateINV2(obj, ref msg); // InvService.InsertInventory2(obj);
                 }
 
                 if (isSuccess)
@@ -477,6 +480,10 @@ namespace POS.Forms
                     MessageBox.Show(MESSAGEALERT.COMPLETED, "POS");
                     BindDGV();
                     Clear();
+                }
+                else
+                {
+                    MessageBox.Show(msg, "POS");
                 }
             }
         }

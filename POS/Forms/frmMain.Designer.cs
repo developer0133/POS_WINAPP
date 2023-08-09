@@ -302,11 +302,13 @@ namespace POS.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1371, 953);
             this.Controls.Add(this.lbltime);
             this.Controls.Add(this.lbldate);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.panel1);
+            this.ForeColor = System.Drawing.Color.Black;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.Name = "frmMain";

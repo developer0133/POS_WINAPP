@@ -277,7 +277,7 @@ namespace DAL
             return retsellNo;
         }
 
-        public string InsertSellItem2(List<SELLITEMS> sellitem)
+        public string InsertSellItem2(List<SELLITEMS> sellitem,ref string message)
         {
             POSSYSTEMEntities _db = new POSSYSTEMEntities();
             string retsellNo = string.Empty;

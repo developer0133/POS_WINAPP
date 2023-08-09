@@ -102,6 +102,7 @@ namespace POS.Forms
             {
                 bool isSuccess = false;
                 string unit = string.Empty;
+                string msg = string.Empty;
                 unit = cboUnit.SelectedValue == null ? string.Empty : cboUnit.SelectedValue.ToString();
 
                 obj.RETAILPRICE = string.IsNullOrEmpty(txtRetailprice.Text) ? 0 : decimal.Parse(txtRetailprice.Text);
@@ -129,7 +130,7 @@ namespace POS.Forms
                     }
                     else
                     {
-                        isSuccess = InvService.InsertInventory2(obj);
+                        isSuccess = InvService.UpdateINV2(obj, ref msg);//InvService.InsertInventory2(obj);
                     }
                 }
 

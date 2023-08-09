@@ -232,6 +232,7 @@ namespace POS.Forms
         private void btnSave_Click(object sender, EventArgs e)
         {
             List<SELLITEMS> sellData = new List<SELLITEMS>();
+            string msg = string.Empty;
 
             for (int i = 0; i < dgvSell.Rows.Count - 1; i++)
             {
@@ -250,7 +251,7 @@ namespace POS.Forms
 
             if (sellData.Count() > 0)
             {
-                var isSuccess = SellItemService.InsertSellItem2(sellData);
+                var isSuccess = SellItemService.InsertSellItem2(sellData, ref msg);
 
                 if (!string.IsNullOrEmpty(isSuccess))
                 {
