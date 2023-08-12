@@ -253,12 +253,17 @@ namespace POS.Forms
             {
                 var isSuccess = SellItemService.InsertSellItem2(sellData, ref msg);
 
-                if (!string.IsNullOrEmpty(isSuccess))
+                if (!string.IsNullOrEmpty(isSuccess) && string.IsNullOrEmpty(msg))
                 {
                     MessageBox.Show(MESSAGEALERT.COMPLETED, "POS", MessageBoxButtons.OK);
                     btnReport.Enabled = true;
                     strSellNo = isSuccess;
                 }
+                if (!string.IsNullOrEmpty(msg))
+                {
+                    MessageBox.Show(msg, "POS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
             }
             else
             {

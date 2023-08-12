@@ -365,41 +365,23 @@ namespace DAL
                             int tmpId = 0;
                             var flagsplitdot = false;
 
-                            //var a1 = p.PRODUCT_CODE.Contains("_");
-                            //var a2 = p.PRODUCT_CODE.Contains(".");
-
+    
                             ProductsModel fistObj = new ProductsModel();
                             int mstID = 0;
 
-                            //if (a1 && a2)
-                            //{
-                            //    sp = p.PRODUCT_CODE.Split('_');
-                            //    sp[0] = sp[0];
-                            //    var a3 = p.PRODUCT_CODE.Split('.');
-                            //    mstID = int.Parse(a3[1]);
-                            //}
-                            //else
-                            //{
-                            //    sp = p.PRODUCT_CODE.Split('.');
-                            //    flagsplitdot = true;
-                            //}
 
                             List<int> ids = new List<int>();
 
                             string pcode = p.PRODUCT_CODE; //sp[0];
                             string tmpUnit = string.Empty;
 
-                            //var tmpPro = _db.PRODUCTS.Where(w => w.PRODUCT_CODE.Contains(pcode)).AsNoTracking().ToList().OrderBy(x => x.PRODUCT_ID);
-                            // tmpUnit = tmpPro.Select(s => s.UNIT).FirstOrDefault();
-
-                           
+        
 
                             var packBalance = objBalance.PACK_BALANCE.HasValue ? objBalance.PACK_BALANCE.Value : 0;
                             var itemBalance = objBalance.ITEM_BALANCE.HasValue ? objBalance.ITEM_BALANCE.Value : 0;
                             var boxBalance = objBalance.BOX_BALANCE.HasValue ? objBalance.BOX_BALANCE.Value : 0;
 
-                            //var prdUnit = _db.PARAMETER.Where(w => w.MAJOR_CODE == POSPARAMETER.UNIT && w.MINOR_CODE == tmpUnit).AsNoTracking().SingleOrDefault();
-
+            
                             string u1 = "";
                             string u2 = "";
                             u1 = string.IsNullOrEmpty(currentUnit.CONDITION1) ? "0" : currentUnit.CONDITION1;
@@ -540,7 +522,8 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                message = ex.Message;
+                //throw new Exception(ex.Message);
             }
             finally
             {

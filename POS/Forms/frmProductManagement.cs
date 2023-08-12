@@ -230,7 +230,12 @@ namespace POS.Forms
                        }).ToList();
 
             dgvInv.DataSource = tmp;
+            SetColumnDGV();
 
+        }
+
+        private void SetColumnDGV()
+        {
             dgvInv.Columns[0].HeaderText = "ID";
             dgvInv.Columns[1].HeaderText = "รหัสสินค้า";
             dgvInv.Columns[2].HeaderText = "ชื่อสินค้า";
@@ -245,7 +250,7 @@ namespace POS.Forms
             dgvInv.Columns[3].Width = 100;
             dgvInv.Columns[4].Width = 100;
             dgvInv.Columns[5].Width = 130;
-  
+
             dgvInv.Columns[0].Name = "INV_ID";
             dgvInv.Columns[1].Name = "PRODUCT_CODE";
             dgvInv.Columns[2].Name = "PRODUCT_NAME";
@@ -263,13 +268,30 @@ namespace POS.Forms
             dgvInv.Columns[6].DataPropertyName = "PRODUCT_ID";
 
             dgvInv.Columns[6].Visible = false;
-
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
             var tmp = InvService.GetAllInventory(txtSearch.Text);
-            dgvInv.DataSource = tmp;
+
+
+            var tmp2 = (from a in tmp
+                        select new
+                       {
+                           INV_ID = a.INV_ID,
+                           PRODUCT_CODE = a.PRODUCT_CODE,
+                           PRODUCT_NAME = a.PRODUCT_NAME,
+                           //STR_ORDERDATE = a.STR_ORDERDATE,
+                           //QTY = a.QTY,
+                           STR_UNIT = a.STR_UNIT,
+                           RETAILPRICE = a.RETAILPRICE,
+                           REMARK = a.REMARK,
+                           PRODUCT_ID = a.PRODUCT_ID
+                       }).ToList();
+
+
+            dgvInv.DataSource = tmp2;
+            SetColumnDGV();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

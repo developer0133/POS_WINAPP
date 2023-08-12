@@ -34,7 +34,7 @@ namespace POS.Forms
 
             LoadTexboxComplete();
             GetUnit();
-            BindDGV();
+            BindDGV(string.Empty);
         }
 
         void LoadTexboxComplete()
@@ -478,7 +478,7 @@ namespace POS.Forms
                 if (isSuccess)
                 {
                     MessageBox.Show(MESSAGEALERT.COMPLETED, "POS");
-                    BindDGV();
+                    BindDGV(string.Empty);
                     Clear();
                 }
                 else
@@ -488,13 +488,13 @@ namespace POS.Forms
             }
         }
 
-        private void BindDGV()
+        private void BindDGV(string code)
         {
             dt = new List<InventoryDTO>();
 
             dgvInv.Columns.Clear();
             dgvInv.DataSource = null;
-            var invData = InvService.GetAllInventory(string.Empty);
+            var invData = InvService.GetAllInventory(code);
           
 
             var tmp = (from a in invData
@@ -563,7 +563,7 @@ namespace POS.Forms
                 {
                     txtQty.Text = pModel.QTY.ToString();
                     cboUnit.SelectedValue = pModel.UNIT;
-                    txtAmount.Text = pModel.AMOUNT.HasValue ? pModel.AMOUNT.Value.ToString() : string.Empty;
+                    txtAmount.Text = pModel.TOTAL_AMOUNT.HasValue ? pModel.TOTAL_AMOUNT.Value.ToString() : string.Empty;
                     txtCostAvgItem.Text = pModel.AVG_ITEM.HasValue ? pModel.AVG_ITEM.Value.ToString() : string.Empty;
                    //txtCostAvgPack.Text = pModel.AVG_PACK.HasValue ? pModel.AVG_PACK.Value.ToString() : string.Empty;
                     txtRetailprice.Text = pModel.RETAILPRICE.HasValue ? pModel.RETAILPRICE.Value.ToString() : string.Empty;
@@ -627,9 +627,7 @@ namespace POS.Forms
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            var tmp = InvService.GetAllInventory(txtSearch.Text);
-            dgvInv.DataSource = tmp;
-
+            BindDGV(txtSearch.Text);
         }
 
         private void cboUnit_TextChanged(object sender, EventArgs e)
