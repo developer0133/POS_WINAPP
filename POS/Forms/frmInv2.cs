@@ -547,6 +547,8 @@ namespace POS.Forms
             dgvInv.Columns[5].DataPropertyName = "STR_UNIT";
             dgvInv.Columns[6].DataPropertyName = "STR_TOTAL_AMOUNT";
             dgvInv.Columns[7].DataPropertyName = "REMARK";
+
+            clsFunction.FormatHeaderDatagrid(dgvInv);
         }
 
         private void dgvInv_CellClick(object sender, DataGridViewCellEventArgs e)

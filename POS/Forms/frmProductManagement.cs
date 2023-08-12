@@ -231,7 +231,6 @@ namespace POS.Forms
 
             dgvInv.DataSource = tmp;
             SetColumnDGV();
-
         }
 
         private void SetColumnDGV()
@@ -268,6 +267,8 @@ namespace POS.Forms
             dgvInv.Columns[6].DataPropertyName = "PRODUCT_ID";
 
             dgvInv.Columns[6].Visible = false;
+
+            POS.Utils.clsFunction.FormatHeaderDatagrid(dgvInv);
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
