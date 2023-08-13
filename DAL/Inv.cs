@@ -523,7 +523,7 @@ namespace DAL
                 {
                     try
                     {
-                        var invObj2 = _db.INV_PRODUCTS.Where(w => w.PRODUCT_ID2 == InvData.PRODUCT_ID && w.UNIT == InvData.UNIT).SingleOrDefault();
+                        var invObj2 = _db.INV_PRODUCTS.Where(w => w.PRODUCT_ID == InvData.PRODUCT_ID && w.UNIT == InvData.UNIT).SingleOrDefault();
 
                         var objProdduct = _db.PRODUCTS.Where(w => w.PRODUCT_ID == InvData.PRODUCT_ID).SingleOrDefault();
 
