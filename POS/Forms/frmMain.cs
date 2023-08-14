@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DATA_Models.Models;
 using DAL.Utils;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Header;
 
 namespace POS.Forms
 {
@@ -154,6 +155,87 @@ namespace POS.Forms
         private void frmMain_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            string itemText = e.ClickedItem.Name;
+            CloseAllChildForm();
+            switch (itemText)
+            {
+                case "t_product":
+                    frmProduct f = new frmProduct();
+                    f.MdiParent = this;
+                    f.Show();
+                    break;
+
+                case "t_cate":
+                    frmCategory f2 = new frmCategory();
+                    f2.MdiParent = this;
+                    f2.Show();
+                    break;
+
+                case "t_master":
+                    frmParameter f3 = new frmParameter();
+                    f3.MdiParent = this;
+                    f3.Show();
+                    break;
+
+                case "t_barcode":
+                    frmBarcode f4 = new frmBarcode();
+                    f4.MdiParent = this;
+                    f4.Show();
+                    break;
+
+                case "t_sell":
+                    frmSell f5 = new frmSell();
+                    f5.MdiParent = this;
+                    f5.Show();
+                    break;
+
+                case "t_inv":
+                    frmInv2 f6 = new frmInv2();
+                    f6.MdiParent = this;
+                    f6.Show();
+                    break;
+
+                case "t_productmng":
+                    frmProductManagement f7 = new frmProductManagement();
+                    f7.MdiParent = this;
+                    f7.Show();
+                    break;
+            }
+        }
+
+        private void menuStrip2_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            string itemText = e.ClickedItem.Name;
+            CloseAllChildForm();
+            switch (itemText)
+            {
+                case "t_outofstock":
+                    frmOutOfStock f = new frmOutOfStock();
+                    f.MdiParent = this;
+                    f.Show();
+                    break;
+
+                case "t_ds":
+                    frmCategory f2 = new frmCategory();
+                    f2.MdiParent = this;
+                    f2.Show();
+                    break;
+
+                case "t_rpt":
+                    frmReport f3 = new frmReport();
+                    f3.MdiParent = this;
+                    f3.Show();
+                    break;
+
+                case "t_logout":
+                    Application.Exit();
+                    break;
+
+            }
         }
     }
 }
