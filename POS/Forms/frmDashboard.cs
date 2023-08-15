@@ -7,6 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BL;
+using DAL.Utils;
+using DATA_EF;
+using DATA_Models.DTO;
+using DATA_Models.Models;
 
 namespace POS.Forms
 {
@@ -15,6 +20,11 @@ namespace POS.Forms
         public frmDashboard()
         {
             InitializeComponent();
+        }
+
+        public void LoadData()
+        {
+
         }
     }
 }

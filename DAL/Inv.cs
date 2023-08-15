@@ -1246,5 +1246,52 @@ namespace DAL
 
             }
         }
+
+        public List<InventoryDTO> GetTop5Products()
+        {
+            POSSYSTEMEntities db = new POSSYSTEMEntities();
+            List<InventoryDTO> oList = new List<InventoryDTO>();
+
+            try
+            {
+
+                var qrydata = (from t in db.PRODUCTS.Where(w => w.STATUS == STATUS.ACTIVE && w.PARENT_ID > 0)
+                               join t1 in db.SELLITEMS on t.PRODUCT_ID equals t1.PRODUCT_ID
+
+                               select new InventoryDTO
+                               {
+                                   PRODUCT_ID = t1.PRODUCT_ID.Value,
+                                   PRODUCT_NAME = t.PRODUCT_NAME,
+                                   PRODUCT_CODE = t1.PRODUCT_CODE,
+                                   C_DATE = t1.C_DATE
+                               }).ToList();
+
+   
+                //var result = qrydata.GroupBy(x => new { x.PRODUCT_ID, x.PRODUCT_NAME, x.C_DATE })
+                //        .Select((s, index) => new InventoryDTO
+                //        {
+                //            PRODUCT_ID = s.First().PRODUCT_ID,
+                //            PRODUCT_NAME = s.First().PRODUCT_NAME,
+                //        }).OrderByDescending(a => a.PRODUCT_ID).ToList();
+
+
+            
+
+                var test = qrydata.GroupBy(g => new { g.PRODUCT_ID, g.PRODUCT_NAME, g.AMOUNT }).OrderByDescending(a => a.Count()).Select(g => new
+                {
+                    PRODUCT_ID = g.Key,
+                    Count = g.Count(),
+                    PRODUCT_NAME = g.Key.PRODUCT_NAME,
+                    AMOUNT = g.Sum(a => a.AMOUNT),
+                }).Take(5).ToList();
+            }
+            catch
+            {
+
+            }
+
+
+            return oList;
+        }
     }
 }
