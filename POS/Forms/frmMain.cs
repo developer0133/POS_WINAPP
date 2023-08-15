@@ -161,6 +161,7 @@ namespace POS.Forms
         {
             string itemText = e.ClickedItem.Name;
             CloseAllChildForm();
+
             switch (itemText)
             {
                 case "t_product":
@@ -204,6 +205,7 @@ namespace POS.Forms
                     f7.MdiParent = this;
                     f7.Show();
                     break;
+
             }
         }
 
@@ -220,7 +222,7 @@ namespace POS.Forms
                     break;
 
                 case "t_ds":
-                    frmCategory f2 = new frmCategory();
+                    frmDashboard f2 = new frmDashboard();
                     f2.MdiParent = this;
                     f2.Show();
                     break;
@@ -233,6 +235,10 @@ namespace POS.Forms
 
                 case "t_logout":
                     Application.Exit();
+                    break;
+
+                case "t_home":
+                    CloseAllChildForm();
                     break;
 
             }

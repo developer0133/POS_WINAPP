@@ -551,3 +551,4 @@ D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS\bin\Debug\pt\Microsoft.
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
+D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS\obj\Debug\POS.Forms.frmDashboard.resources

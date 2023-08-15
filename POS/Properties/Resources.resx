@@ -121,14 +121,23 @@
   <data name="search22" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\search2.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icons8-profit-641" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\icons8-profit-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-report-100" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\icons8-report-100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="print1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\print.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="search2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\search2.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8-report-100" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\images\icons8-report-100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8-homepage-100" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\icons8-homepage-100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Order-history" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\Order-history.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Order" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\Order.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -138,6 +147,9 @@
   </data>
   <data name="Barcodes" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\Barcodes.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-calendar-30-96" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\icons8-calendar-30-96.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="sale" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\sale.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -160,17 +172,20 @@
   <data name="icons8-logout-58" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\icons8-logout-58.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Barcodes1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\images\Barcodes.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="icons8-logout-581" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\icons8-logout-58.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="config" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\images\config.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8-calendar-7-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\icons8-calendar-7-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-report-1002" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\icons8-report-100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-sell-96" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\icons8-sell-96.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-profit-642" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\icons8-profit-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Save-icon2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\Save-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -178,17 +193,14 @@
   <data name="login" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\login.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Finance-Order" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\images\Finance-Order.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="logout1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\logout.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="product1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\product.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="download1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\download.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icons8-logout-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\images\icons8-logout-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-setting-64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\icons8-setting-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -196,11 +208,29 @@
   <data name="print" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\print.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Category" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\images\Category.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8-logout-582" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\icons8-logout-58.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Finance-Order" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\Finance-Order.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-30-16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\icons8-30-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Zoom-out" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\Zoom-out.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-history-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\icons8-history-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-30-161" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\icons8-30-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Download-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\Download-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-dashboard-64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\icons8-dashboard-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="download" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\download.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -211,6 +241,9 @@
   <data name="Save-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\Save-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icons8-profit-64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\icons8-profit-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icons8-out-of-stock-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\icons8-out-of-stock-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -220,8 +253,8 @@
   <data name="save" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\save.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8-dashboard-64" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\images\icons8-dashboard-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Category" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\Category.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-sell-stock-94" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\icons8-sell-stock-94.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -229,11 +262,14 @@
   <data name="search24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\search2.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Order-history" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\images\Order-history.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8-today-40" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\icons8-today-40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="product1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\images\product.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="search25" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\search2.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Barcodes1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\Barcodes.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="search21" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\search2.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -241,16 +277,19 @@
   <data name="cate" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\cate.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icons8-revenue-64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\icons8-revenue-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icons8-report-1001" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\icons8-report-100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="search25" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\images\search2.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8-logout-32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\icons8-logout-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Download-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\images\Download-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="config" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\config.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8-logout-582" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\images\icons8-logout-58.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8-revenue-641" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\icons8-revenue-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
