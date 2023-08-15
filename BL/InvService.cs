@@ -67,5 +67,11 @@ namespace BL
         {
             return _inv.SRTUNIT(pid);
         }
+
+        public static List<InventoryDTO> GetTop5Products()
+        {
+            return _inv.GetTop5Products();
+        }
+        
     }
 }
