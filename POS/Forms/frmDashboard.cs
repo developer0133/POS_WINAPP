@@ -12,6 +12,7 @@ using DAL.Utils;
 using DATA_EF;
 using DATA_Models.DTO;
 using DATA_Models.Models;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace POS.Forms
 {
@@ -38,13 +39,12 @@ namespace POS.Forms
             productchart.DataSource = data;
             productchart.Series["Product"].XValueMember = "PRODUCT_NAME";
             productchart.Series["Product"].YValueMembers = "AMOUNT";
-            //productchart.DataBind();
+            
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            var tmpdate = rptDate.Value.ToShortDateString();
-            LoadData();
+             LoadData();
         }
     }
 }

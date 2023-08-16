@@ -1259,7 +1259,7 @@ namespace DAL
                 
               //  var sellItem = db.SELLITEMS.Where(w => System.Data.Entity.DbFunctions.TruncateTime(w.C_DATE) == dt);
 
-                var qrydata = (from t in db.PRODUCTS.Where(w => w.STATUS == STATUS.ACTIVE && w.PARENT_ID > 0)
+                var qrydata = (from t in db.PRODUCTS.Where(w => w.STATUS == STATUS.ACTIVE)//&& w.PARENT_ID > 0
                                join t1 in db.SELLITEMS.Where(w => System.Data.Entity.DbFunctions.TruncateTime(w.C_DATE) == dt) on t.PRODUCT_ID equals t1.PRODUCT_ID
 
                                select new InventoryDTO
@@ -1271,7 +1271,7 @@ namespace DAL
                                    AMOUNT = t1.AMOUNT
                                }).ToList();
 
-   
+
                 //var result = qrydata.GroupBy(x => new { x.PRODUCT_ID, x.PRODUCT_NAME, x.C_DATE })
                 //        .Select((s, index) => new InventoryDTO
                 //        {
@@ -1279,12 +1279,13 @@ namespace DAL
                 //            PRODUCT_NAME = s.First().PRODUCT_NAME,
                 //        }).OrderByDescending(a => a.PRODUCT_ID).ToList();
 
-           
-                var productList = qrydata.GroupBy(g => new { g.PRODUCT_ID, g.PRODUCT_NAME, g.AMOUNT }).OrderByDescending(a => a.Count()).Select(g => new InventoryDTO
+
+                var productList = qrydata.GroupBy(g => new { g.PRODUCT_ID, g.PRODUCT_NAME, g.AMOUNT, g.C_DATE }).OrderByDescending(a => a.Count()).Select(g => new InventoryDTO
                 {
                     PRODUCT_ID = g.Key.PRODUCT_ID,
                     //Count = g.Count(),
                     PRODUCT_NAME = g.Key.PRODUCT_NAME,
+                    C_DATE = g.Key.C_DATE,
                     AMOUNT = g.Sum(a => a.AMOUNT),
                 }).Take(5).ToList();
 

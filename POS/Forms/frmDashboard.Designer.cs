@@ -68,6 +68,8 @@
             series1.IsValueShownAsLabel = true;
             series1.Legend = "Legend1";
             series1.Name = "Product";
+            series1.XValueMember = "PRODUCT_NAME";
+            series1.YValueMembers = "AMOUNT";
             this.productchart.Series.Add(series1);
             this.productchart.Size = new System.Drawing.Size(524, 392);
             this.productchart.TabIndex = 0;
