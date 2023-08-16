@@ -27,13 +27,24 @@ namespace POS.Forms
         public void LoadData()
         {
             InvService invService = new InvService();
-            var data = InvService.GetTop5Products();
+            string tmpdate = rptDate.Value.ToShortDateString();
+            if (string.IsNullOrEmpty(tmpdate))
+            {
+                tmpdate = clsFunction.GetDate().ToShortDateString();
+            }
 
+            var data = InvService.GetTop5Products(tmpdate);
 
             productchart.DataSource = data;
             productchart.Series["Product"].XValueMember = "PRODUCT_NAME";
             productchart.Series["Product"].YValueMembers = "AMOUNT";
             //productchart.DataBind();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            var tmpdate = rptDate.Value.ToShortDateString();
+            LoadData();
         }
     }
 }

@@ -200,6 +200,7 @@
             this.btnSearch.Text = "ค้นหา";
             this.btnSearch.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // frmDashboard
             // 

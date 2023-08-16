@@ -26,6 +26,6 @@ namespace DAL
         bool UpdateINV2(INV_PRODUCTS InvData, ref string msg);
 
         string SRTUNIT(int pid);
-        List<InventoryDTO> GetTop5Products();
+        List<InventoryDTO> GetTop5Products(string sdate);
     }
 }

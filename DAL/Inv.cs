@@ -1247,16 +1247,20 @@ namespace DAL
             }
         }
 
-        public List<InventoryDTO> GetTop5Products()
+        public List<InventoryDTO> GetTop5Products(string sdate)
         {
             POSSYSTEMEntities db = new POSSYSTEMEntities();
             List<InventoryDTO> oList = new List<InventoryDTO>();
 
             try
             {
+                DateTime? dt = clsFunction.strDateToDateTime(sdate);
+
+                
+              //  var sellItem = db.SELLITEMS.Where(w => System.Data.Entity.DbFunctions.TruncateTime(w.C_DATE) == dt);
 
                 var qrydata = (from t in db.PRODUCTS.Where(w => w.STATUS == STATUS.ACTIVE && w.PARENT_ID > 0)
-                               join t1 in db.SELLITEMS on t.PRODUCT_ID equals t1.PRODUCT_ID
+                               join t1 in db.SELLITEMS.Where(w => System.Data.Entity.DbFunctions.TruncateTime(w.C_DATE) == dt) on t.PRODUCT_ID equals t1.PRODUCT_ID
 
                                select new InventoryDTO
                                {
