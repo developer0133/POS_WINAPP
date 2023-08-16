@@ -20,11 +20,20 @@ namespace POS.Forms
         public frmDashboard()
         {
             InitializeComponent();
+
+            this.LoadData();
         }
 
         public void LoadData()
         {
+            InvService invService = new InvService();
+            var data = InvService.GetTop5Products();
 
+
+            productchart.DataSource = data;
+            productchart.Series["Product"].XValueMember = "PRODUCT_NAME";
+            productchart.Series["Product"].YValueMembers = "AMOUNT";
+            //productchart.DataBind();
         }
     }
 }

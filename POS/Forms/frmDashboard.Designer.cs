@@ -36,19 +36,19 @@
             this.productchart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label1 = new System.Windows.Forms.Label();
             this.grp2 = new System.Windows.Forms.GroupBox();
-            this.grp1 = new System.Windows.Forms.GroupBox();
-            this.lblIncome = new System.Windows.Forms.Label();
-            this.lblProfit = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.lblProfit = new System.Windows.Forms.Label();
+            this.grp1 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblIncome = new System.Windows.Forms.Label();
             this.btnLast30 = new System.Windows.Forms.Button();
             this.btnLast7 = new System.Windows.Forms.Button();
-            this.btnToday = new System.Windows.Forms.Button();
-            this.btnYesterday = new System.Windows.Forms.Button();
+            this.rptDate = new System.Windows.Forms.DateTimePicker();
+            this.btnSearch = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.productchart)).BeginInit();
             this.grp2.SuspendLayout();
-            this.grp1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.grp1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,16 +56,20 @@
             // 
             chartArea1.Name = "ChartArea1";
             this.productchart.ChartAreas.Add(chartArea1);
+            legend1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            legend1.IsTextAutoFit = false;
             legend1.Name = "Legend1";
             this.productchart.Legends.Add(legend1);
-            this.productchart.Location = new System.Drawing.Point(936, 218);
+            this.productchart.Location = new System.Drawing.Point(743, 263);
             this.productchart.Name = "productchart";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series1.IsValueShownAsLabel = true;
             series1.Legend = "Legend1";
-            series1.Name = "Series1";
+            series1.Name = "Product";
             this.productchart.Series.Add(series1);
-            this.productchart.Size = new System.Drawing.Size(385, 387);
+            this.productchart.Size = new System.Drawing.Size(524, 392);
             this.productchart.TabIndex = 0;
             this.productchart.Text = "productchart";
             title1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
@@ -90,46 +94,12 @@
             this.grp2.Controls.Add(this.lblProfit);
             this.grp2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.grp2.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.grp2.Location = new System.Drawing.Point(391, 232);
+            this.grp2.Location = new System.Drawing.Point(1092, 33);
             this.grp2.Name = "grp2";
             this.grp2.Size = new System.Drawing.Size(313, 111);
             this.grp2.TabIndex = 7;
             this.grp2.TabStop = false;
             this.grp2.Text = "กำไร";
-            // 
-            // grp1
-            // 
-            this.grp1.BackColor = System.Drawing.SystemColors.Window;
-            this.grp1.Controls.Add(this.pictureBox1);
-            this.grp1.Controls.Add(this.lblIncome);
-            this.grp1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.grp1.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.grp1.Location = new System.Drawing.Point(42, 232);
-            this.grp1.Name = "grp1";
-            this.grp1.Size = new System.Drawing.Size(302, 111);
-            this.grp1.TabIndex = 6;
-            this.grp1.TabStop = false;
-            this.grp1.Text = "รายได้";
-            // 
-            // lblIncome
-            // 
-            this.lblIncome.AutoSize = true;
-            this.lblIncome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.lblIncome.Location = new System.Drawing.Point(179, 53);
-            this.lblIncome.Name = "lblIncome";
-            this.lblIncome.Size = new System.Drawing.Size(70, 25);
-            this.lblIncome.TabIndex = 0;
-            this.lblIncome.Text = "label2";
-            // 
-            // lblProfit
-            // 
-            this.lblProfit.AutoSize = true;
-            this.lblProfit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.lblProfit.Location = new System.Drawing.Point(169, 53);
-            this.lblProfit.Name = "lblProfit";
-            this.lblProfit.Size = new System.Drawing.Size(70, 25);
-            this.lblProfit.TabIndex = 0;
-            this.lblProfit.Text = "label2";
             // 
             // pictureBox2
             // 
@@ -141,6 +111,30 @@
             this.pictureBox2.TabIndex = 2;
             this.pictureBox2.TabStop = false;
             // 
+            // lblProfit
+            // 
+            this.lblProfit.AutoSize = true;
+            this.lblProfit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.lblProfit.Location = new System.Drawing.Point(169, 53);
+            this.lblProfit.Name = "lblProfit";
+            this.lblProfit.Size = new System.Drawing.Size(70, 25);
+            this.lblProfit.TabIndex = 0;
+            this.lblProfit.Text = "label2";
+            // 
+            // grp1
+            // 
+            this.grp1.BackColor = System.Drawing.SystemColors.Window;
+            this.grp1.Controls.Add(this.pictureBox1);
+            this.grp1.Controls.Add(this.lblIncome);
+            this.grp1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.grp1.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.grp1.Location = new System.Drawing.Point(743, 33);
+            this.grp1.Name = "grp1";
+            this.grp1.Size = new System.Drawing.Size(302, 111);
+            this.grp1.TabIndex = 6;
+            this.grp1.TabStop = false;
+            this.grp1.Text = "รายได้";
+            // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
@@ -151,11 +145,21 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
+            // lblIncome
+            // 
+            this.lblIncome.AutoSize = true;
+            this.lblIncome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.lblIncome.Location = new System.Drawing.Point(179, 53);
+            this.lblIncome.Name = "lblIncome";
+            this.lblIncome.Size = new System.Drawing.Size(70, 25);
+            this.lblIncome.TabIndex = 0;
+            this.lblIncome.Text = "label2";
+            // 
             // btnLast30
             // 
             this.btnLast30.Image = global::POS.Properties.Resources.icons8_30_161;
             this.btnLast30.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnLast30.Location = new System.Drawing.Point(671, 108);
+            this.btnLast30.Location = new System.Drawing.Point(460, 120);
             this.btnLast30.Name = "btnLast30";
             this.btnLast30.Size = new System.Drawing.Size(180, 79);
             this.btnLast30.TabIndex = 4;
@@ -167,7 +171,7 @@
             // 
             this.btnLast7.Image = global::POS.Properties.Resources.icons8_calendar_7_48;
             this.btnLast7.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnLast7.Location = new System.Drawing.Point(463, 108);
+            this.btnLast7.Location = new System.Drawing.Point(252, 120);
             this.btnLast7.Name = "btnLast7";
             this.btnLast7.Size = new System.Drawing.Size(180, 79);
             this.btnLast7.TabIndex = 3;
@@ -175,42 +179,40 @@
             this.btnLast7.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnLast7.UseVisualStyleBackColor = true;
             // 
-            // btnToday
+            // rptDate
             // 
-            this.btnToday.Image = global::POS.Properties.Resources.icons8_today_40;
-            this.btnToday.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnToday.Location = new System.Drawing.Point(250, 108);
-            this.btnToday.Name = "btnToday";
-            this.btnToday.Size = new System.Drawing.Size(180, 79);
-            this.btnToday.TabIndex = 2;
-            this.btnToday.Text = "วันนี้";
-            this.btnToday.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnToday.UseVisualStyleBackColor = true;
+            this.rptDate.Location = new System.Drawing.Point(42, 85);
+            this.rptDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rptDate.Name = "rptDate";
+            this.rptDate.Size = new System.Drawing.Size(272, 22);
+            this.rptDate.TabIndex = 46;
             // 
-            // btnYesterday
+            // btnSearch
             // 
-            this.btnYesterday.Image = global::POS.Properties.Resources.icons8_history_48;
-            this.btnYesterday.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnYesterday.Location = new System.Drawing.Point(42, 108);
-            this.btnYesterday.Name = "btnYesterday";
-            this.btnYesterday.Size = new System.Drawing.Size(180, 79);
-            this.btnYesterday.TabIndex = 1;
-            this.btnYesterday.Text = "เมื่อวาน";
-            this.btnYesterday.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnYesterday.UseVisualStyleBackColor = true;
+            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSearch.Image = global::POS.Properties.Resources.search2;
+            this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnSearch.Location = new System.Drawing.Point(42, 120);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(174, 74);
+            this.btnSearch.TabIndex = 48;
+            this.btnSearch.Text = "ค้นหา";
+            this.btnSearch.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnSearch.UseVisualStyleBackColor = true;
             // 
             // frmDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1421, 826);
+            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.rptDate);
             this.Controls.Add(this.grp2);
             this.Controls.Add(this.grp1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnLast30);
             this.Controls.Add(this.btnLast7);
-            this.Controls.Add(this.btnToday);
-            this.Controls.Add(this.btnYesterday);
             this.Controls.Add(this.productchart);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmDashboard";
@@ -219,9 +221,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.productchart)).EndInit();
             this.grp2.ResumeLayout(false);
             this.grp2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.grp1.ResumeLayout(false);
             this.grp1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -231,8 +233,6 @@
         #endregion
 
         private System.Windows.Forms.DataVisualization.Charting.Chart productchart;
-        private System.Windows.Forms.Button btnYesterday;
-        private System.Windows.Forms.Button btnToday;
         private System.Windows.Forms.Button btnLast7;
         private System.Windows.Forms.Button btnLast30;
         private System.Windows.Forms.Label label1;
@@ -242,5 +242,7 @@
         private System.Windows.Forms.Label lblProfit;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.DateTimePicker rptDate;
+        private System.Windows.Forms.Button btnSearch;
     }
 }

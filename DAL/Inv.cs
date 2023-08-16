@@ -1263,7 +1263,8 @@ namespace DAL
                                    PRODUCT_ID = t1.PRODUCT_ID.Value,
                                    PRODUCT_NAME = t.PRODUCT_NAME,
                                    PRODUCT_CODE = t1.PRODUCT_CODE,
-                                   C_DATE = t1.C_DATE
+                                   C_DATE = t1.C_DATE,
+                                   AMOUNT = t1.AMOUNT
                                }).ToList();
 
    
@@ -1274,16 +1275,16 @@ namespace DAL
                 //            PRODUCT_NAME = s.First().PRODUCT_NAME,
                 //        }).OrderByDescending(a => a.PRODUCT_ID).ToList();
 
-
-            
-
-                var test = qrydata.GroupBy(g => new { g.PRODUCT_ID, g.PRODUCT_NAME, g.AMOUNT }).OrderByDescending(a => a.Count()).Select(g => new
+           
+                var productList = qrydata.GroupBy(g => new { g.PRODUCT_ID, g.PRODUCT_NAME, g.AMOUNT }).OrderByDescending(a => a.Count()).Select(g => new InventoryDTO
                 {
-                    PRODUCT_ID = g.Key,
-                    Count = g.Count(),
+                    PRODUCT_ID = g.Key.PRODUCT_ID,
+                    //Count = g.Count(),
                     PRODUCT_NAME = g.Key.PRODUCT_NAME,
                     AMOUNT = g.Sum(a => a.AMOUNT),
                 }).Take(5).ToList();
+
+                oList = productList;
             }
             catch
             {
