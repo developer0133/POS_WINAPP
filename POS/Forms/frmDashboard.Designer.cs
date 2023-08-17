@@ -212,13 +212,13 @@
             // 
             // incomechart
             // 
-            chartArea2.Name = "ChartArea1";
+            chartArea2.Name = "area1";
             this.incomechart.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
             this.incomechart.Legends.Add(legend2);
             this.incomechart.Location = new System.Drawing.Point(42, 263);
             this.incomechart.Name = "incomechart";
-            series2.ChartArea = "ChartArea1";
+            series2.ChartArea = "area1";
             series2.Legend = "Legend1";
             series2.Name = "income";
             this.incomechart.Series.Add(series2);

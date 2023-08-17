@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using BL;
 using DAL.Utils;
 using DATA_EF;
@@ -46,6 +47,16 @@ namespace POS.Forms
             incomechart.DataSource = dataIncome;
             incomechart.Series["income"].XValueMember = "C_DATE";
             incomechart.Series["income"].YValueMembers = "AMOUNT";
+
+
+            incomechart.Series["income"].XValueType = ChartValueType.DateTime;
+            //incomechart.ChartAreas.Add(new ChartArea()); // In some cases the winforms designer adds this already
+            //incomechart.ChartAreas["area1"].AxisX.LabelStyle.Format = "yyyy -MM-dd";
+            //incomechart.ChartAreas["area1"].AxisX.Interval = 1;
+            //incomechart.ChartAreas["area1"].AxisX.IntervalType = DateTimeIntervalType.Months;
+            //incomechart.ChartAreas["area1"].AxisX.IntervalOffset = 1;
+
+
             incomechart.DataBind();
 
             lblIncome.Text = dataIncome.Select(s => s.STR_TOTAL_INCOME).First();
