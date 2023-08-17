@@ -12,6 +12,7 @@ using ZXing.QrCode.Internal;
 using System.Runtime.Remoting.Contexts;
 using System.Runtime.InteropServices;
 using System.Transactions;
+using DATA_Models.Models;
 
 namespace DAL
 {
@@ -1247,17 +1248,19 @@ namespace DAL
             }
         }
 
-        public List<InventoryDTO> GetTop5Products(string sdate)
+        public List<DashboardDTO> GetTop5Products(string sdate)
         {
             POSSYSTEMEntities db = new POSSYSTEMEntities();
-            List<InventoryDTO> oList = new List<InventoryDTO>();
+            List<DashboardDTO> oList = new List<DashboardDTO>();
 
             try
             {
                 DateTime? dt = clsFunction.strDateToDateTime(sdate);
 
-                
-              //  var sellItem = db.SELLITEMS.Where(w => System.Data.Entity.DbFunctions.TruncateTime(w.C_DATE) == dt);
+
+                //  var sellItem = db.SELLITEMS.Where(w => System.Data.Entity.DbFunctions.TruncateTime(w.C_DATE) == dt);
+
+                var sumIncome = db.SELLITEMS.Where(w => w.C_DATE.Value.Month == dt.Value.Month && w.C_DATE.Value.Year == dt.Value.Year).Sum(s => s.AMOUNT);
 
                 var qrydata = (from t in db.PRODUCTS.Where(w => w.STATUS == STATUS.ACTIVE)//&& w.PARENT_ID > 0
                                join t1 in db.SELLITEMS.Where(w => System.Data.Entity.DbFunctions.TruncateTime(w.C_DATE) == dt) on t.PRODUCT_ID equals t1.PRODUCT_ID
@@ -1268,11 +1271,11 @@ namespace DAL
                                    PRODUCT_NAME = t.PRODUCT_NAME,
                                    PRODUCT_CODE = t1.PRODUCT_CODE,
                                    C_DATE = t1.C_DATE,
-                                   AMOUNT = t1.AMOUNT
+                                   AMOUNT = t1.AMOUNT,
+       
                                }).ToList();
 
-
-                //var result = qrydata.GroupBy(x => new { x.PRODUCT_ID, x.PRODUCT_NAME, x.C_DATE })
+                //var result = qrydata.GroupBy(x => new { x.PRODUCT_ID})
                 //        .Select((s, index) => new InventoryDTO
                 //        {
                 //            PRODUCT_ID = s.First().PRODUCT_ID,
@@ -1280,14 +1283,18 @@ namespace DAL
                 //        }).OrderByDescending(a => a.PRODUCT_ID).ToList();
 
 
-                var productList = qrydata.GroupBy(g => new { g.PRODUCT_ID, g.PRODUCT_NAME, g.AMOUNT, g.C_DATE }).OrderByDescending(a => a.Count()).Select(g => new InventoryDTO
+                var productList = qrydata.GroupBy(g => new { g.PRODUCT_ID, g.PRODUCT_NAME }).OrderByDescending(a => a.Count()).Select(g => new DashboardDTO
                 {
                     PRODUCT_ID = g.Key.PRODUCT_ID,
                     //Count = g.Count(),
                     PRODUCT_NAME = g.Key.PRODUCT_NAME,
-                    C_DATE = g.Key.C_DATE,
+                   
                     AMOUNT = g.Sum(a => a.AMOUNT),
                 }).Take(5).ToList();
+
+                var sumAmount = productList.Sum(s => s.AMOUNT);
+                productList.First().STR_TOTAL_AMOUNT = clsFunction.setFormatCurrency(sumAmount);
+                productList.First().STR_TOTAL_INCOME = clsFunction.setFormatCurrency(sumIncome);
 
                 oList = productList;
             }
@@ -1297,6 +1304,42 @@ namespace DAL
             }
 
 
+            return oList;
+        }
+
+        public List<DashboardDTO> GetIncome(string sdate)
+        {
+            POSSYSTEMEntities db = new POSSYSTEMEntities();
+            List<DashboardDTO> oList = new List<DashboardDTO>();
+
+            try
+            {
+                DateTime? dt = clsFunction.strDateToDateTime(sdate);
+                var sumIncome = db.SELLITEMS.Where(w => w.C_DATE.Value.Month == dt.Value.Month).Sum(s => s.AMOUNT);
+
+                var qry = (from t in db.SELLITEMS
+                           where t.C_DATE.Value.Month == dt.Value.Month && t.C_DATE.Value.Year == dt.Value.Year
+
+                           select new DashboardDTO
+                           {
+                               C_DATE = t.C_DATE,
+                               AMOUNT = t.AMOUNT,
+
+                           }).ToList();//.GroupBy(a => DbFunctions.TruncateTime(a.C_DATE)).ToList();
+
+                oList = qry.GroupBy(l => l.C_DATE.Value.Date)
+                    .Select(cl => new DashboardDTO
+                    {
+                        C_DATE = cl.First().C_DATE,
+                        AMOUNT = cl.Sum(c => c.AMOUNT),
+                    }).ToList();
+
+
+            }
+            catch
+            {
+
+            }
             return oList;
         }
     }

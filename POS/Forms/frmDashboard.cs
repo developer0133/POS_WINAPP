@@ -39,6 +39,18 @@ namespace POS.Forms
             productchart.DataSource = data;
             productchart.Series["Product"].XValueMember = "PRODUCT_NAME";
             productchart.Series["Product"].YValueMembers = "AMOUNT";
+            productchart.DataBind();
+
+            var dataIncome = InvService.GetIncome(tmpdate);
+
+            incomechart.DataSource = dataIncome;
+            incomechart.Series["income"].XValueMember = "C_DATE";
+            incomechart.Series["income"].YValueMembers = "AMOUNT";
+            incomechart.DataBind();
+
+            lblIncome.Text = dataIncome.Select(s => s.STR_TOTAL_INCOME).First();
+
+
             
         }
 

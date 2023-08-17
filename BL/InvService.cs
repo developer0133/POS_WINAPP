@@ -68,10 +68,14 @@ namespace BL
             return _inv.SRTUNIT(pid);
         }
 
-        public static List<InventoryDTO> GetTop5Products(string sdate)
+        public static List<DashboardDTO> GetTop5Products(string sdate)
         {
             return _inv.GetTop5Products(sdate);
         }
-        
+        public static List<DashboardDTO> GetIncome(string sdate)
+        {
+            return _inv.GetIncome(sdate);
+        }
+
     }
 }

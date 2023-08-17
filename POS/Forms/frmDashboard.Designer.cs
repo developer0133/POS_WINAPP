@@ -32,6 +32,10 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDashboard));
             this.productchart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label1 = new System.Windows.Forms.Label();
@@ -45,11 +49,13 @@
             this.btnLast7 = new System.Windows.Forms.Button();
             this.rptDate = new System.Windows.Forms.DateTimePicker();
             this.btnSearch = new System.Windows.Forms.Button();
+            this.incomechart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             ((System.ComponentModel.ISupportInitialize)(this.productchart)).BeginInit();
             this.grp2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.grp1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.incomechart)).BeginInit();
             this.SuspendLayout();
             // 
             // productchart
@@ -204,11 +210,32 @@
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
+            // incomechart
+            // 
+            chartArea2.Name = "ChartArea1";
+            this.incomechart.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.incomechart.Legends.Add(legend2);
+            this.incomechart.Location = new System.Drawing.Point(42, 263);
+            this.incomechart.Name = "incomechart";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "income";
+            this.incomechart.Series.Add(series2);
+            this.incomechart.Size = new System.Drawing.Size(575, 392);
+            this.incomechart.TabIndex = 49;
+            this.incomechart.Text = "Income";
+            title2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            title2.Name = "Title1";
+            title2.Text = "Income";
+            this.incomechart.Titles.Add(title2);
+            // 
             // frmDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1421, 826);
+            this.Controls.Add(this.incomechart);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.rptDate);
             this.Controls.Add(this.grp2);
@@ -228,6 +255,7 @@
             this.grp1.ResumeLayout(false);
             this.grp1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.incomechart)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -247,5 +275,6 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.DateTimePicker rptDate;
         private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.DataVisualization.Charting.Chart incomechart;
     }
 }
