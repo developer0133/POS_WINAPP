@@ -61,8 +61,6 @@ namespace POS.Forms
 
             lblIncome.Text = dataIncome.Select(s => s.STR_TOTAL_INCOME).First();
 
-
-            
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
