@@ -82,7 +82,7 @@ namespace POS.Forms
 
                             if (objInv != null)
                             {
-                                txtCostAvgItem.Text = objInv.AVG_ITEM.HasValue ? objInv.AVG_ITEM.Value.ToString() : string.Empty;
+                                txtCostAvgItem.Text = objInv.AVGCOST.HasValue ? objInv.AVGCOST.Value.ToString() : string.Empty;
                             }
                         }
                     }
