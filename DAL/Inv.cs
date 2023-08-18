@@ -596,14 +596,14 @@ namespace DAL
                             pd.WHOLESALEPRICE = 0;
                             pd.BOXPRICE = InvData.BOXPRICE.HasValue ? InvData.BOXPRICE.Value : 0;
 
-                            pd.AVGCOST = objProdduct.AVGCOST;
+                            pd.AVGCOST = InvData.AVGCOST;//objProdduct.AVGCOST;
                             pd.WHOLESALEPROFIT = objProdduct.WHOLESALEPROFIT;
                             pd.RETAILPROFIT = InvData.RETAILPROFIT;//objProdduct.RETAILPROFIT;
                             pd.WHOLESALEPRICE_ITEM = objProdduct.WHOLESALEPRICE_ITEM;
                             pd.CATEGORY_ID = objProdduct.CATEGORY_ID;
                             pd.PRODUCT_TYPE_ID = objProdduct.PRODUCT_TYPE_ID;
                             pd.PRODUCT_SIZE_ID = objProdduct.PRODUCT_SIZE_ID;
-                            pd.COSTPRICE = objProdduct.COSTPRICE;
+                            pd.COSTPRICE = InvData.AVGCOST;// objProdduct.COSTPRICE;
 
                             pd.STATUS = STATUS.ACTIVE;
                             pd.C_DATE = clsFunction.GetDate();
@@ -613,6 +613,7 @@ namespace DAL
                             pd.UNIT = InvData.UNIT;
                             pd.PARENT_ID = InvData.PRODUCT_ID2;// objProdduct.PRODUCT_ID;
                             pd.PRODUCT_NAME = objProdduct.PRODUCT_NAME;
+                            pd.QTY = InvData.QTY;
 
                             _db.PRODUCTS.Add(pd);
                             _db.SaveChanges();
@@ -647,7 +648,7 @@ namespace DAL
                             inv.TOTAL_AMOUNT = InvData.TOTAL_AMOUNT;
 
                             inv.UNIT_BALANCE_TEXT = String.Format("{0}:ลัง {1}:แพ็ค {2}:ชิ้น", inv.BOX_BALANCE, inv.PACK_BALANCE, inv.ITEM_BALANCE);
-
+                            inv.AVGCOST = InvData.AVGCOST;
                             inv.C_BY = InvData.C_BY;
                             inv.PRODUCT_ID2 = InvData.PRODUCT_ID2;
 
@@ -1043,7 +1044,7 @@ namespace DAL
             {
                 var qrydata = (from t in _db.INV_PRODUCTS
                                join t1 in _db.PRODUCTS.Where(w => w.STATUS == STATUS.ACTIVE) on t.PRODUCT_ID equals t1.PRODUCT_ID//.Where(w => w.STATUS == STATUS.ACTIVE && (string.IsNullOrEmpty(code) || w.PRODUCT_CODE == code)) on t.PRODUCT_ID equals t1.PRODUCT_ID
-                               join t5 in _db.CATEGORY on t1.CATEGORY_ID equals t5.CATEGORY_ID
+                               //join t5 in _db.CATEGORY on t1.CATEGORY_ID equals t5.CATEGORY_ID
                                //join t2 in _db.PARAMETER.Where(w => w.MAJOR_CODE == PARAMETERCODE.PARAMETER_TYPE && w.STATUS == STATUS.ACTIVE) on t1.PRODUCT_TYPE_ID equals t2.MINOR_CODE //into ct
                                join t4 in _db.PARAMETER.Where(w => w.MAJOR_CODE == PARAMETERCODE.UNIT && w.STATUS == STATUS.ACTIVE) on t.UNIT equals t4.MINOR_CODE into c1
                                from t3 in c1.DefaultIfEmpty()
@@ -1080,7 +1081,7 @@ namespace DAL
                                    PACK_BALANCE = t.PACK_BALANCE,
                                    ITEM_BALANCE = t.ITEM_BALANCE,
                                    BOX_BALANCE = t.BOX_BALANCE,
-                                   CATE_CODE = t5.CATE_CODE,
+                                  // CATE_CODE = t5.CATE_CODE,
                                    BOXPRICE = t1.BOXPRICE,
                                    STATUS = t1.STATUS
 
@@ -1119,7 +1120,7 @@ namespace DAL
                     PACK_BALANCE = s.PACK_BALANCE,
                     ITEM_BALANCE = s.ITEM_BALANCE,
                     BOX_BALANCE = s.BOX_BALANCE,
-                    CATE_CODE = s.CATE_CODE,
+                    //CATE_CODE = s.CATE_CODE,
                     BOXPRICE = s.BOXPRICE,
                     STATUS = s.STATUS
 

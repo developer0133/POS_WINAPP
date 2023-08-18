@@ -13,6 +13,7 @@ using BL;
 using POS.Utils;
 using DATA_EF;
 using DATA_Models.DTO;
+using System.Net.NetworkInformation;
 
 namespace POS.Forms
 {
@@ -443,6 +444,7 @@ namespace POS.Forms
                 obj.ITEM_BALANCE = string.IsNullOrEmpty(txtItemBalance.Text) ? 0 : int.Parse(txtItemBalance.Text);
                 obj.REMARK = txtRemark.Text;
                 obj.TOTAL_AMOUNT = string.IsNullOrEmpty(txtAmount.Text) ? 0 : decimal.Parse(txtAmount.Text);
+                obj.AVGCOST = string.IsNullOrEmpty(txtCostAvgBox.Text) ? 0 : decimal.Parse(txtCostAvgBox.Text);
 
                 obj.ORDER_DATE = invdate.Value;
                 obj.C_BY = UserModel.USERNAME;
