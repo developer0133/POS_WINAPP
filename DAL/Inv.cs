@@ -561,6 +561,9 @@ namespace DAL
                             invObj2.RETAILPRICE = InvData.RETAILPRICE;
                             invObj2.WHOLESALEPRICE = InvData.WHOLESALEPRICE_ITEM;//invObj.WHOLESALEPRICE_ITEM;
                             invObj2.TOTAL_AMOUNT = InvData.TOTAL_AMOUNT;
+                            invObj2.AVGCOST = InvData.AVGCOST;
+
+
 
                             invObj2.UNIT_BALANCE_TEXT = String.Format("{0}:ลัง {1}:แพ็ค {2}:ชิ้น", invObj2.BOX_BALANCE, invObj2.PACK_BALANCE, invObj2.ITEM_BALANCE);
 
@@ -614,11 +617,10 @@ namespace DAL
                             pd.PARENT_ID = InvData.PRODUCT_ID2;// objProdduct.PRODUCT_ID;
                             pd.PRODUCT_NAME = objProdduct.PRODUCT_NAME;
                             pd.QTY = InvData.QTY;
+                           
 
                             _db.PRODUCTS.Add(pd);
                             _db.SaveChanges();
-
-                            inv.PRODUCT_ID = pd.PRODUCT_ID;
 
                             if (InvData.ORDER_DATE == null)
                             {
@@ -651,7 +653,7 @@ namespace DAL
                             inv.AVGCOST = InvData.AVGCOST;
                             inv.C_BY = InvData.C_BY;
                             inv.PRODUCT_ID2 = InvData.PRODUCT_ID2;
-
+                            inv.PRODUCT_ID = InvData.PRODUCT_ID;
                             //////// Insert OrderHistory
                             if (InvData.QTY > 0)
                             {

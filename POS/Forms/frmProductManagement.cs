@@ -81,7 +81,7 @@ namespace POS.Forms
                             PID = productObj.PRODUCT_ID;
                             MasterID = pid;
 
-                            var objInv = InvService.GetAllInventory2(PID).SingleOrDefault();
+                            var objInv = InvService.GetAllInventory2(MasterID).SingleOrDefault(); //PID
 
                             if (objInv != null)
                             {
