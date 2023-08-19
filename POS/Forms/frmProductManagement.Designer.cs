@@ -103,6 +103,7 @@
             this.cboUnit.Name = "cboUnit";
             this.cboUnit.Size = new System.Drawing.Size(200, 26);
             this.cboUnit.TabIndex = 51;
+            this.cboUnit.SelectedIndexChanged += new System.EventHandler(this.cboUnit_SelectedIndexChanged);
             // 
             // groupBox1
             // 

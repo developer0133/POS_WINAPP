@@ -22,6 +22,9 @@ namespace POS.Forms
         List<InventoryDTO> dt = null;
         private int PID = 0;
         private int MasterID = 0;
+        string CON1 = string.Empty;
+        string CON2 = string.Empty;
+        string UNITNAME = string.Empty;
         public frmProductManagement()
         {
             InitializeComponent();
@@ -83,6 +86,7 @@ namespace POS.Forms
                             if (objInv != null)
                             {
                                 txtCostAvgItem.Text = objInv.AVGCOST.HasValue ? objInv.AVGCOST.Value.ToString() : string.Empty;
+                                txtWholesalePriceItem.Text = objInv.AVG_ITEM.HasValue ? objInv.AVG_ITEM.Value.ToString() : string.Empty;
                             }
                         }
                     }
@@ -187,7 +191,7 @@ namespace POS.Forms
             if (!string.IsNullOrEmpty(txtCostAvgItem.Text))
             {
                 decimal _avgPack = 0;
-                decimal _wholeSale = 0;
+                decimal _wholeSaleCost = 0;
                 decimal _retailPrice = 0;
                 decimal _avgItem = 0;
                 string objName = string.Empty;
@@ -195,10 +199,58 @@ namespace POS.Forms
                 int con2 = 0;
                 decimal amount = 0;
 
-                _retailPrice = decimal.Parse(txtRetailprice.Text);
-                _avgItem = decimal.Parse(txtCostAvgItem.Text);
-                var cal = _retailPrice - _avgItem;
-                txtProfitRetail.Text = cal.ToString("#,###.00");
+                if (!string.IsNullOrEmpty(UNITNAME))
+                {
+                    _retailPrice = !string.IsNullOrEmpty(txtRetailprice.Text) ? decimal.Parse(txtRetailprice.Text) : 0;
+                    _avgItem = !string.IsNullOrEmpty(txtCostAvgItem.Text) ? decimal.Parse(txtCostAvgItem.Text) : 0;
+
+                    //var cal = _retailPrice - _avgItem;
+                    //txtProfitRetail.Text = cal.ToString("#,###.00");
+
+
+                    if (UNITNAME.Contains("ขีด"))
+                    {
+                        if (!string.IsNullOrEmpty(txtWholesalePriceItem.Text))
+                        {
+                            _wholeSaleCost = decimal.Parse(txtWholesalePriceItem.Text);
+                            decimal cal1 = 0;
+                            decimal cal2 = 0;
+
+                            cal1 = _wholeSaleCost / 10;
+                            cal2 = _retailPrice - cal1;
+
+                            txtProfitRetail.Text = cal2.ToString("#,###.00");
+                        }
+                    }
+                    if (UNITNAME.Contains("กิโล") || UNITNAME.Contains("ก.ก.") || UNITNAME.Contains("กก."))
+                    {
+                        if (UNITNAME.Contains("ลัง"))
+                        {
+                            var cal = _retailPrice - _avgItem;
+                            txtProfitRetail.Text = cal.ToString("#,###.00");
+                        }
+                        else
+                        {
+                            if (!string.IsNullOrEmpty(txtWholesalePriceItem.Text))
+                            {
+                                _wholeSaleCost = decimal.Parse(txtWholesalePriceItem.Text);
+                                decimal cal1 = 0;
+                                decimal cal2 = 0;
+
+                                cal1 = _wholeSaleCost;
+                                cal2 = _retailPrice - cal1;
+
+                                txtProfitRetail.Text = cal2.ToString("#,###.00");
+                            }
+                        }
+                        
+                    }
+                    else
+                    {
+                        var cal = _retailPrice - _avgItem;
+                        txtProfitRetail.Text = cal.ToString("#,###.00");
+                    }
+                }
             }
         }
 
@@ -298,6 +350,22 @@ namespace POS.Forms
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Clear();
+        }
+
+        private void cboUnit_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboUnit.Text.Length > 1)
+            {
+                var item = (PARAMETER)cboUnit.SelectedItem;
+                int selectedIndex = cboUnit.SelectedIndex;
+                CON1 = item.CONDITION1;
+                CON2 = item.CONDITION2;
+                UNITNAME = item.NAME;
+
+                this.ProfitCalculate();
+            }
+               
+
         }
     }
 }

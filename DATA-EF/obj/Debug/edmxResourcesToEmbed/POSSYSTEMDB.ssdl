@@ -190,6 +190,8 @@
     <Property Name="AMOUNT" Type="decimal" Precision="18" Scale="2" />
     <Property Name="PRODUCT_ID" Type="int" />
     <Property Name="DISCOUNT" Type="int" />
+    <Property Name="PROFIT" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="REMARK" Type="nvarchar" MaxLength="500" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>

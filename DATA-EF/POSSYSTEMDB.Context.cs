@@ -34,8 +34,8 @@ namespace DATA_EF
         public virtual DbSet<MASTER_USER> MASTER_USER { get; set; }
         public virtual DbSet<ORDER_HISTORY> ORDER_HISTORY { get; set; }
         public virtual DbSet<PARAMETER> PARAMETER { get; set; }
-        public virtual DbSet<SELLITEMS> SELLITEMS { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<PRODUCTS> PRODUCTS { get; set; }
+        public virtual DbSet<SELLITEMS> SELLITEMS { get; set; }
     }
 }

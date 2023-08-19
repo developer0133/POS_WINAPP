@@ -149,25 +149,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="SELLITEMS">
-      <EntityTypeMapping TypeName="POSSYSTEMModel.SELLITEMS">
-        <MappingFragment StoreEntitySet="SELLITEMS">
-          <ScalarProperty Name="SELLITEM_ID" ColumnName="SELLITEM_ID" />
-          <ScalarProperty Name="SELLITEM_NO" ColumnName="SELLITEM_NO" />
-          <ScalarProperty Name="PRODUCT_CODE" ColumnName="PRODUCT_CODE" />
-          <ScalarProperty Name="QTY" ColumnName="QTY" />
-          <ScalarProperty Name="C_DATE" ColumnName="C_DATE" />
-          <ScalarProperty Name="C_BY" ColumnName="C_BY" />
-          <ScalarProperty Name="UNIT" ColumnName="UNIT" />
-          <ScalarProperty Name="E_DATE" ColumnName="E_DATE" />
-          <ScalarProperty Name="E_BY" ColumnName="E_BY" />
-          <ScalarProperty Name="SELL_PRICE" ColumnName="SELL_PRICE" />
-          <ScalarProperty Name="AMOUNT" ColumnName="AMOUNT" />
-          <ScalarProperty Name="PRODUCT_ID" ColumnName="PRODUCT_ID" />
-          <ScalarProperty Name="DISCOUNT" ColumnName="DISCOUNT" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="sysdiagrams">
       <EntityTypeMapping TypeName="POSSYSTEMModel.sysdiagrams">
         <MappingFragment StoreEntitySet="sysdiagrams">
@@ -211,6 +192,27 @@
           <ScalarProperty Name="COSTPRICE" ColumnName="COSTPRICE" />
           <ScalarProperty Name="PRODUCT_NAME" ColumnName="PRODUCT_NAME" />
           <ScalarProperty Name="PRODUCT_ID" ColumnName="PRODUCT_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SELLITEMS">
+      <EntityTypeMapping TypeName="POSSYSTEMModel.SELLITEMS">
+        <MappingFragment StoreEntitySet="SELLITEMS">
+          <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+          <ScalarProperty Name="PROFIT" ColumnName="PROFIT" />
+          <ScalarProperty Name="DISCOUNT" ColumnName="DISCOUNT" />
+          <ScalarProperty Name="PRODUCT_ID" ColumnName="PRODUCT_ID" />
+          <ScalarProperty Name="AMOUNT" ColumnName="AMOUNT" />
+          <ScalarProperty Name="SELL_PRICE" ColumnName="SELL_PRICE" />
+          <ScalarProperty Name="E_BY" ColumnName="E_BY" />
+          <ScalarProperty Name="E_DATE" ColumnName="E_DATE" />
+          <ScalarProperty Name="UNIT" ColumnName="UNIT" />
+          <ScalarProperty Name="C_BY" ColumnName="C_BY" />
+          <ScalarProperty Name="C_DATE" ColumnName="C_DATE" />
+          <ScalarProperty Name="QTY" ColumnName="QTY" />
+          <ScalarProperty Name="PRODUCT_CODE" ColumnName="PRODUCT_CODE" />
+          <ScalarProperty Name="SELLITEM_NO" ColumnName="SELLITEM_NO" />
+          <ScalarProperty Name="SELLITEM_ID" ColumnName="SELLITEM_ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

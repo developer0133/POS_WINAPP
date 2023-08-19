@@ -35,6 +35,9 @@ namespace DATA_Models.DTO
         public DateTime? E_DATE { get; set; }
 
         public decimal? SELL_PRICE { get; set; }
+
+        public string REMARK { get; set; }
+        public decimal? PROFIT { get; set; }
     }
 
     public class SellHistDTO

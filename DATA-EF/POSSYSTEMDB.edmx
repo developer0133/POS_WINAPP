@@ -195,6 +195,8 @@
           <Property Name="AMOUNT" Type="decimal" Precision="18" Scale="2" />
           <Property Name="PRODUCT_ID" Type="int" />
           <Property Name="DISCOUNT" Type="int" />
+          <Property Name="PROFIT" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="REMARK" Type="nvarchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -267,9 +269,9 @@
           <Property Name="AVG_ITEM" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="WHOLESALEPRICE_ITEM" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="UNIT_BALANCE_TEXT" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="PACK_BALANCE" Type="Decimal" />
-          <Property Name="ITEM_BALANCE" Type="Decimal" />
-          <Property Name="BOX_BALANCE" Type="Decimal" />
+          <Property Name="PACK_BALANCE" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ITEM_BALANCE" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="BOX_BALANCE" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="BOXPRICE" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="PRODUCT_ID2" Type="Int32" />
         </EntityType>
@@ -363,24 +365,6 @@
           <Property Name="CONDITION1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CONDITION2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="SELLITEMS">
-          <Key>
-            <PropertyRef Name="SELLITEM_ID" />
-          </Key>
-          <Property Name="SELLITEM_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="SELLITEM_NO" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="PRODUCT_CODE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="QTY" Type="Int32" />
-          <Property Name="C_DATE" Type="DateTime" Precision="3" />
-          <Property Name="C_BY" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="UNIT" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="E_DATE" Type="DateTime" Precision="3" />
-          <Property Name="E_BY" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="SELL_PRICE" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="AMOUNT" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="PRODUCT_ID" Type="Int32" />
-          <Property Name="DISCOUNT" Type="Int32" />
-        </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -401,9 +385,9 @@
           <EntitySet Name="MASTER_USER" EntityType="Self.MASTER_USER" />
           <EntitySet Name="ORDER_HISTORY" EntityType="Self.ORDER_HISTORY" />
           <EntitySet Name="PARAMETER" EntityType="Self.PARAMETER" />
-          <EntitySet Name="SELLITEMS" EntityType="Self.SELLITEMS" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="PRODUCTS" EntityType="POSSYSTEMModel.PRODUCTS" />
+          <EntitySet Name="SELLITEMS" EntityType="POSSYSTEMModel.SELLITEMS" />
         </EntityContainer>
         <EntityType Name="PRODUCTS">
           <Key>
@@ -438,6 +422,26 @@
           <Property Name="WHOLESALEPRICE_ITEM" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="BOXPRICE" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="PARENT_ID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="SELLITEMS">
+          <Key>
+            <PropertyRef Name="SELLITEM_ID" />
+          </Key>
+          <Property Name="SELLITEM_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SELLITEM_NO" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="PRODUCT_CODE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="QTY" Type="Int32" />
+          <Property Name="C_DATE" Type="DateTime" Precision="3" />
+          <Property Name="C_BY" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="UNIT" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="E_DATE" Type="DateTime" Precision="3" />
+          <Property Name="E_BY" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="SELL_PRICE" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="AMOUNT" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="PRODUCT_ID" Type="Int32" />
+          <Property Name="DISCOUNT" Type="Int32" />
+          <Property Name="PROFIT" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="REMARK" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -593,25 +597,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="SELLITEMS">
-            <EntityTypeMapping TypeName="POSSYSTEMModel.SELLITEMS">
-              <MappingFragment StoreEntitySet="SELLITEMS">
-                <ScalarProperty Name="SELLITEM_ID" ColumnName="SELLITEM_ID" />
-                <ScalarProperty Name="SELLITEM_NO" ColumnName="SELLITEM_NO" />
-                <ScalarProperty Name="PRODUCT_CODE" ColumnName="PRODUCT_CODE" />
-                <ScalarProperty Name="QTY" ColumnName="QTY" />
-                <ScalarProperty Name="C_DATE" ColumnName="C_DATE" />
-                <ScalarProperty Name="C_BY" ColumnName="C_BY" />
-                <ScalarProperty Name="UNIT" ColumnName="UNIT" />
-                <ScalarProperty Name="E_DATE" ColumnName="E_DATE" />
-                <ScalarProperty Name="E_BY" ColumnName="E_BY" />
-                <ScalarProperty Name="SELL_PRICE" ColumnName="SELL_PRICE" />
-                <ScalarProperty Name="AMOUNT" ColumnName="AMOUNT" />
-                <ScalarProperty Name="PRODUCT_ID" ColumnName="PRODUCT_ID" />
-                <ScalarProperty Name="DISCOUNT" ColumnName="DISCOUNT" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
             <EntityTypeMapping TypeName="POSSYSTEMModel.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
@@ -655,6 +640,27 @@
                 <ScalarProperty Name="COSTPRICE" ColumnName="COSTPRICE" />
                 <ScalarProperty Name="PRODUCT_NAME" ColumnName="PRODUCT_NAME" />
                 <ScalarProperty Name="PRODUCT_ID" ColumnName="PRODUCT_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SELLITEMS">
+            <EntityTypeMapping TypeName="POSSYSTEMModel.SELLITEMS">
+              <MappingFragment StoreEntitySet="SELLITEMS">
+                <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+                <ScalarProperty Name="PROFIT" ColumnName="PROFIT" />
+                <ScalarProperty Name="DISCOUNT" ColumnName="DISCOUNT" />
+                <ScalarProperty Name="PRODUCT_ID" ColumnName="PRODUCT_ID" />
+                <ScalarProperty Name="AMOUNT" ColumnName="AMOUNT" />
+                <ScalarProperty Name="SELL_PRICE" ColumnName="SELL_PRICE" />
+                <ScalarProperty Name="E_BY" ColumnName="E_BY" />
+                <ScalarProperty Name="E_DATE" ColumnName="E_DATE" />
+                <ScalarProperty Name="UNIT" ColumnName="UNIT" />
+                <ScalarProperty Name="C_BY" ColumnName="C_BY" />
+                <ScalarProperty Name="C_DATE" ColumnName="C_DATE" />
+                <ScalarProperty Name="QTY" ColumnName="QTY" />
+                <ScalarProperty Name="PRODUCT_CODE" ColumnName="PRODUCT_CODE" />
+                <ScalarProperty Name="SELLITEM_NO" ColumnName="SELLITEM_NO" />
+                <ScalarProperty Name="SELLITEM_ID" ColumnName="SELLITEM_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -43,9 +43,9 @@
     <Property Name="AVG_ITEM" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="WHOLESALEPRICE_ITEM" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="UNIT_BALANCE_TEXT" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="PACK_BALANCE" Type="Decimal" />
-    <Property Name="ITEM_BALANCE" Type="Decimal" />
-    <Property Name="BOX_BALANCE" Type="Decimal" />
+    <Property Name="PACK_BALANCE" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="ITEM_BALANCE" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="BOX_BALANCE" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="BOXPRICE" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="PRODUCT_ID2" Type="Int32" />
   </EntityType>
@@ -139,24 +139,6 @@
     <Property Name="CONDITION1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="CONDITION2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
-  <EntityType Name="SELLITEMS">
-    <Key>
-      <PropertyRef Name="SELLITEM_ID" />
-    </Key>
-    <Property Name="SELLITEM_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="SELLITEM_NO" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-    <Property Name="PRODUCT_CODE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-    <Property Name="QTY" Type="Int32" />
-    <Property Name="C_DATE" Type="DateTime" Precision="3" />
-    <Property Name="C_BY" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-    <Property Name="UNIT" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-    <Property Name="E_DATE" Type="DateTime" Precision="3" />
-    <Property Name="E_BY" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-    <Property Name="SELL_PRICE" Type="Decimal" Precision="18" Scale="2" />
-    <Property Name="AMOUNT" Type="Decimal" Precision="18" Scale="2" />
-    <Property Name="PRODUCT_ID" Type="Int32" />
-    <Property Name="DISCOUNT" Type="Int32" />
-  </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
       <PropertyRef Name="diagram_id" />
@@ -177,9 +159,9 @@
     <EntitySet Name="MASTER_USER" EntityType="Self.MASTER_USER" />
     <EntitySet Name="ORDER_HISTORY" EntityType="Self.ORDER_HISTORY" />
     <EntitySet Name="PARAMETER" EntityType="Self.PARAMETER" />
-    <EntitySet Name="SELLITEMS" EntityType="Self.SELLITEMS" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
     <EntitySet Name="PRODUCTS" EntityType="POSSYSTEMModel.PRODUCTS" />
+    <EntitySet Name="SELLITEMS" EntityType="POSSYSTEMModel.SELLITEMS" />
   </EntityContainer>
   <EntityType Name="PRODUCTS">
     <Key>
@@ -214,5 +196,25 @@
     <Property Name="WHOLESALEPRICE_ITEM" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="BOXPRICE" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="PARENT_ID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="SELLITEMS">
+    <Key>
+      <PropertyRef Name="SELLITEM_ID" />
+    </Key>
+    <Property Name="SELLITEM_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SELLITEM_NO" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="PRODUCT_CODE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="QTY" Type="Int32" />
+    <Property Name="C_DATE" Type="DateTime" Precision="3" />
+    <Property Name="C_BY" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="UNIT" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="E_DATE" Type="DateTime" Precision="3" />
+    <Property Name="E_BY" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="SELL_PRICE" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="AMOUNT" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="PRODUCT_ID" Type="Int32" />
+    <Property Name="DISCOUNT" Type="Int32" />
+    <Property Name="PROFIT" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="REMARK" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
   </EntityType>
 </Schema>
