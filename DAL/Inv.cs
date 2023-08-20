@@ -524,7 +524,7 @@ namespace DAL
                 {
                     try
                     {
-                        var invObj2 = _db.INV_PRODUCTS.Where(w => w.PRODUCT_ID == InvData.PRODUCT_ID && w.UNIT == InvData.UNIT).SingleOrDefault();
+                        var invObj2 = _db.INV_PRODUCTS.Where(w => w.PRODUCT_ID2 == InvData.PRODUCT_ID && w.UNIT == InvData.UNIT).SingleOrDefault();
 
                         var objProdduct = _db.PRODUCTS.Where(w => w.PRODUCT_ID == InvData.PRODUCT_ID).SingleOrDefault();
 
@@ -617,7 +617,7 @@ namespace DAL
                             pd.PARENT_ID = InvData.PRODUCT_ID2;// objProdduct.PRODUCT_ID;
                             pd.PRODUCT_NAME = objProdduct.PRODUCT_NAME;
                             pd.QTY = InvData.QTY;
-                           
+
 
                             _db.PRODUCTS.Add(pd);
                             _db.SaveChanges();
@@ -652,8 +652,8 @@ namespace DAL
                             inv.UNIT_BALANCE_TEXT = String.Format("{0}:ลัง {1}:แพ็ค {2}:ชิ้น", inv.BOX_BALANCE, inv.PACK_BALANCE, inv.ITEM_BALANCE);
                             inv.AVGCOST = InvData.AVGCOST;
                             inv.C_BY = InvData.C_BY;
-                            inv.PRODUCT_ID2 = InvData.PRODUCT_ID2;
-                            inv.PRODUCT_ID = InvData.PRODUCT_ID;
+                            inv.PRODUCT_ID2 = objProdduct.PRODUCT_ID;
+                            inv.PRODUCT_ID = pd.PRODUCT_ID;
                             //////// Insert OrderHistory
                             if (InvData.QTY > 0)
                             {
@@ -689,7 +689,7 @@ namespace DAL
 
                         transaction.Commit();
                         _db.Dispose();
-                        
+
                     }
                     catch (DbUpdateConcurrencyException ex)
                     {
