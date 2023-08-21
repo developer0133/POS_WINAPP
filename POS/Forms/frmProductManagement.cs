@@ -203,6 +203,7 @@ namespace POS.Forms
                 {
                     _retailPrice = !string.IsNullOrEmpty(txtRetailprice.Text) ? decimal.Parse(txtRetailprice.Text) : 0;
                     _avgItem = !string.IsNullOrEmpty(txtCostAvgItem.Text) ? decimal.Parse(txtCostAvgItem.Text) : 0;
+                    _wholeSaleCost = !string.IsNullOrEmpty(txtWholesalePriceItem.Text) ? decimal.Parse(txtWholesalePriceItem.Text) : 0;
 
                     //var cal = _retailPrice - _avgItem;
                     //txtProfitRetail.Text = cal.ToString("#,###.00");
@@ -212,7 +213,7 @@ namespace POS.Forms
                     {
                         if (!string.IsNullOrEmpty(txtWholesalePriceItem.Text))
                         {
-                            _wholeSaleCost = decimal.Parse(txtWholesalePriceItem.Text);
+                            //_wholeSaleCost = decimal.Parse(txtWholesalePriceItem.Text);
                             decimal cal1 = 0;
                             decimal cal2 = 0;
 
@@ -247,7 +248,7 @@ namespace POS.Forms
                     }
                     else
                     {
-                        var cal = _retailPrice - _avgItem;
+                        var cal = _retailPrice - _wholeSaleCost;
                         txtProfitRetail.Text = cal.ToString("#,###.00");
                     }
                 }

@@ -530,13 +530,7 @@ namespace DAL
 
                         if (invObj2 != null)
                         {
-                            old_packBalance = invObj2.PACK_BALANCE.HasValue ? invObj2.PACK_BALANCE.Value : 0;
-                            old_itemBalance = invObj2.ITEM_BALANCE.HasValue ? invObj2.ITEM_BALANCE.Value : 0;
-                            old_boxBalance = invObj2.BOX_BALANCE.HasValue ? invObj2.BOX_BALANCE.Value : 0;
-
-                            invObj2.PACK_BALANCE = InvData.PACK_BALANCE + old_packBalance;
-                            invObj2.ITEM_BALANCE = InvData.ITEM_BALANCE + old_itemBalance;
-                            invObj2.BOX_BALANCE = InvData.BOX_BALANCE + old_boxBalance;
+                            
 
                             if (InvData.ORDER_DATE == null)
                             {
@@ -632,9 +626,9 @@ namespace DAL
                             }
 
                             inv.QTY = InvData.QTY;
-                            //inv.PACK_BALANCE = InvData.PACK_BALANCE;
-                            //inv.ITEM_BALANCE = InvData.ITEM_BALANCE;
-                            //inv.BOX_BALANCE = InvData.BOX_BALANCE;
+                            inv.PACK_BALANCE = InvData.PACK_BALANCE;
+                            inv.ITEM_BALANCE = InvData.ITEM_BALANCE;
+                            inv.BOX_BALANCE = InvData.BOX_BALANCE;
 
                             inv.UNIT = InvData.UNIT;
                             inv.E_BY = InvData.C_BY;
@@ -854,9 +848,9 @@ namespace DAL
                         if (invpd != null)
                         {
                             //invpd.BOXPRICE = InvData.BOXPRICE;
-                            //invpd.QTY = InvData.QTY;
+                            invpd.QTY = InvData.QTY;
                             //invpd.AMOUNT = InvData.AMOUNT;
-                            //invpd.AVGCOST = InvData.AVGCOST;
+                            invpd.AVGCOST = InvData.AVGCOST;
                             //invpd.AVG_ITEM = InvData.AVG_ITEM;
                             //invpd.AVG_PACK = InvData.AVG_PACK;
                             invpd.RETAILPRICE = InvData.RETAILPRICE;

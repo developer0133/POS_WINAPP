@@ -34,7 +34,19 @@ namespace POS.Forms
             this.panel1 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
+            this.t_outofstock = new System.Windows.Forms.ToolStripMenuItem();
+            this.t_ds = new System.Windows.Forms.ToolStripMenuItem();
+            this.t_rpt = new System.Windows.Forms.ToolStripMenuItem();
+            this.t_home = new System.Windows.Forms.ToolStripMenuItem();
+            this.t_logout = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.t_product = new System.Windows.Forms.ToolStripMenuItem();
+            this.t_cate = new System.Windows.Forms.ToolStripMenuItem();
+            this.t_master = new System.Windows.Forms.ToolStripMenuItem();
+            this.t_barcode = new System.Windows.Forms.ToolStripMenuItem();
+            this.t_sell = new System.Windows.Forms.ToolStripMenuItem();
+            this.t_inv = new System.Windows.Forms.ToolStripMenuItem();
+            this.t_productmng = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -46,18 +58,6 @@ namespace POS.Forms
             this.btnReport = new System.Windows.Forms.Button();
             this.btnProduct = new System.Windows.Forms.Button();
             this.btnMaster = new System.Windows.Forms.Button();
-            this.t_outofstock = new System.Windows.Forms.ToolStripMenuItem();
-            this.t_ds = new System.Windows.Forms.ToolStripMenuItem();
-            this.t_rpt = new System.Windows.Forms.ToolStripMenuItem();
-            this.t_home = new System.Windows.Forms.ToolStripMenuItem();
-            this.t_logout = new System.Windows.Forms.ToolStripMenuItem();
-            this.t_product = new System.Windows.Forms.ToolStripMenuItem();
-            this.t_cate = new System.Windows.Forms.ToolStripMenuItem();
-            this.t_master = new System.Windows.Forms.ToolStripMenuItem();
-            this.t_barcode = new System.Windows.Forms.ToolStripMenuItem();
-            this.t_sell = new System.Windows.Forms.ToolStripMenuItem();
-            this.t_inv = new System.Windows.Forms.ToolStripMenuItem();
-            this.t_productmng = new System.Windows.Forms.ToolStripMenuItem();
             this.btnCate = new System.Windows.Forms.Button();
             this.btnSell = new System.Windows.Forms.Button();
             this.btnProductIn = new System.Windows.Forms.Button();
@@ -114,7 +114,7 @@ namespace POS.Forms
             this.t_rpt,
             this.t_home,
             this.t_logout});
-            this.menuStrip2.Location = new System.Drawing.Point(156, 0);
+            this.menuStrip2.Location = new System.Drawing.Point(116, 0);
             this.menuStrip2.Name = "menuStrip2";
             this.menuStrip2.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.menuStrip2.ShowItemToolTips = true;
@@ -122,6 +122,61 @@ namespace POS.Forms
             this.menuStrip2.TabIndex = 52;
             this.menuStrip2.Text = "menuStrip2";
             this.menuStrip2.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip2_ItemClicked);
+            // 
+            // t_outofstock
+            // 
+            this.t_outofstock.Image = global::POS.Properties.Resources.icons8_out_of_stock_48;
+            this.t_outofstock.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.t_outofstock.Name = "t_outofstock";
+            this.t_outofstock.Size = new System.Drawing.Size(118, 72);
+            this.t_outofstock.Text = "รายการสินค้าหมด";
+            this.t_outofstock.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.t_outofstock.ToolTipText = "รายการสินค้าหมด";
+            // 
+            // t_ds
+            // 
+            this.t_ds.AutoToolTip = true;
+            this.t_ds.Image = global::POS.Properties.Resources.icons8_dashboard_64;
+            this.t_ds.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.t_ds.Name = "t_ds";
+            this.t_ds.Size = new System.Drawing.Size(118, 88);
+            this.t_ds.Text = "Dashboard";
+            this.t_ds.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // t_rpt
+            // 
+            this.t_rpt.Image = global::POS.Properties.Resources.icons8_report_1001;
+            this.t_rpt.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.t_rpt.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.t_rpt.Name = "t_rpt";
+            this.t_rpt.Size = new System.Drawing.Size(118, 124);
+            this.t_rpt.Text = "รายงาน";
+            this.t_rpt.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.t_rpt.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.t_rpt.ToolTipText = "รายงาน";
+            // 
+            // t_home
+            // 
+            this.t_home.AutoToolTip = true;
+            this.t_home.Image = global::POS.Properties.Resources.icons8_homepage_100;
+            this.t_home.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.t_home.Name = "t_home";
+            this.t_home.Size = new System.Drawing.Size(118, 124);
+            this.t_home.Text = "หน้าหลัก";
+            this.t_home.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // t_logout
+            // 
+            this.t_logout.AutoToolTip = true;
+            this.t_logout.Image = global::POS.Properties.Resources.icons8_logout_582;
+            this.t_logout.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.t_logout.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.t_logout.Name = "t_logout";
+            this.t_logout.Size = new System.Drawing.Size(118, 82);
+            this.t_logout.Text = "Logout";
+            this.t_logout.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.t_logout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.t_logout.ToolTipText = "Logout";
             // 
             // menuStrip1
             // 
@@ -140,10 +195,86 @@ namespace POS.Forms
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.menuStrip1.ShowItemToolTips = true;
-            this.menuStrip1.Size = new System.Drawing.Size(156, 905);
+            this.menuStrip1.Size = new System.Drawing.Size(116, 905);
             this.menuStrip1.TabIndex = 51;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
+            // 
+            // t_product
+            // 
+            this.t_product.Image = global::POS.Properties.Resources.icons8_sell_96;
+            this.t_product.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.t_product.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.t_product.Name = "t_product";
+            this.t_product.Size = new System.Drawing.Size(103, 120);
+            this.t_product.Text = "สินค้า";
+            this.t_product.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.t_product.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.t_product.ToolTipText = "สินค้า";
+            // 
+            // t_cate
+            // 
+            this.t_cate.Image = global::POS.Properties.Resources.cate;
+            this.t_cate.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.t_cate.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.t_cate.Name = "t_cate";
+            this.t_cate.Size = new System.Drawing.Size(103, 88);
+            this.t_cate.Text = "หมวดหมู่สินค้า";
+            this.t_cate.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.t_cate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.t_cate.ToolTipText = "หมวดหมู่สินค้า";
+            // 
+            // t_master
+            // 
+            this.t_master.Image = global::POS.Properties.Resources.config;
+            this.t_master.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.t_master.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.t_master.Name = "t_master";
+            this.t_master.Size = new System.Drawing.Size(103, 84);
+            this.t_master.Text = "Master";
+            this.t_master.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.t_master.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.t_master.ToolTipText = "Master";
+            // 
+            // t_barcode
+            // 
+            this.t_barcode.Image = global::POS.Properties.Resources.icons8_barcode_64;
+            this.t_barcode.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.t_barcode.Name = "t_barcode";
+            this.t_barcode.Size = new System.Drawing.Size(103, 88);
+            this.t_barcode.Text = "บาร์โค้ด";
+            this.t_barcode.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.t_barcode.ToolTipText = "บาร์โค้ด";
+            // 
+            // t_sell
+            // 
+            this.t_sell.Image = global::POS.Properties.Resources.icons8_sell_48;
+            this.t_sell.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.t_sell.Name = "t_sell";
+            this.t_sell.Size = new System.Drawing.Size(103, 72);
+            this.t_sell.Text = "ขาย";
+            this.t_sell.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.t_sell.ToolTipText = "รายการขาย";
+            // 
+            // t_inv
+            // 
+            this.t_inv.Image = global::POS.Properties.Resources.icons8_sell_stock_94;
+            this.t_inv.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.t_inv.Name = "t_inv";
+            this.t_inv.Size = new System.Drawing.Size(103, 118);
+            this.t_inv.Text = "ร้บสินค้าเข้า";
+            this.t_inv.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.t_inv.ToolTipText = "รับสินค้าเข้า";
+            // 
+            // t_productmng
+            // 
+            this.t_productmng.Image = global::POS.Properties.Resources.icons8_setting_64;
+            this.t_productmng.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.t_productmng.Name = "t_productmng";
+            this.t_productmng.Size = new System.Drawing.Size(103, 88);
+            this.t_productmng.Text = "จัดการสินค้า";
+            this.t_productmng.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.t_productmng.ToolTipText = "จัดการสินค้า";
             // 
             // label1
             // 
@@ -159,10 +290,10 @@ namespace POS.Forms
             // 
             this.lblName.AutoSize = true;
             this.lblName.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.lblName.Location = new System.Drawing.Point(300, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(70, 20);
+            this.lblName.Size = new System.Drawing.Size(80, 24);
             this.lblName.TabIndex = 6;
             this.lblName.Text = "lblName";
             this.lblName.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -176,7 +307,7 @@ namespace POS.Forms
             // 
             this.lbldate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbldate.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.lbldate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.lbldate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.lbldate.ForeColor = System.Drawing.Color.Black;
             this.lbldate.Location = new System.Drawing.Point(1089, 0);
             this.lbldate.Name = "lbldate";
@@ -189,7 +320,7 @@ namespace POS.Forms
             // 
             this.lbltime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbltime.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.lbltime.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.lbltime.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.lbltime.ForeColor = System.Drawing.Color.Black;
             this.lbltime.Location = new System.Drawing.Point(1248, 0);
             this.lbltime.Name = "lbltime";
@@ -286,137 +417,6 @@ namespace POS.Forms
             this.btnMaster.UseVisualStyleBackColor = true;
             this.btnMaster.Visible = false;
             this.btnMaster.Click += new System.EventHandler(this.btnMaster_Click);
-            // 
-            // t_outofstock
-            // 
-            this.t_outofstock.Image = global::POS.Properties.Resources.icons8_out_of_stock_48;
-            this.t_outofstock.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.t_outofstock.Name = "t_outofstock";
-            this.t_outofstock.Size = new System.Drawing.Size(118, 72);
-            this.t_outofstock.Text = "รายการสินค้าหมด";
-            this.t_outofstock.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.t_outofstock.ToolTipText = "รายการสินค้าหมด";
-            // 
-            // t_ds
-            // 
-            this.t_ds.AutoToolTip = true;
-            this.t_ds.Image = global::POS.Properties.Resources.icons8_dashboard_64;
-            this.t_ds.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.t_ds.Name = "t_ds";
-            this.t_ds.Size = new System.Drawing.Size(118, 88);
-            this.t_ds.Text = "Dashboard";
-            this.t_ds.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // t_rpt
-            // 
-            this.t_rpt.Image = global::POS.Properties.Resources.icons8_report_1001;
-            this.t_rpt.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.t_rpt.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.t_rpt.Name = "t_rpt";
-            this.t_rpt.Size = new System.Drawing.Size(118, 124);
-            this.t_rpt.Text = "รายงาน";
-            this.t_rpt.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.t_rpt.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.t_rpt.ToolTipText = "รายงาน";
-            // 
-            // t_home
-            // 
-            this.t_home.AutoToolTip = true;
-            this.t_home.Image = global::POS.Properties.Resources.icons8_homepage_100;
-            this.t_home.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.t_home.Name = "t_home";
-            this.t_home.Size = new System.Drawing.Size(118, 124);
-            this.t_home.Text = "หน้าหลัก";
-            this.t_home.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // t_logout
-            // 
-            this.t_logout.AutoToolTip = true;
-            this.t_logout.Image = global::POS.Properties.Resources.icons8_logout_582;
-            this.t_logout.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.t_logout.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.t_logout.Name = "t_logout";
-            this.t_logout.Size = new System.Drawing.Size(118, 82);
-            this.t_logout.Text = "Logout";
-            this.t_logout.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.t_logout.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.t_logout.ToolTipText = "Logout";
-            // 
-            // t_product
-            // 
-            this.t_product.Image = global::POS.Properties.Resources.icons8_sell_96;
-            this.t_product.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.t_product.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.t_product.Name = "t_product";
-            this.t_product.Size = new System.Drawing.Size(143, 120);
-            this.t_product.Text = "สินค้า";
-            this.t_product.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.t_product.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.t_product.ToolTipText = "สินค้า";
-            // 
-            // t_cate
-            // 
-            this.t_cate.Image = global::POS.Properties.Resources.cate;
-            this.t_cate.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.t_cate.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.t_cate.Name = "t_cate";
-            this.t_cate.Size = new System.Drawing.Size(143, 88);
-            this.t_cate.Text = "หมวดหมู่สินค้า";
-            this.t_cate.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.t_cate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.t_cate.ToolTipText = "หมวดหมู่สินค้า";
-            // 
-            // t_master
-            // 
-            this.t_master.Image = global::POS.Properties.Resources.config;
-            this.t_master.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.t_master.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.t_master.Name = "t_master";
-            this.t_master.Size = new System.Drawing.Size(143, 84);
-            this.t_master.Text = "Master";
-            this.t_master.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.t_master.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.t_master.ToolTipText = "Master";
-            // 
-            // t_barcode
-            // 
-            this.t_barcode.Image = global::POS.Properties.Resources.icons8_barcode_64;
-            this.t_barcode.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.t_barcode.Name = "t_barcode";
-            this.t_barcode.Size = new System.Drawing.Size(143, 88);
-            this.t_barcode.Text = "บาร์โค้ด";
-            this.t_barcode.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.t_barcode.ToolTipText = "บาร์โค้ด";
-            // 
-            // t_sell
-            // 
-            this.t_sell.Image = global::POS.Properties.Resources.icons8_sell_48;
-            this.t_sell.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.t_sell.Name = "t_sell";
-            this.t_sell.Size = new System.Drawing.Size(143, 72);
-            this.t_sell.Text = "ขาย";
-            this.t_sell.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.t_sell.ToolTipText = "รายการขาย";
-            // 
-            // t_inv
-            // 
-            this.t_inv.Image = global::POS.Properties.Resources.icons8_sell_stock_94;
-            this.t_inv.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.t_inv.Name = "t_inv";
-            this.t_inv.Size = new System.Drawing.Size(143, 118);
-            this.t_inv.Text = "ร้บสินค้าเข้า";
-            this.t_inv.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.t_inv.ToolTipText = "รับสินค้าเข้า";
-            // 
-            // t_productmng
-            // 
-            this.t_productmng.Image = global::POS.Properties.Resources.icons8_setting_64;
-            this.t_productmng.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.t_productmng.Name = "t_productmng";
-            this.t_productmng.Size = new System.Drawing.Size(143, 88);
-            this.t_productmng.Text = "จัดการสินค้า";
-            this.t_productmng.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.t_productmng.ToolTipText = "จัดการสินค้า";
             // 
             // btnCate
             // 
