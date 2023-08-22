@@ -439,9 +439,9 @@ namespace POS.Forms
                 obj.WHOLESALEPROFIT = string.IsNullOrEmpty(txtWholesaleprofit.Text) ? 0 : decimal.Parse(txtWholesaleprofit.Text);
                 obj.WHOLESALEPRICE_ITEM = string.IsNullOrEmpty(txtWholesalePriceItem.Text) ? 0 : decimal.Parse(txtWholesalePriceItem.Text);
 
-                obj.BOX_BALANCE = string.IsNullOrEmpty(txtBoxBalance.Text) ? 0 : int.Parse(txtBoxBalance.Text);
-                obj.PACK_BALANCE = string.IsNullOrEmpty(txtPackBalance.Text) ? 0 : int.Parse(txtPackBalance.Text);
-                obj.ITEM_BALANCE = string.IsNullOrEmpty(txtItemBalance.Text) ? 0 : int.Parse(txtItemBalance.Text);
+                obj.BOX_BALANCE = string.IsNullOrEmpty(txtBoxBalance.Text) ? 0 : decimal.Parse(txtBoxBalance.Text);
+                obj.PACK_BALANCE = string.IsNullOrEmpty(txtPackBalance.Text) ? 0 : decimal.Parse(txtPackBalance.Text);
+                obj.ITEM_BALANCE = string.IsNullOrEmpty(txtItemBalance.Text) ? 0 : decimal.Parse(txtItemBalance.Text);
                 obj.REMARK = txtRemark.Text;
                 obj.TOTAL_AMOUNT = string.IsNullOrEmpty(txtAmount.Text) ? 0 : decimal.Parse(txtAmount.Text);
                 obj.AVGCOST = string.IsNullOrEmpty(txtCostAvgBox.Text) ? 0 : decimal.Parse(txtCostAvgBox.Text);
@@ -569,7 +569,8 @@ namespace POS.Forms
                     cboUnit.SelectedValue = pModel.UNIT;
                     txtAmount.Text = pModel.TOTAL_AMOUNT.HasValue ? pModel.TOTAL_AMOUNT.Value.ToString() : string.Empty;
                     txtCostAvgItem.Text = pModel.AVG_ITEM.HasValue ? pModel.AVG_ITEM.Value.ToString() : string.Empty;
-                   //txtCostAvgPack.Text = pModel.AVG_PACK.HasValue ? pModel.AVG_PACK.Value.ToString() : string.Empty;
+                    txtCostAvgBox.Text = pModel.AVGCOST.HasValue ? pModel.AVGCOST.Value.ToString() : string.Empty;
+                    //txtCostAvgPack.Text = pModel.AVG_PACK.HasValue ? pModel.AVG_PACK.Value.ToString() : string.Empty;
                     txtRetailprice.Text = pModel.RETAILPRICE.HasValue ? pModel.RETAILPRICE.Value.ToString() : string.Empty;
                     //txtWholesaleprice.Text = pModel.WHOLESALEPRICE.HasValue ? pModel.WHOLESALEPRICE.Value.ToString() : string.Empty;
                    
