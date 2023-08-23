@@ -223,7 +223,7 @@ namespace POS.Forms
                             txtProfitRetail.Text = cal2.ToString("#,###.00");
                         }
                     }
-                    if (UNITNAME.Contains("กิโล") || UNITNAME.Contains("ก.ก.") || UNITNAME.Contains("กก."))
+                    else if (UNITNAME.Contains("กิโล") || UNITNAME.Contains("ก.ก.") || UNITNAME.Contains("กก."))
                     {
                         if (UNITNAME.Contains("ลัง"))
                         {

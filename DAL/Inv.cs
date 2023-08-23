@@ -593,7 +593,7 @@ namespace DAL
                             pd.WHOLESALEPRICE = 0;
                             pd.BOXPRICE = InvData.BOXPRICE.HasValue ? InvData.BOXPRICE.Value : 0;
 
-                            pd.AVGCOST = InvData.AVGCOST;//objProdduct.AVGCOST;
+                            pd.AVGCOST = objProdduct.AVGCOST;//objProdduct.AVGCOST;
                             pd.WHOLESALEPROFIT = objProdduct.WHOLESALEPROFIT;
                             pd.RETAILPROFIT = InvData.RETAILPROFIT;//objProdduct.RETAILPROFIT;
                             pd.WHOLESALEPRICE_ITEM = objProdduct.WHOLESALEPRICE_ITEM;
