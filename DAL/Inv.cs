@@ -1340,12 +1340,12 @@ namespace DAL
                 //        }).OrderByDescending(a => a.PRODUCT_ID).ToList();
 
 
-                var productList = qrydata.GroupBy(g => new { g.PRODUCT_ID, g.PRODUCT_NAME }).OrderByDescending(a => a.Count()).Select(g => new DashboardDTO
+                var productList = qrydata.GroupBy(g => new { g.PRODUCT_ID, g.PRODUCT_NAME, g.C_DATE }).OrderByDescending(a => a.Count()).Select(g => new DashboardDTO
                 {
                     PRODUCT_ID = g.Key.PRODUCT_ID,
                     //Count = g.Count(),
                     PRODUCT_NAME = g.Key.PRODUCT_NAME,
-
+                    C_DATE = g.Key.C_DATE,
                     AMOUNT = g.Sum(a => a.AMOUNT),
                 }).Where(w => w.C_DATE >= DateTime.Now.AddDays(-30)).Take(5).ToList();
 
@@ -1410,7 +1410,7 @@ namespace DAL
 
             try
             {
-                var sumIncome = db.SELLITEMS.AsNoTracking().Where(w => w.C_DATE >= DateTime.Now.AddDays(-30)).Sum(s => s.AMOUNT);
+                var sumIncome = db.SELLITEMS.AsNoTracking().Where(w => w.C_DATE >= DateTime.Now.AddDays(-30));//.Sum(s => s.AMOUNT);
 
                 var qry = (from t in db.SELLITEMS
                            select new DashboardDTO
