@@ -1425,7 +1425,7 @@ namespace DAL
                     {
                         C_DATE = cl.First().C_DATE,
                         AMOUNT = cl.Sum(c => c.AMOUNT),
-                        STR_TOTAL_INCOME = ""//clsFunction.setFormatCurrency(sumIncome)
+                        STR_TOTAL_INCOME = ""//clsFunction.setFormatCurrency()
                     }).Where(w => w.C_DATE >= DateTime.Now.AddDays(-30)).ToList();
 
 
