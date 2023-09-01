@@ -66,7 +66,7 @@ namespace POS.Forms
         public void LoadDataLast30()
         {
             InvService invService = new InvService();
-            var data = InvService.GetIncomeLast30();
+            var data = InvService.GetTop5ProductsLast30();
 
             productchart.DataSource = data;
             productchart.Series["Product"].XValueMember = "PRODUCT_NAME";

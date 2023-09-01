@@ -1316,10 +1316,11 @@ namespace DAL
 
                 //  var sellItem = db.SELLITEMS.Where(w => System.Data.Entity.DbFunctions.TruncateTime(w.C_DATE) == dt);
 
-                var sumIncome = db.SELLITEMS.AsNoTracking().Where(w => w.C_DATE >= DateTime.Now.AddDays(-30)).Sum(s => s.AMOUNT);
+               // var sumIncome = db.SELLITEMS.Where(w => w.C_DATE >= DateTime.Now.AddDays(-30)).ToList();
+               // var sumIncome2 = sumIncome.Sum(s => s.AMOUNT);
 
                 var qrydata = (from t in db.PRODUCTS.Where(w => w.STATUS == STATUS.ACTIVE)//&& w.PARENT_ID > 0
-                               join t1 in db.SELLITEMS.Where(w => w.C_DATE >= DateTime.Now.AddDays(-30)) on t.PRODUCT_ID equals t1.PRODUCT_ID
+                               join t1 in db.SELLITEMS on t.PRODUCT_ID equals t1.PRODUCT_ID
 
                                select new InventoryDTO
                                {
@@ -1346,11 +1347,13 @@ namespace DAL
                     PRODUCT_NAME = g.Key.PRODUCT_NAME,
 
                     AMOUNT = g.Sum(a => a.AMOUNT),
-                }).Take(5).ToList();
+                }).Where(w => w.C_DATE >= DateTime.Now.AddDays(-30)).Take(5).ToList();
 
                 var sumAmount = productList.Sum(s => s.AMOUNT);
+                var sumIncome2 = qrydata.Sum(s => s.AMOUNT);
+
                 productList.First().STR_TOTAL_AMOUNT = clsFunction.setFormatCurrency(sumAmount);
-                productList.First().STR_TOTAL_INCOME = clsFunction.setFormatCurrency(sumIncome);
+                productList.First().STR_TOTAL_INCOME = clsFunction.setFormatCurrency(sumIncome2);
 
                 oList = productList;
             }
@@ -1407,11 +1410,9 @@ namespace DAL
 
             try
             {
-                var sumIncome = db.SELLITEMS.AsNoTracking().Where(w => w.C_DATE >= DateTime.Now.AddDays(-30));//.Sum(s => s.AMOUNT);
+                var sumIncome = db.SELLITEMS.AsNoTracking().Where(w => w.C_DATE >= DateTime.Now.AddDays(-30)).Sum(s => s.AMOUNT);
 
                 var qry = (from t in db.SELLITEMS
-                           where t.C_DATE >= DateTime.Now.AddDays(-30)
-
                            select new DashboardDTO
                            {
                                C_DATE = t.C_DATE,
@@ -1425,13 +1426,13 @@ namespace DAL
                         C_DATE = cl.First().C_DATE,
                         AMOUNT = cl.Sum(c => c.AMOUNT),
                         STR_TOTAL_INCOME = ""//clsFunction.setFormatCurrency(sumIncome)
-                    }).ToList();
+                    }).Where(w => w.C_DATE >= DateTime.Now.AddDays(-30)).ToList();
 
 
             }
-            catch
+            catch(Exception ex)
             {
-
+               throw new Exception(ex.Message);
             }
             return oList;
         }
