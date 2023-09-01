@@ -174,6 +174,7 @@
             this.btnLast30.Text = "30 วันล่าสุด";
             this.btnLast30.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnLast30.UseVisualStyleBackColor = true;
+            this.btnLast30.Click += new System.EventHandler(this.btnLast30_Click);
             // 
             // btnLast7
             // 

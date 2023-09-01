@@ -72,10 +72,19 @@ namespace BL
         {
             return _inv.GetTop5Products(sdate);
         }
+
+        public static List<DashboardDTO> GetTop5ProductsLast30()
+        {
+            return _inv.GetTop5ProductsLast30();
+        }
         public static List<DashboardDTO> GetIncome(string sdate)
         {
             return _inv.GetIncome(sdate);
         }
 
+        public static List<DashboardDTO> GetIncomeLast30()
+        {
+            return _inv.GetIncomeLast30();
+        }
     }
 }

@@ -1304,6 +1304,65 @@ namespace DAL
             return oList;
         }
 
+        public List<DashboardDTO> GetTop5ProductsLast30()
+        {
+            POSSYSTEMEntities db = new POSSYSTEMEntities();
+            List<DashboardDTO> oList = new List<DashboardDTO>();
+
+            try
+            {
+                // DateTime? dt = clsFunction.strDateToDateTime();
+
+
+                //  var sellItem = db.SELLITEMS.Where(w => System.Data.Entity.DbFunctions.TruncateTime(w.C_DATE) == dt);
+
+                var sumIncome = db.SELLITEMS.AsNoTracking().Where(w => w.C_DATE >= DateTime.Now.AddDays(-30)).Sum(s => s.AMOUNT);
+
+                var qrydata = (from t in db.PRODUCTS.Where(w => w.STATUS == STATUS.ACTIVE)//&& w.PARENT_ID > 0
+                               join t1 in db.SELLITEMS.Where(w => w.C_DATE >= DateTime.Now.AddDays(-30)) on t.PRODUCT_ID equals t1.PRODUCT_ID
+
+                               select new InventoryDTO
+                               {
+                                   PRODUCT_ID = t1.PRODUCT_ID.Value,
+                                   PRODUCT_NAME = t.PRODUCT_NAME,
+                                   PRODUCT_CODE = t1.PRODUCT_CODE,
+                                   C_DATE = t1.C_DATE,
+                                   AMOUNT = t1.AMOUNT,
+
+                               }).ToList();
+
+                //var result = qrydata.GroupBy(x => new { x.PRODUCT_ID})
+                //        .Select((s, index) => new InventoryDTO
+                //        {
+                //            PRODUCT_ID = s.First().PRODUCT_ID,
+                //            PRODUCT_NAME = s.First().PRODUCT_NAME,
+                //        }).OrderByDescending(a => a.PRODUCT_ID).ToList();
+
+
+                var productList = qrydata.GroupBy(g => new { g.PRODUCT_ID, g.PRODUCT_NAME }).OrderByDescending(a => a.Count()).Select(g => new DashboardDTO
+                {
+                    PRODUCT_ID = g.Key.PRODUCT_ID,
+                    //Count = g.Count(),
+                    PRODUCT_NAME = g.Key.PRODUCT_NAME,
+
+                    AMOUNT = g.Sum(a => a.AMOUNT),
+                }).Take(5).ToList();
+
+                var sumAmount = productList.Sum(s => s.AMOUNT);
+                productList.First().STR_TOTAL_AMOUNT = clsFunction.setFormatCurrency(sumAmount);
+                productList.First().STR_TOTAL_INCOME = clsFunction.setFormatCurrency(sumIncome);
+
+                oList = productList;
+            }
+            catch
+            {
+
+            }
+
+
+            return oList;
+        }
+
         public List<DashboardDTO> GetIncome(string sdate)
         {
             POSSYSTEMEntities db = new POSSYSTEMEntities();
@@ -1330,6 +1389,42 @@ namespace DAL
                         C_DATE = cl.First().C_DATE,
                         AMOUNT = cl.Sum(c => c.AMOUNT),
                         STR_TOTAL_INCOME = clsFunction.setFormatCurrency(sumIncome)
+                    }).ToList();
+
+
+            }
+            catch
+            {
+
+            }
+            return oList;
+        }
+
+        public List<DashboardDTO> GetIncomeLast30()
+        {
+            POSSYSTEMEntities db = new POSSYSTEMEntities();
+            List<DashboardDTO> oList = new List<DashboardDTO>();
+
+            try
+            {
+                var sumIncome = db.SELLITEMS.AsNoTracking().Where(w => w.C_DATE >= DateTime.Now.AddDays(-30));//.Sum(s => s.AMOUNT);
+
+                var qry = (from t in db.SELLITEMS
+                           where t.C_DATE >= DateTime.Now.AddDays(-30)
+
+                           select new DashboardDTO
+                           {
+                               C_DATE = t.C_DATE,
+                               AMOUNT = t.AMOUNT,
+                               STR_TOTAL_INCOME = ""
+                           }).ToList();//.GroupBy(a => DbFunctions.TruncateTime(a.C_DATE)).ToList();
+
+                oList = qry.GroupBy(l => l.C_DATE.Value.Date)
+                    .Select(cl => new DashboardDTO
+                    {
+                        C_DATE = cl.First().C_DATE,
+                        AMOUNT = cl.Sum(c => c.AMOUNT),
+                        STR_TOTAL_INCOME = ""//clsFunction.setFormatCurrency(sumIncome)
                     }).ToList();
 
 

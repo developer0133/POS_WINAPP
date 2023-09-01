@@ -28,5 +28,7 @@ namespace DAL
         string SRTUNIT(int pid);
         List<DashboardDTO> GetTop5Products(string sdate);
         List<DashboardDTO> GetIncome(string sdate);
+        List<DashboardDTO> GetIncomeLast30();
+        List<DashboardDTO> GetTop5ProductsLast30();
     }
 }
