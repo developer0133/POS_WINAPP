@@ -1375,6 +1375,7 @@ namespace DAL
             {
                 DateTime? dt = clsFunction.strDateToDateTime(sdate);
                 var sumIncome = db.SELLITEMS.AsNoTracking().Where(w => w.C_DATE.Value.Month == dt.Value.Month).Sum(s => s.AMOUNT);
+                var sumProfit = db.SELLITEMS.AsNoTracking().Where(w => w.C_DATE.Value.Month == dt.Value.Month).Sum(s => s.PROFIT);
 
                 var qry = (from t in db.SELLITEMS
                            where t.C_DATE.Value.Month == dt.Value.Month && t.C_DATE.Value.Year == dt.Value.Year
@@ -1383,7 +1384,8 @@ namespace DAL
                            {
                                C_DATE = t.C_DATE,
                                AMOUNT = t.AMOUNT,
-                               STR_TOTAL_INCOME=""
+                               STR_TOTAL_INCOME = "",
+                               STR_TOTAL_PROFIT = ""
                            }).ToList();//.GroupBy(a => DbFunctions.TruncateTime(a.C_DATE)).ToList();
 
                 oList = qry.GroupBy(l => l.C_DATE.Value.Date)
@@ -1391,7 +1393,8 @@ namespace DAL
                     {
                         C_DATE = cl.First().C_DATE,
                         AMOUNT = cl.Sum(c => c.AMOUNT),
-                        STR_TOTAL_INCOME = clsFunction.setFormatCurrency(sumIncome)
+                        STR_TOTAL_INCOME = clsFunction.setFormatCurrency(sumIncome),
+                        STR_TOTAL_PROFIT = clsFunction.setFormatCurrency(sumProfit)
                     }).ToList();
 
 

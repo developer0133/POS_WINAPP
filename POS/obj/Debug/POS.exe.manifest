@@ -67,14 +67,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DAL.dll" size="154112">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DAL.dll" size="154624">
       <assemblyIdentity name="DAL" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>O5YdGKkCSZ0WASVNv0gZZh3ut5dauD/AMCmgc9hjQ1I=</dsig:DigestValue>
+        <dsig:DigestValue>XbXo5kxGZKPI/UmeqoCCfChp44dlhsGcLOHUv3OKewU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -91,14 +91,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DATA-Models.dll" size="38912">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DATA-Models.dll" size="39424">
       <assemblyIdentity name="DATA-Models" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>sdffKCKzX4sLhEOViz8i14yPZZcrJPiCKeFKGTI4uXY=</dsig:DigestValue>
+        <dsig:DigestValue>mTX6Y7yEwOi5uaSlvPBStcCpfnhu2nKGCUQbcwksVrU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -1142,7 +1142,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>p+Z13I6akiKv5agdHQktlXhrxvIqE5ygI6qgLF5u5JU=</dsig:DigestValue>
+        <dsig:DigestValue>Ti+u5DT9a3OnuLXqD4WwCnBY9ENmatzBcOCHnNSuw0Y=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

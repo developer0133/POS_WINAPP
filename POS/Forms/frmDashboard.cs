@@ -60,6 +60,7 @@ namespace POS.Forms
             incomechart.DataBind();
 
             lblIncome.Text = dataIncome.Select(s => s.STR_TOTAL_INCOME).First();
+            lblProfit.Text = dataIncome.Select(s => s.STR_TOTAL_PROFIT).First();
 
         }
 

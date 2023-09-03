@@ -14,6 +14,7 @@ namespace DATA_Models.DTO
         public decimal? AMOUNT { get; set; }   
         public string STR_TOTAL_AMOUNT { get; set; }
         public string STR_TOTAL_INCOME { get; set; }
+        public string STR_TOTAL_PROFIT { get; set; }
         public DateTime? C_DATE { get; set; }
 
     }
