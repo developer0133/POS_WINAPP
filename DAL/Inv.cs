@@ -1413,14 +1413,13 @@ namespace DAL
 
             try
             {
-                var sumIncome = db.SELLITEMS.AsNoTracking().Where(w => w.C_DATE >= DateTime.Now.AddDays(-30));//.Sum(s => s.AMOUNT);
-
                 var qry = (from t in db.SELLITEMS
                            select new DashboardDTO
                            {
                                C_DATE = t.C_DATE,
                                AMOUNT = t.AMOUNT,
-                               STR_TOTAL_INCOME = ""
+                               STR_TOTAL_INCOME = "",
+                               PROFIT = t.PROFIT,
                            }).ToList();//.GroupBy(a => DbFunctions.TruncateTime(a.C_DATE)).ToList();
 
                 oList = qry.GroupBy(l => l.C_DATE.Value.Date)
@@ -1428,10 +1427,9 @@ namespace DAL
                     {
                         C_DATE = cl.First().C_DATE,
                         AMOUNT = cl.Sum(c => c.AMOUNT),
-                        STR_TOTAL_INCOME = ""//clsFunction.setFormatCurrency()
+                        STR_TOTAL_INCOME = "",//clsFunction.setFormatCurrency()
+                        STR_TOTAL_PROFIT = ""
                     }).Where(w => w.C_DATE >= DateTime.Now.AddDays(-30)).ToList();
-
-
             }
             catch(Exception ex)
             {

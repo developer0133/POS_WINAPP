@@ -92,6 +92,7 @@ namespace POS.Forms
             incomechart.DataBind();
 
             lblIncome.Text = clsFunction.setFormatCurrency(dataIncome.Select(s => s.AMOUNT).First());
+            lblProfit.Text = clsFunction.setFormatCurrency(dataIncome.Select(s => s.PROFIT).First());
 
         }
 

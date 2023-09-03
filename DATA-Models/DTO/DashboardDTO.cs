@@ -11,7 +11,8 @@ namespace DATA_Models.DTO
         public int PRODUCT_ID { get; set; }
         public string PRODUCT_NAME { get; set; }    
         public string PRODUCT_CODE { get; set; }
-        public decimal? AMOUNT { get; set; }   
+        public decimal? AMOUNT { get; set; }
+        public decimal? PROFIT { get; set; }
         public string STR_TOTAL_AMOUNT { get; set; }
         public string STR_TOTAL_INCOME { get; set; }
         public string STR_TOTAL_PROFIT { get; set; }
