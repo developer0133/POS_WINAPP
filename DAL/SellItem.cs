@@ -333,6 +333,7 @@ namespace DAL
                             var objBalance = _db.INV_PRODUCTS.Where(w => w.PRODUCT_ID2 == obj.PRODUCT_ID2 && w.QTY > 0).FirstOrDefault();
                             var currentUnit2 = _db.PARAMETER.Where(w => w.MAJOR_CODE == POSPARAMETER.UNIT && w.MINOR_CODE == objBalance.UNIT).AsNoTracking().SingleOrDefault();
 
+                            item.PROFIT = obj.RETAILPROFIT.HasValue ? obj.RETAILPROFIT.Value : 0;
 
                             if (currentUnit != null)
                             {
