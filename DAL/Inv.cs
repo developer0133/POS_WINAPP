@@ -1420,7 +1420,7 @@ namespace DAL
                                AMOUNT = t.AMOUNT,
                                STR_TOTAL_INCOME = "",
                                PROFIT = t.PROFIT,
-                           }).ToList();//.GroupBy(a => DbFunctions.TruncateTime(a.C_DATE)).ToList();
+                           }).ToList().Where(w => w.C_DATE >= DateTime.Now.AddDays(-30)).ToList(); ;//.GroupBy(a => DbFunctions.TruncateTime(a.C_DATE)).ToList();
 
                 oList = qry.GroupBy(l => l.C_DATE.Value.Date)
                     .Select(cl => new DashboardDTO
@@ -1429,7 +1429,7 @@ namespace DAL
                         AMOUNT = cl.Sum(c => c.AMOUNT),
                         STR_TOTAL_INCOME = "",//clsFunction.setFormatCurrency()
                         STR_TOTAL_PROFIT = ""
-                    }).Where(w => w.C_DATE >= DateTime.Now.AddDays(-30)).ToList();
+                    }).ToList();
             }
             catch(Exception ex)
             {
