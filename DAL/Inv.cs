@@ -1289,9 +1289,14 @@ namespace DAL
                     AMOUNT = g.Sum(a => a.AMOUNT),
                 }).Take(5).ToList();
 
-                var sumAmount = productList.Sum(s => s.AMOUNT);
-                productList.First().STR_TOTAL_AMOUNT = clsFunction.setFormatCurrency(sumAmount);
-                productList.First().STR_TOTAL_INCOME = clsFunction.setFormatCurrency(sumIncome);
+
+                if (productList.Count() > 0)
+                {
+                    var sumAmount = productList.Sum(s => s.AMOUNT);
+                    productList.First().STR_TOTAL_AMOUNT = clsFunction.setFormatCurrency(sumAmount);
+                    productList.First().STR_TOTAL_INCOME = clsFunction.setFormatCurrency(sumIncome);
+                }
+             
 
                 oList = productList;
             }

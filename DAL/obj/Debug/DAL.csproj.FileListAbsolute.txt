@@ -48,6 +48,7 @@ D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\DAL\bin\Debug\DATA-Models.d
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\DAL\bin\Debug\EntityFramework.dll
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\DAL\bin\Debug\EntityFramework.SqlServer.dll
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\DAL\bin\Debug\POS-Utility.dll
+D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\DAL\bin\Debug\ThaiBahtText.dll
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\DAL\bin\Debug\zxing.dll
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\DAL\bin\Debug\zxing.presentation.dll
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\DAL\bin\Debug\NLog.dll
@@ -65,4 +66,3 @@ D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\DAL\obj\Debug\DAL.csproj.Co
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\DAL\obj\Debug\DAL.csproj.CopyComplete
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\DAL\obj\Debug\DAL.dll
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\DAL\obj\Debug\DAL.pdb
-D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\DAL\bin\Debug\ThaiBahtText.dll

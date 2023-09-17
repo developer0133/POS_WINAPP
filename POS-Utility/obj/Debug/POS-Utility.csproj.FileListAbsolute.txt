@@ -49,6 +49,7 @@ D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS-Utility\bin\Debug\Syste
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS-Utility\bin\Debug\System.Memory.dll
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS-Utility\bin\Debug\System.Numerics.Vectors.dll
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS-Utility\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS-Utility\bin\Debug\ThaiBahtText.dll
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS-Utility\bin\Debug\Microsoft.Extensions.Configuration.xml
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS-Utility\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.xml
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS-Utility\bin\Debug\Microsoft.Extensions.Configuration.Binder.xml
@@ -68,4 +69,3 @@ D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS-Utility\obj\Debug\POS-U
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS-Utility\obj\Debug\POS-Utility.csproj.CopyComplete
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS-Utility\obj\Debug\POS-Utility.dll
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS-Utility\obj\Debug\POS-Utility.pdb
-D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS-Utility\bin\Debug\ThaiBahtText.dll
