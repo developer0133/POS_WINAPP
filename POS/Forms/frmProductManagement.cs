@@ -223,7 +223,7 @@ namespace POS.Forms
                             txtProfitRetail.Text = cal2.ToString("#,###.00");
                         }
                     }
-                    else if (UNITNAME.Contains("กิโล") || UNITNAME.Contains("ก.ก.") || UNITNAME.Contains("กก."))
+                    else if (UNITNAME.Contains("กิโล") || UNITNAME.Contains("ก.ก.") || UNITNAME.Contains("กก.") || UNITNAME.Contains("ก.ก"))
                     {
                         if (UNITNAME.Contains("ลัง"))
                         {
@@ -239,7 +239,7 @@ namespace POS.Forms
                                 decimal cal2 = 0;
 
                                 cal1 = _wholeSaleCost;
-                                cal2 = _retailPrice - cal1;
+                                cal2 = _retailPrice - _avgItem;
 
                                 txtProfitRetail.Text = cal2.ToString("#,###.00");
                             }

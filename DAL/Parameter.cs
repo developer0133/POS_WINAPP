@@ -81,6 +81,7 @@ namespace DAL
 
         public bool InsertParameter(PARAMETER pData)
         {
+            _db = new POSSYSTEMEntities();
             bool isSuccess = false;
             try
             {
