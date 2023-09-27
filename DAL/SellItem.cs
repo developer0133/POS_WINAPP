@@ -282,256 +282,272 @@ namespace DAL
             POSSYSTEMEntities _db = new POSSYSTEMEntities();
             string retsellNo = string.Empty;
 
-            try
+            using (DbContextTransaction transaction = _db.Database.BeginTransaction())
             {
-                MASTER_RUNNING mstRunning = new MASTER_RUNNING();
-
-                if (sellitem.Count > 0)
+                try
                 {
-                    string sellno = string.Empty;
-                    int? mstrunning = _db.MASTER_RUNNING.Max(s => s.RUNNING_NO);
+                    MASTER_RUNNING mstRunning = new MASTER_RUNNING();
 
-                    DateTime date = DateTime.UtcNow;
-                    var d = date.Day;
-                    var m = date.Month;
-                    var y = date.Year;
-
-                    if (mstrunning > 0)
+                    if (sellitem.Count > 0)
                     {
-                        mstrunning++;
+                        string sellno = string.Empty;
+                        int? mstrunning = _db.MASTER_RUNNING.Max(s => s.RUNNING_NO);
 
-                        mstRunning.RUNNING_NO = mstrunning.Value;// mstRunning.RUNNING_NO;
-                        var bl = _db.Entry(mstRunning).State = EntityState.Added;
+                        DateTime date = DateTime.UtcNow;
+                        var d = date.Day;
+                        var m = date.Month;
+                        var y = date.Year;
 
-                        sellno = clsFunction.GenFormatCode(mstRunning.RUNNING_NO.Value, string.Empty, "SE");//string.Format("{0}{1}{2}{3}{4}", "SE", m, y, d, mstrunning);
-
-                        foreach (var item in sellitem)
+                        if (mstrunning > 0)
                         {
-                            var pcs = false;
-                            bool nonPackflag = false;
+                            mstrunning++;
 
-                            string unit1 = string.Empty;
-                            string unit2 = string.Empty;
-                            decimal qty = 0;
-                            decimal? totalitem = 0;
-                            int currId = 0;
-                            decimal totalQty = 0;
+                            mstRunning.RUNNING_NO = mstrunning.Value;// mstRunning.RUNNING_NO;
+                            var bl = _db.Entry(mstRunning).State = EntityState.Added;
 
-                            currId = item.PRODUCT_ID.Value;
-                            item.SELLITEM_NO = sellno;
-                            item.C_DATE = clsFunction.GetDate();
-                            item.E_DATE = clsFunction.GetDate();
+                            sellno = clsFunction.GenFormatCode(mstRunning.RUNNING_NO.Value, string.Empty, "SE");//string.Format("{0}{1}{2}{3}{4}", "SE", m, y, d, mstrunning);
 
-                            qty = item.QTY.Value;
-
-                            //product
-                            var p = _db.PRODUCTS.Where(w => w.PRODUCT_ID == item.PRODUCT_ID).AsNoTracking().SingleOrDefault();
-                            //var cateCode = _db.CATEGORY.Where(w => w.CATEGORY_ID == p.CATEGORY_ID).Select(s => s.CATE_CODE).FirstOrDefault();
-
-                            var currentUnit = _db.PARAMETER.Where(w => w.MAJOR_CODE == POSPARAMETER.UNIT && w.MINOR_CODE == item.UNIT).AsNoTracking().SingleOrDefault();
-                            var obj = _db.INV_PRODUCTS.Where(w => w.PRODUCT_ID == item.PRODUCT_ID).SingleOrDefault();
-                            var objBalance = _db.INV_PRODUCTS.Where(w => w.PRODUCT_ID2 == obj.PRODUCT_ID2 && w.QTY > 0).FirstOrDefault();
-                            var currentUnit2 = _db.PARAMETER.Where(w => w.MAJOR_CODE == POSPARAMETER.UNIT && w.MINOR_CODE == objBalance.UNIT).AsNoTracking().SingleOrDefault();
-
-                            decimal? retailProfit = obj.RETAILPROFIT.HasValue ? obj.RETAILPROFIT.Value : 0;
-                            var calProfit = qty * retailProfit;
-                            item.PROFIT = calProfit;
-
-                            if (currentUnit != null)
+                            foreach (var item in sellitem)
                             {
-                                unit1 = string.IsNullOrEmpty(currentUnit.CONDITION1) ? "0" : currentUnit.CONDITION1;
-                                unit2 = string.IsNullOrEmpty(currentUnit.CONDITION2) ? "0" : currentUnit.CONDITION2;
+                                var pcs = false;
+                                bool nonPackflag = false;
 
-                                totalitem = Decimal.Parse(unit1) * Decimal.Parse(unit2);
+                                string unit1 = string.Empty;
+                                string unit2 = string.Empty;
+                                decimal qty = 0;
+                                decimal? totalitem = 0;
+                                int currId = 0;
+                                decimal totalQty = 0;
 
-                                if (int.Parse(unit1) == 0)
+                                currId = item.PRODUCT_ID.Value;
+                                item.SELLITEM_NO = sellno;
+                                item.C_DATE = clsFunction.GetDate();
+                                item.E_DATE = clsFunction.GetDate();
+
+                                qty = item.QTY.Value;
+
+                                //product
+                                var p = _db.PRODUCTS.Where(w => w.PRODUCT_ID == item.PRODUCT_ID).AsNoTracking().SingleOrDefault();
+                                //var cateCode = _db.CATEGORY.Where(w => w.CATEGORY_ID == p.CATEGORY_ID).Select(s => s.CATE_CODE).FirstOrDefault();
+
+                                var currentUnit = _db.PARAMETER.Where(w => w.MAJOR_CODE == POSPARAMETER.UNIT && w.MINOR_CODE == item.UNIT).AsNoTracking().SingleOrDefault();
+                                var obj = _db.INV_PRODUCTS.Where(w => w.PRODUCT_ID == item.PRODUCT_ID).SingleOrDefault();
+                                var objBalance = _db.INV_PRODUCTS.Where(w => w.PRODUCT_ID2 == obj.PRODUCT_ID2 && w.QTY > 0).FirstOrDefault();
+
+                                PARAMETER currentUnit2 = new PARAMETER();
+
+                                if (objBalance != null)
                                 {
-                                    nonPackflag = true;
+                                    currentUnit2 = _db.PARAMETER.Where(w => w.MAJOR_CODE == POSPARAMETER.UNIT && w.MINOR_CODE == objBalance.UNIT).AsNoTracking().SingleOrDefault();
                                 }
 
-                                if (int.Parse(unit1) > 0 && int.Parse(unit2) > 0)
+
+
+                                decimal? retailProfit = obj.RETAILPROFIT.HasValue ? obj.RETAILPROFIT.Value : 0;
+                                var calProfit = qty * retailProfit;
+                                item.PROFIT = calProfit;
+
+                                if (currentUnit != null)
                                 {
-                                    totalQty = int.Parse(unit1) * int.Parse(unit2) * qty;
-                                }
-                                else if (decimal.Parse(unit1) == 0 && decimal.Parse(unit2) > 0)
-                                {
-                                    totalQty = decimal.Parse(unit2) * qty;
-                                }
-                            }
+                                    unit1 = string.IsNullOrEmpty(currentUnit.CONDITION1) ? "0" : currentUnit.CONDITION1;
+                                    unit2 = string.IsNullOrEmpty(currentUnit.CONDITION2) ? "0" : currentUnit.CONDITION2;
 
-                            _db.SELLITEMS.Add(item);
+                                    totalitem = Decimal.Parse(unit1) * Decimal.Parse(unit2);
 
-                            //////update inventory
-                            ///case 1pc.
-                            //string[] sp = p.PRODUCT_CODE.Split('.');
-                            string id = "";//sp[1];
-                            int tmpId = 0;
-                            var flagsplitdot = false;
-
-    
-                            ProductsModel fistObj = new ProductsModel();
-                            int mstID = 0;
-
-
-                            List<int> ids = new List<int>();
-
-                            string pcode = p.PRODUCT_CODE; //sp[0];
-                            string tmpUnit = string.Empty;
-
-        
-
-                            var packBalance = objBalance.PACK_BALANCE.HasValue ? objBalance.PACK_BALANCE.Value : 0;
-                            var itemBalance = objBalance.ITEM_BALANCE.HasValue ? objBalance.ITEM_BALANCE.Value : 0;
-                            var boxBalance = objBalance.BOX_BALANCE.HasValue ? objBalance.BOX_BALANCE.Value : 0;
-
-            
-                            string u1 = "";
-                            string u2 = "";
-                            u1 = string.IsNullOrEmpty(currentUnit.CONDITION1) ? "0" : currentUnit.CONDITION1;
-                            u2 = string.IsNullOrEmpty(currentUnit.CONDITION2) ? "0" : currentUnit.CONDITION2;
-
-                            decimal calqty = totalQty; //Decimal.Parse(tmp1) * qty;
-                            var calsellItem = (itemBalance - calqty);
-                            //calpack
-
-                            decimal qtyPack = 0;
-                            decimal qtyu2 = 0;
-
-                            if (int.Parse(u1) > 0)
-                            {
-                                qtyPack = int.Parse(u1);
-
-                            }
-                            else
-                            {
-                                qtyPack = decimal.Parse(u2);
-                            }
-                            //qtyPack = (qtyPack);
-                            qtyu2 = decimal.Parse(u2);
-
-                            if (currentUnit.MINOR_CODE == "1016" || currentUnit.MINOR_CODE == "1017" || currentUnit.MINOR_CODE == "1018")//rice
-                            {
-                                calsellItem = (itemBalance - qty);
-                                if (calsellItem > itemBalance)
-                                {
-                                    throw new Exception("จำนวนสินค้าคงเหลือไม่พอ");
-                                }
-                            }
-                            else
-                            {
-                                if (calqty > itemBalance)
-                                {
-                                    throw new Exception("จำนวนสินค้าคงเหลือไม่พอ");
-                                }
-                            }
-
-                            if (currentUnit.MINOR_CODE == "1016" || currentUnit.MINOR_CODE == "1017" || currentUnit.MINOR_CODE == "1018")//rice
-                            {
-                                //calsellItem = (itemBalance - qty);
-                                objBalance.ITEM_BALANCE = (decimal)(calsellItem);
-                            }
-                            else
-                            {
-                                //itemBalance = (int)calsellItem;
-                                objBalance.ITEM_BALANCE = (decimal)calsellItem;
-                            }
-
-                            if (packBalance > 0)
-                            {
-                                decimal? calpack_balance = 0;
-                                calpack_balance = (calsellItem / qtyPack);//calqty
-                                packBalance = (int)calpack_balance;
-                                objBalance.PACK_BALANCE = packBalance;
-                            }
-                            if (boxBalance > 0)
-                            {
-                                decimal? box = 0;
-
-                                if (currentUnit.NAME.Contains("ลัง")|| currentUnit2.NAME.Contains("ลัง"))
-                                {
-                                    decimal totalQty1 = 0;
-                                    decimal totalQty2 = 0;
-
-                                    if (int.Parse(u1) > 0)
+                                    if (int.Parse(unit1) == 0)
                                     {
-                                        totalQty1 = (int.Parse(u1) * qtyu2 * qty);
-                                        totalQty2 = itemBalance - totalQty1;
-                                        box = (totalQty2 / int.Parse(u1) / qtyu2);
-                                        var boxbalance = (int)box;
-                                        objBalance.BOX_BALANCE = boxbalance;
+                                        nonPackflag = true;
                                     }
-                                    else
+
+                                    if (int.Parse(unit1) > 0 && int.Parse(unit2) > 0)
                                     {
-                                        //totalQty1 = (qtyu2 * qty);
-                                        totalQty2 = itemBalance - item.QTY.Value;
-
-                                        u2 = string.IsNullOrEmpty(currentUnit2.CONDITION2) ? "0" : currentUnit2.CONDITION2;
-                                        qtyu2 = decimal.Parse(u2);
-
-                                        box = ((decimal)calsellItem / qtyu2);
-                                        var boxbalance = (int)box;
-                                        objBalance.BOX_BALANCE = boxbalance;
+                                        totalQty = int.Parse(unit1) * int.Parse(unit2) * qty;
+                                    }
+                                    else if (decimal.Parse(unit1) == 0 && decimal.Parse(unit2) > 0)
+                                    {
+                                        totalQty = decimal.Parse(unit2) * qty;
                                     }
                                 }
+
+                                _db.SELLITEMS.Add(item);
+
+                                //////update inventory
+                                ///case 1pc.
+                                //string[] sp = p.PRODUCT_CODE.Split('.');
+                                string id = "";//sp[1];
+                                int tmpId = 0;
+                                var flagsplitdot = false;
+
+
+                                ProductsModel fistObj = new ProductsModel();
+                                int mstID = 0;
+
+
+                                List<int> ids = new List<int>();
+
+                                string pcode = p.PRODUCT_CODE; //sp[0];
+                                string tmpUnit = string.Empty;
+
+
+
+                                var packBalance = objBalance.PACK_BALANCE.HasValue ? objBalance.PACK_BALANCE.Value : 0;
+                                var itemBalance = objBalance.ITEM_BALANCE.HasValue ? objBalance.ITEM_BALANCE.Value : 0;
+                                var boxBalance = objBalance.BOX_BALANCE.HasValue ? objBalance.BOX_BALANCE.Value : 0;
+
+
+                                string u1 = "";
+                                string u2 = "";
+                                u1 = string.IsNullOrEmpty(currentUnit.CONDITION1) ? "0" : currentUnit.CONDITION1;
+                                u2 = string.IsNullOrEmpty(currentUnit.CONDITION2) ? "0" : currentUnit.CONDITION2;
+
+                                decimal calqty = totalQty; //Decimal.Parse(tmp1) * qty;
+                                var calsellItem = (itemBalance - calqty);
+                                //calpack
+
+                                decimal qtyPack = 0;
+                                decimal qtyu2 = 0;
+
+                                if (int.Parse(u1) > 0)
+                                {
+                                    qtyPack = int.Parse(u1);
+
+                                }
+                                else
+                                {
+                                    qtyPack = decimal.Parse(u2);
+                                }
+                                //qtyPack = (qtyPack);
+                                qtyu2 = decimal.Parse(u2);
+
+                                if (currentUnit.MINOR_CODE == "1016" || currentUnit.MINOR_CODE == "1017" || currentUnit.MINOR_CODE == "1018")//rice
+                                {
+                                    calsellItem = (itemBalance - qty);
+                                    if (calsellItem > itemBalance)
+                                    {
+                                        throw new Exception("จำนวนสินค้าคงเหลือไม่พอ");
+                                    }
+                                }
+                                else
+                                {
+                                    if (calqty > itemBalance)
+                                    {
+                                        throw new Exception("จำนวนสินค้าคงเหลือไม่พอ");
+                                    }
+                                }
+
+                                if (currentUnit.MINOR_CODE == "1016" || currentUnit.MINOR_CODE == "1017" || currentUnit.MINOR_CODE == "1018")//rice
+                                {
+                                    //calsellItem = (itemBalance - qty);
+                                    objBalance.ITEM_BALANCE = (decimal)(calsellItem);
+                                }
+                                else
+                                {
+                                    //itemBalance = (int)calsellItem;
+                                    objBalance.ITEM_BALANCE = (decimal)calsellItem;
+                                }
+
+                                if (packBalance > 0)
+                                {
+                                    decimal? calpack_balance = 0;
+                                    calpack_balance = (calsellItem / qtyPack);//calqty
+                                    packBalance = (int)calpack_balance;
+                                    objBalance.PACK_BALANCE = packBalance;
+                                }
+                                if (boxBalance > 0)
+                                {
+                                    decimal? box = 0;
+
+                                    if (currentUnit.NAME.Contains("ลัง") || currentUnit2.NAME.Contains("ลัง"))
+                                    {
+                                        decimal totalQty1 = 0;
+                                        decimal totalQty2 = 0;
+
+                                        if (int.Parse(u1) > 0)
+                                        {
+                                            totalQty1 = (int.Parse(u1) * qtyu2 * qty);
+                                            totalQty2 = itemBalance - totalQty1;
+                                            box = (totalQty2 / int.Parse(u1) / qtyu2);
+                                            var boxbalance = (int)box;
+                                            objBalance.BOX_BALANCE = boxbalance;
+                                        }
+                                        else
+                                        {
+                                            //totalQty1 = (qtyu2 * qty);
+                                            totalQty2 = itemBalance - item.QTY.Value;
+
+                                            u2 = string.IsNullOrEmpty(currentUnit2.CONDITION2) ? "0" : currentUnit2.CONDITION2;
+                                            qtyu2 = decimal.Parse(u2);
+
+                                            box = ((decimal)calsellItem / qtyu2);
+                                            var boxbalance = (int)box;
+                                            objBalance.BOX_BALANCE = boxbalance;
+                                        }
+                                    }
+                                }
+
+                                //foreach (var itmId in tmpPro)//ids
+                                //{
+                                //    var obj2 = _db.INV_PRODUCTS.Where(w => w.PRODUCT_ID == itmId.PRODUCT_ID).SingleOrDefault();
+                                //    if (obj2 != null)
+                                //    {
+                                //        //item
+                                //        itemBalance = (int)calsellItem;
+                                //        obj2.ITEM_BALANCE = obj.ITEM_BALANCE;
+                                //        obj2.PACK_BALANCE = obj.PACK_BALANCE;
+                                //        obj2.BOX_BALANCE = obj.BOX_BALANCE;
+
+                                //        obj2.E_BY = sellitem.First().E_BY;
+                                //        obj2.E_DATE = clsFunction.GetDate();
+
+                                //        obj2.UNIT_BALANCE_TEXT = String.Format("{0}:ลัง {1}:แพ็ค {2}:ชิ้น", obj.BOX_BALANCE, packBalance, itemBalance);
+
+                                //        _db.SaveChanges();
+                                //    }
+                                //}
+
+                                objBalance.E_BY = sellitem.First().E_BY;
+                                objBalance.E_DATE = clsFunction.GetDate();
+
+                                objBalance.UNIT_BALANCE_TEXT = String.Format("{0}:ลัง {1}:แพ็ค {2}:ชิ้น", objBalance.BOX_BALANCE, packBalance, objBalance.ITEM_BALANCE);
+
+                                _db.SaveChanges();
                             }
 
-                            //foreach (var itmId in tmpPro)//ids
-                            //{
-                            //    var obj2 = _db.INV_PRODUCTS.Where(w => w.PRODUCT_ID == itmId.PRODUCT_ID).SingleOrDefault();
-                            //    if (obj2 != null)
-                            //    {
-                            //        //item
-                            //        itemBalance = (int)calsellItem;
-                            //        obj2.ITEM_BALANCE = obj.ITEM_BALANCE;
-                            //        obj2.PACK_BALANCE = obj.PACK_BALANCE;
-                            //        obj2.BOX_BALANCE = obj.BOX_BALANCE;
-
-                            //        obj2.E_BY = sellitem.First().E_BY;
-                            //        obj2.E_DATE = clsFunction.GetDate();
-
-                            //        obj2.UNIT_BALANCE_TEXT = String.Format("{0}:ลัง {1}:แพ็ค {2}:ชิ้น", obj.BOX_BALANCE, packBalance, itemBalance);
-
-                            //        _db.SaveChanges();
-                            //    }
-                            //}
-
-                            objBalance.E_BY = sellitem.First().E_BY;
-                            objBalance.E_DATE = clsFunction.GetDate();
-
-                            objBalance.UNIT_BALANCE_TEXT = String.Format("{0}:ลัง {1}:แพ็ค {2}:ชิ้น", objBalance.BOX_BALANCE, packBalance, objBalance.ITEM_BALANCE);
-
-                            _db.SaveChanges();
+                            retsellNo = sellno;
                         }
 
-                        retsellNo = sellno;
+                        transaction.Commit();
+                        _db.Dispose();
+
+                        //////notification send
+                        //var optionBuilder = new DbContextOptionsBuilder<DBContext>();
+                        //var conf = config.GetConnectionString(CONNECTIONSTRING_NAME.POS_CONN);
+                        //optionBuilder.UseSqlServer(conf);
+                        //var context2 = new DBContext(optionBuilder.Options);
+                        //notiService = new NotificationService(context2);
+
+                        //var t = Task.Run(() => notiService.CheckInventory(sellitem.Select(s => s.PRODUCT_ID).ToList()));
+                        ////t.Wait();
+
+                        //new Thread(() =>
+                        //{
+                        //    notiService.CheckInventory(sellitem.Select(s => s.PRODUCT_ID).ToList());
+                        //}).Start();
+
                     }
-
-                    //////notification send
-                    //var optionBuilder = new DbContextOptionsBuilder<DBContext>();
-                    //var conf = config.GetConnectionString(CONNECTIONSTRING_NAME.POS_CONN);
-                    //optionBuilder.UseSqlServer(conf);
-                    //var context2 = new DBContext(optionBuilder.Options);
-                    //notiService = new NotificationService(context2);
-
-                    //var t = Task.Run(() => notiService.CheckInventory(sellitem.Select(s => s.PRODUCT_ID).ToList()));
-                    ////t.Wait();
-
-                    //new Thread(() =>
-                    //{
-                    //    notiService.CheckInventory(sellitem.Select(s => s.PRODUCT_ID).ToList());
-                    //}).Start();
-
+                }
+                catch (Exception ex)
+                {
+                    transaction.Rollback();
+                    message = ex.Message;
+                    //throw new Exception(ex.Message);
+                }
+                finally
+                {
+                    _db.Dispose();
                 }
             }
-            catch (Exception ex)
-            {
-                message = ex.Message;
-                //throw new Exception(ex.Message);
-            }
-            finally
-            {
-                _db.Dispose();
-            }
+          
 
             return retsellNo;
         }
