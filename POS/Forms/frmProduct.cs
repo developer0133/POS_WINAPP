@@ -39,7 +39,7 @@ namespace POS.Forms
             dgvProduct.AutoGenerateColumns = false;
 
             dt = new List<ProductDTO>();
-            dt = ProductService.GetProduct(string.Empty, string.Empty); //140000101
+            dt = ProductService.GetProduct(string.Empty, string.Empty);
             dgvProduct.DataSource = dt;//.Skip(pageSize * (pageNumber - 1)).Take(pageSize).ToList();
 
             lblPage.Text = string.Format("Page {0}/{1}", (pageNumber), dt.Count() / pageSize);
