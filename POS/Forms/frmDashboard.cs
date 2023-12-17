@@ -48,14 +48,12 @@ namespace POS.Forms
             incomechart.Series["income"].XValueMember = "C_DATE";
             incomechart.Series["income"].YValueMembers = "AMOUNT";
 
-
             incomechart.Series["income"].XValueType = ChartValueType.DateTime;
             //incomechart.ChartAreas.Add(new ChartArea()); // In some cases the winforms designer adds this already
             //incomechart.ChartAreas["area1"].AxisX.LabelStyle.Format = "yyyy -MM-dd";
             //incomechart.ChartAreas["area1"].AxisX.Interval = 1;
             //incomechart.ChartAreas["area1"].AxisX.IntervalType = DateTimeIntervalType.Months;
             //incomechart.ChartAreas["area1"].AxisX.IntervalOffset = 1;
-
 
             incomechart.DataBind();
 
@@ -64,7 +62,6 @@ namespace POS.Forms
                 lblIncome.Text = dataIncome.Select(s => s.STR_TOTAL_INCOME).First();
                 lblProfit.Text = dataIncome.Select(s => s.STR_TOTAL_PROFIT).First();
             }
-
         }
 
         public void LoadDataLast30()
@@ -90,7 +87,6 @@ namespace POS.Forms
             //incomechart.ChartAreas["area1"].AxisX.Interval = 1;
             //incomechart.ChartAreas["area1"].AxisX.IntervalType = DateTimeIntervalType.Months;
             //incomechart.ChartAreas["area1"].AxisX.IntervalOffset = 1;
-
 
             incomechart.DataBind();
 
