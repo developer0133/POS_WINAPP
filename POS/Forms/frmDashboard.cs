@@ -80,7 +80,6 @@ namespace POS.Forms
             incomechart.Series["income"].XValueMember = "C_DATE";
             incomechart.Series["income"].YValueMembers = "AMOUNT";
 
-
             incomechart.Series["income"].XValueType = ChartValueType.DateTime;
             //incomechart.ChartAreas.Add(new ChartArea()); // In some cases the winforms designer adds this already
             //incomechart.ChartAreas["area1"].AxisX.LabelStyle.Format = "yyyy -MM-dd";
