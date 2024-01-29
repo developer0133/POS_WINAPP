@@ -216,5 +216,39 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="PRODUCTS_SELL">
+      <EntityTypeMapping TypeName="POSSYSTEMModel.PRODUCTS_SELL">
+        <MappingFragment StoreEntitySet="PRODUCTS_SELL">
+          <ScalarProperty Name="BARCODE" ColumnName="BARCODE" />
+          <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+          <ScalarProperty Name="PROFIT" ColumnName="PROFIT" />
+          <ScalarProperty Name="COST" ColumnName="COST" />
+          <ScalarProperty Name="E_DATE" ColumnName="E_DATE" />
+          <ScalarProperty Name="E_BY" ColumnName="E_BY" />
+          <ScalarProperty Name="C_DATE" ColumnName="C_DATE" />
+          <ScalarProperty Name="C_BY" ColumnName="C_BY" />
+          <ScalarProperty Name="PRICE" ColumnName="PRICE" />
+          <ScalarProperty Name="UNIT" ColumnName="UNIT" />
+          <ScalarProperty Name="INV_ID" ColumnName="INV_ID" />
+          <ScalarProperty Name="PRODUCT_ID" ColumnName="PRODUCT_ID" />
+          <ScalarProperty Name="PRODUCT_SELL_ID" ColumnName="PRODUCT_SELL_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="STOCK">
+      <EntityTypeMapping TypeName="POSSYSTEMModel.STOCK">
+        <MappingFragment StoreEntitySet="STOCK">
+          <ScalarProperty Name="QTY_BALANCE" ColumnName="QTY_BALANCE" />
+          <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+          <ScalarProperty Name="E_DATE" ColumnName="E_DATE" />
+          <ScalarProperty Name="E_BY" ColumnName="E_BY" />
+          <ScalarProperty Name="C_DATE" ColumnName="C_DATE" />
+          <ScalarProperty Name="C_BY" ColumnName="C_BY" />
+          <ScalarProperty Name="UNIT_BALANCE_TEXT" ColumnName="UNIT_BALANCE_TEXT" />
+          <ScalarProperty Name="PRODUCT_ID" ColumnName="PRODUCT_ID" />
+          <ScalarProperty Name="STOCK_ID" ColumnName="STOCK_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

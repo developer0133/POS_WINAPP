@@ -178,6 +178,24 @@
           <Property Name="BOXPRICE" Type="decimal" Precision="18" Scale="2" />
           <Property Name="PARENT_ID" Type="int" />
         </EntityType>
+        <EntityType Name="PRODUCTS_SELL">
+          <Key>
+            <PropertyRef Name="PRODUCT_SELL_ID" />
+          </Key>
+          <Property Name="PRODUCT_SELL_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PRODUCT_ID" Type="int" Nullable="false" />
+          <Property Name="INV_ID" Type="int" />
+          <Property Name="UNIT" Type="nvarchar" MaxLength="20" />
+          <Property Name="PRICE" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="C_BY" Type="nvarchar" MaxLength="20" />
+          <Property Name="C_DATE" Type="datetime" />
+          <Property Name="E_BY" Type="nvarchar" MaxLength="20" />
+          <Property Name="E_DATE" Type="datetime" />
+          <Property Name="COST" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="PROFIT" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="REMARK" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="BARCODE" Type="nvarchar" MaxLength="20" />
+        </EntityType>
         <EntityType Name="SELLITEMS">
           <Key>
             <PropertyRef Name="SELLITEM_ID" />
@@ -198,6 +216,20 @@
           <Property Name="PROFIT" Type="decimal" Precision="18" Scale="2" />
           <Property Name="REMARK" Type="nvarchar" MaxLength="500" />
         </EntityType>
+        <EntityType Name="STOCK">
+          <Key>
+            <PropertyRef Name="STOCK_ID" />
+          </Key>
+          <Property Name="STOCK_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PRODUCT_ID" Type="int" Nullable="false" />
+          <Property Name="UNIT_BALANCE_TEXT" Type="nvarchar" MaxLength="100" />
+          <Property Name="C_BY" Type="nvarchar" MaxLength="20" />
+          <Property Name="C_DATE" Type="datetime" />
+          <Property Name="E_BY" Type="nvarchar" MaxLength="20" />
+          <Property Name="E_DATE" Type="datetime" />
+          <Property Name="REMARK" Type="nvarchar" MaxLength="100" />
+          <Property Name="QTY_BALANCE" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -208,6 +240,30 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
+        <Association Name="FK_INV_PRODUCTS_PRODUCTS">
+          <End Role="PRODUCTS" Type="Self.PRODUCTS" Multiplicity="0..1" />
+          <End Role="INV_PRODUCTS" Type="Self.INV_PRODUCTS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCTS">
+              <PropertyRef Name="PRODUCT_ID" />
+            </Principal>
+            <Dependent Role="INV_PRODUCTS">
+              <PropertyRef Name="PRODUCT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRODUCTS_SELL_PRODUCTS">
+          <End Role="PRODUCTS" Type="Self.PRODUCTS" Multiplicity="1" />
+          <End Role="PRODUCTS_SELL" Type="Self.PRODUCTS_SELL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCTS">
+              <PropertyRef Name="PRODUCT_ID" />
+            </Principal>
+            <Dependent Role="PRODUCTS_SELL">
+              <PropertyRef Name="PRODUCT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="POSSYSTEMModelStoreContainer">
           <EntitySet Name="CATEGORY" EntityType="Self.CATEGORY" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DAPARTMENT" EntityType="Self.DAPARTMENT" Schema="dbo" store:Type="Tables" />
@@ -219,8 +275,18 @@
           <EntitySet Name="ORDER_HISTORY" EntityType="Self.ORDER_HISTORY" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PARAMETER" EntityType="Self.PARAMETER" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PRODUCTS" EntityType="Self.PRODUCTS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PRODUCTS_SELL" EntityType="Self.PRODUCTS_SELL" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SELLITEMS" EntityType="Self.SELLITEMS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STOCK" EntityType="Self.STOCK" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_INV_PRODUCTS_PRODUCTS" Association="Self.FK_INV_PRODUCTS_PRODUCTS">
+            <End Role="PRODUCTS" EntitySet="PRODUCTS" />
+            <End Role="INV_PRODUCTS" EntitySet="INV_PRODUCTS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRODUCTS_SELL_PRODUCTS" Association="Self.FK_PRODUCTS_SELL_PRODUCTS">
+            <End Role="PRODUCTS" EntitySet="PRODUCTS" />
+            <End Role="PRODUCTS_SELL" EntitySet="PRODUCTS_SELL" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -252,7 +318,7 @@
           <Property Name="ORDER_DATE" Type="DateTime" Precision="3" />
           <Property Name="QTY" Type="Int32" />
           <Property Name="BALANCE" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="UNIT" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="UNIT" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
           <Property Name="REMARK" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <Property Name="C_BY" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="C_DATE" Type="DateTime" Precision="3" />
@@ -274,6 +340,7 @@
           <Property Name="BOX_BALANCE" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="BOXPRICE" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="PRODUCT_ID2" Type="Int32" />
+          <NavigationProperty Name="PRODUCTS" Relationship="POSSYSTEMModel.FK_INV_PRODUCTS_PRODUCTS" FromRole="INV_PRODUCTS" ToRole="PRODUCTS" />
         </EntityType>
         <EntityType Name="LOGIN_ACCESS">
           <Key>
@@ -388,6 +455,16 @@
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="PRODUCTS" EntityType="POSSYSTEMModel.PRODUCTS" />
           <EntitySet Name="SELLITEMS" EntityType="POSSYSTEMModel.SELLITEMS" />
+          <EntitySet Name="PRODUCTS_SELL" EntityType="POSSYSTEMModel.PRODUCTS_SELL" />
+          <EntitySet Name="STOCK" EntityType="POSSYSTEMModel.STOCK" />
+          <AssociationSet Name="FK_INV_PRODUCTS_PRODUCTS" Association="POSSYSTEMModel.FK_INV_PRODUCTS_PRODUCTS">
+            <End Role="PRODUCTS" EntitySet="PRODUCTS" />
+            <End Role="INV_PRODUCTS" EntitySet="INV_PRODUCTS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRODUCTS_SELL_PRODUCTS" Association="POSSYSTEMModel.FK_PRODUCTS_SELL_PRODUCTS">
+            <End Role="PRODUCTS" EntitySet="PRODUCTS" />
+            <End Role="PRODUCTS_SELL" EntitySet="PRODUCTS_SELL" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="PRODUCTS">
           <Key>
@@ -422,6 +499,8 @@
           <Property Name="WHOLESALEPRICE_ITEM" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="BOXPRICE" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="PARENT_ID" Type="Int32" />
+          <NavigationProperty Name="INV_PRODUCTS" Relationship="POSSYSTEMModel.FK_INV_PRODUCTS_PRODUCTS" FromRole="PRODUCTS" ToRole="INV_PRODUCTS" />
+          <NavigationProperty Name="PRODUCTS_SELL" Relationship="POSSYSTEMModel.FK_PRODUCTS_SELL_PRODUCTS" FromRole="PRODUCTS" ToRole="PRODUCTS_SELL" />
         </EntityType>
         <EntityType Name="SELLITEMS">
           <Key>
@@ -443,6 +522,63 @@
           <Property Name="PROFIT" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="REMARK" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="PRODUCTS_SELL">
+          <Key>
+            <PropertyRef Name="PRODUCT_SELL_ID" />
+          </Key>
+          <Property Name="PRODUCT_SELL_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PRODUCT_ID" Type="Int32" Nullable="false" />
+          <Property Name="INV_ID" Type="Int32" />
+          <Property Name="UNIT" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="PRICE" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="C_BY" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="C_DATE" Type="DateTime" Precision="3" />
+          <Property Name="E_BY" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="E_DATE" Type="DateTime" Precision="3" />
+          <Property Name="COST" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="PROFIT" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="REMARK" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="BARCODE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="PRODUCTS" Relationship="POSSYSTEMModel.FK_PRODUCTS_SELL_PRODUCTS" FromRole="PRODUCTS_SELL" ToRole="PRODUCTS" />
+        </EntityType>
+        <EntityType Name="STOCK">
+          <Key>
+            <PropertyRef Name="STOCK_ID" />
+          </Key>
+          <Property Name="STOCK_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PRODUCT_ID" Type="Int32" Nullable="false" />
+          <Property Name="UNIT_BALANCE_TEXT" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="C_BY" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="C_DATE" Type="DateTime" Precision="3" />
+          <Property Name="E_BY" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="E_DATE" Type="DateTime" Precision="3" />
+          <Property Name="REMARK" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="QTY_BALANCE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_INV_PRODUCTS_PRODUCTS">
+          <End Type="POSSYSTEMModel.PRODUCTS" Role="PRODUCTS" Multiplicity="0..1" />
+          <End Type="POSSYSTEMModel.INV_PRODUCTS" Role="INV_PRODUCTS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCTS">
+              <PropertyRef Name="PRODUCT_ID" />
+            </Principal>
+            <Dependent Role="INV_PRODUCTS">
+              <PropertyRef Name="PRODUCT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRODUCTS_SELL_PRODUCTS">
+          <End Type="POSSYSTEMModel.PRODUCTS" Role="PRODUCTS" Multiplicity="1" />
+          <End Type="POSSYSTEMModel.PRODUCTS_SELL" Role="PRODUCTS_SELL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCTS">
+              <PropertyRef Name="PRODUCT_ID" />
+            </Principal>
+            <Dependent Role="PRODUCTS_SELL">
+              <PropertyRef Name="PRODUCT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -661,6 +797,40 @@
                 <ScalarProperty Name="PRODUCT_CODE" ColumnName="PRODUCT_CODE" />
                 <ScalarProperty Name="SELLITEM_NO" ColumnName="SELLITEM_NO" />
                 <ScalarProperty Name="SELLITEM_ID" ColumnName="SELLITEM_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRODUCTS_SELL">
+            <EntityTypeMapping TypeName="POSSYSTEMModel.PRODUCTS_SELL">
+              <MappingFragment StoreEntitySet="PRODUCTS_SELL">
+                <ScalarProperty Name="BARCODE" ColumnName="BARCODE" />
+                <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+                <ScalarProperty Name="PROFIT" ColumnName="PROFIT" />
+                <ScalarProperty Name="COST" ColumnName="COST" />
+                <ScalarProperty Name="E_DATE" ColumnName="E_DATE" />
+                <ScalarProperty Name="E_BY" ColumnName="E_BY" />
+                <ScalarProperty Name="C_DATE" ColumnName="C_DATE" />
+                <ScalarProperty Name="C_BY" ColumnName="C_BY" />
+                <ScalarProperty Name="PRICE" ColumnName="PRICE" />
+                <ScalarProperty Name="UNIT" ColumnName="UNIT" />
+                <ScalarProperty Name="INV_ID" ColumnName="INV_ID" />
+                <ScalarProperty Name="PRODUCT_ID" ColumnName="PRODUCT_ID" />
+                <ScalarProperty Name="PRODUCT_SELL_ID" ColumnName="PRODUCT_SELL_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STOCK">
+            <EntityTypeMapping TypeName="POSSYSTEMModel.STOCK">
+              <MappingFragment StoreEntitySet="STOCK">
+                <ScalarProperty Name="QTY_BALANCE" ColumnName="QTY_BALANCE" />
+                <ScalarProperty Name="REMARK" ColumnName="REMARK" />
+                <ScalarProperty Name="E_DATE" ColumnName="E_DATE" />
+                <ScalarProperty Name="E_BY" ColumnName="E_BY" />
+                <ScalarProperty Name="C_DATE" ColumnName="C_DATE" />
+                <ScalarProperty Name="C_BY" ColumnName="C_BY" />
+                <ScalarProperty Name="UNIT_BALANCE_TEXT" ColumnName="UNIT_BALANCE_TEXT" />
+                <ScalarProperty Name="PRODUCT_ID" ColumnName="PRODUCT_ID" />
+                <ScalarProperty Name="STOCK_ID" ColumnName="STOCK_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

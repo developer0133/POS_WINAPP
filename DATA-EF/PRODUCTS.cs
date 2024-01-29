@@ -14,6 +14,13 @@ namespace DATA_EF
     
     public partial class PRODUCTS
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public PRODUCTS()
+        {
+            this.INV_PRODUCTS = new HashSet<INV_PRODUCTS>();
+            this.PRODUCTS_SELL = new HashSet<PRODUCTS_SELL>();
+        }
+    
         public int PRODUCT_ID { get; set; }
         public string PRODUCT_NAME { get; set; }
         public Nullable<decimal> COSTPRICE { get; set; }
@@ -43,5 +50,10 @@ namespace DATA_EF
         public Nullable<decimal> WHOLESALEPRICE_ITEM { get; set; }
         public Nullable<decimal> BOXPRICE { get; set; }
         public Nullable<int> PARENT_ID { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<INV_PRODUCTS> INV_PRODUCTS { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PRODUCTS_SELL> PRODUCTS_SELL { get; set; }
     }
 }

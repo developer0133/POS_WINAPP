@@ -92,8 +92,14 @@
     <Compile Include="PRODUCTS.cs">
       <DependentUpon>POSSYSTEMDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="PRODUCTS_SELL.cs">
+      <DependentUpon>POSSYSTEMDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="SELLITEMS.cs">
+      <DependentUpon>POSSYSTEMDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="STOCK.cs">
       <DependentUpon>POSSYSTEMDB.tt</DependentUpon>
     </Compile>
     <Compile Include="sysdiagrams.cs">

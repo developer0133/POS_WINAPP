@@ -672,7 +672,6 @@ namespace DAL
                                 objHist.AVG_ITEM = InvData.AVG_ITEM;
 
                                 _db.ORDER_HISTORY.Add(objHist);
-
                             }
 
                             isSuccess = true;

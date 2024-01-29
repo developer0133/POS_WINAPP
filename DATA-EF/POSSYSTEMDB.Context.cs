@@ -37,5 +37,7 @@ namespace DATA_EF
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<PRODUCTS> PRODUCTS { get; set; }
         public virtual DbSet<SELLITEMS> SELLITEMS { get; set; }
+        public virtual DbSet<PRODUCTS_SELL> PRODUCTS_SELL { get; set; }
+        public virtual DbSet<STOCK> STOCK { get; set; }
     }
 }

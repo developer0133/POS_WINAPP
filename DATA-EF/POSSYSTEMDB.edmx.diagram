@@ -17,6 +17,10 @@
         <EntityTypeShape EntityType="POSSYSTEMModel.sysdiagrams" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="POSSYSTEMModel.PRODUCTS" Width="1.5" PointX="8.875" PointY="0.875" />
         <EntityTypeShape EntityType="POSSYSTEMModel.SELLITEMS" Width="1.5" PointX="9.375" PointY="8.75" />
+        <EntityTypeShape EntityType="POSSYSTEMModel.PRODUCTS_SELL" Width="1.5" PointX="11.125" PointY="3.5" />
+        <EntityTypeShape EntityType="POSSYSTEMModel.STOCK" Width="1.5" PointX="5.375" PointY="11.75" />
+        <AssociationConnector Association="POSSYSTEMModel.FK_INV_PRODUCTS_PRODUCTS" />
+        <AssociationConnector Association="POSSYSTEMModel.FK_PRODUCTS_SELL_PRODUCTS" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

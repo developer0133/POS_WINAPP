@@ -41,5 +41,7 @@ namespace DATA_EF
         public Nullable<decimal> BOX_BALANCE { get; set; }
         public Nullable<decimal> BOXPRICE { get; set; }
         public Nullable<int> PRODUCT_ID2 { get; set; }
+    
+        public virtual PRODUCTS PRODUCTS { get; set; }
     }
 }
