@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="BL.dll" size="9728">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="BL.dll" size="10240">
       <assemblyIdentity name="BL" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>/SncX2+EFo9O11V4/iIGZgnAu144NOLFGihqWQlvKPo=</dsig:DigestValue>
+        <dsig:DigestValue>yFv2h6F09zyUloCsI5pBZII0tp6mlF+SuayhZXLi/Dk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -67,26 +67,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DAL.dll" size="154624">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DAL.dll" size="156672">
       <assemblyIdentity name="DAL" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>WKOavVhTQj0U0DxmqMYwysF8yBITGoKTJCFCtUOPhOU=</dsig:DigestValue>
+        <dsig:DigestValue>TyzW4qx/xeKx46iDDQwZG2MTA0Q6Mz30Wv5uYItamqY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DATA-EF.dll" size="78848">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DATA-EF.dll" size="79360">
       <assemblyIdentity name="DATA-EF" version="0.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>pHYc1yEYgPqYKdXxoKJrcsnSYUUGmXrgmQejwZ8rSWw=</dsig:DigestValue>
+        <dsig:DigestValue>tMDgD6eKB7ZCbUdZGFerVdqjWUr+SpS1ll+LLpJbqcU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -98,7 +98,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>CzmVi1rv3ckhwJBjpo00VPf2cG1dvcY+sHnpk42yEVI=</dsig:DigestValue>
+        <dsig:DigestValue>gSSQ9mBQpJTZtMaq/tfVT6BYZhkdr3w9qbP3AMVyziY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

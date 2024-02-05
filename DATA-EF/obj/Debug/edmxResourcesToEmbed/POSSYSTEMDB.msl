@@ -219,6 +219,7 @@
     <EntitySetMapping Name="PRODUCTS_SELL">
       <EntityTypeMapping TypeName="POSSYSTEMModel.PRODUCTS_SELL">
         <MappingFragment StoreEntitySet="PRODUCTS_SELL">
+          <ScalarProperty Name="PRODUCT_CODE" ColumnName="PRODUCT_CODE" />
           <ScalarProperty Name="BARCODE" ColumnName="BARCODE" />
           <ScalarProperty Name="REMARK" ColumnName="REMARK" />
           <ScalarProperty Name="PROFIT" ColumnName="PROFIT" />

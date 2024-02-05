@@ -195,6 +195,7 @@
           <Property Name="PROFIT" Type="decimal" Precision="18" Scale="2" />
           <Property Name="REMARK" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="BARCODE" Type="nvarchar" MaxLength="20" />
+          <Property Name="PRODUCT_CODE" Type="nvarchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="SELLITEMS">
           <Key>
@@ -540,6 +541,7 @@
           <Property Name="REMARK" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="BARCODE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="PRODUCTS" Relationship="POSSYSTEMModel.FK_PRODUCTS_SELL_PRODUCTS" FromRole="PRODUCTS_SELL" ToRole="PRODUCTS" />
+          <Property Name="PRODUCT_CODE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="STOCK">
           <Key>
@@ -803,6 +805,7 @@
           <EntitySetMapping Name="PRODUCTS_SELL">
             <EntityTypeMapping TypeName="POSSYSTEMModel.PRODUCTS_SELL">
               <MappingFragment StoreEntitySet="PRODUCTS_SELL">
+                <ScalarProperty Name="PRODUCT_CODE" ColumnName="PRODUCT_CODE" />
                 <ScalarProperty Name="BARCODE" ColumnName="BARCODE" />
                 <ScalarProperty Name="REMARK" ColumnName="REMARK" />
                 <ScalarProperty Name="PROFIT" ColumnName="PROFIT" />

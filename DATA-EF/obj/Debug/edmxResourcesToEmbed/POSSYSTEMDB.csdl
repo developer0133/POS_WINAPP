@@ -248,6 +248,7 @@
     <Property Name="REMARK" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="BARCODE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="PRODUCTS" Relationship="POSSYSTEMModel.FK_PRODUCTS_SELL_PRODUCTS" FromRole="PRODUCTS_SELL" ToRole="PRODUCTS" />
+    <Property Name="PRODUCT_CODE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="STOCK">
     <Key>

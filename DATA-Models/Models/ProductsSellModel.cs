@@ -20,5 +20,6 @@ namespace DATA_Models.Models
         public decimal? COST { get; set; }
         public decimal? PROFIT { get; set; }
         public string REMARK { get; set; }
+        public string PRODUCT_CODE { get; set; }
     }
 }

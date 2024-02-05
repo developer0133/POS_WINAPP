@@ -27,6 +27,7 @@ namespace DATA_EF
         public Nullable<decimal> PROFIT { get; set; }
         public string REMARK { get; set; }
         public string BARCODE { get; set; }
+        public string PRODUCT_CODE { get; set; }
     
         public virtual PRODUCTS PRODUCTS { get; set; }
     }

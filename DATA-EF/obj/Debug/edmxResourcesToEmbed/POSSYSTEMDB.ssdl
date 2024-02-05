@@ -190,6 +190,7 @@
     <Property Name="PROFIT" Type="decimal" Precision="18" Scale="2" />
     <Property Name="REMARK" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="BARCODE" Type="nvarchar" MaxLength="20" />
+    <Property Name="PRODUCT_CODE" Type="nvarchar" MaxLength="20" />
   </EntityType>
   <EntityType Name="SELLITEMS">
     <Key>
