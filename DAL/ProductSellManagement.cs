@@ -82,7 +82,6 @@ namespace DAL
                             pd.BARCODE = pd.PRODUCT_CODE;
                         }
 
-
                         trn.Commit();
                         _db.Dispose();
 

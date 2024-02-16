@@ -97,6 +97,7 @@ namespace POS.Forms
         private void btnSave_Click(object sender, EventArgs e)
         {
             INV_PRODUCTS obj = new INV_PRODUCTS();
+            PRODUCTS_SELL pSell = new PRODUCTS_SELL();
 
             if (string.IsNullOrEmpty(txtProductName.Text) || string.IsNullOrEmpty(txtRetailprice.Text))
             {
@@ -111,6 +112,9 @@ namespace POS.Forms
 
                 obj.RETAILPRICE = string.IsNullOrEmpty(txtRetailprice.Text) ? 0 : decimal.Parse(txtRetailprice.Text);
 
+                pSell.PRODUCT_ID = PID;
+                pSell.UNIT = unit;
+
                 obj.PRODUCT_ID = PID; //master
                 obj.PRODUCT_ID2 = MasterID; // pModel.PRODUCT_ID;
                 obj.UNIT = unit;
@@ -124,6 +128,10 @@ namespace POS.Forms
                 obj.C_BY = UserModel.USERNAME;
                 obj.E_BY = UserModel.USERNAME;
 
+                pSell.REMARK = txtRemark.Text;
+                pSell.C_BY = UserModel.USERNAME;
+                pSell.E_BY = UserModel.USERNAME;
+
                 if (pModel != null)
                 {
                     if (pModel.INV_ID > 0)
@@ -135,6 +143,7 @@ namespace POS.Forms
                     else
                     {
                         isSuccess = InvService.UpdateINV2(obj, ref msg);//InvService.InsertInventory2(obj);
+                        isSuccess = ProductSellManagementService.ProductManagement(pSell, ref msg);
                     }
                 }
 
