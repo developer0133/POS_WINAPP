@@ -46,6 +46,8 @@ namespace DAL
                             pSell.REMARK = PData.REMARK;
                             pSell.PROFIT = PData.PROFIT;
                             pSell.BARCODE = PData.BARCODE;
+                            pSell.PRODUCT_ID = PData.PRODUCT_ID;
+
                             pSell.C_BY = PData.C_BY;
                             pSell.E_BY = PData.E_BY;
                             pSell.C_DATE = PData.C_DATE;
@@ -80,6 +82,12 @@ namespace DAL
                             pd.C_BY = PData.C_BY;
                             pd.REMARK = PData.REMARK;
                             pd.BARCODE = pd.PRODUCT_CODE;
+                            pd.PRODUCT_ID = PData.PRODUCT_ID;
+
+                            isSuccess = true;
+
+                            _db.PRODUCTS_SELL.Add(pd);
+                            _db.SaveChanges();
                         }
 
                         trn.Commit();

@@ -132,6 +132,8 @@ namespace POS.Forms
                 pSell.C_BY = UserModel.USERNAME;
                 pSell.E_BY = UserModel.USERNAME;
 
+                pSell.PRICE = obj.RETAILPRICE;
+
                 if (pModel != null)
                 {
                     if (pModel.INV_ID > 0)
@@ -142,7 +144,7 @@ namespace POS.Forms
                     }
                     else
                     {
-                        isSuccess = InvService.UpdateINV2(obj, ref msg);//InvService.InsertInventory2(obj);
+                       // isSuccess = InvService.UpdateINV2(obj, ref msg);//InvService.InsertInventory2(obj);
                         isSuccess = ProductSellManagementService.ProductManagement(pSell, ref msg);
                     }
                 }
