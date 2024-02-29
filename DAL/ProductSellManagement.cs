@@ -123,5 +123,59 @@ namespace DAL
             }
         }
 
+
+        public List<ProductSellDTO> GetProductSell(int? id)
+        {
+            POSSYSTEMEntities _db = new POSSYSTEMEntities();
+            List<ProductSellDTO> oList = new List<ProductSellDTO>();
+
+            try
+            {
+                var qrydata = (from t in _db.PRODUCTS_SELL
+                               join t1 in _db.PRODUCTS.Where(w => w.STATUS == STATUS.ACTIVE) on t.PRODUCT_ID equals t1.PRODUCT_ID//.Where(w => w.STATUS == STATUS.ACTIVE && (string.IsNullOrEmpty(code) || w.PRODUCT_CODE == code)) on t.PRODUCT_ID equals t1.PRODUCT_ID
+                               //join t5 in _db.CATEGORY on t1.CATEGORY_ID equals t5.CATEGORY_ID
+                               //join t2 in _db.PARAMETER.Where(w => w.MAJOR_CODE == PARAMETERCODE.PARAMETER_TYPE && w.STATUS == STATUS.ACTIVE) on t1.PRODUCT_TYPE_ID equals t2.MINOR_CODE //into ct
+                               join t4 in _db.PARAMETER.Where(w => w.MAJOR_CODE == PARAMETERCODE.UNIT && w.STATUS == STATUS.ACTIVE) on t.UNIT equals t4.MINOR_CODE into c1
+                               from t3 in c1.DefaultIfEmpty()
+                               where (id.HasValue == false || t1.PRODUCT_ID == id)
+
+                               select new ProductSellDTO
+                               {
+                                   PRODUCT_ID = t.PRODUCT_ID,
+                                   PRODUCT_NAME = t1.PRODUCT_NAME,
+                                   PRODUCT_CODE = t1.PRODUCT_CODE,
+                                   REMARK = t.REMARK,
+                                   PRICE = t.PRICE,
+                                   UNIT = t.UNIT,
+                                   C_BY = t.C_BY,
+                                   C_DATE = t.C_DATE,
+                                   
+                              
+
+                               }).AsQueryable();
+                oList = (List<ProductSellDTO>)qrydata.AsEnumerable().Select(s => new ProductSellDTO
+                {
+                    PRODUCT_ID = s.PRODUCT_ID,
+                    PRODUCT_CODE = s.PRODUCT_CODE,
+                    PRODUCT_NAME = s.PRODUCT_NAME,
+                    REMARK = s.REMARK,
+                    UNIT = s.UNIT,
+                    C_BY = s.C_BY,
+                    C_DATE = s.C_DATE,
+                    PRICE = s.PRICE,
+                    STATUS = s.STATUS
+
+                }).ToList();
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+            return oList;
+        }
+
+
     }
 }
