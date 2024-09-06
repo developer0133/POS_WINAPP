@@ -28,15 +28,13 @@ namespace DAL.Utils
             var key = KEY.KEY_STRING;
 
             //pZrh33eb/GMQzjXA6SC6HQ ==  :000
-            //Y + ZeQ74DLebrzzB + ogmTLg == :test
+            //Y+ZeQ74DLebrzzB+ogmTLg == :test
 
             //var encryptedString = EncryptString(key, "test");
             //var decryptedString = DecryptString(key, encryptedString);
 
             var encryptedString = EncryptString(key, input);
             var decryptedString = DecryptString(key, encryptedString);
-
-
             string result = DecryptString(key, input);
 
             return result;
@@ -73,25 +71,39 @@ namespace DAL.Utils
 
         public static string DecryptString(string key, string cipherText)
         {
-            byte[] iv = new byte[16];
-            byte[] buffer = Convert.FromBase64String(cipherText);
-
-            using (Aes aes = Aes.Create())
+            try
             {
-                aes.Key = Encoding.UTF8.GetBytes(key);
-                aes.IV = iv;
-                ICryptoTransform decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
-
-                using (MemoryStream memoryStream = new MemoryStream(buffer))
+                cipherText = cipherText.Replace(" ", "+");
+                int mod4 = cipherText.Length % 4;
+                if (mod4 > 0)
                 {
-                    using (CryptoStream cryptoStream = new CryptoStream((Stream)memoryStream, decryptor, CryptoStreamMode.Read))
+                    cipherText += new string('=', 4 - mod4);
+                }
+
+                byte[] iv = new byte[16];
+                byte[] buffer = Convert.FromBase64String(cipherText);
+
+                using (Aes aes = Aes.Create())
+                {
+                    aes.Key = Encoding.UTF8.GetBytes(key);
+                    aes.IV = iv;
+                    ICryptoTransform decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
+
+                    using (MemoryStream memoryStream = new MemoryStream(buffer))
                     {
-                        using (StreamReader streamReader = new StreamReader((Stream)cryptoStream))
+                        using (CryptoStream cryptoStream = new CryptoStream((Stream)memoryStream, decryptor, CryptoStreamMode.Read))
                         {
-                            return streamReader.ReadToEnd();
+                            using (StreamReader streamReader = new StreamReader((Stream)cryptoStream))
+                            {
+                                return streamReader.ReadToEnd();
+                            }
                         }
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
 

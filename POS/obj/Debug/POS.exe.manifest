@@ -50,7 +50,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>yFv2h6F09zyUloCsI5pBZII0tp6mlF+SuayhZXLi/Dk=</dsig:DigestValue>
+        <dsig:DigestValue>s4ldy2piMO8QUK8UIvsIjARi/oimhoaObncTCKdWSjw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -67,14 +67,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DAL.dll" size="156672">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DAL.dll" size="160768">
       <assemblyIdentity name="DAL" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Fa96g3x6AsVVLqos8icOCtG8TM+ahvfwBdO1zid2Hvs=</dsig:DigestValue>
+        <dsig:DigestValue>48dr0X8cLXPnWsoEG4ES6WZe9h5iMb5RVeU5m//h1jA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -86,19 +86,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>tMDgD6eKB7ZCbUdZGFerVdqjWUr+SpS1ll+LLpJbqcU=</dsig:DigestValue>
+        <dsig:DigestValue>NNZqNpS3tibmIrCcAIesHk31uTqe4JMSqtSBdFpZxgA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DATA-Models.dll" size="41984">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DATA-Models.dll" size="43520">
       <assemblyIdentity name="DATA-Models" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>gSSQ9mBQpJTZtMaq/tfVT6BYZhkdr3w9qbP3AMVyziY=</dsig:DigestValue>
+        <dsig:DigestValue>x7JKCooOr967ka3MiV/dZ3jcGanPxC1QNefuaU/R39g=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -1142,7 +1142,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>P5uXN0oElQ7gwUgH+Cw/vS8HsjidHlMhY4Q5AiSOZvs=</dsig:DigestValue>
+        <dsig:DigestValue>CIAWitrnFX1Q10ClckAkwmna5yl41tXxUCCrMbkHWlA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -1154,7 +1154,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>AJWlnOAAno6UpypA5gSO96D1ndxg9uYQ/XnyRCqbIDg=</dsig:DigestValue>
+        <dsig:DigestValue>+Uw7ADyt1PbKXPrGb52sgrVGzbx+6YQWbRJa14x9qqU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -1392,13 +1392,13 @@
       <dsig:DigestValue>B+rdiRZqSpSof6mm7eX615nuPCQT5qzRfaWUlbeAoxI=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="POS.exe.config" size="6840">
+  <file name="POS.exe.config" size="6837">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>dHVh4iwNKbOELsdPpiyF8dhHWWTOm86zfylCcVo9oVQ=</dsig:DigestValue>
+      <dsig:DigestValue>luLWLrjdyDvhJjWAiLSEhsPc3xESM1d4Sp19X6/wjxY=</dsig:DigestValue>
     </hash>
   </file>
   <file name="product.ico" size="165639">

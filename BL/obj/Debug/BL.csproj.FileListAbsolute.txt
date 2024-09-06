@@ -61,6 +61,6 @@ D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\BL\bin\Debug\POS-Utility.pd
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\BL\bin\Debug\NLog.xml
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\BL\obj\Debug\BL.csproj.AssemblyReference.cache
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\BL\obj\Debug\BL.csproj.CoreCompileInputs.cache
-D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\BL\obj\Debug\BL.csproj.CopyComplete
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\BL\obj\Debug\BL.dll
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\BL\obj\Debug\BL.pdb
+D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\BL\obj\Debug\BL.csproj.Up2Date

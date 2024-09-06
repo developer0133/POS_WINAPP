@@ -166,6 +166,6 @@ D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\DATA-EF\bin\Debug\System.Ru
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\DATA-EF\bin\Debug\System.Threading.Tasks.Extensions.xml
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\DATA-EF\obj\Debug\DATA-EF.csproj.AssemblyReference.cache
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\DATA-EF\obj\Debug\DATA-EF.csproj.CoreCompileInputs.cache
-D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\DATA-EF\obj\Debug\DATA-EF.csproj.CopyComplete
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\DATA-EF\obj\Debug\DATA-EF.dll
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\DATA-EF\obj\Debug\DATA-EF.pdb
+D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\DATA-EF\obj\Debug\DATA-EF.csproj.Up2Date
