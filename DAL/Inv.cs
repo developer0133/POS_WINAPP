@@ -341,6 +341,10 @@ namespace DAL
 
                     var invObj = _db.INV_PRODUCTS.Where(w => w.PRODUCT_ID2 == InvData.PRODUCT_ID).FirstOrDefault();
 
+                    inv.PACK_BALANCE = InvData.PACK_BALANCE;
+                    inv.ITEM_BALANCE = InvData.ITEM_BALANCE;
+                    inv.BOX_BALANCE = InvData.BOX_BALANCE;
+
                     var invObj2 = _db.INV_PRODUCTS.Where(w => w.PRODUCT_ID2 == InvData.PRODUCT_ID && w.UNIT == InvData.UNIT).ToList();
                     if (invObj2.Count>0)
                     {
@@ -423,13 +427,7 @@ namespace DAL
                     }
 
 
-                  
-
                     inv.QTY = InvData.QTY;
-                    //inv.PACK_BALANCE = InvData.PACK_BALANCE;
-                    //inv.ITEM_BALANCE = InvData.ITEM_BALANCE;
-                    //inv.BOX_BALANCE = InvData.BOX_BALANCE;
-
                     inv.UNIT = InvData.UNIT;
                     inv.E_BY = InvData.C_BY;
                     inv.C_DATE = clsFunction.GetDate();
@@ -530,8 +528,6 @@ namespace DAL
 
                         if (invObj2 != null)
                         {
-                            
-
                             if (InvData.ORDER_DATE == null)
                             {
                                 invObj2.ORDER_DATE = objProdduct.C_DATE;//invObj.ORDER_DATE;
@@ -557,7 +553,13 @@ namespace DAL
                             invObj2.TOTAL_AMOUNT = InvData.TOTAL_AMOUNT;
                             invObj2.AVGCOST = InvData.AVGCOST;
 
+                            old_itemBalance = invObj2.ITEM_BALANCE;
 
+                            if (InvData.UNIT == "100") //pcs
+                            {
+                                old_itemBalance += InvData.ITEM_BALANCE;
+                                invObj2.ITEM_BALANCE = old_itemBalance;
+                            }
 
                             invObj2.UNIT_BALANCE_TEXT = String.Format("{0}:ลัง {1}:แพ็ค {2}:ชิ้น", invObj2.BOX_BALANCE, invObj2.PACK_BALANCE, invObj2.ITEM_BALANCE);
 
@@ -648,6 +650,19 @@ namespace DAL
                             inv.C_BY = InvData.C_BY;
                             inv.PRODUCT_ID2 = objProdduct.PRODUCT_ID;
                             inv.PRODUCT_ID = pd.PRODUCT_ID;
+
+                            if (inv.UNIT == "100")
+                            {
+                                inv.ITEM_BALANCE = InvData.QTY;
+                            }
+                            //foreach (var item in invObj2)
+                            //{
+                            //    old_packBalance += item.PACK_BALANCE.HasValue ? item.PACK_BALANCE.Value : 0;
+                            //    old_itemBalance += item.ITEM_BALANCE.HasValue ? item.ITEM_BALANCE.Value : 0;
+                            //    old_boxBalance += item.BOX_BALANCE.HasValue ? item.BOX_BALANCE.Value : 0;
+
+                            //    //_db.INV_PRODUCTS.Remove(item);
+                            //}
                             //////// Insert OrderHistory
                             if (InvData.QTY > 0)
                             {
