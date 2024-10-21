@@ -339,21 +339,19 @@ namespace POS.Forms
         {
             var tmp = InvService.GetAllInventory(txtSearch.Text);
 
-
             var tmp2 = (from a in tmp
                         select new
-                       {
-                           INV_ID = a.INV_ID,
-                           PRODUCT_CODE = a.PRODUCT_CODE,
-                           PRODUCT_NAME = a.PRODUCT_NAME,
-                           //STR_ORDERDATE = a.STR_ORDERDATE,
-                           //QTY = a.QTY,
-                           STR_UNIT = a.STR_UNIT,
-                           RETAILPRICE = a.RETAILPRICE,
-                           REMARK = a.REMARK,
-                           PRODUCT_ID = a.PRODUCT_ID
-                       }).ToList();
-
+                        {
+                            INV_ID = a.INV_ID,
+                            PRODUCT_CODE = a.PRODUCT_CODE,
+                            PRODUCT_NAME = a.PRODUCT_NAME,
+                            //STR_ORDERDATE = a.STR_ORDERDATE,
+                            //QTY = a.QTY,
+                            STR_UNIT = a.STR_UNIT,
+                            RETAILPRICE = a.RETAILPRICE,
+                            REMARK = a.REMARK,
+                            PRODUCT_ID = a.PRODUCT_ID
+                        }).ToList();
 
             dgvInv.DataSource = tmp2;
             SetColumnDGV();
@@ -375,9 +373,7 @@ namespace POS.Forms
                 UNITNAME = item.NAME;
 
                 this.ProfitCalculate();
-            }
-               
-
+            }  
         }
     }
 }
