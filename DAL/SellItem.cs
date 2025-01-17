@@ -332,7 +332,7 @@ namespace DAL
 
                                 var currentUnit = _db.PARAMETER.Where(w => w.MAJOR_CODE == POSPARAMETER.UNIT && w.MINOR_CODE == item.UNIT).AsNoTracking().SingleOrDefault();
                                 var obj = _db.INV_PRODUCTS.Where(w => w.PRODUCT_ID == item.PRODUCT_ID).SingleOrDefault();
-                                var objBalance = _db.INV_PRODUCTS.Where(w => w.PRODUCT_ID2 == obj.PRODUCT_ID2 && w.QTY > 0).FirstOrDefault();
+                                var objBalance = _db.INV_PRODUCTS.Where(w => w.PRODUCT_ID2 == obj.PRODUCT_ID2).FirstOrDefault();//var objBalance = _db.INV_PRODUCTS.Where(w => w.PRODUCT_ID2 == obj.PRODUCT_ID2 && w.QTY > 0).FirstOrDefault();
 
                                 PARAMETER currentUnit2 = new PARAMETER();
 

@@ -72,7 +72,7 @@ namespace DAL
                                
                     if (flag == "sell")
                     {
-                        qrydata = (from t in _db.PRODUCTS.Where(w => w.STATUS == STATUS.ACTIVE && w.PARENT_ID.HasValue == true)
+                        qrydata = (from t in _db.PRODUCTS.Where(w => w.STATUS == STATUS.ACTIVE && (w.PARENT_ID ?? 0)>0)
                                    join t2 in _db.INV_PRODUCTS on t.PRODUCT_ID equals t2.PRODUCT_ID
                                    //join t3 in _db.PARAMETER.Where(w => w.MAJOR_CODE == POSPARAMETER.POSPARAMETER_TYPE && w.STATUS == STATUS.ACTIVE) on t.PRODUCT_TYPE_ID equals t1.MINOR_CODE
                                    //join t2 in _db.PARAMETER.Where(w => w.MAJOR_CODE == POSPARAMETER.POSPARAMETER_SIZE && w.STATUS == STATUS.ACTIVE) on t.PRODUCT_SIZE_ID equals t2.MINOR_CODE
