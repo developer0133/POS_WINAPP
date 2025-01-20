@@ -20,12 +20,12 @@ namespace DATA_EF
         public string USERNAME { get; set; }
         public string PASSWORD { get; set; }
         public Nullable<int> DEPARTMENT_ID { get; set; }
-        public Nullable<int> ROLE_ID { get; set; }
         public string STATUS { get; set; }
         public string USER_CODE { get; set; }
         public string C_BY { get; set; }
         public Nullable<System.DateTime> C_DATE { get; set; }
         public string E_BY { get; set; }
         public Nullable<System.DateTime> E_DATE { get; set; }
+        public Nullable<int> ROLE_ID { get; set; }
     }
 }

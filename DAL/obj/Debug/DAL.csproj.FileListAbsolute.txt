@@ -63,6 +63,6 @@ D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\DAL\bin\Debug\zxing.present
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\DAL\bin\Debug\NLog.xml
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\DAL\obj\Debug\DAL.csproj.Up2Date
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\DAL\obj\Debug\DAL.dll
 D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\DAL\obj\Debug\DAL.pdb
-D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\DAL\obj\Debug\DAL.csproj.Up2Date

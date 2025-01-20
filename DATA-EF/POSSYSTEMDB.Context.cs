@@ -26,7 +26,6 @@ namespace DATA_EF
         }
     
         public virtual DbSet<CATEGORY> CATEGORY { get; set; }
-        public virtual DbSet<DAPARTMENT> DAPARTMENT { get; set; }
         public virtual DbSet<INV_PRODUCTS> INV_PRODUCTS { get; set; }
         public virtual DbSet<LOGIN_ACCESS> LOGIN_ACCESS { get; set; }
         public virtual DbSet<MASTER_ROLE> MASTER_ROLE { get; set; }
@@ -34,10 +33,9 @@ namespace DATA_EF
         public virtual DbSet<MASTER_USER> MASTER_USER { get; set; }
         public virtual DbSet<ORDER_HISTORY> ORDER_HISTORY { get; set; }
         public virtual DbSet<PARAMETER> PARAMETER { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<PRODUCTS> PRODUCTS { get; set; }
-        public virtual DbSet<SELLITEMS> SELLITEMS { get; set; }
         public virtual DbSet<PRODUCTS_SELL> PRODUCTS_SELL { get; set; }
+        public virtual DbSet<SELLITEMS> SELLITEMS { get; set; }
         public virtual DbSet<STOCK> STOCK { get; set; }
     }
 }

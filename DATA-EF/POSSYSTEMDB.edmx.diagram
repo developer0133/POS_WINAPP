@@ -5,22 +5,18 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="3d74832554334da1ab89e81eae1a6592" Name="Diagram1">
-        <EntityTypeShape EntityType="POSSYSTEMModel.CATEGORY" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSSYSTEMModel.DAPARTMENT" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSSYSTEMModel.INV_PRODUCTS" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSSYSTEMModel.LOGIN_ACCESS" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSSYSTEMModel.MASTER_ROLE" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSSYSTEMModel.MASTER_RUNNING" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSSYSTEMModel.MASTER_USER" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSSYSTEMModel.ORDER_HISTORY" Width="1.5" PointX="6.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSSYSTEMModel.PARAMETER" Width="1.5" PointX="2.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSSYSTEMModel.sysdiagrams" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="POSSYSTEMModel.PRODUCTS" Width="1.5" PointX="8.875" PointY="0.875" />
-        <EntityTypeShape EntityType="POSSYSTEMModel.SELLITEMS" Width="1.5" PointX="9.375" PointY="8.75" />
-        <EntityTypeShape EntityType="POSSYSTEMModel.PRODUCTS_SELL" Width="1.5" PointX="11.125" PointY="3.5" />
-        <EntityTypeShape EntityType="POSSYSTEMModel.STOCK" Width="1.5" PointX="5.375" PointY="11.75" />
-        <AssociationConnector Association="POSSYSTEMModel.FK_INV_PRODUCTS_PRODUCTS" />
-        <AssociationConnector Association="POSSYSTEMModel.FK_PRODUCTS_SELL_PRODUCTS" />
+        <EntityTypeShape EntityType="POSSYSTEMModel.CATEGORY" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="POSSYSTEMModel.INV_PRODUCTS" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="POSSYSTEMModel.LOGIN_ACCESS" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="POSSYSTEMModel.MASTER_ROLE" Width="1.5" PointX="4.75" PointY="4.75" />
+        <EntityTypeShape EntityType="POSSYSTEMModel.MASTER_RUNNING" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="POSSYSTEMModel.MASTER_USER" Width="1.5" PointX="6.75" PointY="3.75" />
+        <EntityTypeShape EntityType="POSSYSTEMModel.ORDER_HISTORY" Width="1.5" PointX="0.75" PointY="7.75" />
+        <EntityTypeShape EntityType="POSSYSTEMModel.PARAMETER" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="POSSYSTEMModel.PRODUCTS" Width="1.5" PointX="2.75" PointY="8.75" />
+        <EntityTypeShape EntityType="POSSYSTEMModel.PRODUCTS_SELL" Width="1.5" PointX="4.75" PointY="8.75" />
+        <EntityTypeShape EntityType="POSSYSTEMModel.SELLITEMS" Width="1.5" PointX="8.75" PointY="5.75" />
+        <EntityTypeShape EntityType="POSSYSTEMModel.STOCK" Width="1.5" PointX="10.75" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

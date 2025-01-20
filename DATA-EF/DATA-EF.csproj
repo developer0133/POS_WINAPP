@@ -50,9 +50,6 @@
     <Compile Include="CATEGORY.cs">
       <DependentUpon>POSSYSTEMDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="DAPARTMENT.cs">
-      <DependentUpon>POSSYSTEMDB.tt</DependentUpon>
-    </Compile>
     <Compile Include="INV_PRODUCTS.cs">
       <DependentUpon>POSSYSTEMDB.tt</DependentUpon>
     </Compile>
@@ -100,9 +97,6 @@
       <DependentUpon>POSSYSTEMDB.tt</DependentUpon>
     </Compile>
     <Compile Include="STOCK.cs">
-      <DependentUpon>POSSYSTEMDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sysdiagrams.cs">
       <DependentUpon>POSSYSTEMDB.tt</DependentUpon>
     </Compile>
   </ItemGroup>

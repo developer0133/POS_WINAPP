@@ -139,7 +139,7 @@ namespace DAL
 
                                select new ProductSellDTO
                                {
-                                   PRODUCT_ID = t.PRODUCT_ID,
+                                   PRODUCT_ID = t.PRODUCT_ID.Value,
                                    PRODUCT_NAME = t1.PRODUCT_NAME,
                                    PRODUCT_CODE = t1.PRODUCT_CODE,
                                    REMARK = t.REMARK,

@@ -15,7 +15,7 @@ namespace DATA_EF
     public partial class PRODUCTS_SELL
     {
         public int PRODUCT_SELL_ID { get; set; }
-        public int PRODUCT_ID { get; set; }
+        public Nullable<int> PRODUCT_ID { get; set; }
         public Nullable<int> INV_ID { get; set; }
         public string UNIT { get; set; }
         public Nullable<decimal> PRICE { get; set; }
@@ -28,7 +28,5 @@ namespace DATA_EF
         public string REMARK { get; set; }
         public string BARCODE { get; set; }
         public string PRODUCT_CODE { get; set; }
-    
-        public virtual PRODUCTS PRODUCTS { get; set; }
     }
 }

@@ -15,7 +15,7 @@ namespace DATA_EF
     public partial class STOCK
     {
         public int STOCK_ID { get; set; }
-        public int PRODUCT_ID { get; set; }
+        public Nullable<int> PRODUCT_ID { get; set; }
         public string UNIT_BALANCE_TEXT { get; set; }
         public string C_BY { get; set; }
         public Nullable<System.DateTime> C_DATE { get; set; }

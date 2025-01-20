@@ -1,21 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="POSSYSTEMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="POSSYSTEMEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CATEGORY" EntityType="POSSYSTEMModel.CATEGORY" />
+    <EntitySet Name="INV_PRODUCTS" EntityType="POSSYSTEMModel.INV_PRODUCTS" />
+    <EntitySet Name="LOGIN_ACCESS" EntityType="POSSYSTEMModel.LOGIN_ACCESS" />
+    <EntitySet Name="MASTER_ROLE" EntityType="POSSYSTEMModel.MASTER_ROLE" />
+    <EntitySet Name="MASTER_RUNNING" EntityType="POSSYSTEMModel.MASTER_RUNNING" />
+    <EntitySet Name="MASTER_USER" EntityType="POSSYSTEMModel.MASTER_USER" />
+    <EntitySet Name="ORDER_HISTORY" EntityType="POSSYSTEMModel.ORDER_HISTORY" />
+    <EntitySet Name="PARAMETER" EntityType="POSSYSTEMModel.PARAMETER" />
+    <EntitySet Name="PRODUCTS" EntityType="POSSYSTEMModel.PRODUCTS" />
+    <EntitySet Name="PRODUCTS_SELL" EntityType="POSSYSTEMModel.PRODUCTS_SELL" />
+    <EntitySet Name="SELLITEMS" EntityType="POSSYSTEMModel.SELLITEMS" />
+    <EntitySet Name="STOCK" EntityType="POSSYSTEMModel.STOCK" />
+  </EntityContainer>
   <EntityType Name="CATEGORY">
     <Key>
       <PropertyRef Name="CATEGORY_ID" />
     </Key>
     <Property Name="CATEGORY_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="CATEGORY_NAME" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-    <Property Name="REMARK" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="CATEGORY_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="REMARK" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="STATUS" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-    <Property Name="CATE_CODE" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
-  </EntityType>
-  <EntityType Name="DAPARTMENT">
-    <Key>
-      <PropertyRef Name="DEPARTMENT_ID" />
-    </Key>
-    <Property Name="DEPARTMENT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="DEPARTMENT_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CATE_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="INV_PRODUCTS">
     <Key>
@@ -26,11 +33,11 @@
     <Property Name="ORDER_DATE" Type="DateTime" Precision="3" />
     <Property Name="QTY" Type="Int32" />
     <Property Name="BALANCE" Type="Decimal" Precision="18" Scale="2" />
-    <Property Name="UNIT" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
-    <Property Name="REMARK" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
-    <Property Name="C_BY" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="UNIT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="REMARK" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="C_BY" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="C_DATE" Type="DateTime" Precision="3" />
-    <Property Name="E_BY" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="E_BY" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="E_DATE" Type="DateTime" Precision="3" />
     <Property Name="AMOUNT" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="TOTAL_AMOUNT" Type="Decimal" Precision="18" Scale="2" />
@@ -42,13 +49,12 @@
     <Property Name="AVG_PACK" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="AVG_ITEM" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="WHOLESALEPRICE_ITEM" Type="Decimal" Precision="18" Scale="2" />
-    <Property Name="UNIT_BALANCE_TEXT" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UNIT_BALANCE_TEXT" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
     <Property Name="PACK_BALANCE" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="ITEM_BALANCE" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="BOX_BALANCE" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="BOXPRICE" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="PRODUCT_ID2" Type="Int32" />
-    <NavigationProperty Name="PRODUCTS" Relationship="POSSYSTEMModel.FK_INV_PRODUCTS_PRODUCTS" FromRole="INV_PRODUCTS" ToRole="PRODUCTS" />
   </EntityType>
   <EntityType Name="LOGIN_ACCESS">
     <Key>
@@ -59,7 +65,7 @@
     <Property Name="USERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="LOGIN_DATE" Type="DateTime" Precision="3" />
     <Property Name="LOGOUT_DATE" Type="DateTime" Precision="3" />
-    <Property Name="STATUS" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
     <Property Name="IP_ADDRESS" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="MASTER_ROLE">
@@ -67,11 +73,11 @@
       <PropertyRef Name="ROLE_ID" />
     </Key>
     <Property Name="ROLE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="ROLE_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ROLE_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="RECORD_STATUS" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-    <Property Name="C_BY" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="C_BY" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="C_DATE" Type="DateTime" Precision="3" />
-    <Property Name="E_BY" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="E_BY" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="E_DATE" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="MASTER_RUNNING">
@@ -86,18 +92,18 @@
       <PropertyRef Name="USER_ID" />
     </Key>
     <Property Name="USER_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="FIRST_NAME" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-    <Property Name="LAST_NAME" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-    <Property Name="USERNAME" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="FIRST_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="LAST_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="USERNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="PASSWORD" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="DEPARTMENT_ID" Type="Int32" />
-    <Property Name="ROLE_ID" Type="Int32" />
-    <Property Name="STATUS" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
     <Property Name="USER_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-    <Property Name="C_BY" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="C_BY" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="C_DATE" Type="DateTime" Precision="3" />
-    <Property Name="E_BY" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="E_BY" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="E_DATE" Type="DateTime" Precision="3" />
+    <Property Name="ROLE_ID" Type="Int32" />
   </EntityType>
   <EntityType Name="ORDER_HISTORY">
     <Key>
@@ -107,13 +113,13 @@
     <Property Name="PRODUCT_ID" Type="Int32" />
     <Property Name="ORDER_DATE" Type="DateTime" Precision="3" />
     <Property Name="QTY" Type="Decimal" Precision="18" Scale="2" />
-    <Property Name="UNIT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UNIT" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="AMOUNT" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="TOTAL_AMOUNT" Type="Decimal" Precision="18" Scale="2" />
-    <Property Name="REMARK" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-    <Property Name="C_BY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="REMARK" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="C_BY" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="C_DATE" Type="DateTime" Precision="3" />
-    <Property Name="E_BY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="E_BY" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="E_DATE" Type="DateTime" Precision="3" />
     <Property Name="RETAILPRICE" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="WHOLESALEPRICE" Type="Decimal" Precision="18" Scale="2" />
@@ -128,164 +134,106 @@
       <PropertyRef Name="PARAMETER_ID" />
     </Key>
     <Property Name="PARAMETER_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="MAJOR_CODE" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Name="MINOR_CODE" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Name="NAME" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-    <Property Name="DESCRIPTION" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-    <Property Name="C_BY" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="MAJOR_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MINOR_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DESCRIPTION" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="C_BY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="C_DATE" Type="DateTime" Precision="3" />
-    <Property Name="E_BY" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="E_BY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="E_DATE" Type="DateTime" Precision="3" />
     <Property Name="STATUS" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
     <Property Name="CONDITION1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="CONDITION2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-  </EntityType>
-  <EntityContainer Name="POSSYSTEMEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="CATEGORY" EntityType="Self.CATEGORY" />
-    <EntitySet Name="DAPARTMENT" EntityType="Self.DAPARTMENT" />
-    <EntitySet Name="INV_PRODUCTS" EntityType="Self.INV_PRODUCTS" />
-    <EntitySet Name="LOGIN_ACCESS" EntityType="Self.LOGIN_ACCESS" />
-    <EntitySet Name="MASTER_ROLE" EntityType="Self.MASTER_ROLE" />
-    <EntitySet Name="MASTER_RUNNING" EntityType="Self.MASTER_RUNNING" />
-    <EntitySet Name="MASTER_USER" EntityType="Self.MASTER_USER" />
-    <EntitySet Name="ORDER_HISTORY" EntityType="Self.ORDER_HISTORY" />
-    <EntitySet Name="PARAMETER" EntityType="Self.PARAMETER" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
-    <EntitySet Name="PRODUCTS" EntityType="POSSYSTEMModel.PRODUCTS" />
-    <EntitySet Name="SELLITEMS" EntityType="POSSYSTEMModel.SELLITEMS" />
-    <EntitySet Name="PRODUCTS_SELL" EntityType="POSSYSTEMModel.PRODUCTS_SELL" />
-    <EntitySet Name="STOCK" EntityType="POSSYSTEMModel.STOCK" />
-    <AssociationSet Name="FK_INV_PRODUCTS_PRODUCTS" Association="POSSYSTEMModel.FK_INV_PRODUCTS_PRODUCTS">
-      <End Role="PRODUCTS" EntitySet="PRODUCTS" />
-      <End Role="INV_PRODUCTS" EntitySet="INV_PRODUCTS" />
-    </AssociationSet>
-    <AssociationSet Name="FK_PRODUCTS_SELL_PRODUCTS" Association="POSSYSTEMModel.FK_PRODUCTS_SELL_PRODUCTS">
-      <End Role="PRODUCTS" EntitySet="PRODUCTS" />
-      <End Role="PRODUCTS_SELL" EntitySet="PRODUCTS_SELL" />
-    </AssociationSet>
-  </EntityContainer>
   <EntityType Name="PRODUCTS">
     <Key>
       <PropertyRef Name="PRODUCT_ID" />
     </Key>
     <Property Name="PRODUCT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="PRODUCT_NAME" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="PRODUCT_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="COSTPRICE" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="SELLPRICE" Type="Decimal" Precision="18" Scale="2" />
-    <Property Name="PICTURE" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
-    <Property Name="REMARK" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="PICTURE" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="REMARK" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="ORDER_DATE" Type="DateTime" Precision="3" />
     <Property Name="CATEGORY_ID" Type="Int32" />
-    <Property Name="PRODUCT_TYPE_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-    <Property Name="PRODUCT_SIZE_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-    <Property Name="C_BY" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="PRODUCT_TYPE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="PRODUCT_SIZE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="C_BY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="C_DATE" Type="DateTime" Precision="3" />
-    <Property Name="E_BY" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="E_BY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="E_DATE" Type="DateTime" Precision="3" />
-    <Property Name="PRODUCT_CODE" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-    <Property Name="STATUS" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-    <Property Name="BARCODE" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
+    <Property Name="PRODUCT_CODE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="STATUS" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="BARCODE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="RETAILPRICE" Type="Decimal" Precision="18" Scale="2" />
-    <Property Name="WHOLESALEPRICE" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="WHOLESELLPRICE" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="AVGCOST" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="WHOLESALEPROFIT" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="RETAILPROFIT" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="QTY" Type="Int32" />
-    <Property Name="UNIT" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="UNIT" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="AVG_PACK" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="AVG_ITEM" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="WHOLESALEPRICE_ITEM" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="BOXPRICE" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="PARENT_ID" Type="Int32" />
-    <NavigationProperty Name="INV_PRODUCTS" Relationship="POSSYSTEMModel.FK_INV_PRODUCTS_PRODUCTS" FromRole="PRODUCTS" ToRole="INV_PRODUCTS" />
-    <NavigationProperty Name="PRODUCTS_SELL" Relationship="POSSYSTEMModel.FK_PRODUCTS_SELL_PRODUCTS" FromRole="PRODUCTS" ToRole="PRODUCTS_SELL" />
-  </EntityType>
-  <EntityType Name="SELLITEMS">
-    <Key>
-      <PropertyRef Name="SELLITEM_ID" />
-    </Key>
-    <Property Name="SELLITEM_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="SELLITEM_NO" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-    <Property Name="PRODUCT_CODE" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-    <Property Name="QTY" Type="Int32" />
-    <Property Name="C_DATE" Type="DateTime" Precision="3" />
-    <Property Name="C_BY" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-    <Property Name="UNIT" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-    <Property Name="E_DATE" Type="DateTime" Precision="3" />
-    <Property Name="E_BY" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-    <Property Name="SELL_PRICE" Type="Decimal" Precision="18" Scale="2" />
-    <Property Name="AMOUNT" Type="Decimal" Precision="18" Scale="2" />
-    <Property Name="PRODUCT_ID" Type="Int32" />
-    <Property Name="DISCOUNT" Type="Int32" />
-    <Property Name="PROFIT" Type="Decimal" Precision="18" Scale="2" />
-    <Property Name="REMARK" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="PRODUCT_TYPE_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="PRODUCT_SIZE_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="WHOLESALEPRICE" Type="Decimal" Precision="18" Scale="2" />
   </EntityType>
   <EntityType Name="PRODUCTS_SELL">
     <Key>
       <PropertyRef Name="PRODUCT_SELL_ID" />
     </Key>
     <Property Name="PRODUCT_SELL_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="PRODUCT_ID" Type="Int32" Nullable="false" />
+    <Property Name="PRODUCT_ID" Type="Int32" />
     <Property Name="INV_ID" Type="Int32" />
-    <Property Name="UNIT" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="UNIT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="PRICE" Type="Decimal" Precision="18" Scale="2" />
-    <Property Name="C_BY" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="C_BY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="C_DATE" Type="DateTime" Precision="3" />
-    <Property Name="E_BY" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="E_BY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="E_DATE" Type="DateTime" Precision="3" />
     <Property Name="COST" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="PROFIT" Type="Decimal" Precision="18" Scale="2" />
-    <Property Name="REMARK" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="BARCODE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="PRODUCTS" Relationship="POSSYSTEMModel.FK_PRODUCTS_SELL_PRODUCTS" FromRole="PRODUCTS_SELL" ToRole="PRODUCTS" />
-    <Property Name="PRODUCT_CODE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="REMARK" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="BARCODE" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="PRODUCT_CODE" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="SELLITEMS">
+    <Key>
+      <PropertyRef Name="SELLITEM_ID" />
+    </Key>
+    <Property Name="SELLITEM_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SELLITEM_NO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PRODUCT_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="QTY" Type="Int32" />
+    <Property Name="C_DATE" Type="DateTime" Precision="3" />
+    <Property Name="C_BY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UNIT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="E_DATE" Type="DateTime" Precision="3" />
+    <Property Name="E_BY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SELL_PRICE" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="AMOUNT" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="PRODUCT_ID" Type="Int32" />
+    <Property Name="DISCOUNT" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="PROFIT" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="REMARK" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="STOCK">
     <Key>
       <PropertyRef Name="STOCK_ID" />
     </Key>
     <Property Name="STOCK_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="PRODUCT_ID" Type="Int32" Nullable="false" />
+    <Property Name="PRODUCT_ID" Type="Int32" />
     <Property Name="UNIT_BALANCE_TEXT" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="C_BY" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="C_DATE" Type="DateTime" Precision="3" />
     <Property Name="E_BY" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="E_DATE" Type="DateTime" Precision="3" />
-    <Property Name="REMARK" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="QTY_BALANCE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="REMARK" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="QTY_BALANCE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
   </EntityType>
-  <Association Name="FK_INV_PRODUCTS_PRODUCTS">
-    <End Type="POSSYSTEMModel.PRODUCTS" Role="PRODUCTS" Multiplicity="0..1" />
-    <End Type="POSSYSTEMModel.INV_PRODUCTS" Role="INV_PRODUCTS" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="PRODUCTS">
-        <PropertyRef Name="PRODUCT_ID" />
-      </Principal>
-      <Dependent Role="INV_PRODUCTS">
-        <PropertyRef Name="PRODUCT_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_PRODUCTS_SELL_PRODUCTS">
-    <End Type="POSSYSTEMModel.PRODUCTS" Role="PRODUCTS" Multiplicity="1" />
-    <End Type="POSSYSTEMModel.PRODUCTS_SELL" Role="PRODUCTS_SELL" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="PRODUCTS">
-        <PropertyRef Name="PRODUCT_ID" />
-      </Principal>
-      <Dependent Role="PRODUCTS_SELL">
-        <PropertyRef Name="PRODUCT_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
 </Schema>

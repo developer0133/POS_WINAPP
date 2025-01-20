@@ -54,7 +54,7 @@ namespace DATA_Models.Models
         public int? Qty { get; set; }
         public decimal? AMOUNT { get; set; }
         public string UNIT { get; set; }
-        public int? DISCOUNT { get; set; }
+        public decimal? DISCOUNT { get; set; }
         public DateTime? CDATE { get; set; }
         public int No { get; set; }
     }

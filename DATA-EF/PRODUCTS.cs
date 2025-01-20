@@ -14,13 +14,6 @@ namespace DATA_EF
     
     public partial class PRODUCTS
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public PRODUCTS()
-        {
-            this.INV_PRODUCTS = new HashSet<INV_PRODUCTS>();
-            this.PRODUCTS_SELL = new HashSet<PRODUCTS_SELL>();
-        }
-    
         public int PRODUCT_ID { get; set; }
         public string PRODUCT_NAME { get; set; }
         public Nullable<decimal> COSTPRICE { get; set; }
@@ -29,8 +22,8 @@ namespace DATA_EF
         public string REMARK { get; set; }
         public Nullable<System.DateTime> ORDER_DATE { get; set; }
         public Nullable<int> CATEGORY_ID { get; set; }
-        public string PRODUCT_TYPE_ID { get; set; }
-        public string PRODUCT_SIZE_ID { get; set; }
+        public string PRODUCT_TYPE { get; set; }
+        public string PRODUCT_SIZE { get; set; }
         public string C_BY { get; set; }
         public Nullable<System.DateTime> C_DATE { get; set; }
         public string E_BY { get; set; }
@@ -39,7 +32,7 @@ namespace DATA_EF
         public string STATUS { get; set; }
         public string BARCODE { get; set; }
         public Nullable<decimal> RETAILPRICE { get; set; }
-        public Nullable<decimal> WHOLESALEPRICE { get; set; }
+        public Nullable<decimal> WHOLESELLPRICE { get; set; }
         public Nullable<decimal> AVGCOST { get; set; }
         public Nullable<decimal> WHOLESALEPROFIT { get; set; }
         public Nullable<decimal> RETAILPROFIT { get; set; }
@@ -50,10 +43,8 @@ namespace DATA_EF
         public Nullable<decimal> WHOLESALEPRICE_ITEM { get; set; }
         public Nullable<decimal> BOXPRICE { get; set; }
         public Nullable<int> PARENT_ID { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<INV_PRODUCTS> INV_PRODUCTS { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PRODUCTS_SELL> PRODUCTS_SELL { get; set; }
+        public string PRODUCT_TYPE_ID { get; set; }
+        public string PRODUCT_SIZE_ID { get; set; }
+        public Nullable<decimal> WHOLESALEPRICE { get; set; }
     }
 }

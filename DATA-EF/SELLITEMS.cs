@@ -26,7 +26,7 @@ namespace DATA_EF
         public Nullable<decimal> SELL_PRICE { get; set; }
         public Nullable<decimal> AMOUNT { get; set; }
         public Nullable<int> PRODUCT_ID { get; set; }
-        public Nullable<int> DISCOUNT { get; set; }
+        public Nullable<decimal> DISCOUNT { get; set; }
         public Nullable<decimal> PROFIT { get; set; }
         public string REMARK { get; set; }
     }
