@@ -484,27 +484,6 @@ namespace DAL
                                         }
                                     }
                                 }
-
-                                //foreach (var itmId in tmpPro)//ids
-                                //{
-                                //    var obj2 = _db.INV_PRODUCTS.Where(w => w.PRODUCT_ID == itmId.PRODUCT_ID).SingleOrDefault();
-                                //    if (obj2 != null)
-                                //    {
-                                //        //item
-                                //        itemBalance = (int)calsellItem;
-                                //        obj2.ITEM_BALANCE = obj.ITEM_BALANCE;
-                                //        obj2.PACK_BALANCE = obj.PACK_BALANCE;
-                                //        obj2.BOX_BALANCE = obj.BOX_BALANCE;
-
-                                //        obj2.E_BY = sellitem.First().E_BY;
-                                //        obj2.E_DATE = clsFunction.GetDate();
-
-                                //        obj2.UNIT_BALANCE_TEXT = String.Format("{0}:ลัง {1}:แพ็ค {2}:ชิ้น", obj.BOX_BALANCE, packBalance, itemBalance);
-
-                                //        _db.SaveChanges();
-                                //    }
-                                //}
-
                                 objBalance.E_BY = sellitem.First().E_BY;
                                 objBalance.E_DATE = clsFunction.GetDate();
 

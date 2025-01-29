@@ -344,12 +344,12 @@ namespace POS.Forms
             // txtItemBalance
             // 
             this.txtItemBalance.BackColor = System.Drawing.SystemColors.Control;
-            this.txtItemBalance.Enabled = false;
             this.txtItemBalance.Location = new System.Drawing.Point(112, 108);
             this.txtItemBalance.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtItemBalance.Name = "txtItemBalance";
             this.txtItemBalance.Size = new System.Drawing.Size(133, 24);
             this.txtItemBalance.TabIndex = 72;
+            this.txtItemBalance.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtItemBalance_KeyPress);
             // 
             // label10
             // 
@@ -363,12 +363,12 @@ namespace POS.Forms
             // txtPackBalance
             // 
             this.txtPackBalance.BackColor = System.Drawing.SystemColors.Control;
-            this.txtPackBalance.Enabled = false;
             this.txtPackBalance.Location = new System.Drawing.Point(112, 66);
             this.txtPackBalance.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPackBalance.Name = "txtPackBalance";
             this.txtPackBalance.Size = new System.Drawing.Size(133, 24);
             this.txtPackBalance.TabIndex = 70;
+            this.txtPackBalance.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPackBalance_KeyPress);
             // 
             // label9
             // 
@@ -382,12 +382,12 @@ namespace POS.Forms
             // txtBoxBalance
             // 
             this.txtBoxBalance.BackColor = System.Drawing.SystemColors.Control;
-            this.txtBoxBalance.Enabled = false;
             this.txtBoxBalance.Location = new System.Drawing.Point(112, 21);
             this.txtBoxBalance.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBoxBalance.Name = "txtBoxBalance";
             this.txtBoxBalance.Size = new System.Drawing.Size(133, 24);
             this.txtBoxBalance.TabIndex = 68;
+            this.txtBoxBalance.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBoxBalance_KeyPress);
             // 
             // label7
             // 
