@@ -34,10 +34,6 @@ namespace POS.Forms
             this.lblName = new System.Windows.Forms.Label();
             this.txtBarcode = new System.Windows.Forms.TextBox();
             this.dgvSell = new System.Windows.Forms.DataGridView();
-            this.btnReport = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnClear = new System.Windows.Forms.Button();
-            this.lblSum = new System.Windows.Forms.Label();
             this.PName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,6 +46,12 @@ namespace POS.Forms
             this.UNIT_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PARENT_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UNIT_BALANCE_TEXT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnReport = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.lblSum = new System.Windows.Forms.Label();
+            this.txtCusName = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSell)).BeginInit();
             this.SuspendLayout();
             // 
@@ -108,63 +110,6 @@ namespace POS.Forms
             this.dgvSell.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSell_CellDoubleClick);
             this.dgvSell.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSell_CellValueChanged);
             this.dgvSell.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvSell_EditingControlShowing);
-            // 
-            // btnReport
-            // 
-            this.btnReport.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReport.Image = global::POS.Properties.Resources.search24;
-            this.btnReport.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnReport.Location = new System.Drawing.Point(1087, 575);
-            this.btnReport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnReport.Name = "btnReport";
-            this.btnReport.Size = new System.Drawing.Size(157, 82);
-            this.btnReport.TabIndex = 47;
-            this.btnReport.Text = "รายงาน";
-            this.btnReport.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnReport.UseVisualStyleBackColor = true;
-            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSave.Image = global::POS.Properties.Resources.save;
-            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnSave.Location = new System.Drawing.Point(853, 46);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(171, 82);
-            this.btnSave.TabIndex = 46;
-            this.btnSave.Tag = "";
-            this.btnSave.Text = " บันทึก";
-            this.btnSave.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // btnClear
-            // 
-            this.btnClear.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnClear.Image = global::POS.Properties.Resources.cancel;
-            this.btnClear.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnClear.Location = new System.Drawing.Point(1051, 46);
-            this.btnClear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(171, 82);
-            this.btnClear.TabIndex = 45;
-            this.btnClear.Text = "ยกเลิก";
-            this.btnClear.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
-            // lblSum
-            // 
-            this.lblSum.AutoSize = true;
-            this.lblSum.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.lblSum.Location = new System.Drawing.Point(1069, 510);
-            this.lblSum.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblSum.Name = "lblSum";
-            this.lblSum.Size = new System.Drawing.Size(134, 25);
-            this.lblSum.TabIndex = 48;
-            this.lblSum.Text = "รวมสุทธิ 0 บาท";
             // 
             // PName
             // 
@@ -264,12 +209,88 @@ namespace POS.Forms
             this.UNIT_BALANCE_TEXT.ReadOnly = true;
             this.UNIT_BALANCE_TEXT.Width = 125;
             // 
+            // btnReport
+            // 
+            this.btnReport.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReport.Image = global::POS.Properties.Resources.search24;
+            this.btnReport.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnReport.Location = new System.Drawing.Point(1087, 575);
+            this.btnReport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnReport.Name = "btnReport";
+            this.btnReport.Size = new System.Drawing.Size(157, 82);
+            this.btnReport.TabIndex = 47;
+            this.btnReport.Text = "รายงาน";
+            this.btnReport.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnReport.UseVisualStyleBackColor = true;
+            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSave.Image = global::POS.Properties.Resources.save;
+            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnSave.Location = new System.Drawing.Point(853, 46);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(171, 82);
+            this.btnSave.TabIndex = 46;
+            this.btnSave.Tag = "";
+            this.btnSave.Text = " บันทึก";
+            this.btnSave.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnClear
+            // 
+            this.btnClear.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClear.Image = global::POS.Properties.Resources.cancel;
+            this.btnClear.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnClear.Location = new System.Drawing.Point(1051, 46);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(171, 82);
+            this.btnClear.TabIndex = 45;
+            this.btnClear.Text = "ยกเลิก";
+            this.btnClear.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // lblSum
+            // 
+            this.lblSum.AutoSize = true;
+            this.lblSum.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.lblSum.Location = new System.Drawing.Point(1069, 510);
+            this.lblSum.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSum.Name = "lblSum";
+            this.lblSum.Size = new System.Drawing.Size(134, 25);
+            this.lblSum.TabIndex = 48;
+            this.lblSum.Text = "รวมสุทธิ 0 บาท";
+            // 
+            // txtCusName
+            // 
+            this.txtCusName.Location = new System.Drawing.Point(95, 128);
+            this.txtCusName.Name = "txtCusName";
+            this.txtCusName.Size = new System.Drawing.Size(287, 22);
+            this.txtCusName.TabIndex = 49;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label1.Location = new System.Drawing.Point(17, 134);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(60, 17);
+            this.label1.TabIndex = 50;
+            this.label1.Text = "นามลูกค้า";
+            // 
             // frmSell
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1303, 741);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtCusName);
             this.Controls.Add(this.lblSum);
             this.Controls.Add(this.btnReport);
             this.Controls.Add(this.btnSave);
@@ -311,5 +332,7 @@ namespace POS.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn UNIT_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn PARENT_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn UNIT_BALANCE_TEXT;
+        private System.Windows.Forms.TextBox txtCusName;
+        private System.Windows.Forms.Label label1;
     }
 }

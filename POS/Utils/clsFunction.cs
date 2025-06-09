@@ -210,7 +210,8 @@ namespace POS.Utils
                    new Microsoft.Reporting.WinForms.ReportParameter("cdate", Utils.clsFunction.setFormatDateWithTime(rptData.First().CDATE, true).ToString()),
                    new Microsoft.Reporting.WinForms.ReportParameter("date", Utils.clsFunction.setFormatDateWithTime(Utils.clsFunction.GetDate(), true).ToString()),
                    new Microsoft.Reporting.WinForms.ReportParameter("no", OReport.code.ToString()),
-                   new Microsoft.Reporting.WinForms.ReportParameter("bahttext", bahtText)
+                   new Microsoft.Reporting.WinForms.ReportParameter("bahttext", bahtText),
+                   new Microsoft.Reporting.WinForms.ReportParameter("cusname", OReport.cusname)
                };
 
                 try

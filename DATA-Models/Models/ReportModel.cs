@@ -79,5 +79,6 @@ namespace DATA_Models.Models
         public string reportName { get; set; }
         public string dailyDate { get; set; }
         public string param { get; set; }
+        public string cusname { get; set; }
     }
 }

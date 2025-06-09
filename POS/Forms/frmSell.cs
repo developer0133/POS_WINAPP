@@ -277,6 +277,7 @@ namespace POS.Forms
             GenReportModel objRp = new GenReportModel();
             objRp.code = strSellNo;// "SE12700253";
             objRp.printby = UserModel.USERNAME;
+            objRp.cusname = string.IsNullOrEmpty(txtCusName.Text) ? string.Empty : txtCusName.Text;
 
 
             if (MessageBox.Show(string.Format("ต้องการพิมพ์รายงาน" + strSellNo + "หรือไม่ ? ", ""), "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -284,6 +285,7 @@ namespace POS.Forms
                 PrintModel.Flag = "SellItem";
                 PrintModel.SellNo = objRp.code;
                 PrintModel.DateRpt = "";
+                PrintModel.Cusname = objRp.cusname;
                 frmLoading frmload = new frmLoading();
                 frmload.Show();
             }

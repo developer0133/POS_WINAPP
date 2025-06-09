@@ -38,6 +38,7 @@ namespace POS.Forms
                 GenReportModel objRp = new GenReportModel();
                 objRp.code = sellNO;
                 objRp.printby = UserModel.USERNAME;
+                objRp.cusname = PrintModel.Cusname;
                
 
                 bool isSuccess = false;
