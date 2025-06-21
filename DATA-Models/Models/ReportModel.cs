@@ -80,5 +80,6 @@ namespace DATA_Models.Models
         public string dailyDate { get; set; }
         public string param { get; set; }
         public string cusname { get; set; }
+        public string address { get; set; }
     }
 }

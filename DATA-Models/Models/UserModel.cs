@@ -21,5 +21,6 @@ namespace DATA_Models.Models
         public static string SellNo = string.Empty;
         public static string DateRpt = string.Empty;
         public static string Cusname = string.Empty;
+        public static string Address = string.Empty;
     }
 }

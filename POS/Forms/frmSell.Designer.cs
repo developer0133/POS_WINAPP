@@ -52,6 +52,8 @@ namespace POS.Forms
             this.lblSum = new System.Windows.Forms.Label();
             this.txtCusName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtAddr = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSell)).BeginInit();
             this.SuspendLayout();
             // 
@@ -100,7 +102,7 @@ namespace POS.Forms
             this.PARENT_ID,
             this.UNIT_BALANCE_TEXT});
             this.dgvSell.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dgvSell.Location = new System.Drawing.Point(20, 167);
+            this.dgvSell.Location = new System.Drawing.Point(20, 184);
             this.dgvSell.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvSell.Name = "dgvSell";
             this.dgvSell.RowHeadersWidth = 51;
@@ -268,7 +270,7 @@ namespace POS.Forms
             // 
             // txtCusName
             // 
-            this.txtCusName.Location = new System.Drawing.Point(95, 128);
+            this.txtCusName.Location = new System.Drawing.Point(95, 109);
             this.txtCusName.Name = "txtCusName";
             this.txtCusName.Size = new System.Drawing.Size(287, 22);
             this.txtCusName.TabIndex = 49;
@@ -277,11 +279,28 @@ namespace POS.Forms
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label1.Location = new System.Drawing.Point(17, 134);
+            this.label1.Location = new System.Drawing.Point(17, 115);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(60, 17);
             this.label1.TabIndex = 50;
             this.label1.Text = "นามลูกค้า";
+            // 
+            // txtAddr
+            // 
+            this.txtAddr.Location = new System.Drawing.Point(95, 140);
+            this.txtAddr.Name = "txtAddr";
+            this.txtAddr.Size = new System.Drawing.Size(287, 22);
+            this.txtAddr.TabIndex = 51;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label2.Location = new System.Drawing.Point(17, 140);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(30, 17);
+            this.label2.TabIndex = 52;
+            this.label2.Text = "ที่อยู่";
             // 
             // frmSell
             // 
@@ -289,6 +308,8 @@ namespace POS.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1303, 741);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtAddr);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtCusName);
             this.Controls.Add(this.lblSum);
@@ -334,5 +355,7 @@ namespace POS.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn UNIT_BALANCE_TEXT;
         private System.Windows.Forms.TextBox txtCusName;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtAddr;
+        private System.Windows.Forms.Label label2;
     }
 }

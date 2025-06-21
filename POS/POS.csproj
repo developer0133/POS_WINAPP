@@ -415,6 +415,7 @@
     <EmbeddedResource Include="Reports\Daily_rpt.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\DeliveryReport.rdlc" />
     <EmbeddedResource Include="Reports\Report1.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
@@ -427,6 +428,7 @@
     <EmbeddedResource Include="Reports\SellReport2.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\test2.rdlc" />
     <None Include="packages.config" />
     <None Include="POS_TemporaryKey.pfx" />
     <None Include="Properties\DataSources\DATA_Models.Models.ReportModel.datasource" />

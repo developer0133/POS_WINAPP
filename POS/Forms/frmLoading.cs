@@ -39,7 +39,7 @@ namespace POS.Forms
                 objRp.code = sellNO;
                 objRp.printby = UserModel.USERNAME;
                 objRp.cusname = PrintModel.Cusname;
-               
+                objRp.address = PrintModel.Address;
 
                 bool isSuccess = false;
 

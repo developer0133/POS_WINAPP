@@ -278,7 +278,7 @@ namespace POS.Forms
             objRp.code = strSellNo;// "SE12700253";
             objRp.printby = UserModel.USERNAME;
             objRp.cusname = string.IsNullOrEmpty(txtCusName.Text) ? string.Empty : txtCusName.Text;
-
+            objRp.address = string.IsNullOrEmpty(txtAddr.Text) ? string.Empty : txtAddr.Text; 
 
             if (MessageBox.Show(string.Format("ต้องการพิมพ์รายงาน" + strSellNo + "หรือไม่ ? ", ""), "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
@@ -286,6 +286,8 @@ namespace POS.Forms
                 PrintModel.SellNo = objRp.code;
                 PrintModel.DateRpt = "";
                 PrintModel.Cusname = objRp.cusname;
+                PrintModel.Address = objRp.address;
+
                 frmLoading frmload = new frmLoading();
                 frmload.Show();
             }
