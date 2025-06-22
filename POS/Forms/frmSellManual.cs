@@ -88,9 +88,9 @@ namespace POS.Forms
                         AMOUNT = dgvSell.Rows[i].Cells["Amount"].Value == null ? 0 : decimal.Parse(dgvSell.Rows[i].Cells["Amount"].Value.ToString()),
                         UNIT = dgvSell.Rows[i].Cells["Unit"].Value.ToString(),
                         DISCOUNT = dgvSell.Rows[i].Cells["Discount"].Value == null ? 0 : decimal.Parse(dgvSell.Rows[i].Cells["Discount"].Value.ToString()),
-                        RETAILPRICE = dgvSell.Rows[i].Cells["SellPrice"].Value == null ? 0 : decimal.Parse(dgvSell.Rows[i].Cells["SellPrice"].Value.ToString()),  
-                        CDATE = clsFunction.GetDate()
-                    });
+                        RETAILPRICE = dgvSell.Rows[i].Cells["SellPrice"].Value == null ? 0 : decimal.Parse(dgvSell.Rows[i].Cells["SellPrice"].Value.ToString()),
+                        CDATE = txtDate.Value //clsFunction.GetDate()
+                    }); 
                 }
 
                 var isSuccess = clsFunction.PrintReportManual(objRp, SellItemReport, ref fileName);

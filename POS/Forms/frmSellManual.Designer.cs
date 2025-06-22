@@ -54,6 +54,8 @@
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtDis = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtDate = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSell)).BeginInit();
             this.SuspendLayout();
             // 
@@ -308,11 +310,30 @@
             this.txtDis.Size = new System.Drawing.Size(69, 22);
             this.txtDis.TabIndex = 74;
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.label9.Location = new System.Drawing.Point(35, 111);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(45, 17);
+            this.label9.TabIndex = 77;
+            this.label9.Text = "DATE";
+            // 
+            // txtDate
+            // 
+            this.txtDate.Location = new System.Drawing.Point(172, 111);
+            this.txtDate.Name = "txtDate";
+            this.txtDate.Size = new System.Drawing.Size(200, 22);
+            this.txtDate.TabIndex = 78;
+            // 
             // frmSellManual
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1271, 877);
+            this.Controls.Add(this.txtDate);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtDis);
             this.Controls.Add(this.label6);
@@ -368,5 +389,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SellPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn Discount;
         private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DateTimePicker txtDate;
     }
 }
