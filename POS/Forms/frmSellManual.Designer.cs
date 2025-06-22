@@ -95,7 +95,7 @@
             // 
             this.lblSum.AutoSize = true;
             this.lblSum.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.lblSum.Location = new System.Drawing.Point(1027, 745);
+            this.lblSum.Location = new System.Drawing.Point(912, 645);
             this.lblSum.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSum.Name = "lblSum";
             this.lblSum.Size = new System.Drawing.Size(232, 25);
@@ -146,6 +146,7 @@
             this.btnSave.Text = "SAVE";
             this.btnSave.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnClear
             // 
@@ -174,12 +175,13 @@
             this.btnReport.Text = "RPRINT";
             this.btnReport.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnReport.UseVisualStyleBackColor = true;
+            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 
             // txtProductName
             // 
             this.txtProductName.Location = new System.Drawing.Point(172, 218);
             this.txtProductName.Name = "txtProductName";
-            this.txtProductName.Size = new System.Drawing.Size(194, 22);
+            this.txtProductName.Size = new System.Drawing.Size(287, 22);
             this.txtProductName.TabIndex = 66;
             // 
             // label3
@@ -206,7 +208,7 @@
             // 
             this.txtQty.Location = new System.Drawing.Point(172, 251);
             this.txtQty.Name = "txtQty";
-            this.txtQty.Size = new System.Drawing.Size(194, 22);
+            this.txtQty.Size = new System.Drawing.Size(287, 22);
             this.txtQty.TabIndex = 68;
             // 
             // label5
@@ -223,7 +225,7 @@
             // 
             this.txtUnit.Location = new System.Drawing.Point(172, 280);
             this.txtUnit.Name = "txtUnit";
-            this.txtUnit.Size = new System.Drawing.Size(194, 22);
+            this.txtUnit.Size = new System.Drawing.Size(287, 22);
             this.txtUnit.TabIndex = 70;
             // 
             // label6
@@ -240,7 +242,7 @@
             // 
             this.txtPrice.Location = new System.Drawing.Point(174, 310);
             this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(194, 22);
+            this.txtPrice.Size = new System.Drawing.Size(285, 22);
             this.txtPrice.TabIndex = 72;
             // 
             // label7
@@ -257,7 +259,7 @@
             // 
             this.txtDis.Location = new System.Drawing.Point(172, 338);
             this.txtDis.Name = "txtDis";
-            this.txtDis.Size = new System.Drawing.Size(194, 22);
+            this.txtDis.Size = new System.Drawing.Size(69, 22);
             this.txtDis.TabIndex = 74;
             // 
             // PName
