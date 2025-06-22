@@ -63,7 +63,7 @@ namespace POS.Forms
 
                     //var test = ReportService.SellSummaryReport(PrintModel.DateRpt.ToString(), "");
                 }
-
+                
 
                 if (isSuccess)
                 {

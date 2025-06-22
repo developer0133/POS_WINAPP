@@ -34,6 +34,12 @@
             this.txtCusName = new System.Windows.Forms.TextBox();
             this.lblSum = new System.Windows.Forms.Label();
             this.dgvSell = new System.Windows.Forms.DataGridView();
+            this.PName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SellPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label8 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
@@ -48,12 +54,6 @@
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtDis = new System.Windows.Forms.TextBox();
-            this.PName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SellPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSell)).BeginInit();
             this.SuspendLayout();
             // 
@@ -120,6 +120,51 @@
             this.dgvSell.RowTemplate.Height = 24;
             this.dgvSell.Size = new System.Drawing.Size(1142, 199);
             this.dgvSell.TabIndex = 57;
+            this.dgvSell.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSell_CellDoubleClick);
+            this.dgvSell.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSell_CellValueChanged);
+            this.dgvSell.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvSell_EditingControlShowing);
+            // 
+            // PName
+            // 
+            this.PName.HeaderText = "PRODUCT NAME";
+            this.PName.MinimumWidth = 6;
+            this.PName.Name = "PName";
+            this.PName.Width = 140;
+            // 
+            // Qty
+            // 
+            this.Qty.HeaderText = "QTY";
+            this.Qty.MinimumWidth = 6;
+            this.Qty.Name = "Qty";
+            this.Qty.Width = 125;
+            // 
+            // Unit
+            // 
+            this.Unit.HeaderText = "UNIT";
+            this.Unit.MinimumWidth = 6;
+            this.Unit.Name = "Unit";
+            this.Unit.Width = 125;
+            // 
+            // SellPrice
+            // 
+            this.SellPrice.HeaderText = "PRICE";
+            this.SellPrice.MinimumWidth = 6;
+            this.SellPrice.Name = "SellPrice";
+            this.SellPrice.Width = 125;
+            // 
+            // Discount
+            // 
+            this.Discount.HeaderText = "DIS(THB)";
+            this.Discount.MinimumWidth = 6;
+            this.Discount.Name = "Discount";
+            this.Discount.Width = 125;
+            // 
+            // Amount
+            // 
+            this.Amount.HeaderText = "TOTAL(THB)";
+            this.Amount.MinimumWidth = 6;
+            this.Amount.Name = "Amount";
+            this.Amount.Width = 125;
             // 
             // label8
             // 
@@ -161,6 +206,7 @@
             this.btnClear.Text = "CANCEL";
             this.btnClear.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnReport
             // 
@@ -172,7 +218,7 @@
             this.btnReport.Name = "btnReport";
             this.btnReport.Size = new System.Drawing.Size(171, 82);
             this.btnReport.TabIndex = 60;
-            this.btnReport.Text = "RPRINT";
+            this.btnReport.Text = "PRINT";
             this.btnReport.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnReport.UseVisualStyleBackColor = true;
             this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
@@ -261,52 +307,6 @@
             this.txtDis.Name = "txtDis";
             this.txtDis.Size = new System.Drawing.Size(69, 22);
             this.txtDis.TabIndex = 74;
-            // 
-            // PName
-            // 
-            this.PName.HeaderText = "PRODUCT NAME";
-            this.PName.MinimumWidth = 6;
-            this.PName.Name = "PName";
-            this.PName.ReadOnly = true;
-            this.PName.Width = 140;
-            // 
-            // Qty
-            // 
-            this.Qty.HeaderText = "QTY";
-            this.Qty.MinimumWidth = 6;
-            this.Qty.Name = "Qty";
-            this.Qty.Width = 125;
-            // 
-            // Unit
-            // 
-            this.Unit.HeaderText = "UNIT";
-            this.Unit.MinimumWidth = 6;
-            this.Unit.Name = "Unit";
-            this.Unit.ReadOnly = true;
-            this.Unit.Width = 125;
-            // 
-            // SellPrice
-            // 
-            this.SellPrice.HeaderText = "PRICE";
-            this.SellPrice.MinimumWidth = 6;
-            this.SellPrice.Name = "SellPrice";
-            this.SellPrice.ReadOnly = true;
-            this.SellPrice.Width = 125;
-            // 
-            // Discount
-            // 
-            this.Discount.HeaderText = "DIS(THB)";
-            this.Discount.MinimumWidth = 6;
-            this.Discount.Name = "Discount";
-            this.Discount.Width = 125;
-            // 
-            // Amount
-            // 
-            this.Amount.HeaderText = "TOTAL(THB)";
-            this.Amount.MinimumWidth = 6;
-            this.Amount.Name = "Amount";
-            this.Amount.ReadOnly = true;
-            this.Amount.Width = 125;
             // 
             // frmSellManual
             // 

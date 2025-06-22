@@ -682,5 +682,38 @@ namespace DAL
 
             return reprotData;
         }
+
+        public string GetSellCode()
+        {
+            POSSYSTEMEntities _db = new POSSYSTEMEntities();
+            string sellno = string.Empty;
+
+            using (DbContextTransaction transaction = _db.Database.BeginTransaction())
+            {
+                MASTER_RUNNING mstRunning = new MASTER_RUNNING();
+                try
+                {
+                    int? mstrunning = _db.MASTER_RUNNING.Max(s => s.RUNNING_NO);
+                    if (mstrunning > 0)
+                    {
+                        mstrunning++;
+
+                        mstRunning.RUNNING_NO = mstrunning.Value;// mstRunning.RUNNING_NO;
+                        var bl = _db.Entry(mstRunning).State = EntityState.Added;
+
+                        sellno = clsFunction.GenFormatCode(mstRunning.RUNNING_NO.Value, string.Empty, "SE");
+                    }
+                }
+                catch (Exception ex)
+                {
+                }
+                finally
+                {
+                    _db.Dispose();
+                }
+                return sellno;
+            }
+           
+        }
     }
 }

@@ -34,6 +34,11 @@ namespace BL
         {
             return _sellItem.GetSellItem(productid, parentID);
         }
-        
+
+        public static string GetSellCode()
+        {
+            return _sellItem.GetSellCode();
+        }
+
     }
 }
