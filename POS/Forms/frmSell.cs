@@ -370,5 +370,10 @@ namespace POS.Forms
             return isSuccess;
         }
 
+        private void btnManual_Click(object sender, EventArgs e)
+        {
+            frmSellManual f = new frmSellManual();
+            f.Show();
+        }
     }
 }
