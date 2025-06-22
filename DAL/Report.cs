@@ -33,7 +33,8 @@ namespace DAL
                                    UNIT = t3.NAME,
                                    AMOUNT = t1.AMOUNT,
                                    DISCOUNT = t1.DISCOUNT,
-                                   CDATE = t1.C_DATE
+                                   CDATE = t1.C_DATE,
+                                   RETAILPRICE = t2.RETAILPRICE
                                    //Product_ID=t2.PRODUCT_ID,
                                    //Product_Code=t1.PRODUCT_CODE
                                }).AsQueryable();
@@ -46,7 +47,8 @@ namespace DAL
                         UNIT = s.UNIT,
                         No = (index + 1),
                         DISCOUNT = s.DISCOUNT,
-                        CDATE = s.CDATE
+                        CDATE = s.CDATE,
+                        RETAILPRICE = s.RETAILPRICE
                     }).ToList();
 
                     scope.Complete();

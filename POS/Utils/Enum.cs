@@ -56,6 +56,7 @@ namespace POS.Utils
         public const string SELL_REPORT3 = "SellReport3";
         public const string Report1 = "Report1";
         public const string DailyRpt = "Daily_rpt";
+        public const string DeliveryReport = "DeliveryReport";
     }
     public sealed class REPORT_PATH_CONFIG
     {

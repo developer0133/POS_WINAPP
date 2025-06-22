@@ -151,6 +151,7 @@ namespace POS.Utils
         {
             bool isSuccess = false;
             string saveFile = string.Empty;
+            string saveFile2 = string.Empty;
 
             Warning[] warnings;
             string[] streamids;
@@ -163,19 +164,24 @@ namespace POS.Utils
             DAL.Utils.clsFunction.MakePath(genRpt);
             clsLog.Info("make path:" + genRpt);
 
-            var rptPath = REPORT_PATH_CONFIG.RPT_PATH + REPORT_NAME.SELL_REPORT3 + ".rdlc";// ConfigurationSettings.AppSettings["RptPath"] + REPORT_NAME.SELL_REPORT + ".rdlc";//string.Format("{0}/{1}{2}", POS_PATH.REPORTS, REPORT_NAME.DailyRpt, ".rdlc");
-            var savePath = REPORT_PATH_CONFIG.GEN_REPORT + OReport.param.ToString() + ".pdf";//string.Format("{0}/{1}{2}", POS_PATH.GEN_REPORT, OReport.param.ToString(), ".pdf");
+            var rptPath = REPORT_PATH_CONFIG.RPT_PATH + REPORT_NAME.SELL_REPORT3 + ".rdlc";
+            var savePath = REPORT_PATH_CONFIG.GEN_REPORT + OReport.param.ToString() + ".pdf";
+
+
+            string newNumber = OReport.code.ToString();
+            string strNO2 = newNumber.Replace("SE", "IV");
+            var rptDeliveryPath = REPORT_PATH_CONFIG.RPT_PATH + REPORT_NAME.DeliveryReport + ".rdlc";
+            var saveDeliveryPath = REPORT_PATH_CONFIG.GEN_REPORT + OReport.param.ToString() + "IV" + ".pdf";
+
             clsLog.Info("genRpt :" + genRpt);
             clsLog.Info("savePath :" + savePath);
 
-            //var rptPath = string.Format("{0}/{1}{2}", POS_PATH.REPORTS, REPORT_NAME.SELL_REPORT, ".rdlc");
-            //var savePath = string.Format("{0}/{1}{2}", POS_PATH.GEN_REPORT, OReport.code, ".pdf");
-            //clsLog.Info("savePath :" + savePath);
 
             string path1 = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName + "\\POS" + "\\";
             //string path = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName + "\\POS" + "\\" + rptPath;
            
-            saveFile = savePath;//Path.Combine(Directory.GetCurrentDirectory(), savePath);
+            saveFile = savePath;
+            saveFile2 = saveDeliveryPath;
 
             var rptData = ReportService.SellItemReport(OReport.code);
 
@@ -187,27 +193,11 @@ namespace POS.Utils
                 //decimal amount = 121.50M;
                 string bahtText = sumAmount.ThaiBahtText();
 
-                //ReportParameterCollection parameters = new ReportParameterCollection();
-                ////ReportParameter[] pm = new ReportParameter[6];
-                ////pm[0] = new ReportParameter("printby", OReport.printby);
-                ////pm[1] = new ReportParameter("total", strsSumAmount.ToString());
-                ////pm[2] = new ReportParameter("cdate", Utils.clsFunction.setFormatDateWithTime(rptData.First().CDATE, true).ToString());
-                ////pm[3] = new ReportParameter("date", Utils.clsFunction.setFormatDateWithTime(Utils.clsFunction.GetDate(), true).ToString());
-                ////pm[4] = new ReportParameter("no", OReport.code.ToString());
-                ////pm[5] = new ReportParameter("bahttext", bahtText);
-
-                //parameters.Add(new ReportParameter("printby", OReport.printby));
-                //parameters.Add(new ReportParameter("total", strsSumAmount.ToString()));
-                //parameters.Add(new ReportParameter("cdate", Utils.clsFunction.setFormatDateWithTime(rptData.First().CDATE, true).ToString()));
-                //parameters.Add(new ReportParameter("date", Utils.clsFunction.setFormatDateWithTime(Utils.clsFunction.GetDate(), true).ToString()));
-                //parameters.Add(new ReportParameter("no", OReport.code.ToString()));
-                //parameters.Add(new ReportParameter("bahttext", bahtText));
-
                ReportParameter[] parameters = new ReportParameter[]
                {
                    new Microsoft.Reporting.WinForms.ReportParameter("printby", OReport.printby),
                    new Microsoft.Reporting.WinForms.ReportParameter("total", strsSumAmount.ToString()),
-                   new Microsoft.Reporting.WinForms.ReportParameter("cdate", Utils.clsFunction.setFormatDateWithTime(rptData.First().CDATE, true).ToString()),
+                   new Microsoft.Reporting.WinForms.ReportParameter("cdate", Utils.clsFunction.setFormatDate(rptData.First().CDATE).ToString()),
                    new Microsoft.Reporting.WinForms.ReportParameter("date", Utils.clsFunction.setFormatDateWithTime(Utils.clsFunction.GetDate(), true).ToString()),
                    new Microsoft.Reporting.WinForms.ReportParameter("no", OReport.code.ToString()),
                    new Microsoft.Reporting.WinForms.ReportParameter("bahttext", bahtText),
@@ -215,15 +205,34 @@ namespace POS.Utils
                    new Microsoft.Reporting.WinForms.ReportParameter("address", OReport.address)
                };
 
+                ReportParameter[] parametersDelivery = new ReportParameter[]
+              {
+                   new Microsoft.Reporting.WinForms.ReportParameter("printby", OReport.printby),
+                   new Microsoft.Reporting.WinForms.ReportParameter("total", strsSumAmount.ToString()),
+                   new Microsoft.Reporting.WinForms.ReportParameter("cdate", Utils.clsFunction.setFormatDate(rptData.First().CDATE).ToString()),
+                   new Microsoft.Reporting.WinForms.ReportParameter("date", Utils.clsFunction.setFormatDateWithTime(Utils.clsFunction.GetDate(), true).ToString()),
+                   new Microsoft.Reporting.WinForms.ReportParameter("no", strNO2),
+                   new Microsoft.Reporting.WinForms.ReportParameter("bahttext", bahtText),
+                   new Microsoft.Reporting.WinForms.ReportParameter("cusname", OReport.cusname),
+                   new Microsoft.Reporting.WinForms.ReportParameter("address", OReport.address)
+              };
+
                 try
                 {
 
                     ReportViewer viewer = new ReportViewer();
                     viewer.ProcessingMode = ProcessingMode.Local;
-                    viewer.LocalReport.ReportPath = rptPath;//rptPath;//"D:/Workspace/DotNet/Inventory/POS_WINAPP3/POS_WINAPP/POS/Reports/SellReport.rdlc";
+                    viewer.LocalReport.ReportPath = rptPath;
 
                     viewer.LocalReport.SetParameters(parameters);
                     viewer.LocalReport.DataSources.Add(new ReportDataSource("sell_DS", rptData));
+
+                    ReportViewer viewerDelivery = new ReportViewer();
+                    viewerDelivery.ProcessingMode = ProcessingMode.Local;
+                    viewerDelivery.LocalReport.ReportPath = rptDeliveryPath;
+
+                    viewerDelivery.LocalReport.SetParameters(parameters);
+                    viewerDelivery.LocalReport.DataSources.Add(new ReportDataSource("sell_DS", rptData));
 
                     byte[] bytes = viewer.LocalReport.Render("PDF", null, out mimeType, out encoding, out filenameExtension, out streamids, out warnings);
           
@@ -243,6 +252,26 @@ namespace POS.Utils
 
                         isSuccess = true;
                         FileName = saveFile;
+                    }
+
+                    byte[] bytes2 = viewerDelivery.LocalReport.Render("PDF", null, out mimeType, out encoding, out filenameExtension, out streamids, out warnings);
+
+                    using (FileStream fs = new FileStream(saveFile2, FileMode.Create))
+                    {
+                        fs.Write(bytes2, 0, bytes2.Length);
+                    }
+
+                    if (bytes2.Length > 0)
+                    {
+                        ////download
+                        //string FileName = @"D:\Workspace\DotNet\Inventory\POS_WINAPP3\POS_WINAPP\POS\GenReports\SE12700253.pdf";
+                        //string PDFUrl = @"C:\Users\CUBE\Desktop\test\testtest.pdf";
+                        //System.Net.WebClient client = new System.Net.WebClient();
+                        //client.DownloadFile(FileName, PDFUrl);
+                        //FileInfo PDFFile = new FileInfo(FileName);
+
+                        isSuccess = true;
+                        //FileName = saveFile2;
                     }
                 }
                 catch (Exception ex)

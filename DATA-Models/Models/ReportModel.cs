@@ -57,6 +57,7 @@ namespace DATA_Models.Models
         public decimal? DISCOUNT { get; set; }
         public DateTime? CDATE { get; set; }
         public int No { get; set; }
+        public decimal? RETAILPRICE { get; set; }
     }
 
     public class ReportResult
