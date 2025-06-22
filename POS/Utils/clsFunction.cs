@@ -171,7 +171,7 @@ namespace POS.Utils
             string newNumber = OReport.code.ToString();
             string strNO2 = newNumber.Replace("SE", "IV");
             var rptDeliveryPath = REPORT_PATH_CONFIG.RPT_PATH + REPORT_NAME.DeliveryReport + ".rdlc";
-            var saveDeliveryPath = REPORT_PATH_CONFIG.GEN_REPORT + OReport.param.ToString() + "IV" + ".pdf";
+            var saveDeliveryPath = REPORT_PATH_CONFIG.GEN_REPORT + strNO2 + ".pdf";
 
             clsLog.Info("genRpt :" + genRpt);
             clsLog.Info("savePath :" + savePath);
@@ -205,7 +205,7 @@ namespace POS.Utils
                    new Microsoft.Reporting.WinForms.ReportParameter("address", OReport.address)
                };
 
-                ReportParameter[] parametersDelivery = new ReportParameter[]
+                ReportParameter[] parametersDelivery = new ReportParameter[] //ใบส่ง
               {
                    new Microsoft.Reporting.WinForms.ReportParameter("printby", OReport.printby),
                    new Microsoft.Reporting.WinForms.ReportParameter("total", strsSumAmount.ToString()),
@@ -231,7 +231,7 @@ namespace POS.Utils
                     viewerDelivery.ProcessingMode = ProcessingMode.Local;
                     viewerDelivery.LocalReport.ReportPath = rptDeliveryPath;
 
-                    viewerDelivery.LocalReport.SetParameters(parameters);
+                    viewerDelivery.LocalReport.SetParameters(parametersDelivery);
                     viewerDelivery.LocalReport.DataSources.Add(new ReportDataSource("sell_DS", rptData));
 
                     byte[] bytes = viewer.LocalReport.Render("PDF", null, out mimeType, out encoding, out filenameExtension, out streamids, out warnings);
