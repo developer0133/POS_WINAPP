@@ -33,7 +33,7 @@ namespace POS.Forms
             row.Cells[1].Value = txtQty.Text;
             row.Cells[2].Value = txtUnit.Text; // obj.SELLPRICE;//obj.STRSELLPRICE;
             row.Cells[3].Value = txtPrice.Text;
-            row.Cells[4].Value = txtDis.Text;
+            row.Cells[4].Value = string.IsNullOrEmpty(txtDis.Text) ? "0" : txtDis.Text;
 
             txtDis.Text = string.IsNullOrEmpty(txtDis.Text) ? "0" : txtDis.Text;    
             var total = Convert.ToDecimal(txtQty.Text) * Convert.ToDecimal(txtPrice.Text)- Convert.ToDecimal(txtDis.Text);
@@ -99,7 +99,6 @@ namespace POS.Forms
                 {
                     System.Diagnostics.Process.Start(fileName);
                 }
-                this.Close();
             }
         }
 
