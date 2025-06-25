@@ -360,7 +360,6 @@ namespace POS.Utils
 
                 try
                 {
-
                     ReportViewer viewer = new ReportViewer();
                     viewer.ProcessingMode = ProcessingMode.Local;
                     viewer.LocalReport.ReportPath = rptPath;
