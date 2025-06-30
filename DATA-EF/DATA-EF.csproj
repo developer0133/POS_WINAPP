@@ -96,6 +96,9 @@
     <Compile Include="SELLITEMS.cs">
       <DependentUpon>POSSYSTEMDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="SELL_MANUAL.cs">
+      <DependentUpon>POSSYSTEMDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="STOCK.cs">
       <DependentUpon>POSSYSTEMDB.tt</DependentUpon>
     </Compile>

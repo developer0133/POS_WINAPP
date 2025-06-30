@@ -17,6 +17,7 @@
         <EntityTypeShape EntityType="POSSYSTEMModel.PRODUCTS_SELL" Width="1.5" PointX="4.75" PointY="8.75" />
         <EntityTypeShape EntityType="POSSYSTEMModel.SELLITEMS" Width="1.5" PointX="8.75" PointY="5.75" />
         <EntityTypeShape EntityType="POSSYSTEMModel.STOCK" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="POSSYSTEMModel.SELL_MANUAL" Width="1.5" PointX="7.375" PointY="10.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

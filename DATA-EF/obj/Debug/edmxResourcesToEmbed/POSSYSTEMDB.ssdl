@@ -188,6 +188,21 @@
     <Property Name="BARCODE" Type="nvarchar" MaxLength="12" />
     <Property Name="PRODUCT_CODE" Type="nvarchar" MaxLength="12" />
   </EntityType>
+  <EntityType Name="SELL_MANUAL">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NO" Type="nvarchar" MaxLength="20" />
+    <Property Name="CUSTOMER_NAME" Type="nvarchar" MaxLength="50" />
+    <Property Name="ADDRESS" Type="nvarchar" MaxLength="50" />
+    <Property Name="PRODUCT_NAME" Type="nvarchar" MaxLength="50" />
+    <Property Name="QTY" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="UNIT" Type="nvarchar" MaxLength="50" />
+    <Property Name="PRICE" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="DISCOUNT" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TOTAL" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
   <EntityType Name="SELLITEMS">
     <Key>
       <PropertyRef Name="SELLITEM_ID" />
@@ -233,6 +248,7 @@
     <EntitySet Name="PARAMETER" EntityType="Self.PARAMETER" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PRODUCTS" EntityType="Self.PRODUCTS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PRODUCTS_SELL" EntityType="Self.PRODUCTS_SELL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SELL_MANUAL" EntityType="Self.SELL_MANUAL" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SELLITEMS" EntityType="Self.SELLITEMS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="STOCK" EntityType="Self.STOCK" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
