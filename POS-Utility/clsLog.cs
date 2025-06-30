@@ -21,7 +21,7 @@ namespace POS_Utility
             string fileName = String.Format("{0}{1}.txt", "log", strDate);
 
             var config = new NLog.Config.LoggingConfiguration();
-            var logfile = new NLog.Targets.FileTarget("logfile") { FileName = "D:\\POSLOG\\"+ fileName };
+            var logfile = new NLog.Targets.FileTarget("logfile") { FileName = "F:\\POSLOG\\"+ fileName };
             var logconsole = new NLog.Targets.ConsoleTarget("logconsole");
 
 
