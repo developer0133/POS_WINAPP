@@ -61,6 +61,7 @@
             this.txtSearchNo = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
+            this.btnSaveDraft = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSell)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -374,11 +375,27 @@
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
+            // btnSaveDraft
+            // 
+            this.btnSaveDraft.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSaveDraft.Image = global::POS.Properties.Resources.save;
+            this.btnSaveDraft.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnSaveDraft.Location = new System.Drawing.Point(493, 83);
+            this.btnSaveDraft.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSaveDraft.Name = "btnSaveDraft";
+            this.btnSaveDraft.Size = new System.Drawing.Size(171, 82);
+            this.btnSaveDraft.TabIndex = 80;
+            this.btnSaveDraft.Tag = "";
+            this.btnSaveDraft.Text = "SAVE_DRAFT";
+            this.btnSaveDraft.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnSaveDraft.UseVisualStyleBackColor = true;
+            // 
             // frmSellManual
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1271, 877);
+            this.Controls.Add(this.btnSaveDraft);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txtDate);
             this.Controls.Add(this.label9);
@@ -445,5 +462,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtSearchNo;
         private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Button btnSaveDraft;
     }
 }
