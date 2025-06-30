@@ -187,5 +187,10 @@ namespace POS.Forms
             txtQty.Text = string.Empty;
             txtUnit.Text = string.Empty;
         }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

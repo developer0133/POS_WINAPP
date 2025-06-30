@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSellManual));
             this.label2 = new System.Windows.Forms.Label();
             this.txtAddr = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -56,7 +57,12 @@
             this.txtDis = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtDate = new System.Windows.Forms.DateTimePicker();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtSearchNo = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.btnSearch = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSell)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label2
@@ -184,7 +190,7 @@
             this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSave.Image = global::POS.Properties.Resources.save;
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnSave.Location = new System.Drawing.Point(838, 80);
+            this.btnSave.Location = new System.Drawing.Point(680, 83);
             this.btnSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(171, 82);
@@ -200,7 +206,7 @@
             this.btnClear.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClear.Image = global::POS.Properties.Resources.cancel;
             this.btnClear.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnClear.Location = new System.Drawing.Point(1036, 80);
+            this.btnClear.Location = new System.Drawing.Point(869, 84);
             this.btnClear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(171, 82);
@@ -213,9 +219,9 @@
             // btnReport
             // 
             this.btnReport.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReport.Image = global::POS.Properties.Resources.search24;
+            this.btnReport.Image = global::POS.Properties.Resources.print;
             this.btnReport.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnReport.Location = new System.Drawing.Point(838, 174);
+            this.btnReport.Location = new System.Drawing.Point(1056, 83);
             this.btnReport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnReport.Name = "btnReport";
             this.btnReport.Size = new System.Drawing.Size(171, 82);
@@ -327,11 +333,53 @@
             this.txtDate.Size = new System.Drawing.Size(200, 22);
             this.txtDate.TabIndex = 78;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnSearch);
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.txtSearchNo);
+            this.groupBox1.Location = new System.Drawing.Point(680, 233);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(547, 100);
+            this.groupBox1.TabIndex = 79;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "SEARCH";
+            // 
+            // txtSearchNo
+            // 
+            this.txtSearchNo.Location = new System.Drawing.Point(118, 30);
+            this.txtSearchNo.Name = "txtSearchNo";
+            this.txtSearchNo.Size = new System.Drawing.Size(263, 22);
+            this.txtSearchNo.TabIndex = 0;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(6, 33);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(96, 16);
+            this.label10.TabIndex = 1;
+            this.label10.Text = "Invoice/Del No";
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
+            this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSearch.Location = new System.Drawing.Point(398, 20);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(107, 34);
+            this.btnSearch.TabIndex = 81;
+            this.btnSearch.Text = "    OK";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
             // frmSellManual
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1271, 877);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txtDate);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label7);
@@ -357,6 +405,8 @@
             this.Name = "frmSellManual";
             this.Text = "frmSellManual";
             ((System.ComponentModel.ISupportInitialize)(this.dgvSell)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -391,5 +441,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DateTimePicker txtDate;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtSearchNo;
+        private System.Windows.Forms.Button btnSearch;
     }
 }

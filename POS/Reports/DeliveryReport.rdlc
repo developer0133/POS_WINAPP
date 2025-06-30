@@ -520,7 +520,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!DISCOUNT.Value</Value>
+                                  <Value>=IIf(Fields!DISCOUNT.Value = 0, "", Fields!DISCOUNT.Value)</Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                   </Style>
@@ -543,6 +543,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
