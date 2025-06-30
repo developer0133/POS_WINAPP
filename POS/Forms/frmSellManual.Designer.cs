@@ -389,6 +389,7 @@
             this.btnSaveDraft.Text = "SAVE_DRAFT";
             this.btnSaveDraft.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnSaveDraft.UseVisualStyleBackColor = true;
+            this.btnSaveDraft.Click += new System.EventHandler(this.btnSaveDraft_Click);
             // 
             // frmSellManual
             // 
