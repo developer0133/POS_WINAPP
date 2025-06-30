@@ -78,5 +78,11 @@ namespace POS.Utils
         public const string FAILED = "Error";
     }
 
+    public sealed class POSLOG
+    {
+        public POSLOG() { }
+
+        public static readonly string LOG_PATH = WebConfigurationManager.AppSettings["POSLOG"];
+    }
 
 }
