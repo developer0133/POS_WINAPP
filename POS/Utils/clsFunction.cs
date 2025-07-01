@@ -318,13 +318,12 @@ namespace POS.Utils
                 rptPath = REPORT_PATH_CONFIG.RPT_PATH + REPORT_NAME.DeliveryReport + ".rdlc";
                 savePath = REPORT_PATH_CONFIG.GEN_REPORT + OReport.param.ToString() + ".pdf";
             }
-;
 
             clsLog.Info("genRpt :" + genRpt);
             clsLog.Info("savePath :" + savePath);
 
 
-            string path1 = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName + "\\POS" + "\\";
+           // string path1 = Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.FullName + "\\POS" + "\\";
 
             saveFile = savePath;
             var rptData = RptData;
@@ -336,6 +335,8 @@ namespace POS.Utils
                 strsSumAmount = sumAmount.HasValue ? string.Format("{0} {1}", Utils.clsFunction.setFormatCurrency(sumAmount), "บาท") : string.Empty;
                 //decimal amount = 121.50M;
                 string bahtText = sumAmount.ThaiBahtText();
+
+                OReport.printby = "-";
 
                 ReportParameter[] parameters = new ReportParameter[]
                 {

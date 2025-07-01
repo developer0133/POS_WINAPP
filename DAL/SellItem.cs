@@ -699,12 +699,12 @@ namespace DAL
                     if (mstrunning > 0)
                     {
                         mstrunning++;
-
                         mstRunning.RUNNING_NO = mstrunning.Value;// mstRunning.RUNNING_NO;
                         var bl = _db.Entry(mstRunning).State = EntityState.Added;
 
                         _db.SaveChanges();
                         transaction.Commit();
+
                         sellno = clsFunction.GenFormatCode(mstRunning.RUNNING_NO.Value, string.Empty, flag);
                     }
                 }

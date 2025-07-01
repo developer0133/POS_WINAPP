@@ -172,8 +172,8 @@ namespace POS.Forms
             txtProductName.Text = string.Empty;
             txtQty.Text = string.Empty;
             txtUnit.Text = string.Empty;
-            txtAddr.Text = string.Empty;
-            txtCusName.Text = string.Empty;
+            //txtAddr.Text = string.Empty;
+            //txtCusName.Text = string.Empty;
             txtSearchNo.Text= string.Empty;
         }
 
@@ -268,6 +268,26 @@ namespace POS.Forms
                 }
 
                 var isSuccess = clsFunction.PrintReportManual(objRp, SellItemReport, flag, ref fileName);
+
+                if (sellmanualDS.Count > 0)
+                {
+                    for (int i = 0; i < sellmanualDS.Count; i++)
+                    {
+
+                        SellItemReport.Add(new SellReportModel()
+                        {
+                            No = (i + 1),
+                            Item = dgvSell.Rows[i].Cells["PName"].Value.ToString(),
+                            Qty = dgvSell.Rows[i].Cells["Qty"].Value == null ? 0 : int.Parse(dgvSell.Rows[i].Cells["Qty"].Value.ToString()),
+                            AMOUNT = dgvSell.Rows[i].Cells["Amount"].Value == null ? 0 : decimal.Parse(dgvSell.Rows[i].Cells["Amount"].Value.ToString()),
+                            UNIT = dgvSell.Rows[i].Cells["Unit"].Value.ToString(),
+                            DISCOUNT = dgvSell.Rows[i].Cells["Discount"].Value == null ? 0 : decimal.Parse(dgvSell.Rows[i].Cells["Discount"].Value.ToString()),
+                            RETAILPRICE = dgvSell.Rows[i].Cells["SellPrice"].Value == null ? 0 : decimal.Parse(dgvSell.Rows[i].Cells["SellPrice"].Value.ToString()),
+                            CDATE = txtDate.Value //clsFunction.GetDate()
+                        });
+                    }
+                    isSuccess = clsFunction.PrintReportManual(objRp, SellItemReport, flag, ref fileName);
+                }
 
                 if (isSuccess)
                 {
