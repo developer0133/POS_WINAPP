@@ -197,7 +197,7 @@
     <Property Name="CUSTOMER_NAME" Type="nvarchar" MaxLength="50" />
     <Property Name="ADDRESS" Type="nvarchar" MaxLength="50" />
     <Property Name="PRODUCT_NAME" Type="nvarchar" MaxLength="50" />
-    <Property Name="QTY" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="QTY" Type="decimal" Precision="18" Scale="2" />
     <Property Name="UNIT" Type="nvarchar" MaxLength="50" />
     <Property Name="PRICE" Type="decimal" Precision="18" Scale="2" />
     <Property Name="DISCOUNT" Type="decimal" Precision="18" Scale="2" />

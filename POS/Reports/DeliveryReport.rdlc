@@ -396,7 +396,7 @@
                                 </TextRun>
                               </TextRuns>
                               <Style>
-                                <TextAlign>Right</TextAlign>
+                                <TextAlign>Center</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
@@ -647,7 +647,7 @@
               <rd:DefaultName>Textbox2</rd:DefaultName>
               <Top>1.93181cm</Top>
               <Left>2.90753cm</Left>
-              <Height>2.53322cm</Height>
+              <Height>2.22167cm</Height>
               <Width>7.63378cm</Width>
               <ZIndex>1</ZIndex>
               <Style>
@@ -664,7 +664,7 @@
               <Source>Embedded</Source>
               <Value>qrblog</Value>
               <Sizing>FitProportional</Sizing>
-              <Top>3.32376cm</Top>
+              <Top>3.07792cm</Top>
               <Left>3.05764cm</Left>
               <Height>0.89322cm</Height>
               <Width>1.27515cm</Width>
@@ -697,7 +697,14 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>ออกโดย: </Value>
+                      <Value>ออกโดย:</Value>
+                      <Style>
+                        <FontFamily>Cordia New</FontFamily>
+                        <FontSize>14pt</FontSize>
+                      </Style>
+                    </TextRun>
+                    <TextRun>
+                      <Value xml:space="preserve"> </Value>
                       <Style />
                     </TextRun>
                     <TextRun>
@@ -711,7 +718,7 @@
               <rd:DefaultName>Textbox3</rd:DefaultName>
               <Top>2.1926cm</Top>
               <Left>11.3897cm</Left>
-              <Height>0.6cm</Height>
+              <Height>0.70783cm</Height>
               <Width>5.68994cm</Width>
               <ZIndex>4</ZIndex>
               <Style>
@@ -731,12 +738,22 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>เลขที่: </Value>
+                      <Value>เลขที่:</Value>
+                      <Style>
+                        <FontFamily>Cordia New</FontFamily>
+                        <FontSize>14pt</FontSize>
+                      </Style>
+                    </TextRun>
+                    <TextRun>
+                      <Value xml:space="preserve"> </Value>
                       <Style />
                     </TextRun>
                     <TextRun>
                       <Value>=Parameters!no.Value</Value>
-                      <Style />
+                      <Style>
+                        <FontFamily>Cordia New</FontFamily>
+                        <FontSize>14pt</FontSize>
+                      </Style>
                     </TextRun>
                   </TextRuns>
                   <Style />
@@ -840,7 +857,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox19</rd:DefaultName>
-              <Top>4.46503cm</Top>
+              <Top>4.14753cm</Top>
               <Left>2.90753cm</Left>
               <Height>1.69389cm</Height>
               <Width>7.63378cm</Width>
@@ -1043,7 +1060,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>รวมทั้งสิ้น(ตัวอักษร)</Value>
+                      <Value>รวมทั้งสิ้น(ตัวอักษร):</Value>
                       <Style>
                         <FontFamily>Cordia New</FontFamily>
                         <FontSize>14pt</FontSize>
@@ -1064,9 +1081,9 @@
               </Paragraphs>
               <rd:DefaultName>Textbox7</rd:DefaultName>
               <Top>0.45854cm</Top>
-              <Left>2.90753cm</Left>
+              <Left>1.95503cm</Left>
               <Height>0.6cm</Height>
-              <Width>6.71481cm</Width>
+              <Width>9.29356cm</Width>
               <ZIndex>5</ZIndex>
               <Style>
                 <Border>

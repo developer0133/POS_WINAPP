@@ -202,7 +202,7 @@
           <Property Name="CUSTOMER_NAME" Type="nvarchar" MaxLength="50" />
           <Property Name="ADDRESS" Type="nvarchar" MaxLength="50" />
           <Property Name="PRODUCT_NAME" Type="nvarchar" MaxLength="50" />
-          <Property Name="QTY" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="QTY" Type="decimal" Precision="18" Scale="2" />
           <Property Name="UNIT" Type="nvarchar" MaxLength="50" />
           <Property Name="PRICE" Type="decimal" Precision="18" Scale="2" />
           <Property Name="DISCOUNT" Type="decimal" Precision="18" Scale="2" />
@@ -512,7 +512,7 @@
           <Property Name="CUSTOMER_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ADDRESS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="PRODUCT_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="QTY" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="QTY" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="UNIT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="PRICE" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="DISCOUNT" Type="Decimal" Precision="18" Scale="2" />

@@ -38,35 +38,42 @@ namespace POS.Forms
             string msg = string.Empty;
             List<SELL_MANUAL> sellData = new List<SELL_MANUAL>();
 
-            strIVNO = SellItemService.GetSellCode("IV");
-            strSENO = strIVNO.Replace("IV", "SE");
-
-            for (int i = 0; i < dgvSell.Rows.Count - 1; i++)
+            try
             {
-                sellData.Add(new SELL_MANUAL()
+                strIVNO = SellItemService.GetSellCode("IV");
+                strSENO = strIVNO.Replace("IV", "SE");
+
+                for (int i = 0; i < dgvSell.Rows.Count - 1; i++)
                 {
-                    IV_NO = strIVNO,
-                    SE_NO = strSENO,
-                    CUSTOMER_NAME = txtCusName.Text,
-                    ADDRESS = txtAddr.Text,
-                    DISCOUNT = dgvSell.Rows[i].Cells["Discount"].Value == null ? 0 : decimal.Parse(dgvSell.Rows[i].Cells["Discount"].Value.ToString()),
-                    PRODUCT_NAME = dgvSell.Rows[i].Cells["PName"].Value.ToString(),
-                    QTY = dgvSell.Rows[i].Cells["Qty"].Value == null ? 0 : int.Parse(dgvSell.Rows[i].Cells["Qty"].Value.ToString()),
-                    PRICE = dgvSell.Rows[i].Cells["SellPrice"].Value == null ? 0 : decimal.Parse(dgvSell.Rows[i].Cells["SellPrice"].Value.ToString()),
-                    UNIT = dgvSell.Rows[i].Cells["Unit"].Value.ToString(),
-                    TOTAL = dgvSell.Rows[i].Cells["Amount"].Value == null ? 0 : decimal.Parse(dgvSell.Rows[i].Cells["Amount"].Value.ToString()),
-                    C_BY = UserModel.USER_CODE,
-                    C_DATE = txtDate.Value,
-                    E_BY = UserModel.USER_CODE,
-                    E_DATE = clsFunction.GetDate()
-                });
+                    sellData.Add(new SELL_MANUAL()
+                    {
+                        IV_NO = strIVNO,
+                        SE_NO = strSENO,
+                        CUSTOMER_NAME = txtCusName.Text,
+                        ADDRESS = txtAddr.Text,
+                        DISCOUNT = dgvSell.Rows[i].Cells["Discount"].Value == null ? 0 : decimal.Parse(dgvSell.Rows[i].Cells["Discount"].Value.ToString()),
+                        PRODUCT_NAME = dgvSell.Rows[i].Cells["PName"].Value.ToString(),
+                        QTY = dgvSell.Rows[i].Cells["Qty"].Value == null ? 0 : decimal.Parse(dgvSell.Rows[i].Cells["Qty"].Value.ToString()),
+                        PRICE = dgvSell.Rows[i].Cells["SellPrice"].Value == null ? 0 : decimal.Parse(dgvSell.Rows[i].Cells["SellPrice"].Value.ToString()),
+                        UNIT = dgvSell.Rows[i].Cells["Unit"].Value.ToString(),
+                        TOTAL = dgvSell.Rows[i].Cells["Amount"].Value == null ? 0 : decimal.Parse(dgvSell.Rows[i].Cells["Amount"].Value.ToString()),
+                        C_BY = UserModel.USER_CODE,
+                        C_DATE = txtDate.Value,
+                        E_BY = UserModel.USER_CODE,
+                        E_DATE = clsFunction.GetDate()
+                    });
+                }
+
+                var isSuccess = SellItemService.InsertSellItemManual(sellData, ref msg);
+
+                if (isSuccess == true)
+                {
+                    MessageBox.Show(MESSAGEALERT.COMPLETED, "POS", MessageBoxButtons.OK);
+                }
             }
-
-            var isSuccess = SellItemService.InsertSellItemManual(sellData, ref msg);
-
-            if (isSuccess == true)
+            catch(Exception ex)
             {
-                MessageBox.Show(MESSAGEALERT.COMPLETED, "POS", MessageBoxButtons.OK);
+
             }
         }
 
@@ -258,7 +265,7 @@ namespace POS.Forms
                     {
                         No = (i + 1),
                         Item = dgvSell.Rows[i].Cells["PName"].Value.ToString(),
-                        Qty = dgvSell.Rows[i].Cells["Qty"].Value == null ? 0 : int.Parse(dgvSell.Rows[i].Cells["Qty"].Value.ToString()),
+                        Qty = dgvSell.Rows[i].Cells["Qty"].Value == null ? 0 : decimal.Parse(dgvSell.Rows[i].Cells["Qty"].Value.ToString()),
                         AMOUNT = dgvSell.Rows[i].Cells["Amount"].Value == null ? 0 : decimal.Parse(dgvSell.Rows[i].Cells["Amount"].Value.ToString()),
                         UNIT = dgvSell.Rows[i].Cells["Unit"].Value.ToString(),
                         DISCOUNT = dgvSell.Rows[i].Cells["Discount"].Value == null ? 0 : decimal.Parse(dgvSell.Rows[i].Cells["Discount"].Value.ToString()),
@@ -278,7 +285,7 @@ namespace POS.Forms
                         {
                             No = (i + 1),
                             Item = dgvSell.Rows[i].Cells["PName"].Value.ToString(),
-                            Qty = dgvSell.Rows[i].Cells["Qty"].Value == null ? 0 : int.Parse(dgvSell.Rows[i].Cells["Qty"].Value.ToString()),
+                            Qty = dgvSell.Rows[i].Cells["Qty"].Value == null ? 0 : decimal.Parse(dgvSell.Rows[i].Cells["Qty"].Value.ToString()),
                             AMOUNT = dgvSell.Rows[i].Cells["Amount"].Value == null ? 0 : decimal.Parse(dgvSell.Rows[i].Cells["Amount"].Value.ToString()),
                             UNIT = dgvSell.Rows[i].Cells["Unit"].Value.ToString(),
                             DISCOUNT = dgvSell.Rows[i].Cells["Discount"].Value == null ? 0 : decimal.Parse(dgvSell.Rows[i].Cells["Discount"].Value.ToString()),

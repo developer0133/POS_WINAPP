@@ -65,30 +65,27 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>1.53832cm</Width>
+                  <Width>1.38096cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>4.72596cm</Width>
+                  <Width>6.13998cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.29869cm</Width>
+                  <Width>1.77355cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.31751cm</Width>
+                  <Width>2.30553cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.4457cm</Width>
+                  <Width>2.33987cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.92911cm</Width>
-                </TablixColumn>
-                <TablixColumn>
-                  <Width>3.33028cm</Width>
+                  <Width>3.28284cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>0.6cm</Height>
+                  <Height>0.67052cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -101,6 +98,8 @@
                                 <TextRun>
                                   <Value>ลำดับ</Value>
                                   <Style>
+                                    <FontFamily>Cordia New</FontFamily>
+                                    <FontSize>14pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -135,6 +134,8 @@
                                 <TextRun>
                                   <Value>รายการ</Value>
                                   <Style>
+                                    <FontFamily>Cordia New</FontFamily>
+                                    <FontSize>14pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -169,6 +170,8 @@
                                 <TextRun>
                                   <Value>จำนวน</Value>
                                   <Style>
+                                    <FontFamily>Cordia New</FontFamily>
+                                    <FontSize>14pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -203,6 +206,8 @@
                                 <TextRun>
                                   <Value>หน่วย</Value>
                                   <Style>
+                                    <FontFamily>Cordia New</FontFamily>
+                                    <FontSize>14pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -237,6 +242,8 @@
                                 <TextRun>
                                   <Value>ราคา/หน่วย</Value>
                                   <Style>
+                                    <FontFamily>Cordia New</FontFamily>
+                                    <FontSize>14pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -262,40 +269,6 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox8">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>ส่วนลด</Value>
-                                  <Style>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Center</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>Textbox8</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
                         <Textbox Name="Textbox20">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
@@ -305,6 +278,8 @@
                                 <TextRun>
                                   <Value>รวม(บาท)</Value>
                                   <Style>
+                                    <FontFamily>Cordia New</FontFamily>
+                                    <FontSize>14pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
                                 </TextRun>
@@ -331,7 +306,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.6cm</Height>
+                  <Height>0.67052cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -343,7 +318,10 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!No.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontFamily>Cordia New</FontFamily>
+                                    <FontSize>14pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -376,7 +354,10 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!Item.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontFamily>Cordia New</FontFamily>
+                                    <FontSize>14pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -408,7 +389,10 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!Qty.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontFamily>Cordia New</FontFamily>
+                                    <FontSize>14pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -440,7 +424,10 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!UNIT.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontFamily>Cordia New</FontFamily>
+                                    <FontSize>14pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -472,39 +459,10 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!RETAILPRICE.Value</Value>
-                                  <Style />
-                                </TextRun>
-                              </TextRuns>
-                              <Style>
-                                <TextAlign>Left</TextAlign>
-                              </Style>
-                            </Paragraph>
-                          </Paragraphs>
-                          <rd:DefaultName>RETAILPRICE</rd:DefaultName>
-                          <Style>
-                            <Border>
-                              <Color>LightGrey</Color>
-                              <Style>Solid</Style>
-                            </Border>
-                            <PaddingLeft>2pt</PaddingLeft>
-                            <PaddingRight>2pt</PaddingRight>
-                            <PaddingTop>2pt</PaddingTop>
-                            <PaddingBottom>2pt</PaddingBottom>
-                          </Style>
-                        </Textbox>
-                      </CellContents>
-                    </TablixCell>
-                    <TablixCell>
-                      <CellContents>
-                        <Textbox Name="DISCOUNT">
-                          <CanGrow>true</CanGrow>
-                          <KeepTogether>true</KeepTogether>
-                          <Paragraphs>
-                            <Paragraph>
-                              <TextRuns>
-                                <TextRun>
-                                  <Value>=IIf(Fields!DISCOUNT.Value = 0, "", Fields!DISCOUNT.Value)</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontFamily>Cordia New</FontFamily>
+                                    <FontSize>14pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -512,7 +470,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>DISCOUNT</rd:DefaultName>
+                          <rd:DefaultName>RETAILPRICE</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -536,7 +494,10 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!AMOUNT.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontFamily>Cordia New</FontFamily>
+                                    <FontSize>14pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -556,7 +517,6 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>
@@ -565,7 +525,6 @@
             </TablixBody>
             <TablixColumnHierarchy>
               <TablixMembers>
-                <TablixMember />
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
@@ -587,8 +546,8 @@
             <DataSetName>sell_DS</DataSetName>
             <Top>0.72495cm</Top>
             <Left>0.57175cm</Left>
-            <Height>1.2cm</Height>
-            <Width>17.58557cm</Width>
+            <Height>1.34104cm</Height>
+            <Width>17.22273cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -596,7 +555,7 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>0.75785in</Height>
+        <Height>0.81338in</Height>
         <Style>
           <Border>
             <Style>None</Style>
@@ -608,7 +567,7 @@
           </BottomBorder>
         </Style>
       </Body>
-      <Width>7.14855in</Width>
+      <Width>7.08007in</Width>
       <Page>
         <PageHeader>
           <Height>5.98253cm</Height>
@@ -655,7 +614,10 @@
                   <TextRuns>
                     <TextRun>
                       <Value>เลขที่ผู้เสียภาษี 1411400088342</Value>
-                      <Style />
+                      <Style>
+                        <FontFamily>Cordia New</FontFamily>
+                        <FontSize>14pt</FontSize>
+                      </Style>
                     </TextRun>
                   </TextRuns>
                   <Style />
@@ -664,7 +626,10 @@
                   <TextRuns>
                     <TextRun>
                       <Value>19 ม.6 ต.เทพคีรี อ.นาวัง จ.หนองบัวลำภู 39170</Value>
-                      <Style />
+                      <Style>
+                        <FontFamily>Cordia New</FontFamily>
+                        <FontSize>14pt</FontSize>
+                      </Style>
                     </TextRun>
                   </TextRuns>
                   <Style />
@@ -699,8 +664,8 @@
               <Source>Embedded</Source>
               <Value>qrblog</Value>
               <Sizing>FitProportional</Sizing>
-              <Top>2.74915cm</Top>
-              <Left>2.83375cm</Left>
+              <Top>2.83098cm</Top>
+              <Left>2.90753cm</Left>
               <Height>0.89322cm</Height>
               <Width>1.27515cm</Width>
               <ZIndex>2</ZIndex>
@@ -718,20 +683,26 @@
                   <TextRuns>
                     <TextRun>
                       <Value>ออกโดย :</Value>
-                      <Style />
+                      <Style>
+                        <FontFamily>Cordia New</FontFamily>
+                        <FontSize>14pt</FontSize>
+                      </Style>
                     </TextRun>
                     <TextRun>
                       <Value>=Parameters!printby.Value</Value>
-                      <Style />
+                      <Style>
+                        <FontFamily>Cordia New</FontFamily>
+                        <FontSize>14pt</FontSize>
+                      </Style>
                     </TextRun>
                   </TextRuns>
                   <Style />
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox3</rd:DefaultName>
-              <Top>1.47887cm</Top>
-              <Left>10.72207cm</Left>
-              <Height>0.6cm</Height>
+              <Top>2.28486cm</Top>
+              <Left>10.81009cm</Left>
+              <Height>0.77639cm</Height>
               <Width>5.67541cm</Width>
               <ZIndex>3</ZIndex>
               <Style>
@@ -751,7 +722,14 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>เลขที่: </Value>
+                      <Value>เลขที่:</Value>
+                      <Style>
+                        <FontFamily>Cordia New</FontFamily>
+                        <FontSize>14pt</FontSize>
+                      </Style>
+                    </TextRun>
+                    <TextRun>
+                      <Value xml:space="preserve"> </Value>
                       <Style />
                     </TextRun>
                     <TextRun>
@@ -763,9 +741,9 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox5</rd:DefaultName>
-              <Top>2.11415cm</Top>
+              <Top>1.61431cm</Top>
               <Left>10.72207cm</Left>
-              <Height>0.62822cm</Height>
+              <Height>0.81166cm</Height>
               <Width>5.67541cm</Width>
               <ZIndex>4</ZIndex>
               <Style>
@@ -785,9 +763,10 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>ใบเสร็จรับเงิน</Value>
+                      <Value> ใบเสร็จรับเงิน</Value>
                       <Style>
-                        <FontSize>18pt</FontSize>
+                        <FontFamily>Cordia New</FontFamily>
+                        <FontSize>24pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
@@ -818,12 +797,22 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>นามลูกค้า:</Value>
+                      <Value>นามลูกค้า</Value>
+                      <Style>
+                        <FontFamily>Cordia New</FontFamily>
+                        <FontSize>14pt</FontSize>
+                      </Style>
+                    </TextRun>
+                    <TextRun>
+                      <Value>:</Value>
                       <Style />
                     </TextRun>
                     <TextRun>
                       <Value>=Parameters!cusname.Value</Value>
-                      <Style />
+                      <Style>
+                        <FontFamily>Cordia New</FontFamily>
+                        <FontSize>14pt</FontSize>
+                      </Style>
                     </TextRun>
                   </TextRuns>
                   <Style />
@@ -832,7 +821,10 @@
                   <TextRuns>
                     <TextRun>
                       <Value>ที่อยู่:</Value>
-                      <Style />
+                      <Style>
+                        <FontFamily>Cordia New</FontFamily>
+                        <FontSize>14pt</FontSize>
+                      </Style>
                     </TextRun>
                     <TextRun>
                       <Value>=Parameters!address.Value</Value>
@@ -882,7 +874,7 @@
           </Style>
         </PageHeader>
         <PageFooter>
-          <Height>5.94782cm</Height>
+          <Height>6.30765cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -923,6 +915,8 @@
                     <TextRun>
                       <Value>...........................</Value>
                       <Style>
+                        <FontFamily>Cordia New</FontFamily>
+                        <FontSize>14pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
@@ -933,7 +927,7 @@
               <rd:DefaultName>Textbox7</rd:DefaultName>
               <Top>4.55468cm</Top>
               <Left>1.41087cm</Left>
-              <Height>0.55766cm</Height>
+              <Height>0.71546cm</Height>
               <Width>3.20761cm</Width>
               <ZIndex>1</ZIndex>
               <Style>
@@ -954,7 +948,10 @@
                   <TextRuns>
                     <TextRun>
                       <Value>ผู้รับสินค้า</Value>
-                      <Style />
+                      <Style>
+                        <FontFamily>Cordia New</FontFamily>
+                        <FontSize>14pt</FontSize>
+                      </Style>
                     </TextRun>
                   </TextRuns>
                   <Style />
@@ -963,7 +960,7 @@
               <rd:DefaultName>Textbox7</rd:DefaultName>
               <Top>4.51234cm</Top>
               <Left>0.02565cm</Left>
-              <Height>0.6cm</Height>
+              <Height>0.7578cm</Height>
               <Width>1.75468cm</Width>
               <ZIndex>2</ZIndex>
               <Style>
@@ -1015,7 +1012,10 @@
                       <TextRuns>
                         <TextRun>
                           <Value>ชำระโดย</Value>
-                          <Style />
+                          <Style>
+                            <FontFamily>Cordia New</FontFamily>
+                            <FontSize>14pt</FontSize>
+                          </Style>
                         </TextRun>
                       </TextRuns>
                       <Style />
@@ -1045,7 +1045,10 @@
                       <TextRuns>
                         <TextRun>
                           <Value>เงินสด</Value>
-                          <Style />
+                          <Style>
+                            <FontFamily>Cordia New</FontFamily>
+                            <FontSize>14pt</FontSize>
+                          </Style>
                         </TextRun>
                       </TextRuns>
                       <Style />
@@ -1105,7 +1108,10 @@
                       <TextRuns>
                         <TextRun>
                           <Value>เงินโอน</Value>
-                          <Style />
+                          <Style>
+                            <FontFamily>Cordia New</FontFamily>
+                            <FontSize>14pt</FontSize>
+                          </Style>
                         </TextRun>
                       </TextRuns>
                       <Style />
@@ -1135,7 +1141,10 @@
                       <TextRuns>
                         <TextRun>
                           <Value>เลขที่</Value>
-                          <Style />
+                          <Style>
+                            <FontFamily>Cordia New</FontFamily>
+                            <FontSize>14pt</FontSize>
+                          </Style>
                         </TextRun>
                       </TextRuns>
                       <Style />
@@ -1197,7 +1206,10 @@
                       <TextRuns>
                         <TextRun>
                           <Value>ธนาคาร</Value>
-                          <Style />
+                          <Style>
+                            <FontFamily>Cordia New</FontFamily>
+                            <FontSize>14pt</FontSize>
+                          </Style>
                         </TextRun>
                       </TextRuns>
                       <Style />
@@ -1227,7 +1239,10 @@
                       <TextRuns>
                         <TextRun>
                           <Value>สาขา</Value>
-                          <Style />
+                          <Style>
+                            <FontFamily>Cordia New</FontFamily>
+                            <FontSize>14pt</FontSize>
+                          </Style>
                         </TextRun>
                       </TextRuns>
                       <Style />
@@ -1334,7 +1349,10 @@
                   <TextRuns>
                     <TextRun>
                       <Value>วันที่</Value>
-                      <Style />
+                      <Style>
+                        <FontFamily>Cordia New</FontFamily>
+                        <FontSize>14pt</FontSize>
+                      </Style>
                     </TextRun>
                   </TextRuns>
                   <Style />
@@ -1343,7 +1361,7 @@
               <rd:DefaultName>Textbox19</rd:DefaultName>
               <Top>4.51234cm</Top>
               <Left>4.63852cm</Left>
-              <Height>0.6cm</Height>
+              <Height>0.7578cm</Height>
               <Width>1.74268cm</Width>
               <ZIndex>4</ZIndex>
               <Style>
@@ -1365,6 +1383,8 @@
                     <TextRun>
                       <Value>.........................</Value>
                       <Style>
+                        <FontFamily>Cordia New</FontFamily>
+                        <FontSize>14pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
@@ -1375,7 +1395,7 @@
               <rd:DefaultName>Textbox7</rd:DefaultName>
               <Top>4.55468cm</Top>
               <Left>5.7462cm</Left>
-              <Height>0.55766cm</Height>
+              <Height>0.71546cm</Height>
               <Width>3.20761cm</Width>
               <ZIndex>5</ZIndex>
               <Style>
@@ -1397,6 +1417,8 @@
                     <TextRun>
                       <Value>....................</Value>
                       <Style>
+                        <FontFamily>Cordia New</FontFamily>
+                        <FontSize>14pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
@@ -1407,7 +1429,7 @@
               <rd:DefaultName>Textbox7</rd:DefaultName>
               <Top>4.55468cm</Top>
               <Left>10.34469cm</Left>
-              <Height>0.55766cm</Height>
+              <Height>0.71546cm</Height>
               <Width>2.27628cm</Width>
               <ZIndex>6</ZIndex>
               <Style>
@@ -1428,7 +1450,10 @@
                   <TextRuns>
                     <TextRun>
                       <Value>ผู้รับเงิน</Value>
-                      <Style />
+                      <Style>
+                        <FontFamily>Cordia New</FontFamily>
+                        <FontSize>14pt</FontSize>
+                      </Style>
                     </TextRun>
                   </TextRuns>
                   <Style />
@@ -1437,7 +1462,7 @@
               <rd:DefaultName>Textbox7</rd:DefaultName>
               <Top>4.51234cm</Top>
               <Left>8.95947cm</Left>
-              <Height>0.6cm</Height>
+              <Height>0.7578cm</Height>
               <Width>1.38522cm</Width>
               <ZIndex>7</ZIndex>
               <Style>
@@ -1490,7 +1515,10 @@
                   <TextRuns>
                     <TextRun>
                       <Value>วันที่</Value>
-                      <Style />
+                      <Style>
+                        <FontFamily>Cordia New</FontFamily>
+                        <FontSize>14pt</FontSize>
+                      </Style>
                     </TextRun>
                   </TextRuns>
                   <Style />
@@ -1499,7 +1527,7 @@
               <rd:DefaultName>Textbox19</rd:DefaultName>
               <Top>4.55468cm</Top>
               <Left>12.97682cm</Left>
-              <Height>0.6cm</Height>
+              <Height>0.7578cm</Height>
               <Width>1.74268cm</Width>
               <ZIndex>9</ZIndex>
               <Style>
@@ -1521,6 +1549,8 @@
                     <TextRun>
                       <Value>รวมทั้งสิ้น</Value>
                       <Style>
+                        <FontFamily>Cordia New</FontFamily>
+                        <FontSize>14pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
@@ -1553,6 +1583,8 @@
                     <TextRun>
                       <Value>=Parameters!total.Value</Value>
                       <Style>
+                        <FontFamily>Cordia New</FontFamily>
+                        <FontSize>14pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
@@ -1563,8 +1595,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>total</rd:DefaultName>
-              <Top>0.12934cm</Top>
-              <Left>14.04584cm</Left>
+              <Top>0.14111cm</Top>
+              <Left>14.08112cm</Left>
               <Height>0.6cm</Height>
               <Width>2.5cm</Width>
               <ZIndex>11</ZIndex>
@@ -1587,7 +1619,23 @@
                     <TextRun>
                       <Value>รวมทั้งสิ้น(ตัวอักษร)</Value>
                       <Style>
+                        <FontFamily>Cordia New</FontFamily>
+                        <FontSize>14pt</FontSize>
                         <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                    <TextRun>
+                      <Value xml:space="preserve"> </Value>
+                      <Style>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                    <TextRun>
+                      <Value>=Parameters!bahttext.Value</Value>
+                      <Style>
+                        <FontFamily>Cordia New</FontFamily>
+                        <FontSize>14pt</FontSize>
+                        <FontWeight>Normal</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -1596,40 +1644,10 @@
               </Paragraphs>
               <rd:DefaultName>Textbox7</rd:DefaultName>
               <Top>0.14104cm</Top>
-              <Left>2.81845cm</Left>
-              <Height>0.6cm</Height>
-              <Width>3.39606cm</Width>
+              <Left>2.11007cm</Left>
+              <Height>0.79308cm</Height>
+              <Width>9.70124cm</Width>
               <ZIndex>12</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="bahttext">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>=Parameters!bahttext.Value</Value>
-                      <Style />
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>bahttext</rd:DefaultName>
-              <Top>0.14104cm</Top>
-              <Left>6.06498cm</Left>
-              <Height>0.6cm</Height>
-              <Width>5.20605cm</Width>
-              <ZIndex>13</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
