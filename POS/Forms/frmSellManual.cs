@@ -28,6 +28,9 @@ namespace POS.Forms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            string msg = string.Empty;
+            List<SELL_MANUAL> sellData = new List<SELL_MANUAL>();
+
             DataGridViewRow row = (DataGridViewRow)dgvSell.Rows[0].Clone();
             row.Cells[0].Value = txtProductName.Text;
             row.Cells[1].Value = txtQty.Text;
@@ -46,6 +49,26 @@ namespace POS.Forms
                 rw.Cells[0].Style.BackColor = Color.DarkGray;
             }
 
+            strSellNo = SellItemService.GetSellCode();
+            for (int i = 0; i < dgvSell.Rows.Count - 1; i++)
+            {
+
+                sellData.Add(new SELL_MANUAL()
+                {
+                    NO = strSellNo,
+                    CUSTOMER_NAME = txtCusName.Text,
+                    ADDRESS = txtAddr.Text,
+                    DISCOUNT = dgvSell.Rows[i].Cells["Discount"].Value == null ? 0 : decimal.Parse(dgvSell.Rows[i].Cells["Discount"].Value.ToString()),
+                    PRODUCT_NAME = dgvSell.Rows[i].Cells["PName"].Value.ToString(),
+                    QTY = dgvSell.Rows[i].Cells["Qty"].Value == null ? 0 : int.Parse(dgvSell.Rows[i].Cells["Qty"].Value.ToString()),
+                    PRICE = dgvSell.Rows[i].Cells["SellPrice"].Value == null ? 0 : decimal.Parse(dgvSell.Rows[i].Cells["SellPrice"].Value.ToString()),
+                    UNIT = dgvSell.Rows[i].Cells["Unit"].Value.ToString(),
+                    TOTAL= dgvSell.Rows[i].Cells["Amount"].Value == null ? 0 : decimal.Parse(dgvSell.Rows[i].Cells["Amount"].Value.ToString()),
+                });
+            }
+
+
+            var isSuccess = SellItemService.InsertSellItemManual(sellData, ref msg);
             AmountCalculate();
             CLEAR();
         }

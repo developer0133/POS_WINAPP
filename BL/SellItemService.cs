@@ -39,6 +39,9 @@ namespace BL
         {
             return _sellItem.GetSellCode();
         }
-
+        public static bool InsertSellItemManual(List<SELL_MANUAL> sellitem, ref string message)
+        {
+            return _sellItem.InsertSellItemManual(sellitem, ref message);
+        }
     }
 }

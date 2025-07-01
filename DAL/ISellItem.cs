@@ -16,6 +16,7 @@ namespace DAL
     {
         string InsertSellItem(List<SELLITEMS> sellitem);
         string InsertSellItem2(List<SELLITEMS> sellitem, ref string message);
+        bool InsertSellItemManual(List<SELL_MANUAL> sellitem, ref string message);
         List<SellHistDTO> GetSellItem(int productid, List<int> parentID);
         string GetSellCode();
     }

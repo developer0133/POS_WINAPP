@@ -1,14 +1,15 @@
-﻿using System;
+﻿using DAL.Utils;
+using DATA_EF;
+using DATA_Models.DTO;
+using DATA_Models.Models;
+using System;
 using System.Collections.Generic;
+using System.Data.Common;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DATA_EF;
-using DAL.Utils;
-using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
-using DATA_Models.DTO;
-using DATA_Models.Models;
 using System.Transactions;
 
 namespace DAL
@@ -714,6 +715,41 @@ namespace DAL
                 return sellno;
             }
            
+        }
+
+        public bool InsertSellItemManual(List<SELL_MANUAL> sellitem, ref string message)
+        {
+            bool isSuccess = false;
+
+            using (POSSYSTEMEntities _db = new POSSYSTEMEntities())
+            {
+
+                using (DbContextTransaction transaction = _db.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        foreach (var item in sellitem)
+                        {
+                            _db.SELL_MANUAL.Add(item);
+                        }
+
+                        transaction.Commit();
+                        _db.Dispose();
+                    }
+                    catch (DbUpdateConcurrencyException ex)
+                    {
+                        transaction.Rollback();
+                        message = ex.Message;
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        message = ex.Message;
+                    }
+                }
+
+            }
+            return isSuccess;
         }
     }
 }

@@ -195,7 +195,7 @@ namespace POS.Utils
 
                ReportParameter[] parameters = new ReportParameter[]
                {
-                   new Microsoft.Reporting.WinForms.ReportParameter("printby", OReport.printby),
+                   new Microsoft.Reporting.WinForms.ReportParameter("printby", "-"),//new Microsoft.Reporting.WinForms.ReportParameter("printby", OReport.printby),
                    new Microsoft.Reporting.WinForms.ReportParameter("total", strsSumAmount.ToString()),
                    new Microsoft.Reporting.WinForms.ReportParameter("cdate", Utils.clsFunction.setFormatDate(rptData.First().CDATE).ToString()),
                    new Microsoft.Reporting.WinForms.ReportParameter("date", Utils.clsFunction.setFormatDateWithTime(Utils.clsFunction.GetDate(), true).ToString()),
@@ -207,7 +207,7 @@ namespace POS.Utils
 
                 ReportParameter[] parametersDelivery = new ReportParameter[] //ใบส่ง
               {
-                   new Microsoft.Reporting.WinForms.ReportParameter("printby", OReport.printby),
+                   new Microsoft.Reporting.WinForms.ReportParameter("printby", "-"),//new Microsoft.Reporting.WinForms.ReportParameter("printby", OReport.printby),
                    new Microsoft.Reporting.WinForms.ReportParameter("total", strsSumAmount.ToString()),
                    new Microsoft.Reporting.WinForms.ReportParameter("cdate", Utils.clsFunction.setFormatDate(rptData.First().CDATE).ToString()),
                    new Microsoft.Reporting.WinForms.ReportParameter("date", Utils.clsFunction.setFormatDateWithTime(Utils.clsFunction.GetDate(), true).ToString()),
