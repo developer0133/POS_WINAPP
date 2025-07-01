@@ -242,7 +242,7 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="NO" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="IV_NO" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="CUSTOMER_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="ADDRESS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="PRODUCT_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -251,5 +251,10 @@
     <Property Name="PRICE" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="DISCOUNT" Type="Decimal" Precision="18" Scale="2" />
     <Property Name="TOTAL" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="C_BY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="C_DATE" Type="DateTime" Precision="3" />
+    <Property Name="E_BY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="E_DATE" Type="DateTime" Precision="3" />
+    <Property Name="SE_NO" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
   </EntityType>
 </Schema>

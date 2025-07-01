@@ -2,6 +2,7 @@
 using DATA_EF;
 using DATA_Models.DTO;
 using DATA_Models.Models;
+using POS_Utility;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
@@ -684,7 +685,7 @@ namespace DAL
             return reprotData;
         }
 
-        public string GetSellCode()
+        public string GetSellCode(string flag)
         {
             POSSYSTEMEntities _db = new POSSYSTEMEntities();
             string sellno = string.Empty;
@@ -702,11 +703,14 @@ namespace DAL
                         mstRunning.RUNNING_NO = mstrunning.Value;// mstRunning.RUNNING_NO;
                         var bl = _db.Entry(mstRunning).State = EntityState.Added;
 
-                        sellno = clsFunction.GenFormatCode(mstRunning.RUNNING_NO.Value, string.Empty, "SE");
+                        _db.SaveChanges();
+                        transaction.Commit();
+                        sellno = clsFunction.GenFormatCode(mstRunning.RUNNING_NO.Value, string.Empty, flag);
                     }
                 }
                 catch (Exception ex)
                 {
+                    transaction.Rollback();
                 }
                 finally
                 {
@@ -733,8 +737,11 @@ namespace DAL
                             _db.SELL_MANUAL.Add(item);
                         }
 
+                        _db.SaveChanges();
                         transaction.Commit();
+
                         _db.Dispose();
+                        isSuccess = true;
                     }
                     catch (DbUpdateConcurrencyException ex)
                     {
@@ -750,6 +757,45 @@ namespace DAL
 
             }
             return isSuccess;
+        }
+
+        public List<SellManualModel> GetSellManual(string no)
+        {
+            List<SellManualModel> sellList = new List<SellManualModel>();
+
+            using (POSSYSTEMEntities db = new POSSYSTEMEntities())
+            {
+                var qry = (from t in db.SELL_MANUAL
+                           where t.SE_NO == no || t.IV_NO == no
+                           select new SellManualModel
+                           {
+                               IV_NO = t.IV_NO,
+                               SE_NO = t.SE_NO,
+                               CUSTOMER_NAME = t.CUSTOMER_NAME,
+                               ADDRESS = t.ADDRESS,
+                               PRODUCT_NAME = t.PRODUCT_NAME,
+                               QTY = t.QTY,
+                               UNIT = t.UNIT,
+                               PRICE = t.PRICE,
+                               DISCOUNT = t.DISCOUNT,
+                               TOTAL = t.TOTAL,
+                           }).AsQueryable();
+
+                sellList = (List<SellManualModel>)qry.AsEnumerable().Select(s => new SellManualModel
+                {
+                    IV_NO = s.IV_NO,
+                    SE_NO = s.SE_NO,
+                    CUSTOMER_NAME = s.CUSTOMER_NAME,
+                    ADDRESS = s.ADDRESS,
+                    PRODUCT_NAME = s.PRODUCT_NAME,
+                    QTY = s.QTY,
+                    UNIT = s.UNIT,
+                    PRICE = s.PRICE,
+                    DISCOUNT = s.DISCOUNT,
+                    TOTAL = s.TOTAL,
+                }).ToList();
+            }
+            return sellList;
         }
     }
 }

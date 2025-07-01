@@ -238,6 +238,11 @@
     <EntitySetMapping Name="SELL_MANUAL">
       <EntityTypeMapping TypeName="POSSYSTEMModel.SELL_MANUAL">
         <MappingFragment StoreEntitySet="SELL_MANUAL">
+          <ScalarProperty Name="SE_NO" ColumnName="SE_NO" />
+          <ScalarProperty Name="E_DATE" ColumnName="E_DATE" />
+          <ScalarProperty Name="E_BY" ColumnName="E_BY" />
+          <ScalarProperty Name="C_DATE" ColumnName="C_DATE" />
+          <ScalarProperty Name="C_BY" ColumnName="C_BY" />
           <ScalarProperty Name="TOTAL" ColumnName="TOTAL" />
           <ScalarProperty Name="DISCOUNT" ColumnName="DISCOUNT" />
           <ScalarProperty Name="PRICE" ColumnName="PRICE" />
@@ -246,7 +251,7 @@
           <ScalarProperty Name="PRODUCT_NAME" ColumnName="PRODUCT_NAME" />
           <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
           <ScalarProperty Name="CUSTOMER_NAME" ColumnName="CUSTOMER_NAME" />
-          <ScalarProperty Name="NO" ColumnName="NO" />
+          <ScalarProperty Name="IV_NO" ColumnName="IV_NO" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>

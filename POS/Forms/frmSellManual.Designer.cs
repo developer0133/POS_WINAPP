@@ -35,12 +35,6 @@
             this.txtCusName = new System.Windows.Forms.TextBox();
             this.lblSum = new System.Windows.Forms.Label();
             this.dgvSell = new System.Windows.Forms.DataGridView();
-            this.PName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SellPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label8 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
@@ -58,10 +52,17 @@
             this.label9 = new System.Windows.Forms.Label();
             this.txtDate = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtSearchNo = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtSearchNo = new System.Windows.Forms.TextBox();
             this.btnSaveDraft = new System.Windows.Forms.Button();
+            this.btnReportInv = new System.Windows.Forms.Button();
+            this.PName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SellPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSell)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -104,7 +105,7 @@
             // 
             this.lblSum.AutoSize = true;
             this.lblSum.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.lblSum.Location = new System.Drawing.Point(912, 645);
+            this.lblSum.Location = new System.Drawing.Point(912, 739);
             this.lblSum.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSum.Name = "lblSum";
             this.lblSum.Size = new System.Drawing.Size(232, 25);
@@ -122,7 +123,7 @@
             this.Discount,
             this.Amount});
             this.dgvSell.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dgvSell.Location = new System.Drawing.Point(2, 401);
+            this.dgvSell.Location = new System.Drawing.Point(38, 495);
             this.dgvSell.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvSell.Name = "dgvSell";
             this.dgvSell.RowHeadersWidth = 51;
@@ -132,48 +133,6 @@
             this.dgvSell.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSell_CellDoubleClick);
             this.dgvSell.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSell_CellValueChanged);
             this.dgvSell.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvSell_EditingControlShowing);
-            // 
-            // PName
-            // 
-            this.PName.HeaderText = "PRODUCT NAME";
-            this.PName.MinimumWidth = 6;
-            this.PName.Name = "PName";
-            this.PName.Width = 140;
-            // 
-            // Qty
-            // 
-            this.Qty.HeaderText = "QTY";
-            this.Qty.MinimumWidth = 6;
-            this.Qty.Name = "Qty";
-            this.Qty.Width = 125;
-            // 
-            // Unit
-            // 
-            this.Unit.HeaderText = "UNIT";
-            this.Unit.MinimumWidth = 6;
-            this.Unit.Name = "Unit";
-            this.Unit.Width = 125;
-            // 
-            // SellPrice
-            // 
-            this.SellPrice.HeaderText = "PRICE";
-            this.SellPrice.MinimumWidth = 6;
-            this.SellPrice.Name = "SellPrice";
-            this.SellPrice.Width = 125;
-            // 
-            // Discount
-            // 
-            this.Discount.HeaderText = "DIS(THB)";
-            this.Discount.MinimumWidth = 6;
-            this.Discount.Name = "Discount";
-            this.Discount.Width = 125;
-            // 
-            // Amount
-            // 
-            this.Amount.HeaderText = "TOTAL(THB)";
-            this.Amount.MinimumWidth = 6;
-            this.Amount.Name = "Amount";
-            this.Amount.Width = 125;
             // 
             // label8
             // 
@@ -191,7 +150,7 @@
             this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSave.Image = global::POS.Properties.Resources.save;
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnSave.Location = new System.Drawing.Point(680, 83);
+            this.btnSave.Location = new System.Drawing.Point(812, 84);
             this.btnSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(171, 82);
@@ -207,12 +166,12 @@
             this.btnClear.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClear.Image = global::POS.Properties.Resources.cancel;
             this.btnClear.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnClear.Location = new System.Drawing.Point(869, 84);
+            this.btnClear.Location = new System.Drawing.Point(1001, 85);
             this.btnClear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(171, 82);
             this.btnClear.TabIndex = 58;
-            this.btnClear.Text = "CANCEL";
+            this.btnClear.Text = "CLEAR";
             this.btnClear.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
@@ -222,12 +181,12 @@
             this.btnReport.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnReport.Image = global::POS.Properties.Resources.print;
             this.btnReport.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnReport.Location = new System.Drawing.Point(1056, 83);
+            this.btnReport.Location = new System.Drawing.Point(812, 206);
             this.btnReport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnReport.Name = "btnReport";
             this.btnReport.Size = new System.Drawing.Size(171, 82);
             this.btnReport.TabIndex = 60;
-            this.btnReport.Text = "PRINT";
+            this.btnReport.Text = "PRINT ORDER";
             this.btnReport.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnReport.UseVisualStyleBackColor = true;
             this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
@@ -339,28 +298,12 @@
             this.groupBox1.Controls.Add(this.btnSearch);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.txtSearchNo);
-            this.groupBox1.Location = new System.Drawing.Point(680, 233);
+            this.groupBox1.Location = new System.Drawing.Point(36, 390);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(547, 100);
             this.groupBox1.TabIndex = 79;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "SEARCH";
-            // 
-            // txtSearchNo
-            // 
-            this.txtSearchNo.Location = new System.Drawing.Point(118, 30);
-            this.txtSearchNo.Name = "txtSearchNo";
-            this.txtSearchNo.Size = new System.Drawing.Size(263, 22);
-            this.txtSearchNo.TabIndex = 0;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(6, 33);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(96, 16);
-            this.label10.TabIndex = 1;
-            this.label10.Text = "Invoice/Del No";
             // 
             // btnSearch
             // 
@@ -375,12 +318,28 @@
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(6, 33);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(96, 16);
+            this.label10.TabIndex = 1;
+            this.label10.Text = "Invoice/Del No";
+            // 
+            // txtSearchNo
+            // 
+            this.txtSearchNo.Location = new System.Drawing.Point(118, 30);
+            this.txtSearchNo.Name = "txtSearchNo";
+            this.txtSearchNo.Size = new System.Drawing.Size(263, 22);
+            this.txtSearchNo.TabIndex = 0;
+            // 
             // btnSaveDraft
             // 
             this.btnSaveDraft.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSaveDraft.Image = global::POS.Properties.Resources.save;
             this.btnSaveDraft.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnSaveDraft.Location = new System.Drawing.Point(493, 83);
+            this.btnSaveDraft.Location = new System.Drawing.Point(625, 84);
             this.btnSaveDraft.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSaveDraft.Name = "btnSaveDraft";
             this.btnSaveDraft.Size = new System.Drawing.Size(171, 82);
@@ -391,11 +350,75 @@
             this.btnSaveDraft.UseVisualStyleBackColor = true;
             this.btnSaveDraft.Click += new System.EventHandler(this.btnSaveDraft_Click);
             // 
+            // btnReportInv
+            // 
+            this.btnReportInv.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReportInv.Image = global::POS.Properties.Resources.print;
+            this.btnReportInv.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnReportInv.Location = new System.Drawing.Point(625, 206);
+            this.btnReportInv.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnReportInv.Name = "btnReportInv";
+            this.btnReportInv.Size = new System.Drawing.Size(171, 82);
+            this.btnReportInv.TabIndex = 81;
+            this.btnReportInv.Text = "PRINT INVOICE";
+            this.btnReportInv.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnReportInv.UseVisualStyleBackColor = true;
+            this.btnReportInv.Click += new System.EventHandler(this.btnReportInv_Click);
+            // 
+            // PName
+            // 
+            this.PName.DataPropertyName = "PRODUCT_NAME";
+            this.PName.HeaderText = "PRODUCT NAME";
+            this.PName.MinimumWidth = 6;
+            this.PName.Name = "PName";
+            this.PName.Width = 140;
+            // 
+            // Qty
+            // 
+            this.Qty.DataPropertyName = "QTY";
+            this.Qty.HeaderText = "QTY";
+            this.Qty.MinimumWidth = 6;
+            this.Qty.Name = "Qty";
+            this.Qty.Width = 125;
+            // 
+            // Unit
+            // 
+            this.Unit.DataPropertyName = "UNIT";
+            this.Unit.HeaderText = "UNIT";
+            this.Unit.MinimumWidth = 6;
+            this.Unit.Name = "Unit";
+            this.Unit.Width = 125;
+            // 
+            // SellPrice
+            // 
+            this.SellPrice.DataPropertyName = "PRICE";
+            this.SellPrice.HeaderText = "PRICE";
+            this.SellPrice.MinimumWidth = 6;
+            this.SellPrice.Name = "SellPrice";
+            this.SellPrice.Width = 125;
+            // 
+            // Discount
+            // 
+            this.Discount.DataPropertyName = "DISCOUNT";
+            this.Discount.HeaderText = "DIS(THB)";
+            this.Discount.MinimumWidth = 6;
+            this.Discount.Name = "Discount";
+            this.Discount.Width = 125;
+            // 
+            // Amount
+            // 
+            this.Amount.DataPropertyName = "TOTAL";
+            this.Amount.HeaderText = "TOTAL(THB)";
+            this.Amount.MinimumWidth = 6;
+            this.Amount.Name = "Amount";
+            this.Amount.Width = 125;
+            // 
             // frmSellManual
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1271, 877);
+            this.ClientSize = new System.Drawing.Size(1486, 933);
+            this.Controls.Add(this.btnReportInv);
             this.Controls.Add(this.btnSaveDraft);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txtDate);
@@ -451,12 +474,6 @@
         private System.Windows.Forms.TextBox txtPrice;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtDis;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Qty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Unit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SellPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Discount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DateTimePicker txtDate;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -464,5 +481,12 @@
         private System.Windows.Forms.TextBox txtSearchNo;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnSaveDraft;
+        private System.Windows.Forms.Button btnReportInv;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Qty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Unit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SellPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Discount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
     }
 }

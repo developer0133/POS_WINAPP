@@ -35,13 +35,18 @@ namespace BL
             return _sellItem.GetSellItem(productid, parentID);
         }
 
-        public static string GetSellCode()
+        public static string GetSellCode(string flag)
         {
-            return _sellItem.GetSellCode();
+            return _sellItem.GetSellCode(flag);
         }
         public static bool InsertSellItemManual(List<SELL_MANUAL> sellitem, ref string message)
         {
             return _sellItem.InsertSellItemManual(sellitem, ref message);
+        }
+
+        public static List<SellManualModel> GetSellManual(string no)
+        {
+            return _sellItem.GetSellManual(no);
         }
     }
 }

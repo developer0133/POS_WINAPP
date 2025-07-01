@@ -15,7 +15,7 @@ namespace DATA_EF
     public partial class SELL_MANUAL
     {
         public int ID { get; set; }
-        public string NO { get; set; }
+        public string IV_NO { get; set; }
         public string CUSTOMER_NAME { get; set; }
         public string ADDRESS { get; set; }
         public string PRODUCT_NAME { get; set; }
@@ -24,5 +24,10 @@ namespace DATA_EF
         public Nullable<decimal> PRICE { get; set; }
         public Nullable<decimal> DISCOUNT { get; set; }
         public Nullable<decimal> TOTAL { get; set; }
+        public string C_BY { get; set; }
+        public Nullable<System.DateTime> C_DATE { get; set; }
+        public string E_BY { get; set; }
+        public Nullable<System.DateTime> E_DATE { get; set; }
+        public string SE_NO { get; set; }
     }
 }

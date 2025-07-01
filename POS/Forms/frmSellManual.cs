@@ -8,10 +8,13 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Common;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Forms;
 
 namespace POS.Forms
@@ -19,11 +22,15 @@ namespace POS.Forms
     public partial class frmSellManual : Form
     {
 
-        private string strSellNo = string.Empty;
+        private string strIVNO = string.Empty;
+        private string strSENO = string.Empty;
         private string saveFile = string.Empty;
+
+        private List<SellManualModel> sellmanualDS = new List<SellManualModel>();
         public frmSellManual()
         {
             InitializeComponent();
+            dgvSell.AutoGenerateColumns = false;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -31,31 +38,15 @@ namespace POS.Forms
             string msg = string.Empty;
             List<SELL_MANUAL> sellData = new List<SELL_MANUAL>();
 
-            DataGridViewRow row = (DataGridViewRow)dgvSell.Rows[0].Clone();
-            row.Cells[0].Value = txtProductName.Text;
-            row.Cells[1].Value = txtQty.Text;
-            row.Cells[2].Value = txtUnit.Text; // obj.SELLPRICE;//obj.STRSELLPRICE;
-            row.Cells[3].Value = txtPrice.Text;
-            row.Cells[4].Value = string.IsNullOrEmpty(txtDis.Text) ? "0" : txtDis.Text;
+            strIVNO = SellItemService.GetSellCode("IV");
+            strSENO = strIVNO.Replace("IV", "SE");
 
-            txtDis.Text = string.IsNullOrEmpty(txtDis.Text) ? "0" : txtDis.Text;    
-            var total = Convert.ToDecimal(txtQty.Text) * Convert.ToDecimal(txtPrice.Text)- Convert.ToDecimal(txtDis.Text);
-            row.Cells[5].Value = total.ToString();
-
-            dgvSell.Rows.Add(row);
-            foreach (DataGridViewRow rw in dgvSell.Rows)
-            {
-                rw.HeaderCell.Value = (rw.Index + 1).ToString();
-                rw.Cells[0].Style.BackColor = Color.DarkGray;
-            }
-
-            strSellNo = SellItemService.GetSellCode();
             for (int i = 0; i < dgvSell.Rows.Count - 1; i++)
             {
-
                 sellData.Add(new SELL_MANUAL()
                 {
-                    NO = strSellNo,
+                    IV_NO = strIVNO,
+                    SE_NO = strSENO,
                     CUSTOMER_NAME = txtCusName.Text,
                     ADDRESS = txtAddr.Text,
                     DISCOUNT = dgvSell.Rows[i].Cells["Discount"].Value == null ? 0 : decimal.Parse(dgvSell.Rows[i].Cells["Discount"].Value.ToString()),
@@ -63,66 +54,28 @@ namespace POS.Forms
                     QTY = dgvSell.Rows[i].Cells["Qty"].Value == null ? 0 : int.Parse(dgvSell.Rows[i].Cells["Qty"].Value.ToString()),
                     PRICE = dgvSell.Rows[i].Cells["SellPrice"].Value == null ? 0 : decimal.Parse(dgvSell.Rows[i].Cells["SellPrice"].Value.ToString()),
                     UNIT = dgvSell.Rows[i].Cells["Unit"].Value.ToString(),
-                    TOTAL= dgvSell.Rows[i].Cells["Amount"].Value == null ? 0 : decimal.Parse(dgvSell.Rows[i].Cells["Amount"].Value.ToString()),
+                    TOTAL = dgvSell.Rows[i].Cells["Amount"].Value == null ? 0 : decimal.Parse(dgvSell.Rows[i].Cells["Amount"].Value.ToString()),
+                    C_BY = UserModel.USER_CODE,
+                    C_DATE = txtDate.Value,
+                    E_BY = UserModel.USER_CODE,
+                    E_DATE = clsFunction.GetDate()
                 });
             }
 
-
             var isSuccess = SellItemService.InsertSellItemManual(sellData, ref msg);
-            AmountCalculate();
-            CLEAR();
+
+            if (isSuccess == true)
+            {
+                MessageBox.Show(MESSAGEALERT.COMPLETED, "POS", MessageBoxButtons.OK);
+            }
         }
 
         private void btnReport_Click(object sender, EventArgs e)
         {
-            string fileName = string.Empty;
-
-            GenReportModel objRp = new GenReportModel();
-            objRp.code = "";
-            objRp.printby = UserModel.USERNAME;
-            objRp.cusname = string.IsNullOrEmpty(txtCusName.Text) ? string.Empty : txtCusName.Text;
-            objRp.address = string.IsNullOrEmpty(txtAddr.Text) ? string.Empty : txtAddr.Text;
-
-            if (MessageBox.Show(string.Format("ต้องการพิมพ์รายงานหรือไม่ ? ", ""), "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if(!string.IsNullOrEmpty(strSENO))
             {
-
-                List<SELLITEMS> sellData = new List<SELLITEMS>();
-                List<SellReportModel> SellItemReport = new List<SellReportModel>();
-
-                strSellNo = SellItemService.GetSellCode();
-                objRp.code = strSellNo;
-
-                PrintModel.Flag = "Manual";
-                PrintModel.SellNo = objRp.code;
-                PrintModel.DateRpt = "";
-                PrintModel.Cusname = objRp.cusname;
-                PrintModel.Address = objRp.address;
-                objRp.param = objRp.code;
-
-
-                for (int i = 0; i < dgvSell.Rows.Count - 1; i++)
-                {
-
-                    SellItemReport.Add(new SellReportModel()
-                    {
-                        No = (i + 1),
-                        Item = dgvSell.Rows[i].Cells["PName"].Value.ToString(),
-                        Qty = dgvSell.Rows[i].Cells["Qty"].Value == null ? 0 : int.Parse(dgvSell.Rows[i].Cells["Qty"].Value.ToString()),
-                        AMOUNT = dgvSell.Rows[i].Cells["Amount"].Value == null ? 0 : decimal.Parse(dgvSell.Rows[i].Cells["Amount"].Value.ToString()),
-                        UNIT = dgvSell.Rows[i].Cells["Unit"].Value.ToString(),
-                        DISCOUNT = dgvSell.Rows[i].Cells["Discount"].Value == null ? 0 : decimal.Parse(dgvSell.Rows[i].Cells["Discount"].Value.ToString()),
-                        RETAILPRICE = dgvSell.Rows[i].Cells["SellPrice"].Value == null ? 0 : decimal.Parse(dgvSell.Rows[i].Cells["SellPrice"].Value.ToString()),
-                        CDATE = txtDate.Value //clsFunction.GetDate()
-                    }); 
-                }
-
-                var isSuccess = clsFunction.PrintReportManual(objRp, SellItemReport, ref fileName);
-
-                if (isSuccess)
-                {
-                    System.Diagnostics.Process.Start(fileName);
-                }
-            }
+                PrepareReportData("SE", strSENO);
+            } //order delivery
         }
 
         private void dgvSell_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
@@ -194,7 +147,17 @@ namespace POS.Forms
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            this.dgvSell.Rows.Clear();
+            if (sellmanualDS.Count > 0)
+            {
+                sellmanualDS = new List<SellManualModel>();
+               // dgvSell.DataSource = null;
+                dgvSell.Columns[0].Name = "PRODUCT_NAME";
+            }
+            else
+            {
+                dgvSell.Rows.Clear();
+            }
+
             lblSum.Text = string.Empty;
             lblSum.Text = string.Format("{0} {1} บาท", "รวมสุทธิ", "0.00");
 
@@ -209,11 +172,20 @@ namespace POS.Forms
             txtProductName.Text = string.Empty;
             txtQty.Text = string.Empty;
             txtUnit.Text = string.Empty;
+            txtAddr.Text = string.Empty;
+            txtCusName.Text = string.Empty;
+            txtSearchNo.Text= string.Empty;
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            sellmanualDS = SellItemService.GetSellManual(txtSearchNo.Text);
+            dgvSell.DataSource = sellmanualDS;
 
+            txtCusName.Text = sellmanualDS.Select(s => s.CUSTOMER_NAME).First();
+            txtAddr.Text = sellmanualDS.Select(s => s.ADDRESS).First();
+            strIVNO = sellmanualDS.Select(s => s.IV_NO).First();
+            strSENO = sellmanualDS.Select(s => s.SE_NO).First();
         }
 
         private void btnSaveDraft_Click(object sender, EventArgs e)
@@ -221,7 +193,7 @@ namespace POS.Forms
             DataGridViewRow row = (DataGridViewRow)dgvSell.Rows[0].Clone();
             row.Cells[0].Value = txtProductName.Text;
             row.Cells[1].Value = txtQty.Text;
-            row.Cells[2].Value = txtUnit.Text; // obj.SELLPRICE;//obj.STRSELLPRICE;
+            row.Cells[2].Value = txtUnit.Text;
             row.Cells[3].Value = txtPrice.Text;
             row.Cells[4].Value = string.IsNullOrEmpty(txtDis.Text) ? "0" : txtDis.Text;
 
@@ -238,6 +210,70 @@ namespace POS.Forms
 
             AmountCalculate();
             CLEAR();
+        }
+
+        private void btnReportInv_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(strIVNO))
+                PrepareReportData("IV", strIVNO);//invoice
+        }
+
+        private void PrepareReportData(string flag,string No)
+        {
+            string fileName = string.Empty;
+
+            GenReportModel objRp = new GenReportModel();
+            objRp.code = "";
+            objRp.printby = UserModel.USERNAME;
+            objRp.cusname = string.IsNullOrEmpty(txtCusName.Text) ? string.Empty : txtCusName.Text;
+            objRp.address = string.IsNullOrEmpty(txtAddr.Text) ? string.Empty : txtAddr.Text;
+
+            if (MessageBox.Show(string.Format("ต้องการพิมพ์รายงานหรือไม่ ? ", ""), "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+
+                List<SELLITEMS> sellData = new List<SELLITEMS>();
+                List<SellReportModel> SellItemReport = new List<SellReportModel>();
+
+                if (string.IsNullOrEmpty(No))
+                {
+                    objRp.code = SellItemService.GetSellCode(flag);
+                }
+                else
+                {
+                    objRp.code = No;
+                }
+
+                PrintModel.Flag = "Manual";
+                PrintModel.SellNo = objRp.code;
+                PrintModel.DateRpt = "";
+                PrintModel.Cusname = objRp.cusname;
+                PrintModel.Address = objRp.address;
+                objRp.param = objRp.code;
+
+
+                for (int i = 0; i < dgvSell.Rows.Count - 1; i++)
+                {
+
+                    SellItemReport.Add(new SellReportModel()
+                    {
+                        No = (i + 1),
+                        Item = dgvSell.Rows[i].Cells["PName"].Value.ToString(),
+                        Qty = dgvSell.Rows[i].Cells["Qty"].Value == null ? 0 : int.Parse(dgvSell.Rows[i].Cells["Qty"].Value.ToString()),
+                        AMOUNT = dgvSell.Rows[i].Cells["Amount"].Value == null ? 0 : decimal.Parse(dgvSell.Rows[i].Cells["Amount"].Value.ToString()),
+                        UNIT = dgvSell.Rows[i].Cells["Unit"].Value.ToString(),
+                        DISCOUNT = dgvSell.Rows[i].Cells["Discount"].Value == null ? 0 : decimal.Parse(dgvSell.Rows[i].Cells["Discount"].Value.ToString()),
+                        RETAILPRICE = dgvSell.Rows[i].Cells["SellPrice"].Value == null ? 0 : decimal.Parse(dgvSell.Rows[i].Cells["SellPrice"].Value.ToString()),
+                        CDATE = txtDate.Value //clsFunction.GetDate()
+                    });
+                }
+
+                var isSuccess = clsFunction.PrintReportManual(objRp, SellItemReport, flag, ref fileName);
+
+                if (isSuccess)
+                {
+                    System.Diagnostics.Process.Start(fileName);
+                }
+            }
         }
     }
 }

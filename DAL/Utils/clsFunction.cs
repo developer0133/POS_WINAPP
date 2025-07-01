@@ -144,6 +144,9 @@ namespace DAL.Utils
                 case "SE": //sell item
                     sFormat = string.Format("{0}{1}{2}{3:D5}", "SE", d, m, runningid);
                     break;
+                case "IV": //invoice
+                    sFormat = string.Format("{0}{1}{2}{3:D5}", "IV", d, m, runningid);
+                    break;
                 case "U": //user
                     sFormat = string.Format("{0}{1}{2}{3:D5}", "", d, m, runningid);
                     break;

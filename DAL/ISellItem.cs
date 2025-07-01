@@ -8,6 +8,7 @@ using DAL.Utils;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using DATA_Models.DTO;
+using DATA_Models.Models;
 
 
 namespace DAL
@@ -18,6 +19,8 @@ namespace DAL
         string InsertSellItem2(List<SELLITEMS> sellitem, ref string message);
         bool InsertSellItemManual(List<SELL_MANUAL> sellitem, ref string message);
         List<SellHistDTO> GetSellItem(int productid, List<int> parentID);
-        string GetSellCode();
+        string GetSellCode(string flag);
+
+        List<SellManualModel> GetSellManual(string no);
     }
 }

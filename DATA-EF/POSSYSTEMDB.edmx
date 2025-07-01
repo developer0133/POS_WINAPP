@@ -198,7 +198,7 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NO" Type="nvarchar" MaxLength="20" />
+          <Property Name="IV_NO" Type="nvarchar" MaxLength="20" />
           <Property Name="CUSTOMER_NAME" Type="nvarchar" MaxLength="50" />
           <Property Name="ADDRESS" Type="nvarchar" MaxLength="50" />
           <Property Name="PRODUCT_NAME" Type="nvarchar" MaxLength="50" />
@@ -207,6 +207,11 @@
           <Property Name="PRICE" Type="decimal" Precision="18" Scale="2" />
           <Property Name="DISCOUNT" Type="decimal" Precision="18" Scale="2" />
           <Property Name="TOTAL" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="C_BY" Type="nvarchar" MaxLength="50" />
+          <Property Name="C_DATE" Type="datetime" />
+          <Property Name="E_BY" Type="nvarchar" MaxLength="50" />
+          <Property Name="E_DATE" Type="datetime" />
+          <Property Name="SE_NO" Type="nvarchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="SELLITEMS">
           <Key>
@@ -503,7 +508,7 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NO" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="IV_NO" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="CUSTOMER_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ADDRESS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="PRODUCT_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -512,6 +517,11 @@
           <Property Name="PRICE" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="DISCOUNT" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="TOTAL" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="C_BY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="C_DATE" Type="DateTime" Precision="3" />
+          <Property Name="E_BY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="E_DATE" Type="DateTime" Precision="3" />
+          <Property Name="SE_NO" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -756,6 +766,11 @@
           <EntitySetMapping Name="SELL_MANUAL">
             <EntityTypeMapping TypeName="POSSYSTEMModel.SELL_MANUAL">
               <MappingFragment StoreEntitySet="SELL_MANUAL">
+                <ScalarProperty Name="SE_NO" ColumnName="SE_NO" />
+                <ScalarProperty Name="E_DATE" ColumnName="E_DATE" />
+                <ScalarProperty Name="E_BY" ColumnName="E_BY" />
+                <ScalarProperty Name="C_DATE" ColumnName="C_DATE" />
+                <ScalarProperty Name="C_BY" ColumnName="C_BY" />
                 <ScalarProperty Name="TOTAL" ColumnName="TOTAL" />
                 <ScalarProperty Name="DISCOUNT" ColumnName="DISCOUNT" />
                 <ScalarProperty Name="PRICE" ColumnName="PRICE" />
@@ -764,7 +779,7 @@
                 <ScalarProperty Name="PRODUCT_NAME" ColumnName="PRODUCT_NAME" />
                 <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
                 <ScalarProperty Name="CUSTOMER_NAME" ColumnName="CUSTOMER_NAME" />
-                <ScalarProperty Name="NO" ColumnName="NO" />
+                <ScalarProperty Name="IV_NO" ColumnName="IV_NO" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

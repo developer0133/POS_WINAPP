@@ -193,7 +193,7 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="NO" Type="nvarchar" MaxLength="20" />
+    <Property Name="IV_NO" Type="nvarchar" MaxLength="20" />
     <Property Name="CUSTOMER_NAME" Type="nvarchar" MaxLength="50" />
     <Property Name="ADDRESS" Type="nvarchar" MaxLength="50" />
     <Property Name="PRODUCT_NAME" Type="nvarchar" MaxLength="50" />
@@ -202,6 +202,11 @@
     <Property Name="PRICE" Type="decimal" Precision="18" Scale="2" />
     <Property Name="DISCOUNT" Type="decimal" Precision="18" Scale="2" />
     <Property Name="TOTAL" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="C_BY" Type="nvarchar" MaxLength="50" />
+    <Property Name="C_DATE" Type="datetime" />
+    <Property Name="E_BY" Type="nvarchar" MaxLength="50" />
+    <Property Name="E_DATE" Type="datetime" />
+    <Property Name="SE_NO" Type="nvarchar" MaxLength="20" />
   </EntityType>
   <EntityType Name="SELLITEMS">
     <Key>
