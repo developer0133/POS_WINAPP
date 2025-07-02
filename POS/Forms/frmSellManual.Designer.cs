@@ -35,7 +35,12 @@
             this.txtCusName = new System.Windows.Forms.TextBox();
             this.lblSum = new System.Windows.Forms.Label();
             this.dgvSell = new System.Windows.Forms.DataGridView();
-            this.label8 = new System.Windows.Forms.Label();
+            this.PName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SellPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnReport = new System.Windows.Forms.Button();
@@ -57,12 +62,6 @@
             this.txtSearchNo = new System.Windows.Forms.TextBox();
             this.btnSaveDraft = new System.Windows.Forms.Button();
             this.btnReportInv = new System.Windows.Forms.Button();
-            this.PName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SellPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSell)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -134,16 +133,53 @@
             this.dgvSell.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSell_CellValueChanged);
             this.dgvSell.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvSell_EditingControlShowing);
             // 
-            // label8
+            // PName
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.label8.Location = new System.Drawing.Point(12, 9);
-            this.label8.Name = "label8";
-            this.label8.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label8.Size = new System.Drawing.Size(102, 25);
-            this.label8.TabIndex = 54;
-            this.label8.Text = "MANUAL";
+            this.PName.DataPropertyName = "PRODUCT_NAME";
+            this.PName.HeaderText = "PRODUCT NAME";
+            this.PName.MinimumWidth = 6;
+            this.PName.Name = "PName";
+            this.PName.Width = 140;
+            // 
+            // Qty
+            // 
+            this.Qty.DataPropertyName = "QTY";
+            this.Qty.HeaderText = "QTY";
+            this.Qty.MinimumWidth = 6;
+            this.Qty.Name = "Qty";
+            this.Qty.Width = 125;
+            // 
+            // Unit
+            // 
+            this.Unit.DataPropertyName = "UNIT";
+            this.Unit.HeaderText = "UNIT";
+            this.Unit.MinimumWidth = 6;
+            this.Unit.Name = "Unit";
+            this.Unit.Width = 125;
+            // 
+            // SellPrice
+            // 
+            this.SellPrice.DataPropertyName = "PRICE";
+            this.SellPrice.HeaderText = "PRICE";
+            this.SellPrice.MinimumWidth = 6;
+            this.SellPrice.Name = "SellPrice";
+            this.SellPrice.Width = 125;
+            // 
+            // Discount
+            // 
+            this.Discount.DataPropertyName = "DISCOUNT";
+            this.Discount.HeaderText = "DIS(THB)";
+            this.Discount.MinimumWidth = 6;
+            this.Discount.Name = "Discount";
+            this.Discount.Width = 125;
+            // 
+            // Amount
+            // 
+            this.Amount.DataPropertyName = "TOTAL";
+            this.Amount.HeaderText = "TOTAL(THB)";
+            this.Amount.MinimumWidth = 6;
+            this.Amount.Name = "Amount";
+            this.Amount.Width = 125;
             // 
             // btnSave
             // 
@@ -365,54 +401,6 @@
             this.btnReportInv.UseVisualStyleBackColor = true;
             this.btnReportInv.Click += new System.EventHandler(this.btnReportInv_Click);
             // 
-            // PName
-            // 
-            this.PName.DataPropertyName = "PRODUCT_NAME";
-            this.PName.HeaderText = "PRODUCT NAME";
-            this.PName.MinimumWidth = 6;
-            this.PName.Name = "PName";
-            this.PName.Width = 140;
-            // 
-            // Qty
-            // 
-            this.Qty.DataPropertyName = "QTY";
-            this.Qty.HeaderText = "QTY";
-            this.Qty.MinimumWidth = 6;
-            this.Qty.Name = "Qty";
-            this.Qty.Width = 125;
-            // 
-            // Unit
-            // 
-            this.Unit.DataPropertyName = "UNIT";
-            this.Unit.HeaderText = "UNIT";
-            this.Unit.MinimumWidth = 6;
-            this.Unit.Name = "Unit";
-            this.Unit.Width = 125;
-            // 
-            // SellPrice
-            // 
-            this.SellPrice.DataPropertyName = "PRICE";
-            this.SellPrice.HeaderText = "PRICE";
-            this.SellPrice.MinimumWidth = 6;
-            this.SellPrice.Name = "SellPrice";
-            this.SellPrice.Width = 125;
-            // 
-            // Discount
-            // 
-            this.Discount.DataPropertyName = "DISCOUNT";
-            this.Discount.HeaderText = "DIS(THB)";
-            this.Discount.MinimumWidth = 6;
-            this.Discount.Name = "Discount";
-            this.Discount.Width = 125;
-            // 
-            // Amount
-            // 
-            this.Amount.DataPropertyName = "TOTAL";
-            this.Amount.HeaderText = "TOTAL(THB)";
-            this.Amount.MinimumWidth = 6;
-            this.Amount.Name = "Amount";
-            this.Amount.Width = 125;
-            // 
             // frmSellManual
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -441,10 +429,9 @@
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.dgvSell);
-            this.Controls.Add(this.label8);
             this.Controls.Add(this.btnReport);
             this.Name = "frmSellManual";
-            this.Text = "frmSellManual";
+            this.Text = "MANUAL";
             ((System.ComponentModel.ISupportInitialize)(this.dgvSell)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -462,7 +449,6 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.DataGridView dgvSell;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnReport;
         private System.Windows.Forms.TextBox txtProductName;
         private System.Windows.Forms.Label label3;

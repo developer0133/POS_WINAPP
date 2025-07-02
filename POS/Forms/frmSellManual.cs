@@ -189,14 +189,17 @@ namespace POS.Forms
             sellmanualDS = SellItemService.GetSellManual(txtSearchNo.Text);
             dgvSell.DataSource = sellmanualDS;
 
-            txtCusName.Text = sellmanualDS.Select(s => s.CUSTOMER_NAME).First();
-            txtAddr.Text = sellmanualDS.Select(s => s.ADDRESS).First();
-            strIVNO = sellmanualDS.Select(s => s.IV_NO).First();
-            strSENO = sellmanualDS.Select(s => s.SE_NO).First();
+            if (sellmanualDS.Count > 0)
+            {
+                txtCusName.Text = sellmanualDS.Select(s => s.CUSTOMER_NAME).First();
+                txtAddr.Text = sellmanualDS.Select(s => s.ADDRESS).First();
+                strIVNO = sellmanualDS.Select(s => s.IV_NO).First();
+                strSENO = sellmanualDS.Select(s => s.SE_NO).First();
 
-            decimal total = 0;
-            total = sellmanualDS.Sum(s => s.TOTAL.Value);
-            lblSum.Text = string.Format("{0} {1} บาท", "รวมสุทธิ", total.ToString("#,###.00"));
+                decimal total = 0;
+                total = sellmanualDS.Sum(s => s.TOTAL.Value);
+                lblSum.Text = string.Format("{0} {1} บาท", "รวมสุทธิ", total.ToString("#,###.00"));
+            }
         }
 
         private void btnSaveDraft_Click(object sender, EventArgs e)
