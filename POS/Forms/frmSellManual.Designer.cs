@@ -240,9 +240,9 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.label3.Location = new System.Drawing.Point(33, 218);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 17);
+            this.label3.Size = new System.Drawing.Size(119, 17);
             this.label3.TabIndex = 67;
-            this.label3.Text = "P NAME";
+            this.label3.Text = "PRODUCT NAME";
             // 
             // label4
             // 
