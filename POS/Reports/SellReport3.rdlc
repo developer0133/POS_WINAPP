@@ -734,7 +734,10 @@
                     </TextRun>
                     <TextRun>
                       <Value>=Parameters!no.Value</Value>
-                      <Style />
+                      <Style>
+                        <FontFamily>Cordia New</FontFamily>
+                        <FontSize>14pt</FontSize>
+                      </Style>
                     </TextRun>
                   </TextRuns>
                   <Style />
@@ -874,7 +877,7 @@
           </Style>
         </PageHeader>
         <PageFooter>
-          <Height>6.30765cm</Height>
+          <Height>6.54048cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -886,7 +889,10 @@
                   <TextRuns>
                     <TextRun>
                       <Value>="Page " + Globals!PageNumber.ToString() + " / " + Globals!TotalPages.ToString()</Value>
-                      <Style />
+                      <Style>
+                        <FontFamily>Cordia New</FontFamily>
+                        <FontSize>12pt</FontSize>
+                      </Style>
                     </TextRun>
                   </TextRuns>
                   <Style />
@@ -894,7 +900,7 @@
               </Paragraphs>
               <Top>5.34776cm</Top>
               <Left>14.6115cm</Left>
-              <Height>0.6cm</Height>
+              <Height>0.68467cm</Height>
               <Width>2.43551cm</Width>
               <Style>
                 <Border>
@@ -1617,7 +1623,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>รวมทั้งสิ้น(ตัวอักษร)</Value>
+                      <Value>รวมทั้งสิ้น(ตัวอักษร):</Value>
                       <Style>
                         <FontFamily>Cordia New</FontFamily>
                         <FontSize>14pt</FontSize>
