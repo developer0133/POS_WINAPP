@@ -212,7 +212,7 @@ namespace POS.Forms
             row.Cells[4].Value = string.IsNullOrEmpty(txtDis.Text) ? "0" : txtDis.Text;
 
             txtDis.Text = string.IsNullOrEmpty(txtDis.Text) ? "0" : txtDis.Text;
-            var total = Convert.ToDecimal(txtQty.Text) * Convert.ToDecimal(txtPrice.Text) - Convert.ToDecimal(txtDis.Text);
+            var total = (Convert.ToDecimal(txtQty.Text) * Convert.ToDecimal(txtPrice.Text)) - Convert.ToDecimal(txtDis.Text);
             row.Cells[5].Value = total.ToString();
 
             dgvSell.Rows.Add(row);
