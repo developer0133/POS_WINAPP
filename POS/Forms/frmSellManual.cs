@@ -268,16 +268,16 @@ namespace POS.Forms
                 {
                     for (int i = 0; i < dgvSell.Rows.Count - 1; i++)
                     {
-
+                       
                         SellItemReport.Add(new SellReportModel()
                         {
                             No = (i + 1),
-                            Item = dgvSell.Rows[i].Cells["PName"].Value.ToString(),
+                            Item = dgvSell.Rows[i].Cells["PName"].Value.ToString(), // lblSum.Text = string.Format("{0} {1} บาท", "รวมสุทธิ", total.ToString("#,###.00"));
                             Qty = dgvSell.Rows[i].Cells["Qty"].Value == null ? 0 : decimal.Parse(dgvSell.Rows[i].Cells["Qty"].Value.ToString()),
-                            AMOUNT = dgvSell.Rows[i].Cells["Amount"].Value == null ? 0 : decimal.Parse(dgvSell.Rows[i].Cells["Amount"].Value.ToString()),
+                            AMOUNT = dgvSell.Rows[i].Cells["Amount"].Value == null ? "" : clsFunction.setFormatCurrency(decimal.Parse(dgvSell.Rows[i].Cells["Amount"].Value.ToString())),  // decimal.Parse(dgvSell.Rows[i].Cells["Amount"].Value.ToString()),
                             UNIT = dgvSell.Rows[i].Cells["Unit"].Value.ToString(),
                             DISCOUNT = dgvSell.Rows[i].Cells["Discount"].Value == null ? 0 : decimal.Parse(dgvSell.Rows[i].Cells["Discount"].Value.ToString()),
-                            RETAILPRICE = dgvSell.Rows[i].Cells["SellPrice"].Value == null ? 0 : decimal.Parse(dgvSell.Rows[i].Cells["SellPrice"].Value.ToString()),
+                            RETAILPRICE = dgvSell.Rows[i].Cells["SellPrice"].Value == null ? "" : clsFunction.setFormatCurrency(decimal.Parse(dgvSell.Rows[i].Cells["SellPrice"].Value.ToString())),//decimal.Parse(dgvSell.Rows[i].Cells["SellPrice"].Value.ToString()),
                             CDATE = txtDate.Value //clsFunction.GetDate()
                         });
                     }
@@ -294,10 +294,10 @@ namespace POS.Forms
                                 No = (i + 1),
                                 Item = dgvSell.Rows[i].Cells["PName"].Value.ToString(),
                                 Qty = dgvSell.Rows[i].Cells["Qty"].Value == null ? 0 : decimal.Parse(dgvSell.Rows[i].Cells["Qty"].Value.ToString()),
-                                AMOUNT = dgvSell.Rows[i].Cells["Amount"].Value == null ? 0 : decimal.Parse(dgvSell.Rows[i].Cells["Amount"].Value.ToString()),
+                                AMOUNT = dgvSell.Rows[i].Cells["Amount"].Value == null ? "" : clsFunction.setFormatCurrency(decimal.Parse(dgvSell.Rows[i].Cells["Amount"].Value.ToString())),//AMOUNT = dgvSell.Rows[i].Cells["Amount"].Value == null ? 0 : decimal.Parse(dgvSell.Rows[i].Cells["Amount"].Value.ToString()),
                                 UNIT = dgvSell.Rows[i].Cells["Unit"].Value.ToString(),
                                 DISCOUNT = dgvSell.Rows[i].Cells["Discount"].Value == null ? 0 : decimal.Parse(dgvSell.Rows[i].Cells["Discount"].Value.ToString()),
-                                RETAILPRICE = dgvSell.Rows[i].Cells["SellPrice"].Value == null ? 0 : decimal.Parse(dgvSell.Rows[i].Cells["SellPrice"].Value.ToString()),
+                                RETAILPRICE = dgvSell.Rows[i].Cells["SellPrice"].Value == null ? "" : clsFunction.setFormatCurrency(decimal.Parse(dgvSell.Rows[i].Cells["SellPrice"].Value.ToString())),//RETAILPRICE = dgvSell.Rows[i].Cells["SellPrice"].Value == null ? 0 : decimal.Parse(dgvSell.Rows[i].Cells["SellPrice"].Value.ToString()),
                                 CDATE = txtDate.Value //clsFunction.GetDate()
                             });
                         }

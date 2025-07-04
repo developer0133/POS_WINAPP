@@ -48,7 +48,7 @@ namespace POS.Reports
                     rptPath = string.Format("{0}/{1}{2}", POS_PATH.REPORTS, REPORT_NAME.SELL_REPORT3, ".rdlc");
 
                     var rptData = ReportService.SellItemReport(OReport.code);
-                    decimal? sumAmount = rptData.Sum(s => s.AMOUNT);
+                    decimal? sumAmount = rptData.Sum(s => decimal.Parse( s.AMOUNT));
                     string strsSumAmount = "";
                     strsSumAmount = sumAmount.HasValue ? string.Format("{0} {1}", Utils.clsFunction.setFormatCurrency(sumAmount), "บาท") : string.Empty;
 

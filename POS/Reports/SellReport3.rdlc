@@ -652,7 +652,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox3</rd:DefaultName>
-              <Top>2.28486cm</Top>
+              <Top>2.91986cm</Top>
               <Left>11.67457cm</Left>
               <Height>0.77639cm</Height>
               <Width>5.61754cm</Width>
@@ -674,7 +674,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>เลขที่:</Value>
+                      <Value>เลขที่ :</Value>
                       <Style>
                         <FontFamily>Cordia New</FontFamily>
                         <FontSize>14pt</FontSize>
@@ -698,7 +698,7 @@
               <rd:DefaultName>Textbox5</rd:DefaultName>
               <Top>1.61431cm</Top>
               <Left>11.67457cm</Left>
-              <Height>0.81166cm</Height>
+              <Height>0.63784cm</Height>
               <Width>5.61754cm</Width>
               <ZIndex>2</ZIndex>
               <Style>
@@ -752,7 +752,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>นามลูกค้า</Value>
+                      <Value>นามลูกค้า </Value>
                       <Style>
                         <FontFamily>Cordia New</FontFamily>
                         <FontSize>14pt</FontSize>
@@ -775,7 +775,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>ที่อยู่:</Value>
+                      <Value>ที่อยู่ :</Value>
                       <Style>
                         <FontFamily>Cordia New</FontFamily>
                         <FontSize>14pt</FontSize>
@@ -847,6 +847,39 @@
               <Height>1.26153cm</Height>
               <Width>4.03334cm</Width>
               <ZIndex>6</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox6">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>วันที่ :</Value>
+                      <Style>
+                        <FontFamily>Cordia New</FontFamily>
+                        <FontSize>14pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox3</rd:DefaultName>
+              <Top>2.25215cm</Top>
+              <Left>11.67457cm</Left>
+              <Height>0.77639cm</Height>
+              <Width>5.61754cm</Width>
+              <ZIndex>7</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>

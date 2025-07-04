@@ -32,6 +32,8 @@ namespace POS.Forms
             //decimal amount = 121.50M;
             //string s = amount.ThaiBahtText();
             //string s23 = (11m).ThaiBahtText();   // สิบเอ็ดบาทถ้วน
+
+            //Guid id = Guid.NewGuid();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)

@@ -187,7 +187,7 @@ namespace POS.Utils
 
             if (rptData.Count > 0)
             {
-                decimal? sumAmount = rptData.Sum(s => s.AMOUNT);
+                decimal? sumAmount = rptData.Sum(s =>decimal.Parse( s.AMOUNT));
                 string strsSumAmount = "";
                 strsSumAmount = sumAmount.HasValue ? string.Format("{0} {1}", Utils.clsFunction.setFormatCurrency(sumAmount), "บาท") : string.Empty;
                 //decimal amount = 121.50M;
@@ -330,7 +330,7 @@ namespace POS.Utils
 
             if (rptData.Count > 0)
             {
-                decimal? sumAmount = rptData.Sum(s => s.AMOUNT);
+                decimal? sumAmount = rptData.Sum(s =>decimal.Parse( s.AMOUNT));
                 string strsSumAmount = "";
                 strsSumAmount = sumAmount.HasValue ? string.Format("{0} {1}", Utils.clsFunction.setFormatCurrency(sumAmount), "บาท") : string.Empty;
                 //decimal amount = 121.50M;

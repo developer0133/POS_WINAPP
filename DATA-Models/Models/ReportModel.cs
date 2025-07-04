@@ -52,12 +52,12 @@ namespace DATA_Models.Models
        
         public string Item { get; set; }
         public decimal? Qty { get; set; }
-        public decimal? AMOUNT { get; set; }
+        public string AMOUNT { get; set; }
         public string UNIT { get; set; }
         public decimal? DISCOUNT { get; set; }
         public DateTime? CDATE { get; set; }
         public int No { get; set; }
-        public decimal? RETAILPRICE { get; set; }
+        public string RETAILPRICE { get; set; }
     }
 
     public class ReportResult

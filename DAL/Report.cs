@@ -31,10 +31,10 @@ namespace DAL
                                    Item = t2.PRODUCT_NAME,
                                    Qty = t1.QTY,
                                    UNIT = t3.NAME,
-                                   AMOUNT = t1.AMOUNT,
+                                   AMOUNT = t1.AMOUNT.ToString(),
                                    DISCOUNT = t1.DISCOUNT,
                                    CDATE = t1.C_DATE,
-                                   RETAILPRICE = t2.RETAILPRICE
+                                   RETAILPRICE = t2.RETAILPRICE.ToString()
                                    //Product_ID=t2.PRODUCT_ID,
                                    //Product_Code=t1.PRODUCT_CODE
                                }).AsQueryable();
