@@ -910,7 +910,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>="Page " + Globals!PageNumber.ToString() + " / " + Globals!TotalPages.ToString()</Value>
+                      <Value>="" + Globals!PageNumber.ToString() + " / " + Globals!TotalPages.ToString()</Value>
                       <Style>
                         <FontFamily>Cordia New</FontFamily>
                         <FontSize>12pt</FontSize>
