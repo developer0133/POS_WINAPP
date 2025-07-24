@@ -899,14 +899,14 @@
                       <Value>หน้าที่:</Value>
                       <Style>
                         <FontFamily>Cordia New</FontFamily>
-                        <FontSize>12pt</FontSize>
+                        <FontSize>14pt</FontSize>
                       </Style>
                     </TextRun>
                     <TextRun>
                       <Value>="" + Globals!PageNumber.ToString() + " / " + Globals!TotalPages.ToString()</Value>
                       <Style>
                         <FontFamily>Cordia New</FontFamily>
-                        <FontSize>12pt</FontSize>
+                        <FontSize>14pt</FontSize>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -916,9 +916,9 @@
                 </Paragraph>
               </Paragraphs>
               <Top>4.21415cm</Top>
-              <Left>14.8566cm</Left>
-              <Height>0.6cm</Height>
-              <Width>2.43551cm</Width>
+              <Left>14.23647cm</Left>
+              <Height>0.727cm</Height>
+              <Width>3.05564cm</Width>
               <ZIndex>8</ZIndex>
               <Style>
                 <Border>
@@ -1143,7 +1143,7 @@
               <rd:DefaultName>Textbox7</rd:DefaultName>
               <Top>0.17639cm</Top>
               <Left>12.17177cm</Left>
-              <Height>0.6cm</Height>
+              <Height>0.75773cm</Height>
               <Width>5.12034cm</Width>
               <ZIndex>1</ZIndex>
               <Style>

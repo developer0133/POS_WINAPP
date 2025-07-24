@@ -889,7 +889,7 @@
                 <PaddingBottom>2pt</PaddingBottom>
               </Style>
             </Textbox>
-            <Textbox Name="txtpage">
+            <Textbox Name="txtpage2">
               <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
               <Paragraphs>
@@ -899,14 +899,14 @@
                       <Value>หน้าที่:</Value>
                       <Style>
                         <FontFamily>Cordia New</FontFamily>
-                        <FontSize>12pt</FontSize>
+                        <FontSize>14pt</FontSize>
                       </Style>
                     </TextRun>
                     <TextRun>
                       <Value>="" + Globals!PageNumber.ToString() + " / " + Globals!TotalPages.ToString()</Value>
                       <Style>
                         <FontFamily>Cordia New</FontFamily>
-                        <FontSize>12pt</FontSize>
+                        <FontSize>14pt</FontSize>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -916,9 +916,9 @@
                 </Paragraph>
               </Paragraphs>
               <Top>4.04696cm</Top>
-              <Left>14.99944cm</Left>
-              <Height>0.6cm</Height>
-              <Width>2.43551cm</Width>
+              <Left>14.37931cm</Left>
+              <Height>0.727cm</Height>
+              <Width>3.05564cm</Width>
               <ZIndex>8</ZIndex>
               <Style>
                 <Border>
