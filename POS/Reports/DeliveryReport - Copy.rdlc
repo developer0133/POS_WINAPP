@@ -65,27 +65,27 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>1.38096cm</Width>
+                  <Width>1.64071cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>6.13998cm</Width>
+                  <Width>4.59691cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.77355cm</Width>
+                  <Width>1.94585cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.30553cm</Width>
+                  <Width>2.49337cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.33987cm</Width>
+                  <Width>2.485cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>3.28284cm</Width>
+                  <Width>4.02525cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>0.67052cm</Height>
+                  <Height>0.6cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -121,6 +121,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -306,7 +307,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.67052cm</Height>
+                  <Height>0.6cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -525,7 +526,9 @@
             </TablixBody>
             <TablixColumnHierarchy>
               <TablixMembers>
-                <TablixMember />
+                <TablixMember>
+                  <RepeatOnNewPage>true</RepeatOnNewPage>
+                </TablixMember>
                 <TablixMember />
                 <TablixMember />
                 <TablixMember />
@@ -537,21 +540,17 @@
               <TablixMembers>
                 <TablixMember>
                   <KeepWithGroup>After</KeepWithGroup>
-                  <RepeatOnNewPage>true</RepeatOnNewPage>
                 </TablixMember>
                 <TablixMember>
                   <Group Name="Details" />
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
-            <RepeatColumnHeaders>true</RepeatColumnHeaders>
-            <RepeatRowHeaders>true</RepeatRowHeaders>
-            <KeepTogether>true</KeepTogether>
             <DataSetName>sell_DS</DataSetName>
             <Top>0.72495cm</Top>
             <Left>0.57175cm</Left>
-            <Height>1.34104cm</Height>
-            <Width>17.22273cm</Width>
+            <Height>1.2cm</Height>
+            <Width>17.18709cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -559,20 +558,58 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>0.85505in</Height>
+        <Height>0.80785in</Height>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
+          <BottomBorder>
+            <Color>Black</Color>
+            <Style>Solid</Style>
+            <Width>1pt</Width>
+          </BottomBorder>
         </Style>
       </Body>
-      <Width>7.08007in</Width>
+      <Width>7.03334in</Width>
       <Page>
         <PageHeader>
-          <Height>5.98253cm</Height>
+          <Height>6.15892cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
+            <Textbox Name="Textbox21">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value> ใบส่งสินค้า</Value>
+                      <Style>
+                        <FontFamily>Cordia New</FontFamily>
+                        <FontSize>24pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox1</rd:DefaultName>
+              <Top>0.35224cm</Top>
+              <Left>12.3422cm</Left>
+              <Height>0.85936cm</Height>
+              <Width>4.1281cm</Width>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
             <Textbox Name="Textbox2">
               <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
@@ -612,128 +649,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox2</rd:DefaultName>
-              <Top>1.61431cm</Top>
-              <Left>2.81845cm</Left>
+              <Top>1.52638cm</Top>
+              <Left>2.85002cm</Left>
               <Height>1.73173cm</Height>
               <Width>7.63378cm</Width>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox4">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>ออกโดย :</Value>
-                      <Style>
-                        <FontFamily>Cordia New</FontFamily>
-                        <FontSize>14pt</FontSize>
-                      </Style>
-                    </TextRun>
-                    <TextRun>
-                      <Value>=Parameters!printby.Value</Value>
-                      <Style>
-                        <FontFamily>Cordia New</FontFamily>
-                        <FontSize>14pt</FontSize>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox3</rd:DefaultName>
-              <Top>3.26138cm</Top>
-              <Left>11.67457cm</Left>
-              <Height>0.77639cm</Height>
-              <Width>5.61754cm</Width>
               <ZIndex>1</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox5">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>เลขที่ :</Value>
-                      <Style>
-                        <FontFamily>Cordia New</FontFamily>
-                        <FontSize>14pt</FontSize>
-                      </Style>
-                    </TextRun>
-                    <TextRun>
-                      <Value xml:space="preserve"> </Value>
-                      <Style />
-                    </TextRun>
-                    <TextRun>
-                      <Value>=Parameters!no.Value</Value>
-                      <Style>
-                        <FontFamily>Cordia New</FontFamily>
-                        <FontSize>14pt</FontSize>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox5</rd:DefaultName>
-              <Top>1.61431cm</Top>
-              <Left>11.67457cm</Left>
-              <Height>0.65901cm</Height>
-              <Width>5.61754cm</Width>
-              <ZIndex>2</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="Textbox21">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value> ใบเสร็จรับเงิน</Value>
-                      <Style>
-                        <FontFamily>Cordia New</FontFamily>
-                        <FontSize>24pt</FontSize>
-                        <FontWeight>Bold</FontWeight>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.35224cm</Top>
-              <Left>11.67457cm</Left>
-              <Height>0.85936cm</Height>
-              <Width>4.9765cm</Width>
-              <ZIndex>3</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -792,11 +712,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox19</rd:DefaultName>
-              <Top>3.54781cm</Top>
-              <Left>2.90753cm</Left>
+              <Top>3.45989cm</Top>
+              <Left>2.9391cm</Left>
               <Height>1.79972cm</Height>
               <Width>7.5447cm</Width>
-              <ZIndex>4</ZIndex>
+              <ZIndex>2</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -811,11 +731,11 @@
               <Source>Embedded</Source>
               <Value>logo2</Value>
               <Sizing>FitProportional</Sizing>
-              <Top>0.35224cm</Top>
-              <Left>0.36432cm</Left>
+              <Top>0.26431cm</Top>
+              <Left>0.39589cm</Left>
               <Height>2.58293cm</Height>
               <Width>2.34287cm</Width>
-              <ZIndex>5</ZIndex>
+              <ZIndex>3</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -841,10 +761,94 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.35278cm</Top>
-              <Left>2.77775cm</Left>
+              <Top>0.26485cm</Top>
+              <Left>2.80932cm</Left>
               <Height>1.26153cm</Height>
               <Width>4.03334cm</Width>
+              <ZIndex>4</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox4">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>ออกโดย :</Value>
+                      <Style>
+                        <FontFamily>Cordia New</FontFamily>
+                        <FontSize>14pt</FontSize>
+                      </Style>
+                    </TextRun>
+                    <TextRun>
+                      <Value>=Parameters!printby.Value</Value>
+                      <Style>
+                        <FontFamily>Cordia New</FontFamily>
+                        <FontSize>14pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox3</rd:DefaultName>
+              <Top>3.09418cm</Top>
+              <Left>11.81741cm</Left>
+              <Height>0.77639cm</Height>
+              <Width>5.61754cm</Width>
+              <ZIndex>5</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox5">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>เลขที่ :</Value>
+                      <Style>
+                        <FontFamily>Cordia New</FontFamily>
+                        <FontSize>14pt</FontSize>
+                      </Style>
+                    </TextRun>
+                    <TextRun>
+                      <Value xml:space="preserve"> </Value>
+                      <Style />
+                    </TextRun>
+                    <TextRun>
+                      <Value>=Parameters!no.Value</Value>
+                      <Style>
+                        <FontFamily>Cordia New</FontFamily>
+                        <FontSize>14pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox5</rd:DefaultName>
+              <Top>1.43301cm</Top>
+              <Left>11.81741cm</Left>
+              <Height>0.74367cm</Height>
+              <Width>5.61754cm</Width>
               <ZIndex>6</ZIndex>
               <Style>
                 <Border>
@@ -874,52 +878,11 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox3</rd:DefaultName>
-              <Top>2.41443cm</Top>
-              <Left>11.67457cm</Left>
+              <Top>2.31779cm</Top>
+              <Left>11.81741cm</Left>
               <Height>0.77639cm</Height>
               <Width>5.61754cm</Width>
               <ZIndex>7</ZIndex>
-              <Style>
-                <Border>
-                  <Style>None</Style>
-                </Border>
-                <PaddingLeft>2pt</PaddingLeft>
-                <PaddingRight>2pt</PaddingRight>
-                <PaddingTop>2pt</PaddingTop>
-                <PaddingBottom>2pt</PaddingBottom>
-              </Style>
-            </Textbox>
-            <Textbox Name="txtpage2">
-              <CanGrow>true</CanGrow>
-              <KeepTogether>true</KeepTogether>
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <Value>หน้าที่:</Value>
-                      <Style>
-                        <FontFamily>Cordia New</FontFamily>
-                        <FontSize>12pt</FontSize>
-                      </Style>
-                    </TextRun>
-                    <TextRun>
-                      <Value>="" + Globals!PageNumber.ToString() + " / " + Globals!TotalPages.ToString()</Value>
-                      <Style>
-                        <FontFamily>Cordia New</FontFamily>
-                        <FontSize>12pt</FontSize>
-                      </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style>
-                    <TextAlign>Right</TextAlign>
-                  </Style>
-                </Paragraph>
-              </Paragraphs>
-              <Top>4.21415cm</Top>
-              <Left>14.8566cm</Left>
-              <Height>0.6cm</Height>
-              <Width>2.43551cm</Width>
-              <ZIndex>8</ZIndex>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -939,181 +902,41 @@
           </Style>
         </PageHeader>
         <PageFooter>
-          <Height>6.77332cm</Height>
+          <Height>6.41347cm</Height>
+          <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
-            <Rectangle Name="Rectangle2">
-              <ReportItems>
-                <Textbox Name="Textbox27">
-                  <CanGrow>true</CanGrow>
-                  <KeepTogether>true</KeepTogether>
-                  <Paragraphs>
-                    <Paragraph>
-                      <TextRuns>
-                        <TextRun>
-                          <Value />
-                          <Style />
-                        </TextRun>
-                      </TextRuns>
-                      <Style />
-                    </Paragraph>
-                  </Paragraphs>
-                  <rd:DefaultName>Textbox27</rd:DefaultName>
-                  <Top>0.93944cm</Top>
-                  <Left>0.34314cm</Left>
-                  <Height>0.5365cm</Height>
-                  <Width>0.61361cm</Width>
-                  <Style>
-                    <Border>
-                      <Style>Solid</Style>
-                    </Border>
-                    <PaddingLeft>2pt</PaddingLeft>
-                    <PaddingRight>2pt</PaddingRight>
-                    <PaddingTop>2pt</PaddingTop>
-                    <PaddingBottom>2pt</PaddingBottom>
-                  </Style>
-                </Textbox>
-                <Textbox Name="Textbox25">
-                  <CanGrow>true</CanGrow>
-                  <KeepTogether>true</KeepTogether>
-                  <Paragraphs>
-                    <Paragraph>
-                      <TextRuns>
-                        <TextRun>
-                          <Value>ชำระโดย</Value>
-                          <Style>
-                            <FontFamily>Cordia New</FontFamily>
-                            <FontSize>14pt</FontSize>
-                          </Style>
-                        </TextRun>
-                      </TextRuns>
-                      <Style />
-                    </Paragraph>
-                  </Paragraphs>
-                  <rd:DefaultName>Textbox19</rd:DefaultName>
-                  <Top>0.19833cm</Top>
-                  <Left>0.3175cm</Left>
-                  <Height>0.6cm</Height>
-                  <Width>1.75469cm</Width>
-                  <ZIndex>1</ZIndex>
-                  <Style>
-                    <Border>
-                      <Style>None</Style>
-                    </Border>
-                    <PaddingLeft>2pt</PaddingLeft>
-                    <PaddingRight>2pt</PaddingRight>
-                    <PaddingTop>2pt</PaddingTop>
-                    <PaddingBottom>2pt</PaddingBottom>
-                  </Style>
-                </Textbox>
-                <Textbox Name="Textbox26">
-                  <CanGrow>true</CanGrow>
-                  <KeepTogether>true</KeepTogether>
-                  <Paragraphs>
-                    <Paragraph>
-                      <TextRuns>
-                        <TextRun>
-                          <Value>เงินสด</Value>
-                          <Style>
-                            <FontFamily>Cordia New</FontFamily>
-                            <FontSize>14pt</FontSize>
-                          </Style>
-                        </TextRun>
-                      </TextRuns>
-                      <Style />
-                    </Paragraph>
-                  </Paragraphs>
-                  <rd:DefaultName>Textbox19</rd:DefaultName>
-                  <Top>0.97472cm</Top>
-                  <Left>1.13314cm</Left>
-                  <Height>0.6cm</Height>
-                  <Width>1.44636cm</Width>
-                  <ZIndex>2</ZIndex>
-                  <Style>
-                    <Border>
-                      <Style>None</Style>
-                    </Border>
-                    <PaddingLeft>2pt</PaddingLeft>
-                    <PaddingRight>2pt</PaddingRight>
-                    <PaddingTop>2pt</PaddingTop>
-                    <PaddingBottom>2pt</PaddingBottom>
-                  </Style>
-                </Textbox>
-                <Textbox Name="Textbox28">
-                  <CanGrow>true</CanGrow>
-                  <KeepTogether>true</KeepTogether>
-                  <Paragraphs>
-                    <Paragraph>
-                      <TextRuns>
-                        <TextRun>
-                          <Value />
-                          <Style />
-                        </TextRun>
-                      </TextRuns>
-                      <Style />
-                    </Paragraph>
-                  </Paragraphs>
-                  <rd:DefaultName>Textbox27</rd:DefaultName>
-                  <Top>1.71583cm</Top>
-                  <Left>0.34314cm</Left>
-                  <Height>0.5365cm</Height>
-                  <Width>0.61361cm</Width>
-                  <ZIndex>3</ZIndex>
-                  <Style>
-                    <Border>
-                      <Style>Solid</Style>
-                    </Border>
-                    <PaddingLeft>2pt</PaddingLeft>
-                    <PaddingRight>2pt</PaddingRight>
-                    <PaddingTop>2pt</PaddingTop>
-                    <PaddingBottom>2pt</PaddingBottom>
-                  </Style>
-                </Textbox>
-                <Textbox Name="Textbox29">
-                  <CanGrow>true</CanGrow>
-                  <KeepTogether>true</KeepTogether>
-                  <Paragraphs>
-                    <Paragraph>
-                      <TextRuns>
-                        <TextRun>
-                          <Value>เงินโอน    เลขที่.......................................     ธนาคาร........................................  สาขา   ........................................</Value>
-                          <Style>
-                            <FontFamily>Cordia New</FontFamily>
-                            <FontSize>14pt</FontSize>
-                          </Style>
-                        </TextRun>
-                      </TextRuns>
-                      <Style />
-                    </Paragraph>
-                  </Paragraphs>
-                  <rd:DefaultName>Textbox19</rd:DefaultName>
-                  <Top>1.75111cm</Top>
-                  <Left>1.13314cm</Left>
-                  <Height>0.6cm</Height>
-                  <Width>15.59637cm</Width>
-                  <ZIndex>4</ZIndex>
-                  <Style>
-                    <Border>
-                      <Style>None</Style>
-                    </Border>
-                    <PaddingLeft>2pt</PaddingLeft>
-                    <PaddingRight>2pt</PaddingRight>
-                    <PaddingTop>2pt</PaddingTop>
-                    <PaddingBottom>2pt</PaddingBottom>
-                  </Style>
-                </Textbox>
-              </ReportItems>
+            <Textbox Name="txtpage">
+              <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
-              <Top>1.11051cm</Top>
-              <Left>0.3175cm</Left>
-              <Height>2.82855cm</Height>
-              <Width>17.47698cm</Width>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>="" + Globals!PageNumber.ToString() + " / " + Globals!TotalPages.ToString()</Value>
+                      <Style>
+                        <FontFamily>Cordia New</FontFamily>
+                        <FontSize>12pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <Top>5.34775cm</Top>
+              <Left>14.6115cm</Left>
+              <Height>0.6cm</Height>
+              <Width>2.43551cm</Width>
               <Style>
                 <Border>
-                  <Style>Solid</Style>
+                  <Style>None</Style>
                 </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
               </Style>
-            </Rectangle>
+            </Textbox>
             <Textbox Name="Textbox7">
               <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
@@ -1141,9 +964,9 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox7</rd:DefaultName>
-              <Top>0.17639cm</Top>
-              <Left>12.17177cm</Left>
-              <Height>0.6cm</Height>
+              <Top>0.7147cm</Top>
+              <Left>12.6385cm</Left>
+              <Height>0.79308cm</Height>
               <Width>5.12034cm</Width>
               <ZIndex>1</ZIndex>
               <Style>
@@ -1189,8 +1012,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox7</rd:DefaultName>
-              <Top>0.14104cm</Top>
-              <Left>2.11007cm</Left>
+              <Top>0.7147cm</Top>
+              <Left>2.5768cm</Left>
               <Height>0.79308cm</Height>
               <Width>9.70124cm</Width>
               <ZIndex>2</ZIndex>
@@ -1204,14 +1027,14 @@
                 <PaddingBottom>2pt</PaddingBottom>
               </Style>
             </Textbox>
-            <Textbox Name="Textbox23">
+            <Textbox Name="Textbox24">
               <CanGrow>true</CanGrow>
               <KeepTogether>true</KeepTogether>
               <Paragraphs>
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>ผู้รับสินค้า................................     วันที่................................     ผู้รับเงิน................................     วันที่................................ </Value>
+                      <Value>ผู้รับสินค้า.............................                    ผู้ส่ง.............................                    ผู้ออกบิล............................. </Value>
                       <Style>
                         <FontFamily>Cordia New</FontFamily>
                         <FontSize>14pt</FontSize>
@@ -1222,10 +1045,10 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox7</rd:DefaultName>
-              <Top>4.49402cm</Top>
-              <Left>0.34315cm</Left>
-              <Height>0.7578cm</Height>
-              <Width>16.94896cm</Width>
+              <Top>3.39357cm</Top>
+              <Left>1.41087cm</Left>
+              <Height>0.89633cm</Height>
+              <Width>15.12981cm</Width>
               <ZIndex>3</ZIndex>
               <Style>
                 <Border>
@@ -1242,9 +1065,6 @@
             <Border>
               <Style>None</Style>
             </Border>
-            <TopBorder>
-              <Style>Solid</Style>
-            </TopBorder>
           </Style>
         </PageFooter>
         <PageHeight>29.7cm</PageHeight>
@@ -1311,7 +1131,7 @@
   <ReportParametersLayout>
     <GridLayoutDefinition>
       <NumberOfColumns>4</NumberOfColumns>
-      <NumberOfRows>3</NumberOfRows>
+      <NumberOfRows>2</NumberOfRows>
       <CellDefinitions>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
