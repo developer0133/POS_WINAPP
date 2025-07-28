@@ -120,7 +120,6 @@ namespace POS.Forms
                 qty = dgvSell.Rows[j].Cells["Qty"].Value == null ? 0 : decimal.Parse(dgvSell.Rows[j].Cells["Qty"].Value.ToString());
                 price = dgvSell.Rows[j].Cells["SellPrice"].Value == null ? 0 : decimal.Parse(dgvSell.Rows[j].Cells["SellPrice"].Value.ToString());
 
-
                 sum = (price * qty) - (disc);
 
                 dgvSell.Rows[j].Cells[5].Value = sum.ToString();
